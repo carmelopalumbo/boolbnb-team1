@@ -20,4 +20,8 @@ class Property extends Model
     public function stats(){
         return $this->hasMany(Stat::class);
     }
+
+    public function media(){
+        return $this->hasMany(Media::class);
+    }
 }

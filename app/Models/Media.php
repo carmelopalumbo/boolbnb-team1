@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+
+    public function property(){
+        return $this->belongsTo(Property::class);
+    }
 }
