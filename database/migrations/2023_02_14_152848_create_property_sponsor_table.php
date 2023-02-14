@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('property_sponsor', function (Blueprint $table) {
+        Schema::create('property_sponsor', function (Blueprint $table) {
             $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')
                 ->references('id')
