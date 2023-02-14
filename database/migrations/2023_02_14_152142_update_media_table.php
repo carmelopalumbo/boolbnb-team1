@@ -31,9 +31,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('media', function (Blueprint $table) {
-            if (DB::getDriverName() !== 'sqlite'){
-                $table->dropForeign(['property_id']);
-            }
+            $table->dropForeign(['property_id']);
             $table->dropColumn('property_id');
         });
     }
