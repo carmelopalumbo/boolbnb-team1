@@ -16,4 +16,8 @@ class Property extends Model
     public function messages(){
         return $this->hasMany(Message::class);
     }
+
+    public function stats(){
+        return $this->hasMany(Stat::class);
+    }
 }
