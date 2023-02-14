@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsor extends Model
 {
     use HasFactory;
+
+    public function properties(){
+        return $this->belongsToMany(Property::class);
+    }
 }
