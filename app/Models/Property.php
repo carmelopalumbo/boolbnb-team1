@@ -8,4 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
+
+    public function stats(){
+        return $this->hasMany(Stat::class);
+    }
+
+    public function media(){
+        return $this->hasMany(Media::class);
+    }
+
+    public function sponsors(){
+        return $this->belongsToMany(Sponsor::class);
+    }
+
+    public function services(){
+        return $this->belongsToMany(Service::class);
+    }
 }
