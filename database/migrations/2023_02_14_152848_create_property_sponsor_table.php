@@ -25,10 +25,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('sponsors')
                 ->cascadeOnDelete();
-
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-
         });
     }
 
