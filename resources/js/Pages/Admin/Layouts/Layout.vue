@@ -12,7 +12,7 @@ import Header from '@/Pages/Partials/Header.vue';
 <template>
     <Header />
 
-    <Nav />
+    <!-- <Nav /> -->
 
     <slot/>
 
