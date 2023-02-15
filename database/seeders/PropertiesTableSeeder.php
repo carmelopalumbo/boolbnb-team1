@@ -30,8 +30,8 @@ class PropertiesTableSeeder extends Seeder
             $new_property->bathrooms = $property['bathrooms'];
             $new_property->beds = $property['beds'];
             $new_property->address = $property['address'];
-            $new_property->latitude = 'TEST1';
-            $new_property->longitude = 'TEST2';
+            $new_property->latitude = $property['latitude'];
+            $new_property->longitude = $property['longitude'];
             $new_property->price = $property['price'];
             $new_property->is_visible = true;
             $new_property->is_sponsored = false;
