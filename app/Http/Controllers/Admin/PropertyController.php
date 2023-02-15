@@ -28,7 +28,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Admin/Create');
     }
 
     /**
@@ -39,7 +39,24 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Property::create([
+            'name' => $request->name,
+            'slug' => Property::slugGenerator($request->name),
+            'description' => $request->description,
+            'cover_image' => 'TEST',
+            'beds' => $request->beds,
+            'price' => $request->price,
+            'address' => $request->address,
+            'user_id' => Auth::id(),
+            'is_visible' => true,
+            'is_sponsored' => false,
+            'latitude'=>'not available',
+            'longitude'=>'not available'
+
+        ]);
+
+
+        return to_route('properties.index')->with('message', 'The property has been added correctly');
     }
 
     /**
