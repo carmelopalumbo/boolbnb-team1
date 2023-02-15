@@ -10,6 +10,12 @@ class Property extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+        'name','slug','size','description','cover_image',
+        'rooms','beds','bathrooms','price','address','latitude',
+        'longitude','is_visible','is_sponsored'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
