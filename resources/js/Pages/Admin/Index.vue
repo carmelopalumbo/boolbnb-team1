@@ -87,11 +87,15 @@ export default {
                                 <td
                                     class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                                 >
-                                    <button
+                                    <Link
+                                        :href="
+                                            route('properties.show', property)
+                                        "
                                         class="text-white bg-blue-500 px-3 py-2 rounded-lg"
                                     >
                                         <i class="fa-regular fa-eye"></i>
-                                    </button>
+                                    </Link>
+
                                     <button
                                         class="text-white bg-yellow-500 px-3 py-2 rounded-lg mx-2"
                                     >

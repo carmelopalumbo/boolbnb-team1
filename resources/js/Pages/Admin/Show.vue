@@ -1,9 +1,8 @@
 <script>
-    export default {
-        name: 'PropertyDetail',
-        props: { property: Object },
-
-    }
+export default {
+    name: "PropertyDetail",
+    props: { property: Object },
+};
 </script>
 
 <template>
@@ -14,10 +13,6 @@
     <p>Numero bagni: {{ property.bathrooms }}</p>
     <p>Indirizzo: {{ property.address }}</p>
     <p>Prezzo: {{ property.price }}</p>
-
 </template>
 
-
-<style>
-
-</style>
+<style></style>

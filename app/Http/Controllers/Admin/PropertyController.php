@@ -50,8 +50,8 @@ class PropertyController extends Controller
             'user_id' => Auth::id(),
             'is_visible' => true,
             'is_sponsored' => false,
-            'latitude'=>'not available',
-            'longitude'=>'not available'
+            'latitude' => 'not available',
+            'longitude' => 'not available'
 
         ]);
 
@@ -67,8 +67,6 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        $properties = Property::where('user_id', Auth::id())->get();
-        $properties = $property;
         return Inertia::render('Admin/Show', compact('property'));
     }
 
