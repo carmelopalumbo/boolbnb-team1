@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class PropertyController extends Controller
@@ -15,6 +17,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        //$properties = Property::where('user_id', Auth::id())->get();
         return Inertia::render('Admin/Test');
     }
 
