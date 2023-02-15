@@ -5,6 +5,8 @@ return [
         [
             'name' => 'Villa sul mare',
             'address' => 'Via del Mare, 00126 Roma',
+            'latitude' => '41.79246',
+            'longitude' => '12.38622',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 1,
@@ -15,6 +17,8 @@ return [
         [
             'name' => 'Appartamento in centro',
             'address' => 'Piazza del Popolo, 00187 Roma',
+            'latitude' => '41.91048',
+            'longitude' => '12.47623',
             'beds' => 2,
             'bedrooms' => 1,
             'bathrooms' => 1,
@@ -25,6 +29,8 @@ return [
         [
             'name' => 'Appartamento di lusso',
             'address' => 'Via Napoleone, 20121 Milano',
+            'latitude' => '45.46818',
+            'longitude' => '9.19532',
             'beds' => 3,
             'bedrooms' => 2,
             'bathrooms' => 2,
@@ -35,6 +41,8 @@ return [
         [
             'name' => 'Casa vacanze in montagna',
             'address' => 'Via Stazione, 32043 Cortina d\'Ampezzo',
+            'latitude' => '46.53914',
+            'longitude' => '12.13643',
             'beds' => 6,
             'bedrooms' => 3,
             'bathrooms' => 2,
@@ -45,6 +53,8 @@ return [
         [
             'name' => 'Appartamento di lusso',
             'address' => 'Via Monte Napoleone, 20121 Milano',
+            'latitude' => '45.46818',
+            'longitude' => '9.19532',
             'beds' => 3,
             'bedrooms' => 2,
             'bathrooms' => 2,
@@ -55,6 +65,8 @@ return [
         [
             'name' => 'Casa vacanze in montagna',
             'address' => 'Via Faloria, 32043 Cortina d\'Ampezzo',
+            'latitude' => '46.53269',
+            'longitude' => '12.14363',
             'beds' => 6,
             'bedrooms' => 3,
             'bathrooms' => 2,
@@ -65,6 +77,8 @@ return [
         [
             'name' => 'Appartamento con terrazza',
             'address' => 'Piazza Navona, 00186 Roma',
+            'latitude' => '41.89913',
+            'longitude' => '12.4732',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 1,
@@ -75,6 +89,8 @@ return [
         [
             'name' => 'Villa toscana con piscina',
             'address' => 'Via del Castello, 53037 San Gimignano SI, Italia',
+            'latitude' => '43.46754',
+            'longitude' => '11.04466',
             'beds' => 10,
             'bedrooms' => 5,
             'bathrooms' => 5,
@@ -85,6 +101,8 @@ return [
         [
             'name' => 'Elegante appartamento nel cuore di Venezia',
             'address' => 'Campo San Polo, 30125 Venezia, Italia',
+            'latitude' => '45.43735',
+            'longitude' => '12.3296',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 1,
@@ -95,6 +113,8 @@ return [
         [
             'name' => 'Agriturismo con vista sulle colline del Chianti',
             'address' => 'Via San Giovanni, 50028 Tavarnelle Val di Pesa FI, Italia',
+            'latitude' => '43.56389',
+            'longitude' => '11.17425',
             'beds' => 8,
             'bedrooms' => 4,
             'bathrooms' => 4,
@@ -105,6 +125,8 @@ return [
         [
             'name' => 'Appartamento di lusso con vista sulle Cinque Terre',
             'address' => 'Via Mazzini, 19018 Vernazza SP, Italia',
+            'latitude' => '44.13448',
+            'longitude' => '9.68334',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 2,
@@ -115,6 +137,8 @@ return [
         [
             'name' => 'Villa con piscina in Umbria',
             'address' => 'Via Del Porto, 06069 Tuoro sul Trasimeno PG, Italia',
+            'latitude' => '43.20603',
+            'longitude' => '12.07734',
             'beds' => 6,
             'bedrooms' => 3,
             'bathrooms' => 3,
@@ -125,6 +149,8 @@ return [
         [
             'name' => 'Appartamento con terrazza nel centro di Firenze',
             'address' => 'Piazza della Signoria, 50122 Firenze FI, Italia',
+            'latitude' => '43.76954',
+            'longitude' => '11.25598',
             'beds' => 2,
             'bedrooms' => 1,
             'bathrooms' => 1,
@@ -135,6 +161,8 @@ return [
         [
             'name' => 'Villa sul Lago di Como',
             'address' => 'Via Regina, 22010 Cernobio, Italia',
+            'latitude' => '45.8523',
+            'longitude' => '9.08894',
             'beds' => 8,
             'bedrooms' => 4,
             'bathrooms' => 3,
@@ -145,6 +173,8 @@ return [
         [
             'name' => 'Appartamento con terrazza a Sorrento',
             'address' => 'Corso Italia, 80067 Sorrento NA, Italia',
+            'latitude' => '40.62676',
+            'longitude' => '14.38085',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 2,
@@ -155,6 +185,8 @@ return [
         [
             'name' => 'Casa vacanza a San Vito lo Capo',
             'address' => 'Via del Mandarino, 91010 San Vito Lo Capo TP, Italia',
+            'latitude' => '38.13129',
+            'longitude' => '12.73482',
             'beds' => 6,
             'bedrooms' => 3,
             'bathrooms' => 2,
@@ -165,6 +197,8 @@ return [
         [
             'name' => 'Casa di campagna',
             'address' => 'Via dei Melograni, 50142 Firenze',
+            'latitude' => '43.77741',
+            'longitude' => '11.22011',
             'beds' => 6,
             'bedrooms' => 3,
             'bathrooms' => 2,
@@ -175,6 +209,8 @@ return [
         [
             'name' => 'Attico di lusso',
             'address' => 'Viale della Vittoria, 00122 Roma',
+            'latitude' => '41.72929,',
+            'longitude' => '12.28798',
             'beds' => 2,
             'bedrooms' => 1,
             'bathrooms' => 1,
@@ -185,6 +221,8 @@ return [
         [
             'name' => 'Casa in collina',
             'address' => 'Viale dei Pini, 50142 Firenze',
+            'latitude' => '43.77924',
+            'longitude' => '11.21495',
             'beds' => 3,
             'bedrooms' => 2,
             'bathrooms' => 1,
@@ -195,6 +233,8 @@ return [
         [
             'name' => 'Appartamento al mare',
             'address' => 'Viale Trento, 47921 Rimini',
+            'latitude' => '44.06591',
+            'longitude' => '12.5792',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 2,
@@ -205,6 +245,8 @@ return [
         [
             'name' => 'Villa in campagna',
             'address' => 'Via delle Rose, 50025 Montespertoli',
+            'latitude' => '43.69627,',
+            'longitude' => '11.01391',
             'beds' => 10,
             'bedrooms' => 5,
             'bathrooms' => 4,
@@ -215,6 +257,8 @@ return [
         [
             'name' => 'Monolocale nel centro storico',
             'address' => 'Via dei Benci, 50122 Firenze',
+            'latitude' => '43.76767',
+            'longitude' => '11.2594',
             'beds' => 2,
             'bedrooms' => 0,
             'bathrooms' => 1,
@@ -225,6 +269,8 @@ return [
         [
             'name' => 'Villa degli Ulivi',
             'address' => 'Via degli Ulivi, 95123 Catania CT',
+            'latitude' => '37.52557',
+            'longitude' => '15.05628',
             'beds' => 4,
             'bedrooms' => 2,
             'bathrooms' => 1,
@@ -235,6 +281,8 @@ return [
         [
             'name' => 'Casa del Pescatore',
             'address' => 'Via del Mare, 97010 Modica RG',
+            'latitude' => '36.7128',
+            'longitude' => '14.77913',
             'beds' => 2,
             'bedrooms' => 1,
             'bathrooms' => 1,
