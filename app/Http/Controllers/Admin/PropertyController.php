@@ -50,7 +50,8 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-
+        $properties = Property::where('user_id', Auth::id())->get();
+        $properties = $property;
         return Inertia::render('Admin/Show', compact('property'));
     }
 

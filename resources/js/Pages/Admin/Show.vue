@@ -1,7 +1,7 @@
 <script>
     export default {
         name: 'PropertyDetail',
-        props: { property:Object },
+        props: { property: Object },
 
     }
 </script>
