@@ -29,6 +29,12 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('layout', function(){
+    return Inertia::render('Admin/Layouts/Layout', [
+        'name'=>'Jessica'
+    ]);
+});
+
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
