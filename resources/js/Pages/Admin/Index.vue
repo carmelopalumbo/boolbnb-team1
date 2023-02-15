@@ -27,7 +27,7 @@ export default {
                 PREZZO
               </th>
               <th scope="col" class="text-md font-bold text-gray-900 px-6 py-4 text-left">
-                PUBBLICO
+                VISIBILITÀ
               </th>
               <th scope="col" class="text-md font-bold text-gray-900 px-6 py-4 text-left">
                 AZIONI
@@ -46,12 +46,18 @@ export default {
                 {{property.price}} €
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {{property.is_visible}}
+                {{property.is_visible ? 'ANNUNCIO PUBBLICO' : 'ANNUNCIO PRIVATO'}}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button class="text-white bg-blue-500 p-2 rounded-lg">S</button>
-                <button class="text-white bg-red-500 p-2 rounded-lg mx-2">D</button>
-                <button class="text-white bg-yellow-500 p-2 rounded-lg">E</button>
+                <button class="text-white bg-blue-500 px-3 py-2 rounded-lg">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="text-white bg-yellow-500 px-3 py-2 rounded-lg mx-2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="text-white bg-red-500 px-3 py-2 rounded-lg">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
               </td>
             </tr>
           </tbody>
