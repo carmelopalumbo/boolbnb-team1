@@ -1,24 +1,19 @@
 <script>
 export default {
-  components: { Nav, Header },
-
-}
-import Nav from '@/Pages/Partials/Nav.vue';
-import Header from '@/Pages/Partials/Header.vue';
-
-
+    components: { Nav, Header },
+};
+import Nav from "@/Pages/Partials/Nav.vue";
+import Header from "@/Pages/Partials/Header.vue";
 </script>
 
 <template>
     <Header />
 
-    <Nav />
+    <div class="flex">
+        <Nav />
 
-    <slot/>
-
+        <slot />
+    </div>
 </template>
 
-
-<style>
-
-</style>
+<style></style>
