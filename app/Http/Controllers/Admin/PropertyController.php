@@ -45,12 +45,13 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Property $property
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Property $property)
     {
-        //
+
+        return Inertia::render('Admin/Show', compact('property'));
     }
 
     /**

@@ -33,6 +33,7 @@ Route::get('/', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function(){
