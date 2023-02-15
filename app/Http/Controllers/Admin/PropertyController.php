@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class PropertyController extends Controller
@@ -76,9 +77,10 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Property $property)
     {
-        //
+        // dd($property);
+        return Inertia::render('Admin/Edit', compact('property'));
     }
 
     /**
@@ -88,9 +90,12 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Property $property)
     {
-        //
+        $property_edit = $request->all();
+        $property->update($property_edit);
+
+        return to_route('properties.index');
     }
 
     /**
