@@ -5,8 +5,9 @@ export default {
 </script>
 
 <template>
-    <h1>Header</h1>
-
+  <header class="flex justify-center bg-gray-300 h-32">
+    <img src="../Admin/Layouts/Images/Logo_V1.png" alt="Logo Boolbnb">
+  </header>
 </template>
 
 <style>

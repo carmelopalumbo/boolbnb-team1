@@ -12,12 +12,12 @@ import Header from '@/Pages/Partials/Header.vue';
 </script>
 
 <template>
+    <Header />
 
     <header>
-        <h1>Prova layout {{ name }}</h1>
+        <h1 class="text-blue-600">Prova layout {{ name }}</h1>
     </header>
     <Nav />
-    <Header />
 
     <slot/>
 
