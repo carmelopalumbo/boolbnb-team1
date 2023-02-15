@@ -19,8 +19,8 @@ import { Link } from '@inertiajs/vue3'
                         </div>
                     </Link>
                 </div>
-                <ul class=" flex flex-col p-0 mt-8 text-lg text-white font-bold">
-                    <Link href="/admin/properties">Appartamenti</Link>
+                <ul class=" flex flex-col p-0 ml-6 mt-8 text-lg text-white font-bold">
+                    <Link href="/admin/properties">Proprietà</Link>
                     <Link href="/admin/messages">Messaggi</Link>
                     <Link href="/admin/sponsors">Sponsor</Link>
                     <Link href="/admin/stats">Statistiche</Link>

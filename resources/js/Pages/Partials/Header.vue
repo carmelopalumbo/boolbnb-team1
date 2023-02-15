@@ -12,7 +12,7 @@ import { Link } from '@inertiajs/vue3'
         <img class="h-40 object-scale-down" src="../Admin/Layouts/Images/Logo_V1.png" alt="Logo Boolbnb">
     </div>
     <div class="">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        <button class="bg-cyan-700 hover:bg-cyan-900 text-white font-bold py-2 px-4 rounded-full">
             <Link href="/admin/stats">Logout</Link>
         </button>
     </div>
