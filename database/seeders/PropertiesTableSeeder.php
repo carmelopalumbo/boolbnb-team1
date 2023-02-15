@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Property;
+use App\Models\Sponsor;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -35,10 +36,14 @@ class PropertiesTableSeeder extends Seeder
             $new_property->price = $property['price'];
             $new_property->is_visible = true;
             $new_property->is_sponsored = false;
-
-            //dump($new_property);
-
             $new_property->save();
+
+            // $sponsor = new Sponsor();
+            // $sponsor->name = 'bronze';
+            // $sponsor->price = 1;
+            // $sponsor->duration = 2;
+            // $sponsor->save();
+            // $new_property->sponsors()->attach($sponsor->id, ['start_date' => '2023-04-02 15:20:20', 'end_date' => '2023-04-02 15:20:50']);
         }
     }
 }
