@@ -7,6 +7,7 @@ import { Link } from '@inertiajs/vue3'
 </script>
 
 <template>
+
   <header class="bg-gray-300 h-32 m-0 px-2 flex justify-between items-center">
     <div class="">
         <img class="h-40 object-scale-down" src="../Admin/Layouts/Images/Logo_V1.png" alt="Logo Boolbnb">
@@ -17,6 +18,7 @@ import { Link } from '@inertiajs/vue3'
         </button>
     </div>
   </header>
+
 </template>
 
 <style>
