@@ -1,39 +1,60 @@
-<script >
+<script>
 import Layout from "./Layouts/Layout.vue";
 
 export default {
-  props: {
-    property: Object,
-  },
-
-  layout: Layout,
-  data() {
-    return {
-      propertyEdit: {
-        name: this.property.name,
-        description: this.property.description,
-        cover_image: this.property.cover_image,
-        beds: this.property.beds,
-        price: this.property.price,
-        address: this.property.address,
-      },
-    };
-  },
-  methods: {
-    submit() {
-      this.$inertia.put(
-        route("properties.update", this.property),
-        this.propertyEdit
-      );
+    props: {
+        property: Object,
+        errors: Object,
     },
-  },
+
+    layout: Layout,
+    data() {
+        return {
+            apiUrl: "https://api.tomtom.com/search/2/",
+
+            propertyEdit: {
+                name: this.property.name,
+                description: this.property.description,
+                cover_image: this.property.cover_image,
+                beds: this.property.beds,
+                price: this.property.price,
+                address: this.property.address,
+            },
+        };
+    },
+    methods: {
+        submit() {
+            axios
+                .get(
+                    this.apiUrl +
+                        "geocode/" +
+                        encodeURIComponent(this.propertyEdit.address) +
+                        ".json",
+                    {
+                        params: {
+                            key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
+                        },
+                    }
+                )
+                .then((res) => {
+                    const results = res.data.results[0];
+                    this.propertyEdit.latitude = results.position.lat;
+                    this.propertyEdit.longitude = results.position.lon;
+                    this.propertyEdit.address = results.address.freeformAddress;
+                    this.$inertia.put(
+                        route("properties.update", this.property),
+                        this.propertyEdit
+                    );
+                });
+        },
+    },
 };
 </script>
 <template>
     <div class="flex items-center w-full">
         <div class="pt-20 inline-block content-center w-full">
             <h1 class="text-center font-bold text-2xl py-6 uppercase">
-                Modifica la tua proprietà
+                Aggiungi una proprietà
             </h1>
 
             <form class="md:flex md:flex-wrap md:justify-between mx-6 md:mx-64" @submit.prevent="submit">
@@ -70,9 +91,6 @@ export default {
             </form>
         </div>
     </div>
-
 </template>
 
-
-<style>
-</style>
+<style></style>
