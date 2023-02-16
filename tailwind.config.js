@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,26 +7,29 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+        'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
+        'node_modules/flowbite/**/*.{js,jsx,ts,tsx}'
     ],
 
     theme: {
         // colors: {
-        //     'blue': '#1fb6ff',
+        //     'blue': '#3F83F8',
         //     'purple': '#7e5bef',
         //     'pink': '#ff49db',
         //     'orange': '#ff7849',
-        //     'green': '#13ce66',
+        //     'green': '#5850EC',
         //     'yellow': '#ffc82c',
         //     'gray-dark': '#273444',
         //     'gray': '#8492a6',
         //     'gray-light': '#d3dce6',
         //   },
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+            // fontFamily: {
+            //     sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            // },
         },
     },
+    darkMode: 'class',
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('@tailwindcss/forms'), ('flowbite/plugin')],
 };
