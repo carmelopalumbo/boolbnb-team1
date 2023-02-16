@@ -20,47 +20,45 @@ export default {
 
 <template>
     <div class="flex flex-col justify-center mx-auto">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-hidden">
-                    <h1 class="text-center font-bold text-2xl py-6 uppercase">
-                        Le mie proprietà
-                    </h1>
-                </div>
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <h1 class="text-center font-bold text-2xl py-6 uppercase">
+                    Le mie proprietà
+                </h1>
             </div>
         </div>
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg px-4">
         <table class="w-full text-basetext-left text-gray-500 dark:text-gray-400">
-            <thead class="border-b text-base text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 uppercase">
+            <thead class="border-b text-base text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 uppercase h-10">
                 <tr>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                        class="font-bold text-gray-900 text-center"
                     >
                         nome
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center hidden md:table-cell"
+                        class="font-bold text-gray-900 text-center hidden md:table-cell"
                     >
                         indirizzo
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center hidden md:table-cell"
+                        class="font-bold text-gray-900 text-center hidden md:table-cell"
                     >
                         prezzo
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center hidden md:table-cell"
+                        class="font-bold text-gray-900 text-center hidden md:table-cell"
                     >
                         visibilità
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                        class="font-bold text-gray-900 text-center"
                     >
                         azioni
                     </th>
@@ -70,25 +68,25 @@ export default {
                 <tr
                     v-for="property in my_properties"
                     :key="property.id"
-                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-16"
                 >
                     <td
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        class="font-medium text-gray-900 whitespace-nowrap dark:text-white break-words"
                     >
                         {{ property.name }}
                     </td>
                     <td
-                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
+                        class="font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
                     >
                         {{ property.address }}
                     </td>
                     <td
-                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
+                        class="font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
                     >
                         {{ property.price }} €
                     </td>
                     <td
-                        class="px-6 py-4 font-normal  text-gray-900 whitespace-nowrap dark:text-white uppercase hidden md:table-cell"
+                        class="font-normal  text-gray-900 whitespace-nowrap dark:text-white uppercase hidden md:table-cell"
                     >
                         {{
                             property.is_visible
@@ -97,7 +95,7 @@ export default {
                         }}
                     </td>
                     <td
-                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                        class="font-normal text-gray-900 whitespace-nowrap dark:text-white"
                     >
                         <Link
                             :href="
