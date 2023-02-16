@@ -54,7 +54,9 @@ export default {
     <div class="flex items-center w-full">
         <div class="pt-20 inline-block content-center w-full">
             <h1 class="text-center font-bold text-2xl py-6 uppercase">
+
                 Modifica la tua proprietà
+
             </h1>
 
             <form class="md:flex md:flex-wrap md:justify-between mx-6 md:mx-64" @submit.prevent="submit">
@@ -90,10 +92,6 @@ export default {
                 <button type="submit" class="text-white bg-[#4d1635] hover:bg-[#89275e] font-medium rounded-lg text-sm  sm:w-24 px-5 py-2.5 text-center">Submit</button>
             </form>
         </div>
-    </div>
-
-    <div class="flex flex-col justify-center items-center mt-20 mx-auto w-auto">
-
     </div>
 
 
