@@ -29,19 +29,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('layout', function(){
-    return Inertia::render('Admin/Layouts/Layout', [
-        'name'=>'Jessica'
-    ]);
-});
-
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
-    ->group(function(){
+    ->group(function () {
         Route::resource('properties', PropertyController::class);
         Route::get('messages', [MessageController::class, 'index']);
         Route::get('sponsors', [SponsorController::class, 'index']);
@@ -54,4 +48,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

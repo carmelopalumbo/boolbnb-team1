@@ -1,18 +1,29 @@
-<script setup>
-import { reactive } from "vue";
-import { router } from "@inertiajs/vue3";
-
-const form = reactive({
-  name: null,
-  description: null,
-  cover_image: null,
-  beds: null,
-  price: null,
-  address: null,
-});
-function submit() {
-  router.post("/admin/properties", form);
-}
+<script >
+export default {
+  props: {
+    property: Object,
+  },
+  data() {
+    return {
+      propertyEdit: {
+        name: this.property.name,
+        description: this.property.description,
+        cover_image: this.property.cover_image,
+        beds: this.property.beds,
+        price: this.property.price,
+        address: this.property.address,
+      },
+    };
+  },
+  methods: {
+    submit() {
+      this.$inertia.put(
+        route("properties.update", this.property),
+        this.propertyEdit
+      );
+    },
+  },
+};
 </script>
 <template>
   <div class="container mx-auto h-screen flex">
@@ -39,7 +50,7 @@ function submit() {
           "
           type="text"
           id="name"
-          v-model="form.name"
+          v-model="propertyEdit.name"
         />
       </div>
 
@@ -64,7 +75,7 @@ function submit() {
           "
           type="text"
           id="description"
-          v-model="form.description"
+          v-model="propertyEdit.description"
         />
       </div>
 
@@ -89,7 +100,7 @@ function submit() {
           "
           type="text"
           id="cover_image"
-          v-model="form.cover_image"
+          v-model="propertyEdit.cover_image"
         />
       </div>
 
@@ -112,7 +123,7 @@ function submit() {
           "
           type="number"
           id="beds"
-          v-model="form.beds"
+          v-model="propertyEdit.beds"
         />
       </div>
 
@@ -135,7 +146,7 @@ function submit() {
           "
           type="number"
           id="price"
-          v-model="form.price"
+          v-model="propertyEdit.price"
         />
       </div>
 
@@ -158,7 +169,7 @@ function submit() {
           "
           type="text"
           id="address"
-          v-model="form.address"
+          v-model="propertyEdit.address"
         />
       </div>
 
