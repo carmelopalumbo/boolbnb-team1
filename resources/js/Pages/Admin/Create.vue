@@ -15,14 +15,14 @@ export default {
                 beds: "",
                 price: "",
                 address: "",
-                latitude: "",
-                longitude: "",
+                latitude: null,
+                longitude: null,
             },
         };
     },
 
     methods: {
-        getAddressInfo() {
+        submit() {
             axios
                 .get(
                     this.apiUrl +
@@ -35,14 +35,16 @@ export default {
                         },
                     }
                 )
-                .then(function (res) {
-                    console.log(res.data.results[0]);
+                .then((res) => {
+                    const results = res.data.results[0];
+                    this.newProperty.latitude = results.position.lat;
+                    this.newProperty.longitude = results.position.lon;
+                    this.newProperty.address = results.address.freeformAddress;
+                    console.log(this.newProperty);
+                    this.$inertia.post(
+                        route("properties.store", this.newProperty)
+                    );
                 });
-        },
-
-        submit() {
-            this.getAddressInfo();
-            this.$inertia.post(route("properties.store", this.newProperty));
         },
     },
 };

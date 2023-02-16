@@ -40,6 +40,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         Property::create([
             'name' => $request->name,
             'slug' => Property::slugGenerator($request->name),
@@ -51,8 +52,8 @@ class PropertyController extends Controller
             'user_id' => Auth::id(),
             'is_visible' => true,
             'is_sponsored' => false,
-            'latitude' => 'not available',
-            'longitude' => 'not available'
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude
         ]);
 
 
