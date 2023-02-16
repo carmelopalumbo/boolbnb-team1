@@ -9,8 +9,6 @@ import Header from "@/Pages/Partials/Header.vue";
 <template>
     <Header />
 
-    <!-- <Nav /> -->
-
     <slot/>
 </template>
 
