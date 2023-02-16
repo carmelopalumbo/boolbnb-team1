@@ -1,8 +1,12 @@
 <script >
+import Layout from "./Layouts/Layout.vue";
+
 export default {
   props: {
     property: Object,
   },
+
+  layout: Layout,
   data() {
     return {
       propertyEdit: {

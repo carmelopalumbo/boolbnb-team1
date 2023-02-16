@@ -1,6 +1,7 @@
 <script>
 export default {
     components: { Nav, Header },
+
 };
 import Nav from "@/Pages/Partials/Nav.vue";
 import Header from "@/Pages/Partials/Header.vue";
@@ -12,4 +13,6 @@ import Header from "@/Pages/Partials/Header.vue";
     <slot/>
 </template>
 
-<style></style>
+<style>
+
+</style>

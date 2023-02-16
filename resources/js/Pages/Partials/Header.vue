@@ -9,7 +9,7 @@ import { Link } from '@inertiajs/vue3';
 
           <template #logo>
             <!-- <NavbarLogo> -->
-                <img class="max-h-10 object-scale-down" src="../Admin/Layouts/Images/Logo_V2.png" alt="Logo Boolbnb">
+                <img class="max-h-20 object-scale-down" src="../Admin/Layouts/Images/Logo_V2.png" alt="Logo Boolbnb">
             <!-- </NavbarLogo> -->
           </template>
 
@@ -23,8 +23,6 @@ import { Link } from '@inertiajs/vue3';
             </NavbarCollapse>
           </template>
 
-          <template #right-side>
-          </template>
         </Navbar>
     </section>
 </template>
