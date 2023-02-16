@@ -53,11 +53,10 @@ class PropertyController extends Controller
             'is_sponsored' => false,
             'latitude' => 'not available',
             'longitude' => 'not available'
-
         ]);
 
 
-        return to_route('properties.index')->with('message', 'The property has been added correctly');
+        return to_route('properties.index');
     }
 
     /**
