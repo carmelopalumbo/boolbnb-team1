@@ -5,7 +5,7 @@ import { Link } from '@inertiajs/vue3';
 
 <template>
     <section>
-        <Navbar className="">
+        <Navbar>
 
           <template #logo>
             <!-- <NavbarLogo> -->
@@ -23,6 +23,8 @@ import { Link } from '@inertiajs/vue3';
             </NavbarCollapse>
           </template>
 
+          <template #right-side>
+          </template>
         </Navbar>
     </section>
 </template>
