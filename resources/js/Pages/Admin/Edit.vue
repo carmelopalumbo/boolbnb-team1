@@ -31,7 +31,7 @@ export default {
 </script>
 <template>
     <div class="flex flex-col justify-center mx-auto">
-        <div class="py-2 inline-block content-center sm:px-6 lg:px-8">
+        <div class="pt-20 inline-block content-center sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Modifica la tua proprietà
