@@ -8,10 +8,10 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
-        'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
-        'node_modules/flowbite/**/*.{js,jsx,ts,tsx}',
         "./src/**/*.{html,js,svelte,ts}",
         "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
+        'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
+        'node_modules/flowbite/**/*.{js,jsx,ts,tsx}',
     ],
 
     theme: {
@@ -21,6 +21,7 @@ module.exports = {
               blue: colors.blue,
               red: colors.rose,
               pink: colors.fuchsia,
+              cyan: colors.cyan,
             },
             fontFamily: {
               sans: ['Graphik', 'sans-serif'],
