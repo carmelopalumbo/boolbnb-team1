@@ -71,10 +71,6 @@ export default {
         </div>
     </div>
 
-    <div class="flex flex-col justify-center items-center mt-20 mx-auto w-auto">
-
-    </div>
-
 </template>
 
 
