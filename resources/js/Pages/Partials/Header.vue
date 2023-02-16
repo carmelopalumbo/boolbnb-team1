@@ -1,14 +1,16 @@
 <script>
 export default {
-    components: { Link },
+    components: { Link, Hamburger },
 
 }
-import { Link } from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3';
+import Hamburger from "@/Pages/Partials/Hamburger.vue";
 </script>
 
 <template>
+   <Hamburger/>
 
-  <header class="bg-gray-100 h-32 w-screen m-0 px-8 flex justify-between items-center border-b-2 border-gray-600">
+  <!-- <header class="bg-gray-100 h-32 w-screen m-0 px-8 flex justify-between items-center border-b-2 border-gray-600">
     <div class="logo">
         <img class="max-h-20 object-scale-down" src="../Admin/Layouts/Images/Logo_V2.png" alt="Logo Boolbnb">
     </div>
@@ -33,7 +35,7 @@ import { Link } from '@inertiajs/vue3'
             <Link href="/admin/stats">Logout</Link>
         </button>
     </div>
-  </header>
+  </header> -->
 
 
 <!-- <nav class= "border-gray-200 px-2 md:px-4 py-2.5 bg-gray-200">
