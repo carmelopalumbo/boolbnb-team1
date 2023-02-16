@@ -1,32 +1,53 @@
-<script >
+<script>
 import Layout from "./Layouts/Layout.vue";
 
 export default {
-  props: {
-    property: Object,
-  },
-
-  layout: Layout,
-  data() {
-    return {
-      propertyEdit: {
-        name: this.property.name,
-        description: this.property.description,
-        cover_image: this.property.cover_image,
-        beds: this.property.beds,
-        price: this.property.price,
-        address: this.property.address,
-      },
-    };
-  },
-  methods: {
-    submit() {
-      this.$inertia.put(
-        route("properties.update", this.property),
-        this.propertyEdit
-      );
+    props: {
+        property: Object,
+        errors: Object,
     },
-  },
+
+    layout: Layout,
+    data() {
+        return {
+            apiUrl: "https://api.tomtom.com/search/2/",
+
+            propertyEdit: {
+                name: this.property.name,
+                description: this.property.description,
+                cover_image: this.property.cover_image,
+                beds: this.property.beds,
+                price: this.property.price,
+                address: this.property.address,
+            },
+        };
+    },
+    methods: {
+        submit() {
+            axios
+                .get(
+                    this.apiUrl +
+                        "geocode/" +
+                        encodeURIComponent(this.propertyEdit.address) +
+                        ".json",
+                    {
+                        params: {
+                            key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
+                        },
+                    }
+                )
+                .then((res) => {
+                    const results = res.data.results[0];
+                    this.propertyEdit.latitude = results.position.lat;
+                    this.propertyEdit.longitude = results.position.lon;
+                    this.propertyEdit.address = results.address.freeformAddress;
+                    this.$inertia.put(
+                        route("properties.update", this.property),
+                        this.propertyEdit
+                    );
+                });
+        },
+    },
 };
 </script>
 <template>
@@ -75,8 +96,7 @@ export default {
 
     </div>
 
+
 </template>
 
-
-<style>
-</style>
+<style></style>
