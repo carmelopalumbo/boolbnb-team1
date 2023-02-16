@@ -23,110 +23,113 @@ export default {
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
-                    <h1 class="text-center font-bold text-2xl py-6">
-                        LE MIE PROPRIETA'
+                    <h1 class="text-center font-bold text-2xl py-6 uppercase">
+                        Le mie proprietà
                     </h1>
-                    <table>
-                        <thead class="border-b">
-                            <tr>
-                                <th
-                                    scope="col"
-                                    class="text-md font-bold text-gray-900 px-6 py-4 text-left"
-                                >
-                                    NOME
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="text-md font-bold text-gray-900 px-6 py-4 text-left"
-                                >
-                                    INDIRIZZO
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="text-md font-bold text-gray-900 px-6 py-4 text-left"
-                                >
-                                    PREZZO
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="text-md font-bold text-gray-900 px-6 py-4 text-left"
-                                >
-                                    VISIBILITÀ
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="text-md font-bold text-gray-900 px-6 py-4 text-left"
-                                >
-                                    AZIONI
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr
-                                v-for="property in my_properties"
-                                :key="property.id"
-                                class="border-b"
-                            >
-                                <td
-                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                >
-                                    {{ property.name }}
-                                </td>
-                                <td
-                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                >
-                                    {{ property.address }}
-                                </td>
-                                <td
-                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                >
-                                    {{ property.price }} €
-                                </td>
-                                <td
-                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                >
-                                    {{
-                                        property.is_visible
-                                            ? "ANNUNCIO PUBBLICO"
-                                            : "ANNUNCIO PRIVATO"
-                                    }}
-                                </td>
-                                <td
-                                    class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                >
-                                    <Link
-                                        :href="
-                                            route('properties.show', property)
-                                        "
-                                        class="text-white bg-blue-500 px-3 py-2 rounded-lg"
-                                    >
-                                        <i class="fa-regular fa-eye"></i>
-                                    </Link>
-
-                                    <Link
-                                        :href="
-                                            route('properties.edit', property)
-                                        "
-                                        class="text-white bg-yellow-500 px-3 py-2 rounded-lg mx-2"
-                                    >
-                                        <i
-                                            class="fa-solid fa-pen-to-square"
-                                        ></i>
-                                    </Link>
-
-                                    <button
-                                        class="text-white bg-red-500 px-3 py-2 rounded-lg"
-                                        @click="deleteItem(property)"
-                                    >
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-basetext-left text-gray-500 dark:text-gray-400">
+            <thead class="border-b text-base text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 uppercase">
+                <tr>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                    >
+                        nome
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                    >
+                        indirizzo
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                    >
+                        prezzo
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                    >
+                        visibilità
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                    >
+                        azioni
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    v-for="property in my_properties"
+                    :key="property.id"
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                >
+                    <td
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                        {{ property.name }}
+                    </td>
+                    <td
+                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                        {{ property.address }}
+                    </td>
+                    <td
+                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                        {{ property.price }} €
+                    </td>
+                    <td
+                        class="px-6 py-4 font-normal  text-gray-900 whitespace-nowrap dark:text-white uppercase"
+                    >
+                        {{
+                            property.is_visible
+                                ? "annuncio pubblico"
+                                : "annuncio privato"
+                        }}
+                    </td>
+                    <td
+                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                        <Link
+                            :href="
+                                route('properties.show', property)
+                            "
+                            class="text-white bg-blue-500 px-3 py-2 rounded-lg"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                        </Link>
+
+                        <Link
+                            :href="
+                                route('properties.edit', property)
+                            "
+                            class="text-white bg-yellow-500 px-3 py-2 rounded-lg mx-2"
+                        >
+                            <i
+                                class="fa-solid fa-pen-to-square"
+                            ></i>
+                        </Link>
+
+                        <button
+                            class="text-white bg-red-500 px-3 py-2 rounded-lg"
+                            @click="deleteItem(property)"
+                        >
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 </template>
 
