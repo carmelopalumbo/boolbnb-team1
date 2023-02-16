@@ -1,5 +1,6 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
+import { Link } from '@inertiajs/vue3';
 export default {
     props: { my_properties: Object },
 
@@ -20,17 +21,18 @@ export default {
 
 <template>
     <div class="flex flex-col justify-center mx-auto">
-        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Le mie proprietà
                 </h1>
+                <Link href="/admin/properties/create" class="align-middle hover:text-[#4d1635] text-lg font-bold "> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
             </div>
         </div>
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg px-4">
-        <table class="w-full text-basetext-left text-gray-500 dark:text-gray-400">
-            <thead class="border-b text-base text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 uppercase h-10">
+        <table class="w-full text-basetext-left text-gray-500">
+            <thead class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10">
                 <tr>
                     <th
                         scope="col"
@@ -68,25 +70,25 @@ export default {
                 <tr
                     v-for="property in my_properties"
                     :key="property.id"
-                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-16"
+                    class="bg-white border-b hover:bg-gray-100 h-16"
                 >
                     <td
-                        class="font-medium text-gray-900 whitespace-nowrap dark:text-white break-words"
+                        class="font-medium text-gray-900 whitespace-nowrap  break-words"
                     >
                         {{ property.name }}
                     </td>
                     <td
-                        class="font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
+                        class="font-normal text-gray-900 whitespace-nowrap hidden md:table-cell"
                     >
                         {{ property.address }}
                     </td>
                     <td
-                        class="font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
+                        class="font-normal text-gray-900 whitespace-nowrap hidden md:table-cell"
                     >
                         {{ property.price }} €
                     </td>
                     <td
-                        class="font-normal  text-gray-900 whitespace-nowrap dark:text-white uppercase hidden md:table-cell"
+                        class="font-normal  text-gray-900 whitespace-nowrapuppercase hidden md:table-cell"
                     >
                         {{
                             property.is_visible
@@ -95,13 +97,13 @@ export default {
                         }}
                     </td>
                     <td
-                        class="font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                        class="font-normal text-gray-900 whitespace-nowrap"
                     >
                         <Link
                             :href="
                                 route('properties.show', property)
                             "
-                            class="text-white bg-blue-500 px-3 py-2 rounded-lg"
+                            class="text-white hover:text-black bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded-lg"
                         >
                             <i class="fa-regular fa-eye"></i>
                         </Link>
@@ -110,7 +112,7 @@ export default {
                             :href="
                                 route('properties.edit', property)
                             "
-                            class="text-white bg-yellow-500 px-3 py-2 rounded-lg mx-2"
+                            class="text-white hover:text-black bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
                         >
                             <i
                                 class="fa-solid fa-pen-to-square"
@@ -118,7 +120,7 @@ export default {
                         </Link>
 
                         <button
-                            class="text-white bg-red-500 px-3 py-2 rounded-lg"
+                            class="text-white hover:text-black bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
                             @click="deleteItem(property)"
                         >
                             <i class="fa-solid fa-trash"></i>
