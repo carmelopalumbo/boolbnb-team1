@@ -4,6 +4,7 @@ import Layout from "./Layouts/Layout.vue";
 export default {
     props: {
         property: Object,
+        errors: Object,
     },
 
     layout: Layout,

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('slug', 110)->unique();
-            $table->string('size', 10)->nullable();
+            $table->smallInteger('size')->nullable()->unsigned();
             $table->text('description');
             $table->string('cover_image');
             $table->smallInteger('rooms')->unsigned()->nullable();
