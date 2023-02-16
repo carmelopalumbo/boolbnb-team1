@@ -9,11 +9,9 @@ import Header from "@/Pages/Partials/Header.vue";
 <template>
     <Header />
 
-    <div class="flex">
-        <Nav />
+    <!-- <Nav /> -->
 
-        <slot />
-    </div>
+    <slot/>
 </template>
 
 <style></style>
