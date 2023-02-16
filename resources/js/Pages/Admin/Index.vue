@@ -42,19 +42,19 @@ export default {
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                        class="font-bold text-gray-900 px-6 py-4 text-center hidden md:table-cell"
                     >
                         indirizzo
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                        class="font-bold text-gray-900 px-6 py-4 text-center hidden md:table-cell"
                     >
                         prezzo
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 px-6 py-4 text-center"
+                        class="font-bold text-gray-900 px-6 py-4 text-center hidden md:table-cell"
                     >
                         visibilità
                     </th>
@@ -78,17 +78,17 @@ export default {
                         {{ property.name }}
                     </td>
                     <td
-                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
                     >
                         {{ property.address }}
                     </td>
                     <td
-                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white hidden md:table-cell"
                     >
                         {{ property.price }} €
                     </td>
                     <td
-                        class="px-6 py-4 font-normal  text-gray-900 whitespace-nowrap dark:text-white uppercase"
+                        class="px-6 py-4 font-normal  text-gray-900 whitespace-nowrap dark:text-white uppercase hidden md:table-cell"
                     >
                         {{
                             property.is_visible
@@ -131,6 +131,9 @@ export default {
         </table>
 
     </div>
+
+
+
 </template>
 
 <style></style>
