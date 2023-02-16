@@ -23,8 +23,6 @@ import { Link } from '@inertiajs/vue3';
             </NavbarCollapse>
           </template>
 
-          <template #right-side>
-          </template>
         </Navbar>
     </section>
 </template>
