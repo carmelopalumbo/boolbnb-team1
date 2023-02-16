@@ -13,11 +13,11 @@ module.exports = {
 
     theme: {
         // colors: {
-        //     'blue': '#1fb6ff',
+        //     'blue': '#3F83F8',
         //     'purple': '#7e5bef',
         //     'pink': '#ff49db',
         //     'orange': '#ff7849',
-        //     'green': '#13ce66',
+        //     'green': '#5850EC',
         //     'yellow': '#ffc82c',
         //     'gray-dark': '#273444',
         //     'gray': '#8492a6',
@@ -29,6 +29,7 @@ module.exports = {
             // },
         },
     },
+    darkMode: 'class',
 
     plugins: [require('@tailwindcss/forms'), ('flowbite/plugin')],
 };
