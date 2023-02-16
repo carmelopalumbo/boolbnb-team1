@@ -41,6 +41,40 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         //dd($request);
+        $request->validate(
+            [
+                'name' => 'required|min:10|max:100',
+                'size' => 'numeric|min:1|max:1000',
+                'description' => 'required|min:10|max:1000',
+                'cover_image' => 'required',
+                'rooms' => 'numeric',
+                'beds' => 'numeric',
+                'bathrooms' => 'numeric',
+                'price' => 'numeric|required|min:1',
+                'address' => 'required'
+            ],
+            [
+                'name.required' => 'Il titolo dell\'annuncio é obbligatorio.',
+                'name.min' => 'Minimo :min caratteri.',
+                'name.max' => 'Titolo troppo lungo. Max :max caratteri.',
+                'size.numeric' => 'Valore non valido',
+                'size.min' => 'Minimo :min caratteri.',
+                'size.max' => 'Valore inserito troppo grande.',
+                'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
+                'description.min' => 'Minimo :min caratteri.',
+                'description.max' => 'Testo troppo lungo. Max :max caratteri.',
+                'cover_image.required' => 'Immagine di copertina obbligatoria.',
+                'rooms.numeric' => 'Valore non valido',
+                'beds.numeric' => 'Valore non valido',
+                'bathrooms.numeric' => 'Valore non valido',
+                'price.numeric' => 'Valore non valido',
+                'price.required' => 'Il prezzo dell\'annuncio é obbligatorio.',
+                'address.required' => 'Indirizzo obbligatorio.',
+            ]
+        );
+
+        //dd($validate);
+
         Property::create([
             'name' => $request->name,
             'slug' => Property::slugGenerator($request->name),
@@ -55,7 +89,6 @@ class PropertyController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude
         ]);
-
 
         return to_route('properties.index');
     }
@@ -92,6 +125,38 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+        $request->validate(
+            [
+                'name' => 'required|min:10|max:100',
+                'size' => 'numeric|min:1|max:1000',
+                'description' => 'required|min:10|max:1000',
+                'cover_image' => 'required',
+                'rooms' => 'numeric',
+                'beds' => 'numeric',
+                'bathrooms' => 'numeric',
+                'price' => 'numeric|required|min:1',
+                'address' => 'required'
+            ],
+            [
+                'name.required' => 'Il titolo dell\'annuncio é obbligatorio.',
+                'name.min' => 'Minimo :min caratteri.',
+                'name.max' => 'Titolo troppo lungo. Max :max caratteri.',
+                'size.numeric' => 'Valore non valido',
+                'size.min' => 'Minimo :min caratteri.',
+                'size.max' => 'Valore inserito troppo grande.',
+                'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
+                'description.min' => 'Minimo :min caratteri.',
+                'description.max' => 'Testo troppo lungo. Max :max caratteri.',
+                'cover_image.required' => 'Immagine di copertina obbligatoria.',
+                'rooms.numeric' => 'Valore non valido',
+                'beds.numeric' => 'Valore non valido',
+                'bathrooms.numeric' => 'Valore non valido',
+                'price.numeric' => 'Valore non valido',
+                'price.required' => 'Il prezzo dell\'annuncio é obbligatorio.',
+                'address.required' => 'Indirizzo obbligatorio.',
+            ]
+        );
+
         $property_edit = $request->all();
         $property->update($property_edit);
 

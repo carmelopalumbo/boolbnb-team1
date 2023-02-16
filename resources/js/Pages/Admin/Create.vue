@@ -1,8 +1,13 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
+import { useForm } from "@inertiajs/vue3";
 
 export default {
     layout: Layout,
+
+    props: {
+        errors: Object,
+    },
 
     data() {
         return {
