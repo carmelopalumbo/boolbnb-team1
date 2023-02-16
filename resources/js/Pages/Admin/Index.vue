@@ -1,5 +1,6 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
+import { Link } from '@inertiajs/vue3';
 export default {
     props: { my_properties: Object },
 
@@ -20,11 +21,12 @@ export default {
 
 <template>
     <div class="flex flex-col justify-center mx-auto">
-        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Le mie proprietà
                 </h1>
+                <Link href="/admin/properties/create" class="align-middle hover:text-[#4d1635] text-lg font-bold "> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
             </div>
         </div>
     </div>
