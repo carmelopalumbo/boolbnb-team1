@@ -1,7 +1,12 @@
 <script>
+
+import Layout from "./Layouts/Layout.vue";
+
 export default {
     name: "PropertyDetail",
     props: { property: Object },
+
+    layout: Layout,
 };
 </script>
 
