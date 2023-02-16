@@ -6,6 +6,8 @@ export default {
 
     data() {
         return {
+            apiUrl: "https://api.tomtom.com/search/2/",
+
             newProperty: {
                 name: "",
                 description: "",
@@ -13,12 +15,33 @@ export default {
                 beds: "",
                 price: "",
                 address: "",
+                latitude: "",
+                longitude: "",
             },
         };
     },
 
     methods: {
+        getAddressInfo() {
+            axios
+                .get(
+                    this.apiUrl +
+                        "geocode/" +
+                        encodeURIComponent(this.newProperty.address) +
+                        ".json",
+                    {
+                        params: {
+                            key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
+                        },
+                    }
+                )
+                .then(function (res) {
+                    console.log(res.data.results[0]);
+                });
+        },
+
         submit() {
+            this.getAddressInfo();
             this.$inertia.post(route("properties.store", this.newProperty));
         },
     },
