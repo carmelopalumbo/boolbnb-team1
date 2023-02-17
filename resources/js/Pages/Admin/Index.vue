@@ -30,12 +30,8 @@ export default {
         </div>
     </div>
 
-
-    <div
-    class="relative container mx-auto overflow-x-auto"
-    >
-
-    <div class="relative container mx-auto w-5/6">
+    <div class="relative container mx-auto overflow-x-auto">
+        <div class="relative container mx-auto w-5/6">
             <Link
                 href="/admin/properties/create"
                 class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block"
@@ -43,40 +39,45 @@ export default {
                 <i class="fa-solid fa-plus mr-1"></i
                 ><span class="">Aggiungi una proprietà</span></Link
             >
-            <div class="flex justify-center hover:text-[#4d1635]">Aggiungi la tua prima proprietà</div>
         </div>
 
+        <div
+            v-if="!my_properties.length"
+            class="flex justify-center hover:text-[#4d1635] uppercase"
+        >
+            Aggiungi la tua prima proprietà
+        </div>
 
-        <table class="w-5/6 text-base mx-auto text-left text-gray-500" >
+        <table v-else class="w-5/6 text-base mx-auto text-left text-gray-500">
             <thead
-                    class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10"
-                >
-                    <tr>
-                        <th scope="col" class="font-bold text-gray-900 pl-1">
-                            nome
-                        </th>
-                        <th
-                            scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
-                        >
-                            indirizzo
-                        </th>
-                        <th
-                            scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
-                        >
-                            prezzo
-                        </th>
-                        <th
-                            scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
-                        >
-                            visibilità
-                        </th>
-                        <th scope="col" class="font-bold text-gray-900 pl-1">
-                            azioni
-                        </th>
-                    </tr>
+                class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10"
+            >
+                <tr>
+                    <th scope="col" class="font-bold text-gray-900 pl-1">
+                        nome
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                    >
+                        indirizzo
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                    >
+                        prezzo
+                    </th>
+                    <th
+                        scope="col"
+                        class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                    >
+                        visibilità
+                    </th>
+                    <th scope="col" class="font-bold text-gray-900 pl-1">
+                        azioni
+                    </th>
+                </tr>
             </thead>
             <tbody>
                 <tr
@@ -133,7 +134,6 @@ export default {
                 </tr>
             </tbody>
         </table>
-
     </div>
 </template>
 
