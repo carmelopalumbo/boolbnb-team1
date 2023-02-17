@@ -18,7 +18,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
             </template>
 
             <template #default="{ isShowMenu }">
-                <NavbarCollapse :isShowMenu="isShowMenu">
+                <NavbarCollapse :isShowMenu="isShowMenu" class="z-10">
                     <NavbarLink className="text-base text-center"
                         ><Link
                             href="/admin/properties"
