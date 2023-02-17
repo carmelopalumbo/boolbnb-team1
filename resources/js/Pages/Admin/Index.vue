@@ -31,13 +31,13 @@ export default {
     </div>
 
     <div class="relative container mx-auto overflow-x-auto">
-
-        <div class="relative container mx-auto w-5/6"
-            v-if="!my_properties.length">
+        <div
+            class="relative container mx-auto w-5/6"
+            v-if="!my_properties.length"
+        >
             <Link
                 href="/admin/properties/create"
                 class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block"
-
             >
                 <i class="fa-solid fa-plus mr-1"></i
                 ><span class="">Aggiungi la tua prima proprietà</span>
@@ -46,15 +46,17 @@ export default {
 
         <div v-else>
             <div class="relative container mx-auto w-5/6 mb-4">
-            <Link
-                href="/admin/properties/create"
-                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block"
+                <Link
+                    href="/admin/properties/create"
+                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block"
+                >
+                    <i class="fa-solid fa-plus mr-1"></i
+                    ><span class="">Aggiungi una proprietà</span></Link
+                >
+            </div>
+            <table
+                class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border"
             >
-                <i class="fa-solid fa-plus mr-1"></i
-                ><span class="">Aggiungi una proprietà</span></Link
-            >
-        </div>
-            <table class="w-5/6 table-auto text-base mx-auto text-left text-gray-500">
                 <thead
                     class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center"
                 >
@@ -115,15 +117,31 @@ export default {
                         <td
                             class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center"
                         >
-                        <i :class="{ 'fa-solid fa-check text-green-600' : property.is_visible, 'fa-solid fa-xmark text-red-600': !property.is_visible }"></i>
+                            <i
+                                :class="{
+                                    'fa-solid fa-check text-green-600':
+                                        property.is_visible,
+                                    'fa-solid fa-xmark text-red-600':
+                                        !property.is_visible,
+                                }"
+                            ></i>
                         </td>
                         <td
                             class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center"
                         >
-                        <i :class="{ 'fa-solid fa-check text-green-600': property.is_sponsored, 'fa-solid fa-xmark text-red-600': !property.is_sponsored }"></i>
+                            <i
+                                :class="{
+                                    'fa-solid fa-check text-green-600':
+                                        property.is_sponsored,
+                                    'fa-solid fa-xmark text-red-600':
+                                        !property.is_sponsored,
+                                }"
+                            ></i>
                         </td>
 
-                        <td class="font-normal text-gray-900 whitespace-nowrap text-center">
+                        <td
+                            class="font-normal text-gray-900 whitespace-nowrap text-center"
+                        >
                             <Link
                                 :href="route('properties.show', property)"
                                 class="text-white hover:text-black transition delay-150 bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded-lg"
@@ -148,9 +166,7 @@ export default {
                     </tr>
                 </tbody>
             </table>
-
         </div>
-
     </div>
 </template>
 
