@@ -40,7 +40,7 @@ export default {
             class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 flex justify-left mx-auto"
         >
             <i class="fa-solid fa-plus mr-1"></i
-            ><span class="hover:text-[#4d1635]">Aggiungi una proprietà</span></Link
+            ><span class="">Aggiungi una proprietà</span></Link
         >
         <div class="flex justify-center hover:text-[#4d1635]">Aggiungi la tua prima proprietà</div>
     </div>
