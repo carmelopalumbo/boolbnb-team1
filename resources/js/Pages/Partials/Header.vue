@@ -5,7 +5,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 </script>
 
 <template>
-    <section>
+    <section class="header-top-fix">
         <Navbar>
             <template #logo>
                 <!-- <NavbarLogo> -->
