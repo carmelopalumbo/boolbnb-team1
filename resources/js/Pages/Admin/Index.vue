@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="flex justify-center mx-auto">
+    <div class="flex justify-center mx-auto font-poppins">
         <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
