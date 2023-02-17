@@ -1,6 +1,6 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
-import { Link } from '@inertiajs/vue3';
+import { Link } from "@inertiajs/vue3";
 export default {
     props: { my_properties: Object },
 
@@ -26,18 +26,25 @@ export default {
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Le mie proprietà
                 </h1>
-                <Link href="/admin/properties/create" class="flex justify-center hover:text-[#4d1635] text-lg font-bold uppercase text-green-700"> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
+                <Link
+                    href="/admin/properties/create"
+                    class="flex justify-center hover:text-[#4d1635] text-lg font-bold uppercase text-green-700"
+                >
+                    <i class="fa-solid fa-plus mr-1"></i
+                    ><span class="">Aggiungi una proprietà</span></Link
+                >
             </div>
         </div>
     </div>
-    <div class="relative overflow-x-auto sm:rounded-lg px-4 flex justify-center w-full">
+    <div
+        class="relative overflow-x-auto sm:rounded-lg px-4 flex justify-center w-full"
+    >
         <table class="w-2/3 text-base text-left text-gray-500">
-            <thead class="border-b rounded-lg text-base text-gray-700 bg-gray-200 uppercase h-10">
+            <thead
+                class="border-b rounded-lg text-base text-gray-700 bg-gray-200 uppercase h-10"
+            >
                 <tr>
-                    <th
-                        scope="col"
-                        class="font-bold text-gray-900 pl-1"
-                    >
+                    <th scope="col" class="font-bold text-gray-900 pl-1">
                         nome
                     </th>
                     <th
@@ -58,10 +65,7 @@ export default {
                     >
                         visibilità
                     </th>
-                    <th
-                        scope="col"
-                        class="font-bold text-gray-900 pl-1"
-                    >
+                    <th scope="col" class="font-bold text-gray-900 pl-1">
                         azioni
                     </th>
                 </tr>
@@ -73,7 +77,7 @@ export default {
                     class="bg-white border-b hover:bg-gray-100 h-16"
                 >
                     <td
-                        class="font-medium text-gray-900 whitespace-nowrap  break-words"
+                        class="font-medium text-gray-900 whitespace-nowrap break-words"
                     >
                         {{ property.name }}
                     </td>
@@ -88,7 +92,7 @@ export default {
                         {{ property.price }} €
                     </td>
                     <td
-                        class="font-normal  text-gray-900 whitespace-nowrap uppercase hidden md:table-cell"
+                        class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell"
                     >
                         {{
                             property.is_visible
@@ -96,27 +100,19 @@ export default {
                                 : "annuncio privato"
                         }}
                     </td>
-                    <td
-                        class="font-normal text-gray-900 whitespace-nowrap"
-                    >
+                    <td class="font-normal text-gray-900 whitespace-nowrap">
                         <Link
-                            :href="
-                                route('properties.show', property)
-                            "
+                            :href="route('properties.show', property)"
                             class="text-white hover:text-black transition delay-150 bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded-lg"
                         >
                             <i class="fa-regular fa-eye"></i>
                         </Link>
 
                         <Link
-                            :href="
-                                route('properties.edit', property)
-                            "
+                            :href="route('properties.edit', property)"
                             class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
                         >
-                            <i
-                                class="fa-solid fa-pen-to-square"
-                            ></i>
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </Link>
 
                         <button
@@ -129,11 +125,7 @@ export default {
                 </tr>
             </tbody>
         </table>
-
     </div>
-
-
-
 </template>
 
 <style></style>
