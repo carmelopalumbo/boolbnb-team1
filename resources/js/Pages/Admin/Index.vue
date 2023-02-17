@@ -26,41 +26,41 @@ export default {
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Le mie proprietà
                 </h1>
-                <Link href="/admin/properties/create" class="align-middle hover:text-[#4d1635] text-lg font-bold "> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
+                <Link href="/admin/properties/create" class="align-middle hover:text-[#4d1635] text-lg font-bold uppercase"> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
             </div>
         </div>
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg px-4">
-        <table class="w-full text-basetext-left text-gray-500">
-            <thead class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10">
+    <div class="relative overflow-x-auto sm:rounded-lg px-4">
+        <table class="w-2/3 text-base text-left text-gray-500">
+            <thead class="border-b rounded-lg text-base text-gray-700 bg-gray-200 uppercase h-10">
                 <tr>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 text-center"
+                        class="font-bold text-gray-900 pl-1"
                     >
                         nome
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 text-center hidden md:table-cell"
+                        class="font-bold text-gray-900 pl-1 hidden md:table-cell"
                     >
                         indirizzo
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 text-center hidden md:table-cell"
+                        class="font-bold text-gray-900 pl-1 hidden md:table-cell"
                     >
                         prezzo
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 text-center hidden md:table-cell"
+                        class="font-bold text-gray-900 pl-1 hidden md:table-cell"
                     >
                         visibilità
                     </th>
                     <th
                         scope="col"
-                        class="font-bold text-gray-900 text-center"
+                        class="font-bold text-gray-900 pl-1"
                     >
                         azioni
                     </th>
@@ -88,7 +88,7 @@ export default {
                         {{ property.price }} €
                     </td>
                     <td
-                        class="font-normal  text-gray-900 whitespace-nowrapuppercase hidden md:table-cell"
+                        class="font-normal  text-gray-900 whitespace-nowrap uppercase hidden md:table-cell"
                     >
                         {{
                             property.is_visible

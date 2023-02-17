@@ -51,7 +51,7 @@ export default {
     <div class="flex items-center w-full">
         <div class="pt-20 inline-block content-center w-full">
             <h1 class="text-center font-bold text-2xl py-6 uppercase">
-                Modifica la tua proprietà
+                Aggiungi una proprietà
             </h1>
 
             <form class="md:flex md:flex-wrap md:justify-between mx-6 md:mx-64" @submit.prevent="submit">
