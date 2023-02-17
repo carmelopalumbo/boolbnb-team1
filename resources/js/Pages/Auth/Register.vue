@@ -8,7 +8,10 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
     name: '',
+    lastname: '',
+    username: '',
     email: '',
+    date_of_birth: '',
     password: '',
     password_confirmation: '',
     terms: false,
@@ -43,6 +46,36 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
+                <InputLabel for="lastname" value="Last Name" />
+
+                <TextInput
+                    id="lastname"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.lastname"
+                    required
+                    autocomplete="lastname"
+                />
+
+                <InputError class="mt-2" :message="form.errors.lastname" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="username" value="UserName" />
+
+                <TextInput
+                    id="username"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.username"
+                    required
+                    autocomplete="username"
+                />
+
+                <InputError class="mt-2" :message="form.errors.username" />
+            </div>
+
+            <div class="mt-4">
                 <InputLabel for="email" value="Email" />
 
                 <TextInput
@@ -55,6 +88,21 @@ const submit = () => {
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="date_of_birth" value="Date Of Birth" />
+
+                <TextInput
+                    id="date_of_birth"
+                    type="date"
+                    class="mt-1 block w-full"
+                    v-model="form.date_of_birth"
+                    required
+                    autocomplete="date_of_birth"
+                />
+
+                <InputError class="mt-2" :message="form.errors.date_of_birth" />
             </div>
 
             <div class="mt-4">
