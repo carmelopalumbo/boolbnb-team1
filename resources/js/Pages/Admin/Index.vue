@@ -45,7 +45,7 @@ export default {
         </div>
 
         <div v-else>
-            <div class="relative container mx-auto w-5/6">
+            <div class="relative container mx-auto w-5/6 mb-4">
             <Link
                 href="/admin/properties/create"
                 class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block"
