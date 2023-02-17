@@ -12,32 +12,35 @@ module.exports = {
         "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
         'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
         'node_modules/flowbite/**/*.{js,jsx,ts,tsx}',
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
     ],
 
     theme: {
-        theme: {
-            colors: {
-              gray: colors.gray,
-              blue: colors.blue,
-              red: colors.rose,
-              pink: colors.fuchsia,
-              cyan: colors.cyan,
-            },
-            fontFamily: {
-              sans: ['Graphik', 'sans-serif'],
-              serif: ['Merriweather', 'serif'],
-            },
-            extend: {
-              spacing: {
-                '128': '32rem',
-                '144': '36rem',
-              },
-              borderRadius: {
-                '4xl': '2rem',
-              }
-            }
-          }
+        // colors: {
+        //     gray: colors.gray,
+        //     blue: colors.blue,
+        //     red: colors.rose,
+        //     pink: colors.fuchsia,
+        //     cyan: colors.cyan,
+        // },
+        fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
         },
+        extend: {
+            spacing: {
+            '128': '32rem',
+            '144': '36rem',
+            },
+            borderRadius: {
+            '4xl': '2rem',
+            }
+        },
+        container: {
+            center: true,
+            },
+    },
 
     darkMode: 'class',
 

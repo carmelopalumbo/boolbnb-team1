@@ -56,13 +56,13 @@ export default {
 </script>
 <template>
     <div class="flex justify-center w-full">
-        <div class="pt-20 inline-block content-center w-full max-w-3xl">
+        <div class="pt-20 inline-block content-center w-full">
             <h1 class="text-center font-bold text-2xl py-6 uppercase">
                 Modifica la tua proprietà
             </h1>
 
-            <form class="flex flex-col justify-center" @submit.prevent="submit">
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+            <form class="md:flex md:flex-wrap md:justify-between mx-6 md:mx-64" @submit.prevent="submit">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >Name*</label
@@ -75,7 +75,7 @@ export default {
                         v-model="propertyEdit.name"
                     />
                 </div>
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="text"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -90,7 +90,7 @@ export default {
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         for="default_size"
@@ -105,14 +105,15 @@ export default {
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >N° beds*</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="beds"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -120,56 +121,60 @@ export default {
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="bathrooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >N° Bathrooms</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="bathrooms"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.bathrooms"
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="rooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >N° Bedrooms</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="rooms"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.rooms"
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="size"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >Size (mq)</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="size"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.size"
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >Price/Night*</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -177,7 +182,7 @@ export default {
                     />
                 </div>
 
-                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="address"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"

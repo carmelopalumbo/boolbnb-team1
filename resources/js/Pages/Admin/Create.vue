@@ -48,6 +48,7 @@ export default {
                 .then((res) => {
                     const results = res.data.results[0];
                     this.newProperty.latitude = results.position.lat;
+                    this.errorMessage = "";
                     this.newProperty.longitude = results.position.lon;
                     this.newProperty.address = results.address.freeformAddress;
                     console.log(this.newProperty);
@@ -141,7 +142,8 @@ export default {
                         >N° beds*</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="beds"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -162,7 +164,8 @@ export default {
                         >N° Bathrooms</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="bathrooms"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="newProperty.bathrooms"
@@ -182,7 +185,8 @@ export default {
                         >N° Bedrooms</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="rooms"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="newProperty.rooms"
@@ -195,7 +199,6 @@ export default {
                     </p>
                 </div>
 
-
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
                         for="size"
@@ -203,7 +206,8 @@ export default {
                         >Size (mq)</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="size"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="newProperty.size"
