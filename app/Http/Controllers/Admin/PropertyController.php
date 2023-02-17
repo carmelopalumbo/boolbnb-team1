@@ -7,6 +7,7 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class PropertyController extends Controller
@@ -40,6 +41,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+
         //dd($request);
         $request->validate(
             [
@@ -72,26 +74,30 @@ class PropertyController extends Controller
                 'address.required' => 'Indirizzo obbligatorio.',
             ]
         );
-
+        // dd($request->all());
         //dd($validate);
+        $form_data = $request->all();
 
+        // dd($form_data['image']);
         Property::create([
-            'name' => $request->name,
-            'slug' => Property::slugGenerator($request->name),
-            'description' => $request->description,
-            'cover_image' => 'TEST',
-            'beds' => $request->beds,
-            'rooms' => $request->rooms,
-            'bathrooms' => $request->bathrooms,
-            'size' => $request->size,
-            'price' => $request->price,
-            'address' => $request->address,
+            'name' => $form_data['name'],
+            'slug' => Property::slugGenerator($form_data['name']),
+            'description' => $form_data['description'],
+            'cover_image' => Storage::put('uploads',$form_data['cover_image']),
+            'beds' => $form_data['beds'],
+            'rooms' => $form_data['rooms'],
+            'bathrooms' => $form_data['bathrooms'],
+            'size' => $form_data['size'],
+            'price' => $form_data['price'],
+            'address' => $form_data['address'],
             'user_id' => Auth::id(),
             'is_visible' => true,
             'is_sponsored' => false,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude
+            'latitude' => $form_data['latitude'],
+            'longitude' => $form_data['longitude']
         ]);
+
+        // if(array_key_exists('cover_image', ))
 
         return to_route('properties.index');
     }
@@ -128,6 +134,7 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
@@ -161,6 +168,8 @@ class PropertyController extends Controller
         );
 
         $property_edit = $request->all();
+        $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
+        // dd($property_edit);
         $property->update($property_edit);
 
         return to_route('properties.index');

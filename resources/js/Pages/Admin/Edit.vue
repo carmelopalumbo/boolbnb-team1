@@ -15,7 +15,7 @@ export default {
             propertyEdit: {
                 name: this.property.name,
                 description: this.property.description,
-                cover_image: this.property.cover_image,
+                cover_image: null,
                 beds: this.property.beds,
                 bathrooms: this.property.bathrooms,
                 rooms: this.property.rooms,
@@ -46,9 +46,8 @@ export default {
                     this.propertyEdit.latitude = results.position.lat;
                     this.propertyEdit.longitude = results.position.lon;
                     this.propertyEdit.address = results.address.freeformAddress;
-                    this.$inertia.put(
-                        route("properties.update", this.property),
-                        this.propertyEdit
+                    this.$inertia.post(
+                        route("properties.update", {property:this.property,_method: "put"}), this.propertyEdit
                     );
                 });
         },
@@ -98,10 +97,11 @@ export default {
                         >Cover image*</label
                     >
                     <input
+                        @input="propertyEdit.cover_image = $event.target.files[0]"
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="cover_image"
-                        type="text"
-                        v-model="propertyEdit.cover_image"
+                        type="file"
+
                     />
                 </div>
 
