@@ -54,7 +54,7 @@ export default {
                 ><span class="">Aggiungi una proprietà</span></Link
             >
         </div>
-            <table class="w-5/6 text-base mx-auto text-left text-gray-500">
+            <table class="w-5/6 table-auto text-base mx-auto text-left text-gray-500">
                 <thead
                     class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center"
                 >
@@ -98,12 +98,12 @@ export default {
                         class="bg-white border-b hover:bg-gray-100 h-16"
                     >
                         <td
-                            class="font-medium text-gray-900 whitespace-nowrap break-words"
+                            class="font-medium text-gray-900 break-words truncate"
                         >
                             {{ property.name }}
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap hidden md:table-cell"
+                            class="font-normal text-gray-900 truncate hidden md:table-cell w-1/6"
                         >
                             {{ property.address }}
                         </td>
