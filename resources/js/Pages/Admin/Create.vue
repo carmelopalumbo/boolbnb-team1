@@ -48,6 +48,7 @@ export default {
                 .then((res) => {
                     const results = res.data.results[0];
                     this.newProperty.latitude = results.position.lat;
+                    this.errorMessage = "";
                     this.newProperty.longitude = results.position.lon;
                     this.newProperty.address = results.address.freeformAddress;
                     console.log(this.newProperty);
@@ -190,7 +191,6 @@ export default {
                         {{ errors.rooms }}
                     </p>
                 </div>
-
 
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
