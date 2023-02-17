@@ -1,10 +1,18 @@
 <script>
 
 import Layout from "./Layouts/Layout.vue";
+import services from '../../../config/db.php';
+
+
 
 export default {
     name: "PropertyDetail",
     props: { property: Object },
+    data() {
+        return {
+        services: services,
+        };
+    },
 
     layout: Layout,
 };
@@ -66,30 +74,57 @@ export default {
                     <p>Numero stanze: {{ property.rooms }}</p>
                     <p>Numero letti : {{ property.beds }}</p>
                     <p>Numero bagni: {{ property.bathrooms }}</p>
+                    <p>Prezzo: {{ property.price }}</p>
                 </div>
 
-                <div class="border-[#4d1635] border-2 rounded-md m-5 w-1/3 p-3">
-                    <Link
+                <div class="flex-end border-[#4d1635] border-2 rounded-md m-5 w-1/3 p-6">
+                    <p class="mb-2">
+                        Modifica qui il tuo appartamento
+                        <Link
                         :href="route('properties.edit', property)"
                         class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
-                    >
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </Link>
+                        >
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </Link>
+                    </p>
 
-                    <button
+                    <p>
+                        Cancella il tuo appartamento
+                        <button
                          class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
                          @click="deleteItem(property)"
-                    >
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                        >
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </p>
+
                 </div>
+            </div>
+
+            <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
+                <h2 class="font-bold mb-3">Descrizione dell'appartamento:</h2>
+                <p>{{ property.description }}</p>
+            </div>
+
+            <div class="flex ml-4">
+                <div class="flex-end border-[#4d1635] border-2 rounded-md m-1 w-1/3 p-6">
+                    <ul>
+                        <li v-for="service in services" :key="service.id">
+                            {{ service.name }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-end border-[#4d1635] border-2 rounded-md m-1 w-1/3 p-6">
+
+                </div>
+
             </div>
 
 
 
 
 
-        <p>Prezzo: {{ property.price }}</p>
+
     </main>
     </section>
 
