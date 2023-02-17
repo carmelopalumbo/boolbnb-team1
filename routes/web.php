@@ -29,25 +29,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/admin/messages', function() {
-    return Inertia::render('Admin/Messages');
-});
-
-Route::get('/admin/sponsors', function() {
-    return Inertia::render('Admin/Sponsor');
-});
-
-Route::get('/admin/stats', function() {
-    return Inertia::render('Admin/Stats');
-});
-
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::resource('properties', PropertyController::class);
-        // Route::get('messages', [MessageController::class, 'index']);
-        // Route::get('sponsors', [SponsorController::class, 'index']);
-        // Route::get('stats', [StatController::class, 'index']);
+        Route::get('messages', [MessageController::class, 'index']);
+        Route::get('sponsors', [SponsorController::class, 'index']);
+        Route::get('stats', [StatController::class, 'index']);
     });
 
 Route::middleware('auth')->group(function () {
