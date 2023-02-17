@@ -112,7 +112,8 @@ export default {
                         >N° beds*</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="beds"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -127,7 +128,8 @@ export default {
                         >N° Bathrooms</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="bathrooms"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.bathrooms"
@@ -141,7 +143,8 @@ export default {
                         >N° Bedrooms</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="rooms"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.rooms"
@@ -155,7 +158,8 @@ export default {
                         >Size (mq)</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="size"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.size"
@@ -169,7 +173,8 @@ export default {
                         >Price/Night*</label
                     >
                     <input
-                        type="number min-0"
+                        type="number"
+                        min="0"
                         id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
