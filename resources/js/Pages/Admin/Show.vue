@@ -20,7 +20,7 @@ export default {
 
             <div class=" bg-auto bg-center w-30 h-auto mx-8 mt-2 rounded-md" style="background-image: url(https://www.arteincasamia.it/site/assets/files/1781/placeholder.png)">
                 <h4>Misure: {{ property.size }}</h4>
-                <p>Numero stanze: {{ property.bedrooms }}</p>
+                <p>Numero stanze: {{ property.rooms }}</p>
                 <p>Numero letti : {{ property.beds }}</p>
                 <p>Numero bagni: {{ property.bathrooms }}</p>
             </div>
