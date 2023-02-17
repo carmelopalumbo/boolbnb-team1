@@ -20,28 +20,33 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col justify-center mx-auto">
+    <div class="flex justify-center mx-auto">
         <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Le mie proprietà
                 </h1>
-                <Link
-                    href="/admin/properties/create"
-                    class="flex justify-center hover:text-[#4d1635] text-lg font-bold uppercase text-green-700"
-                >
-                    <i class="fa-solid fa-plus mr-1"></i
-                    ><span class="">Aggiungi una proprietà</span></Link
-                >
             </div>
         </div>
     </div>
+
+
     <div
-        class="relative overflow-x-auto sm:rounded-lg px-4 flex justify-center w-full"
+    class="relative container mx-auto overflow-x-auto"
     >
-        <table class="w-2/3 text-base text-left text-gray-500">
-            <thead
-                class="border-b rounded-lg text-base text-gray-700 bg-gray-200 uppercase h-10"
+    <div class="relative container mx-auto w-5/6">
+        <Link
+            href="/admin/properties/create"
+            class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 flex justify-left mx-auto"
+        >
+            <i class="fa-solid fa-plus mr-1"></i
+            ><span class="hover:text-[#4d1635]">Aggiungi una proprietà</span></Link
+        >
+        <div class="flex justify-center hover:text-[#4d1635]">Aggiungi la tua prima proprietà</div>
+    </div>
+    <table class="w-5/6 text-base mx-auto text-left text-gray-500" >
+        <thead
+                class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10"
             >
                 <tr>
                     <th scope="col" class="font-bold text-gray-900 pl-1">
