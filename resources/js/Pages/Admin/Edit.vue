@@ -99,8 +99,9 @@ export default {
                     >
                     <input
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
-                        id="file_input"
-                        type="file"
+                        id="cover_image"
+                        type="text"
+                        v-model="propertyEdit.cover_image"
                     />
                 </div>
 

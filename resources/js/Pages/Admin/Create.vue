@@ -20,6 +20,9 @@ export default {
                 description: "",
                 cover_image: "",
                 beds: "",
+                bathrooms: "",
+                rooms: "",
+                size: "",
                 price: "",
                 address: "",
                 latitude: null,
@@ -73,7 +76,7 @@ export default {
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Name</label
+                        >Name*</label
                     >
                     <input
                         type="text"
@@ -93,7 +96,7 @@ export default {
                     <label
                         for="text"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Description</label
+                        >Description*</label
                     >
                     <input
                         type="text"
@@ -113,13 +116,14 @@ export default {
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        for="default_size"
-                        >Cover image</label
+                        for="cover_image"
+                        >Cover image*</label
                     >
                     <input
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
-                        id="file_input"
-                        type="file"
+                        id="cover_image"
+                        type="text"
+                        v-model="newProperty.cover_image"
                     />
                 </div>
 
@@ -127,10 +131,10 @@ export default {
                     <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° beds</label
+                        >N° beds*</label
                     >
                     <input
-                        type="text"
+                        type="number min-0"
                         id="beds"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -146,9 +150,70 @@ export default {
 
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
+                        for="bathrooms"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >N° Bathrooms</label
+                    >
+                    <input
+                        type="number min-0"
+                        id="bathrooms"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        v-model="newProperty.bathrooms"
+                    />
+                    <p
+                        v-if="errors.bathrooms"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.bathrooms }}
+                    </p>
+                </div>
+
+                <div class="flex flex-col mb-4 md:w-full">
+                    <label
+                        for="rooms"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >N° Bedrooms</label
+                    >
+                    <input
+                        type="number min-0"
+                        id="rooms"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        v-model="newProperty.rooms"
+                    />
+                    <p
+                        v-if="errors.rooms"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.rooms }}
+                    </p>
+                </div>
+
+
+                <div class="flex flex-col mb-4 md:w-full">
+                    <label
+                        for="size"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Size (mq)</label
+                    >
+                    <input
+                        type="number min-0"
+                        id="size"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        v-model="newProperty.size"
+                    />
+                    <p
+                        v-if="errors.size"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.size }}
+                    </p>
+                </div>
+
+                <div class="flex flex-col mb-4 md:w-full">
+                    <label
                         for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Price/Night</label
+                        >Price/Night*</label
                     >
                     <input
                         type="text"
@@ -169,7 +234,7 @@ export default {
                     <label
                         for="address"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Address</label
+                        >Address*</label
                     >
                     <input
                         type="text"
