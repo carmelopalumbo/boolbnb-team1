@@ -51,14 +51,14 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Statistiche</span></Link
                         ></NavbarLink
                     >
-                    <DropdownLink
+                    <Link
                         :href="route('logout')"
                         method="post"
                         as="button"
                         class="text-white bg-[#4d1635] text-sm px-5 py-2.5 text-center md:mr-0 transition delay-150 hover:bg-[#89275e] font-bold rounded-lg w-25 mx-auto"
                     >
                         Log Out
-                    </DropdownLink>
+                    </Link>
                 </NavbarCollapse>
             </template>
         </Navbar>
