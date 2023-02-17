@@ -134,6 +134,7 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
@@ -167,6 +168,8 @@ class PropertyController extends Controller
         );
 
         $property_edit = $request->all();
+        $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
+        // dd($property_edit);
         $property->update($property_edit);
 
         return to_route('properties.index');
