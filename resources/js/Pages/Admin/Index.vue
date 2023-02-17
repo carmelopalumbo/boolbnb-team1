@@ -56,7 +56,7 @@ export default {
         </div>
             <table class="w-5/6 text-base mx-auto text-left text-gray-500">
                 <thead
-                    class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10"
+                    class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center"
                 >
                     <tr>
                         <th scope="col" class="font-bold text-gray-900 pl-1">
@@ -84,7 +84,7 @@ export default {
                             scope="col"
                             class="font-bold text-gray-900 pl-1 hidden md:table-cell"
                         >
-                            sponsor
+                            boost
                         </th>
                         <th scope="col" class="font-bold text-gray-900 pl-1">
                             azioni
@@ -108,29 +108,22 @@ export default {
                             {{ property.address }}
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap hidden md:table-cell"
+                            class="font-normal text-gray-900 whitespace-nowrap hidden md:table-cell text-center"
                         >
                             {{ property.price }} €
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell"
+                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center"
                         >
-                            {{
-                                property.is_visible
-                                    ? "annuncio pubblico"
-                                    : "annuncio privato"
-                            }}
+                        <i :class="{ 'fa-solid fa-check text-green-600' : property.is_visible, 'fa-solid fa-xmark text-red-600': !property.is_visible }"></i>
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell"
+                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center"
                         >
-                            {{
-                                property.is_sponsored
-                                    ? "si"
-                                    : "no"
-                            }}
+                        <i :class="{ 'fa-solid fa-check text-green-600': property.is_sponsored, 'fa-solid fa-xmark text-red-600': !property.is_sponsored }"></i>
                         </td>
-                        <td class="font-normal text-gray-900 whitespace-nowrap">
+
+                        <td class="font-normal text-gray-900 whitespace-nowrap text-center">
                             <Link
                                 :href="route('properties.show', property)"
                                 class="text-white hover:text-black transition delay-150 bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded-lg"
