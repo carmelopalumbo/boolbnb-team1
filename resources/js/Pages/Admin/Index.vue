@@ -26,11 +26,11 @@ export default {
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
                     Le mie proprietà
                 </h1>
-                <Link href="/admin/properties/create" class="align-middle hover:text-[#4d1635] text-lg font-bold uppercase"> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
+                <Link href="/admin/properties/create" class="flex justify-center hover:text-[#4d1635] text-lg font-bold uppercase text-green-700"> <i class="fa-solid fa-plus mr-1"></i><span class="">Aggiungi una proprietà</span></Link>
             </div>
         </div>
     </div>
-    <div class="relative overflow-x-auto sm:rounded-lg px-4">
+    <div class="relative overflow-x-auto sm:rounded-lg px-4 flex justify-center w-full">
         <table class="w-2/3 text-base text-left text-gray-500">
             <thead class="border-b rounded-lg text-base text-gray-700 bg-gray-200 uppercase h-10">
                 <tr>
@@ -103,7 +103,7 @@ export default {
                             :href="
                                 route('properties.show', property)
                             "
-                            class="text-white hover:text-black bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded-lg"
+                            class="text-white hover:text-black transition delay-150 bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded-lg"
                         >
                             <i class="fa-regular fa-eye"></i>
                         </Link>
@@ -112,7 +112,7 @@ export default {
                             :href="
                                 route('properties.edit', property)
                             "
-                            class="text-white hover:text-black bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
+                            class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
                         >
                             <i
                                 class="fa-solid fa-pen-to-square"
@@ -120,7 +120,7 @@ export default {
                         </Link>
 
                         <button
-                            class="text-white hover:text-black bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
+                            class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
                             @click="deleteItem(property)"
                         >
                             <i class="fa-solid fa-trash"></i>

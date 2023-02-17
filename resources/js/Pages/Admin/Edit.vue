@@ -36,7 +36,7 @@ export default {
                 Modifica la tua proprietà
             </h1>
 
-            <form class="md:flex md:flex-wrap md:justify-between" @submit.prevent="submit">
+            <form class="flex flex-col justify-center" @submit.prevent="submit">
                 <div class="flex flex-col mb-4 w-1/2 md:w-full">
                 <label class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5" required v-model="propertyEdit.name">
