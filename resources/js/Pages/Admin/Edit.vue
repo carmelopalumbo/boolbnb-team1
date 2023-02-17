@@ -17,6 +17,9 @@ export default {
                 description: this.property.description,
                 cover_image: this.property.cover_image,
                 beds: this.property.beds,
+                bathrooms: this.property.bathrooms,
+                rooms: this.property.rooms,
+                size: this.property.side,
                 price: this.property.price,
                 address: this.property.address,
                 latitude: this.property.latitude,
@@ -63,7 +66,7 @@ export default {
                 <div class="flex flex-col mb-4 w-1/2 md:w-full">
                     <label
                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Name</label
+                        >Name*</label
                     >
                     <input
                         type="text"
@@ -77,7 +80,7 @@ export default {
                     <label
                         for="text"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Description</label
+                        >Description*</label
                     >
                     <input
                         type="text"
@@ -92,12 +95,13 @@ export default {
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         for="default_size"
-                        >Cover image</label
+                        >Cover image*</label
                     >
                     <input
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
-                        id="file_input"
-                        type="file"
+                        id="cover_image"
+                        type="text"
+                        v-model="propertyEdit.cover_image"
                     />
                 </div>
 
@@ -105,10 +109,10 @@ export default {
                     <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° beds</label
+                        >N° beds*</label
                     >
                     <input
-                        type="text"
+                        type="number min-0"
                         id="beds"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -118,12 +122,54 @@ export default {
 
                 <div class="flex flex-col mb-4 w-1/2 md:w-full">
                     <label
-                        for="price"
+                        for="bathrooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Price/Night</label
+                        >N° Bathrooms</label
                     >
                     <input
-                        type="text"
+                        type="number min-0"
+                        id="bathrooms"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        v-model="propertyEdit.bathrooms"
+                    />
+                </div>
+
+                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                    <label
+                        for="rooms"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >N° Bedrooms</label
+                    >
+                    <input
+                        type="number min-0"
+                        id="rooms"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        v-model="propertyEdit.rooms"
+                    />
+                </div>
+
+                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                    <label
+                        for="size"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Size (mq)</label
+                    >
+                    <input
+                        type="number min-0"
+                        id="size"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        v-model="propertyEdit.size"
+                    />
+                </div>
+
+                <div class="flex flex-col mb-4 w-1/2 md:w-full">
+                    <label
+                        for="price"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Price/Night*</label
+                    >
+                    <input
+                        type="number min-0"
                         id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
@@ -135,7 +181,7 @@ export default {
                     <label
                         for="address"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Address</label
+                        >Address*</label
                     >
                     <input
                         type="text"
