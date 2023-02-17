@@ -80,6 +80,12 @@ export default {
                         >
                             visibilità
                         </th>
+                        <th
+                            scope="col"
+                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                        >
+                            sponsor
+                        </th>
                         <th scope="col" class="font-bold text-gray-900 pl-1">
                             azioni
                         </th>
@@ -113,6 +119,15 @@ export default {
                                 property.is_visible
                                     ? "annuncio pubblico"
                                     : "annuncio privato"
+                            }}
+                        </td>
+                        <td
+                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell"
+                        >
+                            {{
+                                property.is_sponsored
+                                    ? "si"
+                                    : "no"
                             }}
                         </td>
                         <td class="font-normal text-gray-900 whitespace-nowrap">
