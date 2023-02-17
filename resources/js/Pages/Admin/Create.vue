@@ -18,7 +18,7 @@ export default {
             newProperty: {
                 name: "",
                 description: "",
-                cover_image: "",
+                cover_image: null,
                 beds: "",
                 bathrooms: "",
                 rooms: "",
@@ -52,7 +52,8 @@ export default {
                     this.newProperty.address = results.address.freeformAddress;
                     console.log(this.newProperty);
                     this.$inertia.post(
-                        route("properties.store", this.newProperty)
+
+                        route("properties.store", this.newProperty), {forceFormatData: true, cover_image: this.newProperty.cover_image},
                     );
                 })
                 .catch((err) => {
@@ -120,11 +121,17 @@ export default {
                         >Cover image*</label
                     >
                     <input
+                        @input="newProperty.cover_image = $event.target.files[0]"
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="cover_image"
-                        type="text"
-                        v-model="newProperty.cover_image"
+                        type="file"
                     />
+                    <p
+                        v-if="errors.cover_image"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.cover_image }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -238,7 +245,6 @@ export default {
                     >
                     <input
                         type="text"
-                        id="address"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="newProperty.address"
