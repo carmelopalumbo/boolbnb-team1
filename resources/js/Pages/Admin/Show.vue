@@ -1,10 +1,18 @@
 <script>
 
 import Layout from "./Layouts/Layout.vue";
+import services from '../../../config/db.php';
+
+
 
 export default {
     name: "PropertyDetail",
     props: { property: Object },
+    data() {
+        return {
+        services: services,
+        };
+    },
 
     layout: Layout,
 };
@@ -13,21 +21,110 @@ export default {
 <template>
     <section class="">
         <main class="">
-            <div  class="text-center bg-pink-900 w-30 mx-8 rounded-md">
+            <div class="flex justify-center">
+                <div  class=" text-center w-2/4 mx-8 border-[#4d1635] border-2 rounded-md  ">
                 <h1 class="text-2xl ">{{ property.name }}</h1>
                 <p>Indirizzo: {{ property.address }}</p>
             </div>
+            </div>
 
-            <div class=" bg-auto bg-center w-30 h-auto mx-8 mt-2 rounded-md" style="background-image: url(https://www.arteincasamia.it/site/assets/files/1781/placeholder.png)">
-                <h4>Misure: {{ property.size }}</h4>
-                <p>Numero stanze: {{ property.rooms }}</p>
-                <p>Numero letti : {{ property.beds }}</p>
-                <p>Numero bagni: {{ property.bathrooms }}</p>
+
+            <div id="animation-carousel" class="relative border-[#4d1635] border-2 rounded-md m-5" data-carousel="static">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class=" duration-200 ease-linear" data-carousel-item>
+                        <img src="https://aff.bstatic.com/images/hotel/840x460/261/261020602.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="https://aff.bstatic.com/images/hotel/840x460/261/261020461.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/365453242.jpg?k=2e992b99e0e329cec1e52f486a044b0bf8adea19aa5049e1cf393fa82b52274c&o=&hp=1" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="https://www.arteincasamia.it/site/assets/files/1781/placeholder.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="https://www.arteincasamia.it/site/assets/files/1781/placeholder.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+
+            <div class="flex">
+                <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
+                    <h4>Misure: {{ property.size }}</h4>
+                    <p>Numero stanze: {{ property.rooms }}</p>
+                    <p>Numero letti : {{ property.beds }}</p>
+                    <p>Numero bagni: {{ property.bathrooms }}</p>
+                    <p>Prezzo: {{ property.price }}</p>
+                </div>
+
+                <div class="flex-end border-[#4d1635] border-2 rounded-md m-5 w-1/3 p-6">
+                    <p class="mb-2">
+                        Modifica qui il tuo appartamento
+                        <Link
+                        :href="route('properties.edit', property)"
+                        class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
+                        >
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </Link>
+                    </p>
+
+                    <p>
+                        Cancella il tuo appartamento
+                        <button
+                         class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
+                         @click="deleteItem(property)"
+                        >
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
+                <h2 class="font-bold mb-3">Descrizione dell'appartamento:</h2>
+                <p>{{ property.description }}</p>
+            </div>
+
+            <div class="flex ml-4">
+                <div class="flex-end border-[#4d1635] border-2 rounded-md m-1 w-1/3 p-6">
+                    <ul>
+                        <li v-for="service in services" :key="service.id">
+                            {{ service.name }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-end border-[#4d1635] border-2 rounded-md m-1 w-1/3 p-6">
+
+                </div>
+
             </div>
 
 
 
-        <p>Prezzo: {{ property.price }}</p>
+
+
+
     </main>
     </section>
 
