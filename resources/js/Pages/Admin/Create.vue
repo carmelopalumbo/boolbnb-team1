@@ -149,10 +149,10 @@ export default {
                         multiple
                     />
                     <p
-                        v-if="errors.cover_image"
+                        v-if="errors.gallery"
                         class="text-xs italic text-red-600 py-1 pl-1"
                     >
-                        {{ errors.cover_image }}
+                        {{ errors.gallery }}
                     </p>
                 </div>
 

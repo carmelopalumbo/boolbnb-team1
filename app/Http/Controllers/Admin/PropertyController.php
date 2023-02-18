@@ -133,7 +133,9 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         // dd($property);
-        return Inertia::render('Admin/Edit', compact('property'));
+        $media_property = Media::where('property_id', $property->id)->get();
+
+        return Inertia::render('Admin/Edit', compact('property', 'media_property'));
     }
 
     /**
@@ -179,8 +181,25 @@ class PropertyController extends Controller
         );
 
         $property_edit = $request->all();
+        //dd($property_edit);
+        $media_property = Media::where('property_id', $property->id)->get();
+
+
         $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
-        // dd($property_edit);
+
+
+        foreach ($media_property as $media) {
+            Storage::disk('public')->delete($media->file_name);
+            $media->delete();
+        }
+
+        foreach ($property_edit['editGallery'] as $file) {
+            Media::create([
+                'file_name' => Storage::put('uploads', $file),
+                'property_id' => $property->id
+            ]);
+        }
+
         $property->update($property_edit);
 
         return to_route('properties.index');
