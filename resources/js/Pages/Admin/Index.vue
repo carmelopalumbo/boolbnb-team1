@@ -55,67 +55,67 @@ export default {
                 >
             </div>
             <table
-                class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border"
+                class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border "
             >
                 <thead
                     class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center"
                 >
                     <tr>
-                        <th scope="col" class="font-bold text-gray-900 pl-1">
+                        <th scope="col" class="font-bold text-gray-900 px-2">
                             nome
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                            class="font-bold text-gray-900 hidden lg:table-cell px-2"
                         >
                             indirizzo
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                            class="font-bold text-gray-900 hidden lg:table-cell px-2"
                         >
                             prezzo
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                            class="font-bold text-gray-900 hidden md:table-cell px-2"
                         >
                             visibilità
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 pl-1 hidden md:table-cell"
+                            class="font-bold text-gray-900 hidden md:table-cell px-2"
                         >
                             boost
                         </th>
-                        <th scope="col" class="font-bold text-gray-900 pl-1">
+                        <th scope="col" class="font-bold text-gray-900">
                             azioni
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="">
                     <tr
                         v-for="property in my_properties"
                         :key="property.id"
                         class="bg-white border-b hover:bg-gray-100 h-16"
                     >
                         <td
-                            class="font-medium text-gray-900 break-words truncate"
+                            class="font-medium text-gray-900 break-words truncate px-2"
                         >
                             {{ property.name }}
                         </td>
                         <td
-                            class="font-normal text-gray-900 truncate hidden md:table-cell w-1/6"
+                            class="font-normal text-gray-900 truncate hidden lg:table-cell w-1/6 px-2"
                         >
                             {{ property.address }}
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap hidden md:table-cell text-center"
+                            class="font-normal text-gray-900 whitespace-nowrap hidden lg:table-cell text-center px-2"
                         >
                             {{ property.price }} €
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center"
+                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center px-2"
                         >
                             <i
                                 :class="{
@@ -127,7 +127,7 @@ export default {
                             ></i>
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center"
+                            class="font-normal text-gray-900 whitespace-nowrap uppercase hidden md:table-cell text-center px-2"
                         >
                             <i
                                 :class="{
@@ -140,7 +140,7 @@ export default {
                         </td>
 
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap text-center"
+                            class="font-normal text-gray-900 whitespace-nowrap text-center px-2"
                         >
                             <Link
                                 :href="route('properties.show', property)"
@@ -168,6 +168,7 @@ export default {
             </table>
         </div>
     </div>
+
 </template>
 
 <style></style>
