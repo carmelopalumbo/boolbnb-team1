@@ -66,7 +66,7 @@ export default {
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 hidden lg:table-cell px-2"
+                            class="font-bold text-gray-900 hidden md:table-cell px-2"
                         >
                             indirizzo
                         </th>
@@ -93,21 +93,26 @@ export default {
                         </th>
                     </tr>
                 </thead>
-                <tbody class="">
+                <tbody>
                     <tr
                         v-for="property in my_properties"
                         :key="property.id"
-                        class="bg-white border-b hover:bg-gray-100 h-16"
+                        class="bg-white border-b hover:bg-gray-100 h-16 w-[50px]"
                     >
                         <td
                             class="font-medium text-gray-900 break-words truncate px-2"
                         >
-                            {{ property.name }}
+                            <div class="truncate w-60 lg:w-64">
+                                {{ property.name }}
+                            </div>
                         </td>
                         <td
-                            class="font-normal text-gray-900 truncate hidden lg:table-cell w-1/6 px-2"
+                            class="font-normal text-gray-900 truncate hidden md:table-cell w-1/6 px-2"
                         >
-                            {{ property.address }}
+                            <div class="truncate w-40 lg:w-80">
+                                {{ property.address }}
+                            </div>
+
                         </td>
                         <td
                             class="font-normal text-gray-900 whitespace-nowrap hidden lg:table-cell text-center px-2"
