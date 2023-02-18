@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'lastname' => 'required|string|max:70',
             'username' => 'required|string|max:20|unique:'. User::class,
-            'date_of_birth' => 'required|date'
+            'date_of_birth' => 'required|date|before:-18 years|after: 100 years',
         ]);
 
         $user = User::create([
