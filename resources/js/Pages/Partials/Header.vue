@@ -59,7 +59,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                         :href="route('logout')"
                         method="post"
                         as="button"
-                        class="text-white bg-[#4d1635] text-sm px-4 py-2.5 text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-300 font-bold rounded-lg w-25 mx-auto"
+                        class="text-white bg-[#4d1635] text-sm px-4 py-2.5 text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg w-25 mx-auto"
                     >
                         Log Out
                     </Link>
