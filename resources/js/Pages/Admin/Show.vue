@@ -1,26 +1,18 @@
 <script>
 
 import Layout from "./Layouts/Layout.vue";
-import services from '../../../config/db.php';
-
 
 
 export default {
     name: "PropertyDetail",
     props: { property: Object },
-    data() {
-        return {
-        services: services,
-        };
-    },
-
     layout: Layout,
 };
 </script>
 
 <template>
     <section class="">
-        <main class="">
+        <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div  class=" text-center w-2/4 mx-8 border-[#4d1635] border-2 rounded-md  ">
                 <h1 class="text-2xl ">{{ property.name }}</h1>
@@ -78,6 +70,17 @@ export default {
                 </div>
 
                 <div class="flex-end border-[#4d1635] border-2 rounded-md m-5 w-1/3 p-6">
+
+                    <p class="mb-2">
+                        Controlla le Statistiche
+                        <Link
+                        href="/admin/stats"
+                        class="text-white hover:text-black transition delay-150 bg-green-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-3"
+                        >
+                            <i class="fa-solid fa-ranking-star mr-1"></i>
+                        </Link>
+                    </p>
+
                     <p class="mb-2">
                         Modifica qui il tuo appartamento
                         <Link
@@ -98,6 +101,8 @@ export default {
                         </button>
                     </p>
 
+
+
                 </div>
             </div>
 
@@ -107,6 +112,7 @@ export default {
             </div>
 
             <div class="flex ml-4">
+
                 <div class="flex-end border-[#4d1635] border-2 rounded-md m-1 w-1/3 p-6">
                     <ul>
                         <li v-for="service in services" :key="service.id">
@@ -114,18 +120,14 @@ export default {
                         </li>
                     </ul>
                 </div>
+
                 <div class="flex-end border-[#4d1635] border-2 rounded-md m-1 w-1/3 p-6">
 
                 </div>
 
             </div>
 
-
-
-
-
-
-    </main>
+        </main>
     </section>
 
 
