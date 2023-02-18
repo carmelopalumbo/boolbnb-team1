@@ -284,7 +284,7 @@ export default {
 
                 <button
                     type="submit"
-                    class="mt-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg"
+                    class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg"
                     :disabled="newProperty.gallery.length > 5"
                 >
                     Aggiungi
