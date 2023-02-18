@@ -4,6 +4,7 @@ import Layout from "./Layouts/Layout.vue";
 export default {
     props: {
         property: Object,
+        media_property: Array,
         errors: Object,
     },
 
@@ -15,15 +16,16 @@ export default {
             propertyEdit: {
                 name: this.property.name,
                 description: this.property.description,
-                cover_image: null,
+                cover_image: this.property.cover_image,
                 beds: this.property.beds,
                 bathrooms: this.property.bathrooms,
                 rooms: this.property.rooms,
-                size: this.property.side,
+                size: this.property.size,
                 price: this.property.price,
                 address: this.property.address,
                 latitude: this.property.latitude,
                 longitude: this.property.longitude,
+                editGallery: this.media_property,
             },
         };
     },
@@ -46,6 +48,7 @@ export default {
                     this.propertyEdit.latitude = results.position.lat;
                     this.propertyEdit.longitude = results.position.lon;
                     this.propertyEdit.address = results.address.freeformAddress;
+                    //console.log(this.propertyEdit);
                     this.$inertia.post(
                         route("properties.update", {property:this.property,_method: "put"}), this.propertyEdit
                     );
@@ -65,7 +68,7 @@ export default {
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Name*</label
+                        >Nome *</label
                     >
                     <input
                         type="text"
@@ -79,7 +82,7 @@ export default {
                     <label
                         for="text"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Description*</label
+                        >Descrizione *</label
                     >
                     <input
                         type="text"
@@ -94,7 +97,7 @@ export default {
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         for="default_size"
-                        >Cover image*</label
+                        >Immagine di copertina *</label
                     >
                     <input
                         @input="propertyEdit.cover_image = $event.target.files[0]"
@@ -107,9 +110,30 @@ export default {
 
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        for="gallery"
+                        >Galleria (MAX 5 IMMAGINI)</label
+                    >
+                    <input
+                        @input="propertyEdit.editGallery = $event.target.files"
+                        class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        id="gallery"
+                        type="file"
+                        multiple
+                    />
+                    <p
+                        v-if="errors.media"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.media }}
+                    </p>
+                </div>
+
+                <div class="flex flex-col mb-4 md:w-full">
+                    <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° beds*</label
+                        >Numero letti *</label
                     >
                     <input
                         type="number"
@@ -125,7 +149,7 @@ export default {
                     <label
                         for="bathrooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° Bathrooms</label
+                        >Numero bagni</label
                     >
                     <input
                         type="number"
@@ -140,7 +164,7 @@ export default {
                     <label
                         for="rooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° Bedrooms</label
+                        >Numero Stanze da Letto</label
                     >
                     <input
                         type="number"
@@ -155,7 +179,7 @@ export default {
                     <label
                         for="size"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Size (mq)</label
+                        >Dimensione (mq)</label
                     >
                     <input
                         type="number"
@@ -170,7 +194,7 @@ export default {
                     <label
                         for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Price/Night*</label
+                        >Prezzo /per notte *</label
                     >
                     <input
                         type="number"
@@ -186,7 +210,7 @@ export default {
                     <label
                         for="address"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Address*</label
+                        >Indirizzo *</label
                     >
                     <input
                         type="text"
@@ -199,9 +223,10 @@ export default {
 
                 <button
                     type="submit"
-                    class="text-white bg-[#4d1635] hover:bg-[#89275e] font-medium rounded-lg text-sm mt-3 sm:w-24 px-5 py-2.5 text-center mx-auto"
+                    class="text-white bg-[#4d1635] hover:bg-[#89275e] font-medium rounded-lg text-sm mt-3 sm:w-24 px-5 py-2.5 mx-auto text-center"
+                    :disabled="propertyEdit.editGallery.length > 5"
                 >
-                    Submit
+                    MODIFICA
                 </button>
             </form>
         </div>

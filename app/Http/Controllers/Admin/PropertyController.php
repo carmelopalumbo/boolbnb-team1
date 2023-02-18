@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,7 +49,7 @@ class PropertyController extends Controller
                 'name' => 'required|min:10|max:100',
                 'size' => 'numeric|min:1|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'cover_image' => 'required',
+                'cover_image' => 'required|image',
                 'rooms' => 'numeric',
                 'beds' => 'numeric',
                 'bathrooms' => 'numeric',
@@ -66,6 +67,7 @@ class PropertyController extends Controller
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
                 'cover_image.required' => 'Immagine di copertina obbligatoria.',
+                'cover_image.image' => 'File immagine non supportato.',
                 'rooms.numeric' => 'Valore non valido',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
@@ -74,16 +76,18 @@ class PropertyController extends Controller
                 'address.required' => 'Indirizzo obbligatorio.',
             ]
         );
-        // dd($request->all());
+
+        //dd($request->all());
         //dd($validate);
+
         $form_data = $request->all();
 
         // dd($form_data['image']);
-        Property::create([
+        $property = Property::create([
             'name' => $form_data['name'],
             'slug' => Property::slugGenerator($form_data['name']),
             'description' => $form_data['description'],
-            'cover_image' => Storage::put('uploads',$form_data['cover_image']),
+            'cover_image' => Storage::put('uploads', $form_data['cover_image']),
             'beds' => $form_data['beds'],
             'rooms' => $form_data['rooms'],
             'bathrooms' => $form_data['bathrooms'],
@@ -97,7 +101,14 @@ class PropertyController extends Controller
             'longitude' => $form_data['longitude']
         ]);
 
-        // if(array_key_exists('cover_image', ))
+        //dd($property);
+
+        foreach ($form_data['gallery'] as $file) {
+            Media::create([
+                'file_name' => Storage::put('uploads', $file),
+                'property_id' => $property->id
+            ]);
+        }
 
         return to_route('properties.index');
     }
@@ -122,7 +133,9 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         // dd($property);
-        return Inertia::render('Admin/Edit', compact('property'));
+        $media_property = Media::where('property_id', $property->id)->get();
+
+        return Inertia::render('Admin/Edit', compact('property', 'media_property'));
     }
 
     /**
@@ -168,8 +181,25 @@ class PropertyController extends Controller
         );
 
         $property_edit = $request->all();
+        //dd($property_edit);
+        $media_property = Media::where('property_id', $property->id)->get();
+
+
         $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
-        // dd($property_edit);
+
+
+        foreach ($media_property as $media) {
+            Storage::disk('public')->delete($media->file_name);
+            $media->delete();
+        }
+
+        foreach ($property_edit['editGallery'] as $file) {
+            Media::create([
+                'file_name' => Storage::put('uploads', $file),
+                'property_id' => $property->id
+            ]);
+        }
+
         $property->update($property_edit);
 
         return to_route('properties.index');
@@ -183,6 +213,15 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        $media_property = Media::where('property_id', $property->id)->get();
+
+        //dd($media_property);
+
+        foreach ($media_property as $media) {
+            Storage::disk('public')->delete($media->file_name);
+            $media->delete();
+        }
+
         $property->delete();
 
         return to_route('properties.index');
