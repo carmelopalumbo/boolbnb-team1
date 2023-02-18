@@ -102,7 +102,7 @@ class PropertyController extends Controller
         ]);
 
         //dd($property);
-        // if(array_key_exists('cover_image', ))
+
         foreach ($form_data['gallery'] as $file) {
             Media::create([
                 'file_name' => Storage::put('uploads', $file),
@@ -194,6 +194,15 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        $media_property = Media::where('property_id', $property->id)->get();
+
+        //dd($media_property);
+
+        foreach ($media_property as $media) {
+            Storage::disk('public')->delete($media->file_name);
+            $media->delete();
+        }
+
         $property->delete();
 
         return to_route('properties.index');
