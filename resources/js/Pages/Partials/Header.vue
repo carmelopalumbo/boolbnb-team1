@@ -19,7 +19,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 
             <template #default="{ isShowMenu }">
                 <NavbarCollapse :isShowMenu="isShowMenu" class="z-10">
-                    <NavbarLink className="text-base text-center items-center pb-2"
+                    <NavbarLink className="text-base text-center items-center py-1"
                         ><Link
                             href="/admin/properties"
                             :class="{ 'active': $page.url === '/admin/properties' }"
@@ -28,7 +28,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="active:text-red-500 active:font-bold">Proprietà</span></Link
                         ></NavbarLink
                     >
-                    <NavbarLink className="text-base text-center pb-2"
+                    <NavbarLink className="text-base text-center py-1"
                         ><Link
                             href="/admin/messages"
                             :class="{ 'active': $page.url === '/admin/messages' }"
@@ -37,7 +37,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Messaggi</span></Link
                         ></NavbarLink
                     >
-                    <NavbarLink className="text-base text-center pb-2"
+                    <NavbarLink className="text-base text-center py-1"
                         ><Link
                             href="/admin/sponsors"
                             :class="{ 'active': $page.url === '/admin/sponsors' }"
@@ -46,7 +46,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Sponsor</span></Link
                         ></NavbarLink
                     >
-                    <NavbarLink className="text-base text-center pb-2"
+                    <NavbarLink className="text-base text-center py-1"
                         ><Link
                             href="/admin/stats"
                             :class="{ 'active': $page.url === '/admin/stats' }"
@@ -55,14 +55,16 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Statistiche</span></Link
                         ></NavbarLink
                     >
-                    <Link
-                        :href="route('logout')"
-                        method="post"
-                        as="button"
-                        class="text-white bg-[#4d1635] text-sm px-4 py-2.5 text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg w-25 mx-auto"
-                    >
-                        Log Out
-                    </Link>
+                    <NavbarLink className="text-base text-center">
+                        <Link
+                            :href="route('logout')"
+                            method="post"
+                            as="button"
+                            class="text-white bg-[#4d1635] text-sm px-4 py-2 text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg w-25 mx-auto"
+                        >
+                            Log Out
+                        </Link>
+                    </NavbarLink>
                 </NavbarCollapse>
             </template>
         </Navbar>
