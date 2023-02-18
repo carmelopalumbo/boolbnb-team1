@@ -25,6 +25,7 @@ import Footer from "@/Pages/Partials/Footer.vue";
 .ofc{
     height: calc(100vh - 195px);
     overflow-y: scroll;
+    margin-bottom: 20px;
 }
 .footer-bottom-fix{
  height: 75px;
