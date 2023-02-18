@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,7 +49,7 @@ class PropertyController extends Controller
                 'name' => 'required|min:10|max:100',
                 'size' => 'numeric|min:1|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'cover_image' => 'required',
+                'cover_image' => 'required|image',
                 'rooms' => 'numeric',
                 'beds' => 'numeric',
                 'bathrooms' => 'numeric',
@@ -66,6 +67,7 @@ class PropertyController extends Controller
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
                 'cover_image.required' => 'Immagine di copertina obbligatoria.',
+                'cover_image.image' => 'File immagine non supportato.',
                 'rooms.numeric' => 'Valore non valido',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
@@ -74,16 +76,18 @@ class PropertyController extends Controller
                 'address.required' => 'Indirizzo obbligatorio.',
             ]
         );
-        // dd($request->all());
+
+        //dd($request->all());
         //dd($validate);
+
         $form_data = $request->all();
 
         // dd($form_data['image']);
-        Property::create([
+        $property = Property::create([
             'name' => $form_data['name'],
             'slug' => Property::slugGenerator($form_data['name']),
             'description' => $form_data['description'],
-            'cover_image' => Storage::put('uploads',$form_data['cover_image']),
+            'cover_image' => Storage::put('uploads', $form_data['cover_image']),
             'beds' => $form_data['beds'],
             'rooms' => $form_data['rooms'],
             'bathrooms' => $form_data['bathrooms'],
@@ -97,7 +101,14 @@ class PropertyController extends Controller
             'longitude' => $form_data['longitude']
         ]);
 
+        //dd($property);
         // if(array_key_exists('cover_image', ))
+        foreach ($form_data['gallery'] as $file) {
+            Media::create([
+                'file_name' => Storage::put('uploads', $file),
+                'property_id' => $property->id
+            ]);
+        }
 
         return to_route('properties.index');
     }

@@ -27,6 +27,7 @@ export default {
                 address: "",
                 latitude: null,
                 longitude: null,
+                gallery: []
             },
         };
     },
@@ -52,9 +53,8 @@ export default {
                     this.newProperty.longitude = results.position.lon;
                     this.newProperty.address = results.address.freeformAddress;
                     console.log(this.newProperty);
-                    this.$inertia.post(
-
-                        route("properties.store", this.newProperty), {forceFormatData: true, cover_image: this.newProperty.cover_image},
+                     this.$inertia.post(
+                        route("properties.store", this.newProperty), {forceFormatData: true, cover_image: this.newProperty.cover_image, gallery: this.newProperty.gallery},
                     );
                 })
                 .catch((err) => {
@@ -78,7 +78,7 @@ export default {
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Name*</label
+                        >Nome *</label
                     >
                     <input
                         type="text"
@@ -98,7 +98,7 @@ export default {
                     <label
                         for="text"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Description*</label
+                        >Descrizione *</label
                     >
                     <input
                         type="text"
@@ -119,7 +119,7 @@ export default {
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         for="cover_image"
-                        >Cover image*</label
+                        >Immagine di copertina *</label
                     >
                     <input
                         @input="newProperty.cover_image = $event.target.files[0]"
@@ -137,9 +137,30 @@ export default {
 
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        for="gallery"
+                        >Galleria (MAX 5 IMMAGINI)</label
+                    >
+                    <input
+                        @input="newProperty.gallery = $event.target.files"
+                        class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        id="gallery"
+                        type="file"
+                        multiple
+                    />
+                    <p
+                        v-if="errors.cover_image"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.cover_image }}
+                    </p>
+                </div>
+
+                <div class="flex flex-col mb-4 md:w-full">
+                    <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° beds*</label
+                        >Numero Letti *</label
                     >
                     <input
                         type="number"
@@ -161,7 +182,7 @@ export default {
                     <label
                         for="bathrooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° Bathrooms</label
+                        >Numero Bagni</label
                     >
                     <input
                         type="number"
@@ -182,7 +203,7 @@ export default {
                     <label
                         for="rooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >N° Bedrooms</label
+                        >Numero Stanze da Letto</label
                     >
                     <input
                         type="number"
@@ -203,7 +224,7 @@ export default {
                     <label
                         for="size"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Size (mq)</label
+                        >Dimensione (mq)</label
                     >
                     <input
                         type="number"
@@ -224,7 +245,7 @@ export default {
                     <label
                         for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Price/Night*</label
+                        >Prezzo /per notte *</label
                     >
                     <input
                         type="text"
@@ -245,7 +266,7 @@ export default {
                     <label
                         for="address"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Address*</label
+                        >Indirizzo *</label
                     >
                     <input
                         type="text"
@@ -264,8 +285,9 @@ export default {
                 <button
                     type="submit"
                     class="text-white bg-[#4d1635] hover:bg-[#89275e] font-medium rounded-lg text-sm sm:w-24 px-5 py-2.5 text-center"
+                    :disabled="newProperty.gallery.length > 5"
                 >
-                    Submit
+                    AGGIUNGI
                 </button>
             </form>
         </div>
