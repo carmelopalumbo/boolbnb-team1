@@ -284,10 +284,10 @@ export default {
 
                 <button
                     type="submit"
-                    class="text-white bg-[#4d1635] hover:bg-[#89275e] font-medium rounded-lg text-sm sm:w-24 px-5 py-2.5 text-center"
+                    class="mt-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg"
                     :disabled="newProperty.gallery.length > 5"
                 >
-                    AGGIUNGI
+                    Aggiungi
                 </button>
             </form>
         </div>
