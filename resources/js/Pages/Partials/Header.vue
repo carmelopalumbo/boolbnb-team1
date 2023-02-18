@@ -19,7 +19,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 
             <template #default="{ isShowMenu }">
                 <NavbarCollapse :isShowMenu="isShowMenu" class="z-10">
-                    <NavbarLink className="text-base text-center"
+                    <NavbarLink className="text-base text-center items-center pb-2"
                         ><Link
                             href="/admin/properties"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
@@ -27,7 +27,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Proprietà</span></Link
                         ></NavbarLink
                     >
-                    <NavbarLink className="text-base text-center "
+                    <NavbarLink className="text-base text-center pb-2"
                         ><Link
                             href="/admin/messages"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
@@ -35,7 +35,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Messaggi</span></Link
                         ></NavbarLink
                     >
-                    <NavbarLink className="text-base text-center"
+                    <NavbarLink className="text-base text-center pb-2"
                         ><Link
                             href="/admin/sponsors"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
@@ -43,7 +43,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             ><span class="">Sponsor</span></Link
                         ></NavbarLink
                     >
-                    <NavbarLink className="text-base text-center"
+                    <NavbarLink className="text-base text-center pb-2"
                         ><Link
                             href="/admin/stats"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
@@ -55,7 +55,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                         :href="route('logout')"
                         method="post"
                         as="button"
-                        class="text-white bg-[#4d1635] text-sm px-5 py-2.5 text-center md:mr-0 transition delay-150 hover:bg-[#89275e] font-bold rounded-lg w-25 mx-auto"
+                        class="text-white bg-[#4d1635] text-sm px-4 py-2.5 text-center md:mr-0 transition delay-150 hover:bg-[#89275e] font-bold rounded-lg w-25 mx-auto"
                     >
                         Log Out
                     </Link>
