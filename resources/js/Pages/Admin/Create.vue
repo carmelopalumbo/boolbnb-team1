@@ -2,6 +2,7 @@
 import Layout from "./Layouts/Layout.vue";
 import { useForm } from "@inertiajs/vue3";
 import { initDropdowns } from 'flowbite'
+import debounce from 'lodash/debounce';
 
 export default {
     name: "Create",
@@ -18,6 +19,9 @@ export default {
             apiUrl: "https://api.tomtom.com/search/2/",
 
             errorMessage: "",
+            listAddress: {},
+            debounced : _.debounce(this.searchAddress, 500),
+
 
             newProperty: {
                 name: "",
@@ -38,37 +42,43 @@ export default {
     },
 
     methods: {
-        submit() {
-            axios
-                .get(
-                    this.apiUrl +
-                        "geocode/" +
-                        encodeURIComponent(this.newProperty.address) +
-                        ".json",
-                    {
-                        params: {
-                            key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
-                        },
+        selectAddress(selectedAddress){
+
+            this.listAddress = selectedAddress;
+            this.newProperty.latitude =this.listAddress.position.lat;
+            this.newProperty.longitude = this.listAddress.position.lon;
+            this.newProperty.address = this.listAddress.address.freeformAddress;
+            console.log(this.listAddress);
+            console.log(this.newProperty.address);
+
+        },
+
+        searchAddress(){
+            axios.get(
+                this.apiUrl+"geocode/"+encodeURIComponent(this.newProperty.address)+".json", {
+                    params:{
+                        key:"ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
                     }
-                )
-                .then((res) => {
-                    const results = res.data.results[0];
-                    this.newProperty.latitude = results.position.lat;
-                    this.errorMessage = "";
-                    this.newProperty.longitude = results.position.lon;
-                    this.newProperty.address = results.address.freeformAddress;
-                    this.$inertia.post(
-                        route("properties.store", this.newProperty),
-                        {
-                            forceFormatData: true,
-                            cover_image: this.newProperty.cover_image,
-                            gallery: this.newProperty.gallery,
-                        }
-                    );
-                })
-                .catch((err) => {
-                    this.errorMessage = "INDIRIZZO NON VALIDO.";
-                });
+                }
+            )
+            .then((res)=>{
+                const results = res.data.results;
+                this.listAddress = results;
+            })
+        },
+
+
+
+        submit() {
+            this.$inertia.post(
+                route("properties.store", this.newProperty),
+                {
+                    forceFormatData: true,
+                    cover_image: this.newProperty.cover_image,
+                    gallery: this.newProperty.gallery,
+                }
+            );
+
         },
     },
 
@@ -301,11 +311,28 @@ export default {
                         >Indirizzo *</label
                     >
                     <input
+                     @keyup="debounced"
                         type="text"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="newProperty.address"
                     />
+                    <div v-if="!listAddress.length" >
+
+                    </div>
+                    <div v-if="listAddress.length" class="listAddress">
+
+                        <p v-for="item in listAddress" :key="item">
+                            <ul>
+                            <li class="selectAddress"
+                            @click="selectAddress(item)"
+
+                            >{{item.address.freeformAddress}}</li>
+                            </ul>
+                        </p>
+                    </div>
+
+
                     <p
                         v-if="errorMessage"
                         class="text-xs italic text-red-600 py-1 pl-1"
@@ -317,7 +344,7 @@ export default {
                 <button
                     type="submit"
                     class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg"
-                    :disabled="newProperty.gallery.length > 5"
+                    :disabled="newProperty.gallery.length > 5 || listAddress.length === 0"
                 >
                     Aggiungi
                 </button>
@@ -326,4 +353,14 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style scoped>
+.listAddress{
+        border: 1px solid black;
+    }
+    .selectAddress{
+        cursor: pointer;
+    }
+    .selectAddress:hover{
+        background-color: gray;
+    }
+</style>
