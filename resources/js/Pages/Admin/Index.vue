@@ -1,6 +1,7 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
 import { Link } from "@inertiajs/vue3";
+
 export default {
     name: "Index",
     props: { my_properties: Object },
@@ -30,6 +31,10 @@ export default {
             </div>
         </div>
     </div>
+
+
+
+
 
     <div class="relative container mx-auto overflow-x-auto">
         <div
