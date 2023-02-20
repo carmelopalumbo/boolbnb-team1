@@ -10,6 +10,7 @@ export default {
 
     props: {
         errors: Object,
+        services: Array
     },
 
     data() {
@@ -28,6 +29,7 @@ export default {
                 size: "",
                 price: "",
                 address: "",
+                services: [],
                 latitude: null,
                 longitude: null,
                 gallery: [],
@@ -55,7 +57,6 @@ export default {
                     this.errorMessage = "";
                     this.newProperty.longitude = results.position.lon;
                     this.newProperty.address = results.address.freeformAddress;
-                    console.log(this.newProperty);
                     this.$inertia.post(
                         route("properties.store", this.newProperty),
                         {
@@ -172,27 +173,15 @@ export default {
                 </div>
 
                 <div class="flex flex-col mb-4">
-                    <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="font-medium rounded-lg inline-flex items-center px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 hover:bg-[#89275e] duration-200" type="button">Servizi<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="font-bold rounded-lg inline-flex items-center px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 hover:bg-[#89275e] duration-200" type="button">Servizi<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
                     <!-- Dropdown menu -->
                     <div id="dropdownDefaultCheckbox" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
-                        <li>
-                            <div class="flex items-center">
-                            <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="checkbox-item-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default checkbox</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex items-center">
-                                <input checked id="checkbox-item-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                <label for="checkbox-item-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Checked state</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex items-center">
-                            <input id="checkbox-item-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="checkbox-item-3" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default checkbox</label>
+                        <li v-for="service in services" :key="service.id">
+                            <div class="flex items-center uppercase">
+                            <input v-model="newProperty.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label :for="service.name" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{service.name}}</label>
                             </div>
                         </li>
                         </ul>

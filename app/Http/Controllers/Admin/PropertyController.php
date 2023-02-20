@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Media;
 use App\Models\Property;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -31,7 +32,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Create');
+        $services = Service::all();
+        return Inertia::render('Admin/Create', compact('services'));
     }
 
     /**
@@ -102,13 +104,17 @@ class PropertyController extends Controller
         ]);
         //dd($form_data['gallery']);
 
-        if (array_key_exists('gallery', $form_data)) {
+        if (count($form_data['gallery'])) {
             foreach ($form_data['gallery'] as $file) {
                 Media::create([
                     'file_name' => Storage::put('uploads', $file),
                     'property_id' => $property->id
                 ]);
             }
+        }
+
+        if (count($form_data['services'])) {
+            $property->services()->attach($form_data['services']);
         }
 
         return to_route('properties.index');
