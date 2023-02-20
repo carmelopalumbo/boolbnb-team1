@@ -2,7 +2,7 @@ import './bootstrap';
 import '../css/app.css';
 
 import { createApp, h } from 'vue';
-import { createInertiaApp, Link } from '@inertiajs/vue3';
+import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import axios from 'axios';
@@ -18,8 +18,10 @@ createInertiaApp({
             .use(ZiggyVue, Ziggy)
             .component('Link', Link)
             .component('axios', axios)
+            .component('Head', Head)
             .mount(el);
     },
+    title: title => `BoolBnB - ${title}`,
     progress: {
         color: '#4d1635',
         showSpinner: true
