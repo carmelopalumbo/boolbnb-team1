@@ -103,11 +103,13 @@ class PropertyController extends Controller
 
         //dd($property);
 
-        foreach ($form_data['gallery'] as $file) {
-            Media::create([
-                'file_name' => Storage::put('uploads', $file),
-                'property_id' => $property->id
-            ]);
+        if (array_key_exists('gallery', $form_data)) {
+            foreach ($form_data['gallery'] as $file) {
+                Media::create([
+                    'file_name' => Storage::put('uploads', $file),
+                    'property_id' => $property->id
+                ]);
+            }
         }
 
         return to_route('properties.index');
@@ -187,17 +189,18 @@ class PropertyController extends Controller
 
         $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
 
+        if (array_key_exists('editGallery', $property_edit)) {
+            foreach ($media_property as $media) {
+                Storage::disk('public')->delete($media->file_name);
+                $media->delete();
+            }
 
-        foreach ($media_property as $media) {
-            Storage::disk('public')->delete($media->file_name);
-            $media->delete();
-        }
-
-        foreach ($property_edit['editGallery'] as $file) {
-            Media::create([
-                'file_name' => Storage::put('uploads', $file),
-                'property_id' => $property->id
-            ]);
+            foreach ($property_edit['editGallery'] as $file) {
+                Media::create([
+                    'file_name' => Storage::put('uploads', $file),
+                    'property_id' => $property->id
+                ]);
+            }
         }
 
         $property->update($property_edit);
