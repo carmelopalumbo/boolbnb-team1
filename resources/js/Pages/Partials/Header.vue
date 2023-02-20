@@ -11,7 +11,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                 <!-- <NavbarLogo> -->
                 <img
                     class="max-h-10 object-scale-down"
-                    src="../Admin/Layouts/Images/Logo_V2.png"
+                    src="../../../../public/Logo_V2.png"
                     alt="Logo Boolbnb"
                 />
                 <!-- </NavbarLogo> -->
