@@ -104,7 +104,7 @@ class PropertyController extends Controller
         ]);
         //dd($form_data['gallery']);
 
-        if (count($form_data['gallery'])) {
+        if (array_key_exists('gallery', $form_data)) {
             foreach ($form_data['gallery'] as $file) {
                 Media::create([
                     'file_name' => Storage::put('uploads', $file),
@@ -128,8 +128,9 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        $services = Service::where('property_id', $property->id);
         if ($property->user_id <> Auth::id()) return abort(404);
-        return Inertia::render('Admin/Show', compact('property'));
+        return Inertia::render('Admin/Show', compact('property', 'services'));
     }
 
     /**
@@ -142,9 +143,10 @@ class PropertyController extends Controller
     {
         //dd($property);
         if ($property->user_id <> Auth::id()) return abort(404);
+        $propertyServices = $property->services()->get();
+        $services = Service::all();
         $media_property = Media::where('property_id', $property->id)->get();
-
-        return Inertia::render('Admin/Edit', compact('property', 'media_property'));
+        return Inertia::render('Admin/Edit', compact('property', 'media_property', 'propertyServices', 'services'));
     }
 
     /**
@@ -213,6 +215,12 @@ class PropertyController extends Controller
                     'property_id' => $property->id
                 ]);
             }
+        }
+        //dd(($property_edit['services']));
+        if (count($property_edit['services'])) {
+            $property->services()->sync($property_edit['services']);
+        } else {
+            $property->services()->detach();
         }
 
         $property->update($property_edit);

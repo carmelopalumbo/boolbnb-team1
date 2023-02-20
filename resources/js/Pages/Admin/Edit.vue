@@ -8,6 +8,8 @@ export default {
         property: Object,
         media_property: Array,
         errors: Object,
+        propertyServices: Array,
+        services: Array
     },
 
     layout: Layout,
@@ -22,6 +24,7 @@ export default {
                 beds: this.property.beds,
                 bathrooms: this.property.bathrooms,
                 rooms: this.property.rooms,
+                services: [],
                 size: this.property.size,
                 price: this.property.price,
                 address: this.property.address,
@@ -64,7 +67,7 @@ export default {
     },
 
     mounted() {
-        // console.log(this.my_properties);
+        //console.log(this.propertyServices);
         initDropdowns();
     },
 };
@@ -145,22 +148,17 @@ export default {
                     </p>
                 </div>
 
-                <div class="grid grid-cols-2 mb-4">
-                    <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="font-medium rounded-lg inline-flex items-center px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 hover:bg-[#89275e] duration-200" type="button">Servizi<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                <div class="flex flex-col mb-4">
+                    <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="font-bold rounded-lg inline-flex items-center px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 hover:bg-[#89275e] duration-200" type="button">Servizi<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
                     <!-- Dropdown menu -->
-                    <div id="dropdownDefaultCheckbox" class="z-10 hidden w-60 bg-white divide-y divide-gray-100 rounded-lg shadow ">
+                    <div id="dropdownDefaultCheckbox" class="z-10 uppercase hidden w-60 bg-white divide-y divide-gray-100 rounded-lg shadow ">
                         <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
-                            <li>
+                            <li v-for="service in services" :key="service.id">
                                 <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-1" class="ml-2 text-sm font-medium text-gray-900">Cucina</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-1" class="ml-2 text-sm font-medium text-gray-900">Cucina</label>
+                                    <input v-model="propertyEdit.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                                    >
+                                    <label :for="service.name" class="ml-2 text-sm font-medium text-gray-900">{{service.name}}</label>
                                 </div>
                             </li>
                         </ul>
