@@ -2,6 +2,7 @@
 import Layout from "./Layouts/Layout.vue";
 import { initDropdowns } from 'flowbite'
 
+import debounce from 'lodash/debounce';
 export default {
     name: "Edit",
     props: {
@@ -16,6 +17,9 @@ export default {
     data() {
         return {
             apiUrl: "https://api.tomtom.com/search/2/",
+
+            listAddress: {},
+            debounced : _.debounce(this.searchAddress, 500),
 
             propertyEdit: {
                 name: this.property.name,
@@ -35,34 +39,39 @@ export default {
         };
     },
     methods: {
-        submit() {
-            axios
-                .get(
-                    this.apiUrl +
-                        "geocode/" +
-                        encodeURIComponent(this.propertyEdit.address) +
-                        ".json",
-                    {
-                        params: {
-                            key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
-                        },
+        selectAddress(selectedAddress){
+
+            this.listAddress = selectedAddress;
+            this.propertyEdit.latitude =this.listAddress.position.lat;
+            this.propertyEdit.longitude = this.listAddress.position.lon;
+            this.propertyEdit.address = this.listAddress.address.freeformAddress;
+            console.log(this.listAddress);
+            console.log(this.propertyEdit.address);
+
+        },
+
+        searchAddress(){
+            axios.get(
+                this.apiUrl+"geocode/"+encodeURIComponent(this.propertyEdit.address)+".json", {
+                    params:{
+                        key:"ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
                     }
-                )
-                .then((res) => {
-                    const results = res.data.results[0];
-                    this.propertyEdit.latitude = results.position.lat;
-                    this.propertyEdit.longitude = results.position.lon;
-                    this.propertyEdit.address = results.address.freeformAddress;
-                    //console.log(this.propertyEdit);
-                    this.$inertia.post(
-                        route("properties.update", {
-                            forceFormatData: true,
-                            property: this.property,
-                            _method: "put",
-                        }),
-                        this.propertyEdit
-                    );
-                });
+                }
+            )
+            .then((res)=>{
+                const results = res.data.results;
+                this.listAddress = results;
+            })
+        },
+        submit() {
+            this.$inertia.post(
+                route("properties.update", {
+                    forceFormatData: true,
+                    property: this.property,
+                    _method: "put",
+                }),
+                this.propertyEdit
+            );
         },
     },
 
@@ -249,17 +258,32 @@ export default {
                         >Indirizzo *</label
                     >
                     <input
+                    @keyup="debounced"
                         type="text"
                         id="address"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="propertyEdit.address"
                     />
+                    <div v-if="!listAddress.length" >
+
+                    </div>
+                    <div v-if="listAddress.length" class="listAddress">
+
+                        <p v-for="item in listAddress" :key="item">
+                            <ul>
+                            <li class="selectAddress"
+                            @click="selectAddress(item)"
+
+                            >{{item.address.freeformAddress}}</li>
+                            </ul>
+                        </p>
+                    </div>
                 </div>
 
                 <button
                     type="submit"
-                    class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg"
+                    class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
                     :disabled="propertyEdit.editGallery.length > 5"
                 >
                     Modifica
