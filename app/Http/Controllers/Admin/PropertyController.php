@@ -21,6 +21,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        sleep(1);
         $my_properties = Property::where('user_id', Auth::id())->get();
         return Inertia::render('Admin/Index', compact('my_properties'));
     }
@@ -32,6 +33,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
+        sleep(1);
         $services = Service::all();
         return Inertia::render('Admin/Create', compact('services'));
     }
@@ -128,6 +130,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        sleep(1);
         $services = Service::where('property_id', $property->id);
         if ($property->user_id <> Auth::id()) return abort(404);
         return Inertia::render('Admin/Show', compact('property', 'services'));
@@ -141,6 +144,7 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
+        sleep(1);
         //dd($property);
         if ($property->user_id <> Auth::id()) return abort(404);
         $propertyServices = $property->services()->get();

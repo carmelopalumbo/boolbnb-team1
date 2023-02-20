@@ -10,6 +10,7 @@ class SponsorController extends Controller
 {
     public function index()
     {
+        sleep(1);
         return Inertia::render('Admin/Sponsor');
     }
 }
