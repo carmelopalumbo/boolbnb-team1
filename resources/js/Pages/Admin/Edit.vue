@@ -1,6 +1,5 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
-import { onMounted } from 'vue'
 import { initDropdowns } from 'flowbite'
 
 export default {
