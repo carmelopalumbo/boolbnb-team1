@@ -100,8 +100,7 @@ class PropertyController extends Controller
             'latitude' => $form_data['latitude'],
             'longitude' => $form_data['longitude']
         ]);
-
-        //dd($property);
+        //dd($form_data['gallery']);
 
         if (array_key_exists('gallery', $form_data)) {
             foreach ($form_data['gallery'] as $file) {
@@ -123,6 +122,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        if ($property->user_id <> Auth::id()) return abort(404);
         return Inertia::render('Admin/Show', compact('property'));
     }
 
@@ -134,7 +134,8 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        // dd($property);
+        //dd($property);
+        if ($property->user_id <> Auth::id()) return abort(404);
         $media_property = Media::where('property_id', $property->id)->get();
 
         return Inertia::render('Admin/Edit', compact('property', 'media_property'));
@@ -149,7 +150,6 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
-
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
@@ -183,22 +183,30 @@ class PropertyController extends Controller
         );
 
         $property_edit = $request->all();
-        //dd($property_edit);
         $media_property = Media::where('property_id', $property->id)->get();
 
-
-        $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
-
-        foreach ($media_property as $media) {
-            Storage::disk('public')->delete($media->file_name);
-            $media->delete();
+        if ($property->cover_image <> $property_edit['cover_image']) {
+            Storage::put('uploads', $property_edit['cover_image']);
+            Storage::disk('public')->delete($property->cover_image);
+            $property->cover_image = $property_edit['cover_image'];
         }
 
-        foreach ($property_edit['editGallery'] as $file) {
-            Media::create([
-                'file_name' => Storage::put('uploads', $file),
-                'property_id' => $property->id
-            ]);
+
+        //dd($property_edit['editGallery']);
+
+        if (!count($property_edit['editGallery'])) {
+            foreach ($media_property as $media) {
+                Storage::disk('public')->delete($media->file_name);
+                $media->delete();
+            }
+
+            //dd($property_edit['editGallery']);
+            foreach ($property_edit['editGallery'] as $file) {
+                Media::create([
+                    'file_name' => Storage::put('uploads', $file),
+                    'property_id' => $property->id
+                ]);
+            }
         }
 
         $property->update($property_edit);
@@ -223,7 +231,9 @@ class PropertyController extends Controller
             $media->delete();
         }
 
+        //dd($property->cover_image);
         Storage::disk('public')->delete($property->cover_image);
+
         $property->delete();
 
         return to_route('properties.index');

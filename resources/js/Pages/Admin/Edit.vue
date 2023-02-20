@@ -54,6 +54,7 @@ export default {
                     //console.log(this.propertyEdit);
                     this.$inertia.post(
                         route("properties.update", {
+                            forceFormatData: true,
                             property: this.property,
                             _method: "put",
                         }),
