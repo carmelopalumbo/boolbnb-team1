@@ -145,8 +145,8 @@ export default {
                     </p>
                 </div>
 
-                <div class="flex flex-col mb-4">
-                    <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="font-medium rounded-lg inline-flex items-center px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 hover:bg-[#89275e] duration-200" type="button">Servizi (scegli tutti)<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                <div class="grid grid-cols-2 mb-4">
+                    <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="font-medium rounded-lg inline-flex items-center px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 hover:bg-[#89275e] duration-200" type="button">Servizi<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
                     <!-- Dropdown menu -->
                     <div id="dropdownDefaultCheckbox" class="z-10 hidden w-60 bg-white divide-y divide-gray-100 rounded-lg shadow ">
@@ -159,56 +159,8 @@ export default {
                             </li>
                             <li>
                                 <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-2" class="ml-2 text-sm font-medium text-gray-900">Wi-Fi</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-3" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Posto auto</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-4" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">TV</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-5" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Piscina</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-6" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Aria condizionata</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-7" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Vista mare</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-8" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ascensore</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-9" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Animali ammessi</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center mb-1">
-                                    <input id="checkbox-item-10" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                                    <label for="checkbox-item-10" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Giardino</label>
+                                    <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                                    <label for="checkbox-item-1" class="ml-2 text-sm font-medium text-gray-900">Cucina</label>
                                 </div>
                             </li>
                         </ul>
