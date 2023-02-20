@@ -100,7 +100,6 @@ class PropertyController extends Controller
             'latitude' => $form_data['latitude'],
             'longitude' => $form_data['longitude']
         ]);
-
         //dd($form_data['gallery']);
 
         if (array_key_exists('gallery', $form_data)) {
@@ -135,7 +134,7 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        // dd($property);
+        //dd($property);
         if ($property->user_id <> Auth::id()) return abort(404);
         $media_property = Media::where('property_id', $property->id)->get();
 
@@ -151,7 +150,6 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
-
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
@@ -185,15 +183,14 @@ class PropertyController extends Controller
         );
 
         $property_edit = $request->all();
-        //dd($property_edit);
         $media_property = Media::where('property_id', $property->id)->get();
 
-        //dd($property_edit['editGallery']);
-
-        if (!$property_edit['cover_image']) {
+        if ($property->cover_image <> $property_edit['cover_image']) {
+            Storage::put('uploads', $property_edit['cover_image']);
             Storage::disk('public')->delete($property->cover_image);
-            $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
+            $property->cover_image = $property_edit['cover_image'];
         }
+
 
         //dd($property_edit['editGallery']);
 
@@ -234,7 +231,9 @@ class PropertyController extends Controller
             $media->delete();
         }
 
+        //dd($property->cover_image);
         Storage::disk('public')->delete($property->cover_image);
+
         $property->delete();
 
         return to_route('properties.index');

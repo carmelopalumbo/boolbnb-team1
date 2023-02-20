@@ -52,6 +52,7 @@ export default {
                     //console.log(this.propertyEdit);
                     this.$inertia.post(
                         route("properties.update", {
+                            forceFormatData: true,
                             property: this.property,
                             _method: "put",
                         }),
@@ -59,6 +60,10 @@ export default {
                     );
                 });
         },
+    },
+
+    mounted() {
+        console.log(this.propertyEdit);
     },
 };
 </script>
