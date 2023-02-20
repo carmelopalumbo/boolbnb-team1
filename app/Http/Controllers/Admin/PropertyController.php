@@ -223,6 +223,7 @@ class PropertyController extends Controller
             $media->delete();
         }
 
+        Storage::disk('public')->delete($property->cover_image);
         $property->delete();
 
         return to_route('properties.index');
