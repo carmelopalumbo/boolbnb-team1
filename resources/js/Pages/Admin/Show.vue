@@ -9,7 +9,8 @@ export default {
 </script>
 
 <template>
-    <section class="">
+    <Head :title="property.name"></Head>
+    <section>
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div

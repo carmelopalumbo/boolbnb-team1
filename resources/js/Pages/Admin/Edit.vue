@@ -82,6 +82,7 @@ export default {
 };
 </script>
 <template>
+    <Head title="MODIFICA PROPRIETÀ"></Head>
     <div class="flex justify-center w-full">
         <div class="pt-20 inline-block content-center w-full">
             <h1 class="text-center font-bold text-2xl py-6 uppercase">

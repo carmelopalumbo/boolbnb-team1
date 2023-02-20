@@ -9,6 +9,7 @@ export default {
 </script>
 
 <template>
+    <Head title="STATISTICHE"></Head>
     <div class="flex justify-center mx-auto">
         <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
