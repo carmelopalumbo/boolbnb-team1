@@ -101,7 +101,7 @@ class PropertyController extends Controller
             'longitude' => $form_data['longitude']
         ]);
 
-        //dd($property);
+        //dd($form_data['gallery']);
 
         if (array_key_exists('gallery', $form_data)) {
             foreach ($form_data['gallery'] as $file) {
@@ -188,19 +188,28 @@ class PropertyController extends Controller
         //dd($property_edit);
         $media_property = Media::where('property_id', $property->id)->get();
 
+        //dd($property_edit['editGallery']);
 
-        $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
-
-        foreach ($media_property as $media) {
-            Storage::disk('public')->delete($media->file_name);
-            $media->delete();
+        if (!$property_edit['cover_image']) {
+            Storage::disk('public')->delete($property->cover_image);
+            $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
         }
 
-        foreach ($property_edit['editGallery'] as $file) {
-            Media::create([
-                'file_name' => Storage::put('uploads', $file),
-                'property_id' => $property->id
-            ]);
+        //dd($property_edit['editGallery']);
+
+        if (!count($property_edit['editGallery'])) {
+            foreach ($media_property as $media) {
+                Storage::disk('public')->delete($media->file_name);
+                $media->delete();
+            }
+
+            //dd($property_edit['editGallery']);
+            foreach ($property_edit['editGallery'] as $file) {
+                Media::create([
+                    'file_name' => Storage::put('uploads', $file),
+                    'property_id' => $property->id
+                ]);
+            }
         }
 
         $property->update($property_edit);
