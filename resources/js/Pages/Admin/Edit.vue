@@ -2,6 +2,7 @@
 import Layout from "./Layouts/Layout.vue";
 
 export default {
+    name: "Edit",
     props: {
         property: Object,
         media_property: Array,
@@ -50,7 +51,11 @@ export default {
                     this.propertyEdit.address = results.address.freeformAddress;
                     //console.log(this.propertyEdit);
                     this.$inertia.post(
-                        route("properties.update", {property:this.property,_method: "put"}), this.propertyEdit
+                        route("properties.update", {
+                            property: this.property,
+                            _method: "put",
+                        }),
+                        this.propertyEdit
                     );
                 });
         },
@@ -64,7 +69,10 @@ export default {
                 Modifica la tua proprietà
             </h1>
 
-            <form class="md:flex md:flex-wrap md:justify-between mx-6 md:mx-64" @submit.prevent="submit">
+            <form
+                class="md:flex md:flex-wrap md:justify-between mx-6 md:mx-64"
+                @submit.prevent="submit"
+            >
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
                         class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -100,11 +108,12 @@ export default {
                         >Immagine di copertina *</label
                     >
                     <input
-                        @input="propertyEdit.cover_image = $event.target.files[0]"
+                        @input="
+                            propertyEdit.cover_image = $event.target.files[0]
+                        "
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="cover_image"
                         type="file"
-
                     />
                 </div>
 
@@ -225,7 +234,8 @@ export default {
                     type="submit"
                     class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg"
                     :disabled="propertyEdit.editGallery.length > 5"
-                >Modifica
+                >
+                    Modifica
                 </button>
             </form>
         </div>

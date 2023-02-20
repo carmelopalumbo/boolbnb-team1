@@ -1,11 +1,10 @@
 <script>
-
 import Layout from "./Layouts/Layout.vue";
 import { Link } from "@inertiajs/vue3";
 
 export default {
+    name: "Stats",
     layout: Layout,
-
 };
 </script>
 
@@ -19,9 +18,6 @@ export default {
             </div>
         </div>
     </div>
-
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -2,6 +2,7 @@
 import Layout from "./Layouts/Layout.vue";
 import { Link } from "@inertiajs/vue3";
 export default {
+    name: "Index",
     props: { my_properties: Object },
 
     layout: Layout,
@@ -55,7 +56,7 @@ export default {
                 >
             </div>
             <table
-                class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border "
+                class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border"
             >
                 <thead
                     class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center"
@@ -112,7 +113,6 @@ export default {
                             <div class="truncate w-40 lg:w-80">
                                 {{ property.address }}
                             </div>
-
                         </td>
                         <td
                             class="font-normal text-gray-900 whitespace-nowrap hidden lg:table-cell text-center px-2"
@@ -173,7 +173,6 @@ export default {
             </table>
         </div>
     </div>
-
 </template>
 
 <style></style>

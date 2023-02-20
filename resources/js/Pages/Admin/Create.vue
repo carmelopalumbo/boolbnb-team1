@@ -3,6 +3,8 @@ import Layout from "./Layouts/Layout.vue";
 import { useForm } from "@inertiajs/vue3";
 
 export default {
+    name: "Create",
+
     layout: Layout,
 
     props: {
@@ -27,7 +29,7 @@ export default {
                 address: "",
                 latitude: null,
                 longitude: null,
-                gallery: []
+                gallery: [],
             },
         };
     },
@@ -53,8 +55,13 @@ export default {
                     this.newProperty.longitude = results.position.lon;
                     this.newProperty.address = results.address.freeformAddress;
                     console.log(this.newProperty);
-                     this.$inertia.post(
-                        route("properties.store", this.newProperty), {forceFormatData: true, cover_image: this.newProperty.cover_image, gallery: this.newProperty.gallery},
+                    this.$inertia.post(
+                        route("properties.store", this.newProperty),
+                        {
+                            forceFormatData: true,
+                            cover_image: this.newProperty.cover_image,
+                            gallery: this.newProperty.gallery,
+                        }
                     );
                 })
                 .catch((err) => {
@@ -122,7 +129,9 @@ export default {
                         >Immagine di copertina *</label
                     >
                     <input
-                        @input="newProperty.cover_image = $event.target.files[0]"
+                        @input="
+                            newProperty.cover_image = $event.target.files[0]
+                        "
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="cover_image"
                         type="file"
