@@ -1,7 +1,7 @@
 <template>
     <img
     class=""
-    src="../Pages/Admin/Layouts/Images/Logo_V2.png"
+    src="../../../public/Logo_V2.png"
     alt="Logo Boolbnb"
     />
 </template>
