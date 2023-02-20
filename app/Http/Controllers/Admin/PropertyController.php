@@ -123,6 +123,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        if ($property->user_id <> Auth::id()) return abort(404);
         return Inertia::render('Admin/Show', compact('property'));
     }
 
@@ -135,6 +136,7 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         // dd($property);
+        if ($property->user_id <> Auth::id()) return abort(404);
         $media_property = Media::where('property_id', $property->id)->get();
 
         return Inertia::render('Admin/Edit', compact('property', 'media_property'));
