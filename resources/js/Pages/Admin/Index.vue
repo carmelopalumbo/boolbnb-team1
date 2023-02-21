@@ -25,6 +25,7 @@ export default {
 </script>
 
 <template>
+
     <Head title="LE MIE PROPRIETÀ"></Head>
     <div class="flex justify-between container w-5/6 font-poppins py-6">
         <div class="md:inline-block align-middle hidden ">
@@ -50,7 +51,7 @@ export default {
         >
             <Link
                 href="/admin/properties/create"
-                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out hover:scale-110 duration-200 flex justify-end mr-4"
+                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out duration-200"
             >
                 <i class="fa-solid fa-plus mr-1"></i
                 ><span class="">Aggiungi la tua prima proprietà</span>
@@ -61,7 +62,7 @@ export default {
             <div class="container w-5/6 mb-6">
                 <Link
                     href="/admin/properties/create"
-                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out hover:scale-110 duration-200 flex justify-end "
+                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out duration-200"
                 >
                     <i class="fa-solid fa-plus mr-1"></i
                     ><span class="">Aggiungi una proprietà</span></Link
