@@ -22,8 +22,10 @@ class PropertyController extends Controller
     public function index()
     {
         sleep(1);
+        $username = Auth::user()->username;
         $my_properties = Property::where('user_id', Auth::id())->get();
-        return Inertia::render('Admin/Index', compact('my_properties'));
+
+        return Inertia::render('Admin/Index', compact('my_properties', 'username'));
     }
 
     /**
@@ -119,7 +121,15 @@ class PropertyController extends Controller
             $property->services()->attach($form_data['services']);
         }
 
-        return to_route('properties.index');
+        $id_property = $form_data['id'];
+
+        $info_message = `Proprietà #ID $id_property aggiunta correttamente al tuo account.`;
+
+        $username = Auth::user()->username;
+
+        $my_properties = Property::where('user_id', Auth::id())->get();
+
+        return Inertia::render('Admin/Index', compact('info_message', 'username', 'my_properties'));
     }
 
     /**
@@ -229,7 +239,13 @@ class PropertyController extends Controller
 
         $property->update($property_edit);
 
-        return to_route('properties.index');
+        $username = Auth::user()->username;
+
+        $info_message = `Proprietà #ID $property->id modifcata con successo.`;
+
+        $my_properties = Property::where('user_id', Auth::id())->get();
+
+        return Inertia::render('Admin/Index', compact('info_message', 'username', 'my_properties'));
     }
 
     /**
@@ -254,6 +270,12 @@ class PropertyController extends Controller
 
         $property->delete();
 
-        return to_route('properties.index');
+        $username = Auth::user()->username;
+
+        $info_message = `Proprietà #ID $property->id è stata eliminata dal tuo account.`;
+
+        $my_properties = Property::where('user_id', Auth::id())->get();
+
+        return Inertia::render('Admin/Index', compact('info_message', 'username', 'my_properties'));
     }
 }
