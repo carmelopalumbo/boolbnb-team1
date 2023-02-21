@@ -117,7 +117,7 @@ class PropertyController extends Controller
             }
         }
 
-        if (count($form_data['services'])) {
+        if (array_key_exists('services', $form_data)) {
             $property->services()->attach($form_data['services']);
         }
 
