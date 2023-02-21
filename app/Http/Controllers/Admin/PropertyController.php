@@ -144,7 +144,7 @@ class PropertyController extends Controller
         if ($property->user_id <> Auth::id()) return abort(404);
         $services = $property->services()->get();
         $media_property = Media::where('property_id', $property->id)->get();
-        //dd($services);
+        // dd($media_property);
         return Inertia::render('Admin/Show', compact('property', 'services', 'media_property'));
     }
 
@@ -162,6 +162,7 @@ class PropertyController extends Controller
         $propertyServices = $property->services()->get();
         $services = Service::all();
         $media_property = Media::where('property_id', $property->id)->get();
+
         return Inertia::render('Admin/Edit', compact('property', 'media_property', 'propertyServices', 'services'));
     }
 

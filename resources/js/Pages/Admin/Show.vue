@@ -9,6 +9,10 @@ export default {
                 media_property: Object
             },
     layout: Layout,
+
+    mounted(){
+        console.log(this.media_property);
+    }
 };
 </script>
 
@@ -26,10 +30,13 @@ export default {
             </div>
 
             <div class="relative border-[#4d1635] border-2 rounded-md m-5">
-
-                <img width="500" src="{{$property.cover_image}}" alt="{{$property.cover_image}}">
-
+                <div v-for="image in media_property" :key="image.id">
+                    <img  width="500" height="100" :src="'/storage/' + image.file_name.id" >
+                </div>
             </div>
+
+
+
 
             <div class="flex">
                 <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
@@ -41,34 +48,40 @@ export default {
                 </div>
 
                 <div
-                    class="flex-end border-[#4d1635] border-2 rounded-md m-5 w-1/3 p-6"
+                    class="flex-end border-[#4d1635] border-2 rounded-md m-5 w-1/3 p-1"
                 >
-                    <p class="mb-2">
-                        Controlla le Statistiche
+                    <p class="m-4">
+                        <div class="hidden lg:inline-block">
+                            Controlla le Statistiche
+                        </div>
+
                         <Link
                             href="/admin/stats"
-                            class="text-white hover:text-black transition delay-150 bg-green-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-3"
-                        >
-                            <i class="fa-solid fa-ranking-star mr-1"></i>
+                            class="text-white hover:text-black transition delay-150 bg-green-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-3">
+                            <i class="fa-solid fa-ranking-star"></i>
                         </Link>
                     </p>
 
-                    <p class="mb-2">
-                        Modifica qui il tuo appartamento
+                    <p class="m-4">
+                        <div class="hidden lg:inline-block">
+                            Modifica qui il tuo appartamento
+                        </div>
+
                         <Link
                             :href="route('properties.edit', property)"
-                            class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2"
-                        >
+                            class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </Link>
                     </p>
 
-                    <p>
-                        Cancella il tuo appartamento
+                    <p class="m-4">
+                        <div class="hidden lg:inline-block">
+                            Cancella il tuo appartamento
+                        </div>
+
                         <button
                             class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
-                            @click="deleteItem(property)"
-                        >
+                            @click="deleteItem(property)">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </p>
@@ -78,6 +91,13 @@ export default {
             <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
                 <h2 class="font-bold mb-3">Descrizione dell'appartamento:</h2>
                 <p>{{ property.description }}</p>
+            </div>
+
+            <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
+                <h2 class="font-bold mb-3">Servizi dell'appartamento:</h2>
+                <p v-for="service in services" :key="service.id">
+
+                    {{ service.name }}</p>
             </div>
 
 
