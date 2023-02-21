@@ -256,7 +256,7 @@ export default {
                     >
                     <input
                         type="number"
-                        min="0"
+                        min="1"
                         id="price"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
