@@ -55,7 +55,7 @@ class PropertyController extends Controller
                 'name' => 'required|min:10|max:100',
                 'size' => 'numeric|min:1|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'cover_image' => 'required|image',
+                'cover_image' => 'image',
                 'rooms' => 'numeric',
                 'beds' => 'numeric',
                 'bathrooms' => 'numeric',
@@ -72,7 +72,6 @@ class PropertyController extends Controller
                 'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
-                'cover_image.required' => 'Immagine di copertina obbligatoria.',
                 'cover_image.image' => 'File immagine non supportato.',
                 'rooms.numeric' => 'Valore non valido',
                 'beds.numeric' => 'Valore non valido',
@@ -167,12 +166,12 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+        //dd($request->all());
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
                 'size' => 'numeric|min:1|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'cover_image' => 'required',
                 'rooms' => 'numeric',
                 'beds' => 'numeric',
                 'bathrooms' => 'numeric',
@@ -189,7 +188,6 @@ class PropertyController extends Controller
                 'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
-                'cover_image.required' => 'Immagine di copertina obbligatoria.',
                 'rooms.numeric' => 'Valore non valido',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
@@ -202,11 +200,12 @@ class PropertyController extends Controller
         $property_edit = $request->all();
         $media_property = Media::where('property_id', $property->id)->get();
 
-        if ($property->cover_image <> $property_edit['cover_image']) {
-            $property->cover_image = Storage::put('uploads', $property_edit['cover_image']);
+        if (!is_null($property_edit['cover_image'])) {
             Storage::disk('public')->delete($property->cover_image);
-            $property->cover_image = $property_edit['cover_image'];
+            $property->cover_image = Storage::put('uploads', $property_edit['cover_image']);
         }
+
+        $property_edit['cover_image'] = $property->cover_image;
 
 
         //dd($property_edit['editGallery']);

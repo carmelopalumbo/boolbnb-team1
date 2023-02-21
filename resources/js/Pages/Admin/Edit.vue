@@ -7,7 +7,6 @@ export default {
     name: "Edit",
     props: {
         property: Object,
-        media_property: Array,
         errors: Object,
         propertyServices: Array,
         services: Array
@@ -24,7 +23,7 @@ export default {
             propertyEdit: {
                 name: this.property.name,
                 description: this.property.description,
-                cover_image: this.property.cover_image,
+                cover_image: null,
                 beds: this.property.beds,
                 bathrooms: this.property.bathrooms,
                 rooms: this.property.rooms,
@@ -34,21 +33,17 @@ export default {
                 address: this.property.address,
                 latitude: this.property.latitude,
                 longitude: this.property.longitude,
-                editGallery: this.media_property,
+                editGallery: {},
                 is_visible: this.property.is_visible,
             },
         };
     },
     methods: {
         selectAddress(selectedAddress){
-
             this.listAddress = selectedAddress;
             this.propertyEdit.latitude =this.listAddress.position.lat;
             this.propertyEdit.longitude = this.listAddress.position.lon;
             this.propertyEdit.address = this.listAddress.address.freeformAddress;
-            console.log(this.listAddress);
-            console.log(this.propertyEdit.address);
-
         },
 
         searchAddress(){
