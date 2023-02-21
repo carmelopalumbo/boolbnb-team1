@@ -29,7 +29,7 @@ export default {
     <div class="flex justify-between container w-5/6 font-poppins py-6">
         <div class="md:inline-block align-middle hidden ">
             <div class="overflow-hidden">
-                <h1 class="text-center font-bold text-2xl italic">
+                <h1 class="text-center font-bold text-2xl italic ml-5">
                     Ciao <span class="uppercase">{{ username }}</span>, benvenuto nella tua Dashboard di BoolBnB.
                 </h1>
             </div>
