@@ -203,7 +203,7 @@ class PropertyController extends Controller
         $media_property = Media::where('property_id', $property->id)->get();
 
         if ($property->cover_image <> $property_edit['cover_image']) {
-            Storage::put('uploads', $property_edit['cover_image']);
+            $property->cover_image = Storage::put('uploads', $property_edit['cover_image']);
             Storage::disk('public')->delete($property->cover_image);
             $property->cover_image = $property_edit['cover_image'];
         }
@@ -226,7 +226,7 @@ class PropertyController extends Controller
             }
         }
         //dd(($property_edit['services']));
-        if (count($property_edit['services'])) {
+        if (array_key_exists('services', $property_edit)) {
             $property->services()->sync($property_edit['services']);
         } else {
             $property->services()->detach();
