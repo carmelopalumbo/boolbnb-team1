@@ -121,9 +121,7 @@ class PropertyController extends Controller
             $property->services()->attach($form_data['services']);
         }
 
-        $id_property = $form_data['id'];
-
-        return to_route('properties.index');
+        return to_route('properties.index')->with('infoMessage', "Proprietà #ID$property->id aggiunta al tuo account.");
     }
 
     /**
@@ -235,7 +233,7 @@ class PropertyController extends Controller
 
         $property->update($property_edit);
 
-        return to_route('properties.index');
+        return to_route('properties.index')->with('infoMessage', "Proprietà #ID$property->id modificata correttamente.");
     }
 
     /**
@@ -258,14 +256,10 @@ class PropertyController extends Controller
         //dd($property->cover_image);
         Storage::disk('public')->delete($property->cover_image);
 
+        $old_id = $property->id;
+
         $property->delete();
 
-        $username = Auth::user()->username;
-
-        $info_message = `Proprietà #ID $property->id è stata eliminata dal tuo account.`;
-
-        $my_properties = Property::where('user_id', Auth::id())->get();
-
-        return to_route('properties.index');
+        return to_route('properties.index')->with('infoMessage', "Proprietà #ID$old_id rimossa dal tuo account");;
     }
 }
