@@ -27,8 +27,8 @@ export default {
 
 <template>
     <Head title="LE MIE PROPRIETÀ"></Head>
-    <div class="flex justify-between container mx-auto w-5/6 font-poppins py-6">
-        <div class="inline-block">
+    <div class="flex justify-between container w-5/6 font-poppins py-6">
+        <div class="inline-block align-middle">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl italic">
                     Ciao <span class="uppercase">{{ username }}</span>, benvenuto nella tua Dashboard di BoolBnB.
@@ -36,7 +36,7 @@ export default {
             </div>
         </div>
         <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">
-            <span v-if="$page.props.flash.infoMessage">{{$page.props.flash.infoMessage}}</span>
+            <span v-if="$page.props.flash.infoMessage" class="inline-block align-middle">{{$page.props.flash.infoMessage}}</span>
             <span v-else
                 >Non hai notifiche</span
             >
