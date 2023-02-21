@@ -4,7 +4,11 @@ import { Link } from "@inertiajs/vue3";
 
 export default {
     name: "Index",
-    props: { my_properties: Object },
+    props: {
+        my_properties: Object,
+        // username: String,
+        // info_message: String
+    },
 
     layout: Layout,
 
@@ -27,7 +31,7 @@ export default {
         <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl py-6 uppercase">
-                    Le mie proprietà
+                    Ciao {{username}}, queste sono le tue proprietà
                 </h1>
             </div>
         </div>
@@ -52,14 +56,17 @@ export default {
         </div>
 
         <div v-else>
-            <div class="relative container mx-auto w-5/6 mb-4">
+            <div class="relative container w-5/6 mb-4 flex justify-between">
                 <Link
                     href="/admin/properties/create"
-                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
+                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
                 >
                     <i class="fa-solid fa-plus mr-1"></i
                     ><span class="">Aggiungi una proprietà</span></Link
                 >
+                <!-- <span v-if="info_message">{{ info_message }}</span> -->
+                <span class="text-[#4d1635] font-bold text-lg">Hai 10 notifiche</span>
+                <!-- <span v-else>Non hai notifiche</span> -->
             </div>
             <table
                 class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border"
