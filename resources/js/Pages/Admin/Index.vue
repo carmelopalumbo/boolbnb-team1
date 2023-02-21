@@ -34,7 +34,7 @@ export default {
                 </h1>
             </div>
         </div>
-        <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">
+        <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635] mx-4">
             <span v-if="$page.props.flash.infoMessage" class="inline-block align-middle">{{$page.props.flash.infoMessage}}</span>
             <span v-else
                 >Non hai notifiche</span
@@ -50,7 +50,7 @@ export default {
         >
             <Link
                 href="/admin/properties/create"
-                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
+                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out hover:scale-110 duration-200 flex justify-end mr-4"
             >
                 <i class="fa-solid fa-plus mr-1"></i
                 ><span class="">Aggiungi la tua prima proprietà</span>
@@ -58,10 +58,10 @@ export default {
         </div>
 
         <div v-else>
-            <div class="container w-5/6 md:w-full mb-6">
+            <div class="container w-5/6 mb-6">
                 <Link
                     href="/admin/properties/create"
-                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
+                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out hover:scale-110 duration-200 flex justify-end "
                 >
                     <i class="fa-solid fa-plus mr-1"></i
                     ><span class="">Aggiungi una proprietà</span></Link
