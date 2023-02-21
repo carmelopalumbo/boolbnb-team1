@@ -50,7 +50,7 @@ export default {
         >
             <Link
                 href="/admin/properties/create"
-                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 mx-auto inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
+                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
             >
                 <i class="fa-solid fa-plus mr-1"></i
                 ><span class="">Aggiungi la tua prima proprietà</span>
@@ -61,7 +61,7 @@ export default {
             <div class="container w-5/6 md:w-full mb-6">
                 <Link
                     href="/admin/properties/create"
-                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
+                    class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
                 >
                     <i class="fa-solid fa-plus mr-1"></i
                     ><span class="">Aggiungi una proprietà</span></Link
