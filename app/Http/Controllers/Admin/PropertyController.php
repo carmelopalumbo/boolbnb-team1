@@ -49,7 +49,7 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
 
-        //dd($request);
+        // dd($request);
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
@@ -101,7 +101,7 @@ class PropertyController extends Controller
             'price' => $form_data['price'],
             'address' => $form_data['address'],
             'user_id' => Auth::id(),
-            'is_visible' => true,
+            'is_visible' => $form_data['is_visible'],
             'is_sponsored' => false,
             'latitude' => $form_data['latitude'],
             'longitude' => $form_data['longitude']
