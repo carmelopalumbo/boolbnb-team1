@@ -19,21 +19,23 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 
             <template #default="{ isShowMenu }">
                 <NavbarCollapse :isShowMenu="isShowMenu" class="z-10">
-                    <NavbarLink className="text-sm text-center items-center py-2"
-                        >
+                    <NavbarLink
+                        className="text-sm text-center items-center py-2"
+                    >
                         <Link
                             href="/admin/properties"
-                            :class="{ 'active': $page.url === '/admin/properties' }"
+                            :class="{
+                                active: $page.url === '/admin/properties',
+                            }"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
                             ><i class="fa-solid fa-house mr-1"></i
                             ><span>Proprietà</span></Link
                         >
-                        </NavbarLink
-                    >
+                    </NavbarLink>
                     <NavbarLink className="text-sm text-center py-2"
                         ><Link
                             href="/admin/messages"
-                            :class="{ 'active': $page.url === '/admin/messages' }"
+                            :class="{ active: $page.url === '/admin/messages' }"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
                             ><i class="fa-solid fa-message mr-1"></i
                             ><span class="">Messaggi</span></Link
@@ -42,16 +44,16 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                     <NavbarLink className="text-sm text-center py-2"
                         ><Link
                             href="/admin/sponsors"
-                            :class="{ 'active': $page.url === '/admin/sponsors' }"
+                            :class="{ active: $page.url === '/admin/sponsors' }"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
                             ><i class="fa-solid fa-credit-card mr-1"></i
-                            ><span class="">Sponsor</span></Link
+                            ><span class="">Boost</span></Link
                         ></NavbarLink
                     >
                     <NavbarLink className="text-sm text-center py-2"
                         ><Link
                             href="/admin/stats"
-                            :class="{ 'active': $page.url === '/admin/stats' }"
+                            :class="{ active: $page.url === '/admin/stats' }"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
                             ><i class="fa-solid fa-ranking-star mr-1"></i
                             ><span class="">Statistiche</span></Link
@@ -74,7 +76,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 </template>
 
 <style lang="css" scoped>
-.active{
+.active {
     /* color: white; */
     color: #4d1635;
     /* background-color: #4d1635; */
@@ -82,5 +84,4 @@ import DropdownLink from "@/Components/DropdownLink.vue";
     border-radius: 0.5rem;
     border: 2px solid #4d1635;
 }
-
 </style>
