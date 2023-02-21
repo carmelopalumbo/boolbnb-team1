@@ -27,19 +27,26 @@ export default {
 
 <template>
     <Head title="LE MIE PROPRIETÀ"></Head>
-    <div class="flex justify-center mx-auto font-poppins">
-        <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
+    <div class="flex justify-between container w-5/6 font-poppins py-6">
+        <div class="md:inline-block align-middle hidden ">
             <div class="overflow-hidden">
-                <h1 class="text-center font-bold text-2xl py-6 italic">
+                <h1 class="text-center font-bold text-2xl italic">
                     Ciao <span class="uppercase">{{ username }}</span>, benvenuto nella tua Dashboard di BoolBnB.
                 </h1>
             </div>
+        </div>
+        <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">
+            <span v-if="$page.props.flash.infoMessage" class="inline-block align-middle">{{$page.props.flash.infoMessage}}</span>
+            <span v-else
+                >Non hai notifiche</span
+            >
+
         </div>
     </div>
 
     <div class="relative container mx-auto overflow-x-auto">
         <div
-            class="relative container mx-auto w-5/6"
+            class="relative container mx-auto w-5/6 mb-6"
             v-if="!my_properties.length"
         >
             <Link
@@ -52,17 +59,13 @@ export default {
         </div>
 
         <div v-else>
-            <div class="relative container w-5/6 mb-4 flex justify-between">
+            <div class="container w-5/6 md:w-full mb-6">
                 <Link
                     href="/admin/properties/create"
                     class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
                 >
                     <i class="fa-solid fa-plus mr-1"></i
                     ><span class="">Aggiungi una proprietà</span></Link
-                >
-                <span class="text-[#4d1635] font-bold text-lg" v-if="$page.props.flash.infoMessage">{{$page.props.flash.infoMessage}}</span>
-                <span class="text-[#4d1635] font-bold text-lg" v-else
-                    >Non hai notifiche</span
                 >
             </div>
             <table
