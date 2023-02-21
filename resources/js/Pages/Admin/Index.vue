@@ -1,12 +1,12 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
-import { Link } from "@inertiajs/vue3";
 
 export default {
     name: "Index",
     props: {
         my_properties: Object,
         username: String,
+        links: Array,
     },
 
     layout: Layout,
@@ -19,8 +19,7 @@ export default {
     },
 
     mounted() {
-        console.log(this.info_message);
-        console.log(this.username);
+        console.log(this.my_properties.data);
     },
 };
 </script>
@@ -47,7 +46,7 @@ export default {
     <div class="relative container mx-auto overflow-x-auto">
         <div
             class="relative container mx-auto w-5/6 mb-6"
-            v-if="!my_properties.length"
+            v-if="!my_properties.data.length"
         >
             <Link
                 href="/admin/properties/create"
@@ -109,7 +108,7 @@ export default {
                 </thead>
                 <tbody>
                     <tr
-                        v-for="property in my_properties"
+                        v-for="property in my_properties.data"
                         :key="property.id"
                         class="bg-white border-b hover:bg-gray-100 h-16 w-[50px]"
                     >
@@ -184,6 +183,19 @@ export default {
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="mt-8 flex justify-center text-[#4d1635] text-lg font-bold space-x-6">
+
+            <Component
+            :is="link.url ? 'Link' : 'span'"
+            v-for="link in my_properties.links"
+            :key="link.id"
+            :href="link.url"
+
+            v-html="link.label"
+            :class= "{'text-gray-400' : !link.url}"
+            >
+            </Component>
         </div>
     </div>
 </template>
