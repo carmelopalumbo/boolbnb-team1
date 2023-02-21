@@ -141,9 +141,11 @@ class PropertyController extends Controller
     public function show(Property $property)
     {
         sleep(1);
-        $services = Service::where('property_id', $property->id);
         if ($property->user_id <> Auth::id()) return abort(404);
-        return Inertia::render('Admin/Show', compact('property', 'services'));
+        $services = $property->services()->get();
+        $media_property = Media::where('property_id', $property->id)->get();
+        //dd($services);
+        return Inertia::render('Admin/Show', compact('property', 'services', 'media_property'));
     }
 
     /**
