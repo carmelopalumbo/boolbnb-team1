@@ -23,7 +23,7 @@ class PropertyController extends Controller
     {
         sleep(1);
         $username = Auth::user()->username;
-        $my_properties = Property::where('user_id', Auth::id())->get();
+        $my_properties = Property::where('user_id', Auth::id())->paginate(5);
 
         return Inertia::render('Admin/Index', compact('my_properties', 'username'));
     }
