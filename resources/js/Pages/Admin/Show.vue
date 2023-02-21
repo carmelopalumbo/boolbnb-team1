@@ -37,11 +37,18 @@ export default {
             </div>
 
             <div class="relative border-[#4d1635] border-2 rounded-md m-5">
-                <div v-for="image in media_property" :key="image.id">
-                    <img  width="500" height="100" src="admin/uploads/78uvJ802xFASKVqOOsTZS9YR4Kb6yT7LorUJVwnY.jpg" >
-                </div>
+                <h2 class="text-center py-2">Immagine di copertina</h2>
+
+                <img class="mx-auto mb-3" width="300" height="300" :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" >
             </div>
 
+            <div class="relative border-[#4d1635] border-2 rounded-md m-5  ">
+                <h2 class="text-center py-2">Galleria</h2>
+
+                <div class="flex justify-center gap-x-4 flex-wrap">
+                    <img v-for="image in media_property" :key="image.id" class="mb-3"  width="200" height="200"  :src="'http://[::1]:5173/storage/app/public/' + image.file_name" >
+                </div>
+            </div>
 
 
 
