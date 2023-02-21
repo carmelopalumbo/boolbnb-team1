@@ -123,13 +123,7 @@ class PropertyController extends Controller
 
         $id_property = $form_data['id'];
 
-        $info_message = `Proprietà #ID $id_property aggiunta correttamente al tuo account.`;
-
-        $username = Auth::user()->username;
-
-        $my_properties = Property::where('user_id', Auth::id())->get();
-
-        return Inertia::render('Admin/Index', compact('info_message', 'username', 'my_properties'));
+        return to_route('properties.index');
     }
 
     /**
@@ -241,13 +235,7 @@ class PropertyController extends Controller
 
         $property->update($property_edit);
 
-        $username = Auth::user()->username;
-
-        $info_message = `Proprietà #ID $property->id modifcata con successo.`;
-
-        $my_properties = Property::where('user_id', Auth::id())->get();
-
-        return Inertia::render('Admin/Index', compact('info_message', 'username', 'my_properties'));
+        return to_route('properties.index');
     }
 
     /**
@@ -278,6 +266,6 @@ class PropertyController extends Controller
 
         $my_properties = Property::where('user_id', Auth::id())->get();
 
-        return Inertia::render('Admin/Index', compact('info_message', 'username', 'my_properties'));
+        return to_route('properties.index');
     }
 }
