@@ -43,14 +43,11 @@ export default {
 
     methods: {
         selectAddress(selectedAddress){
-
+            this.listAddress = {};
             this.listAddress = selectedAddress;
             this.newProperty.latitude =this.listAddress.position.lat;
             this.newProperty.longitude = this.listAddress.position.lon;
             this.newProperty.address = this.listAddress.address.freeformAddress;
-            console.log(this.listAddress);
-            console.log(this.newProperty.address);
-
         },
 
         searchAddress(){
@@ -345,7 +342,7 @@ export default {
                 <button
                     type="submit"
                     class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
-                    :disabled="newProperty.gallery.length > 5 || !listAddress.length"
+                    :disabled="newProperty.gallery.length > 5 || (!Object.keys(listAddress).length)"
                 >
                     Aggiungi
                 </button>
