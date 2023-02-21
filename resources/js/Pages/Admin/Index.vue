@@ -191,9 +191,8 @@ export default {
             v-for="link in my_properties.links"
             :key="link.id"
             :href="link.url"
-
             v-html="link.label"
-            :class= "{'text-gray-400' : !link.url}"
+            :class= "{'text-gray-400' : !link.url, 'border border-1 rounded-xl px-3 border-[#4d1635]' : link.active}"
             >
             </Component>
         </div>
