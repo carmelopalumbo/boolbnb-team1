@@ -28,7 +28,7 @@ export default {
 <template>
     <Head title="LE MIE PROPRIETÀ"></Head>
     <div class="flex justify-between container w-5/6 font-poppins py-6">
-        <div class="inline-block align-middle">
+        <div class="md:inline-block align-middle hidden ">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl italic">
                     Ciao <span class="uppercase">{{ username }}</span>, benvenuto nella tua Dashboard di BoolBnB.
@@ -46,7 +46,7 @@ export default {
 
     <div class="relative container mx-auto overflow-x-auto">
         <div
-            class="relative container mx-auto w-5/6"
+            class="relative container mx-auto w-5/6 mb-6"
             v-if="!my_properties.length"
         >
             <Link
@@ -59,7 +59,7 @@ export default {
         </div>
 
         <div v-else>
-            <div class="relative container w-5/6 mb-4 flex justify-between">
+            <div class="container w-5/6 md:w-full mb-6">
                 <Link
                     href="/admin/properties/create"
                     class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 inline-block transition delay-150 ease-in-out hover:scale-110 duration-200"
