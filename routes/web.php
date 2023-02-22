@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\StatController;
+use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -20,14 +21,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [GuestController::class, 'index']);
 
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
@@ -43,9 +37,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-// Route::fallback(function () {
-//     return view('errors.error-page');
-// });
 
 require __DIR__ . '/auth.php';
