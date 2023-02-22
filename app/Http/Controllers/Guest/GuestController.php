@@ -8,9 +8,6 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use stdClass;
-
-use function GuzzleHttp\Promise\is_settled;
 
 class GuestController extends Controller
 {
