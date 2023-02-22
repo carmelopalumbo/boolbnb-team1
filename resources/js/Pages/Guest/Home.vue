@@ -1,9 +1,13 @@
 <script>
-import { initDropdowns } from 'flowbite'
+import { initDropdowns } from 'flowbite';
+import PropertyCard from '../Partials/PropertyCard.vue';
 
 
 export default {
     name: 'Home',
+
+    components: {PropertyCard},
+
 
     data(){
         return {
@@ -50,7 +54,9 @@ export default {
 }
 </script>
 
+
 <template>
+    <PropertyCard/>
           <div
             v-if="canLogin"
             class="px-6 py-4 sm:block text-right"
