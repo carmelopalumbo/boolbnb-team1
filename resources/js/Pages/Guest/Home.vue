@@ -1,4 +1,5 @@
 <script>
+import { initDropdowns } from 'flowbite'
 
 
 export default {
@@ -7,13 +8,18 @@ export default {
     data(){
         return {
             search:'',
+            beds:0,
+            rooms:0,
+            filterServices: [],
         }
+
     },
 
     props: {
         canLogin: Boolean,
         canRegister: Boolean,
         properties: Object,
+        services: Object,
     },
 
     watch: {
@@ -25,8 +31,20 @@ export default {
 
     },
 
+    methods: {
+        submit() {
+            // console.log(this.filterServices)
+            this.$inertia.get('/', {search: this.search, beds: this.beds, rooms:this.rooms, filterServices: this.filterServices}, {preserveState: true});
+            this.beds = 0;
+            this.rooms = 0;
+        }
+
+    },
+
     mounted(){
-        console.log(this.properties);
+        // console.log(this.properties);
+        // console.log(this.services);
+        initDropdowns();
     }
 
 }
@@ -40,8 +58,8 @@ export default {
             <Link
                 v-if="$page.props.auth.user"
                 :href="route('properties.index')"
-                class="text-sm text-gray-700 dark:text-gray-500 underline"
-                >IL MIO PROFILO</Link
+                class="text-sm text-gray-700 dark:text-gray-500 underline uppercase"
+                >Il mio profilo</Link
             >
 
             <template v-else>
@@ -62,14 +80,51 @@ export default {
 
 
 
-        <h1 class="text-center pt-6">SITO PUBBLICO</h1>
+        <h1 class="text-center pt-6 uppercase">Sito pubblico</h1>
+
         <div class="flex justify-center">
             <input v-model.trim="search" type="text" placeholder="search" class="border-2 rounded">
 
 
+            <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" class="inline-flex items-center ml-2 p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-5/6 dark:bg-gray-700 dark:divide-gray-600">
+                <form action="">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+                        <li>
+                            <input
+                            v-model="beds"
+                            min="0"
+                            type="number" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" placeholder="numero letti">
+                        </li>
+                        <li>
+                            <input
+                            v-model="rooms"
+                            min="0"
+                            type="number" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" placeholder="numero stanze">
+                        </li>
+                    </ul>
+                    <button @click.prevent="submit" :disabled="!search.length" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                </form>
+
+                <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Servizi</h3>
+                <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <li v-for="service in services" :key="service.id"
+                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input v-model="filterServices" :id="service.id" type="checkbox" :value="service.id" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label :for="service.id" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ service.name }}</label>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
         </div>
 
-        <p v-for="property in properties" :key="property.id">
+        <p class="px-4" v-for="property in properties" :key="property.id">
                 {{ property.name }}
         </p>
 
