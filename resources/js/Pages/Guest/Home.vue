@@ -2,10 +2,23 @@
 export default {
     name: 'Home',
 
+    data(){
+        return {
+            search:'',
+        }
+    },
+
     props: {
         canLogin: Boolean,
         canRegister: Boolean,
         properties: Object,
+    },
+
+    watch: {
+        search: function(value){
+            // console.log(this.search);
+            console.log(value);
+        }
     },
 
     mounted(){
@@ -47,7 +60,7 @@ export default {
 
         <h1 class="text-center pt-6">SITO PUBBLICO</h1>
         <div class="flex justify-center">
-            <input type="text" placeholder="search" class="border-2 rounded">
+            <input v-model.trim="search" type="text" placeholder="search" class="border-2 rounded">
         </div>
 
 </template>
