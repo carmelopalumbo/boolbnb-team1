@@ -42,7 +42,7 @@ export default {
                 <img class="mx-auto mb-3" width="300" height="300" :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" >
             </div>
 
-            <div class="relative border-[#4d1635] border-2 rounded-md m-5  ">
+            <div v-if="media_property.image" class="relative border-[#4d1635] border-2 rounded-md m-5  ">
                 <h2 class="text-center py-2">Galleria</h2>
 
                 <div class="flex justify-center gap-x-4 flex-wrap">
