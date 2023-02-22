@@ -81,7 +81,7 @@ export default {
         showImage(event) {
             const tagImage = document.getElementById('output-image');
             tagImage.src = URL.createObjectURL(event.target.files[0]);
-    }
+        }
     },
 
     mounted() {
@@ -164,7 +164,7 @@ export default {
                         {{ errors.cover_image }}
                     </p>
                     <div class="my-3">
-                     <img width="150" id="output-image" alt="">
+                         <img width="150" id="output-image" alt="">
                     </div>
                 </div>
 
