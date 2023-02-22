@@ -12,7 +12,7 @@ export default {
 <template>
           <div
             v-if="canLogin"
-            class="hidden fixed top-0 right-0 px-6 py-4 sm:block"
+            class="px-6 py-4 sm:block text-right"
         >
             <Link
                 v-if="$page.props.auth.user"
@@ -36,6 +36,8 @@ export default {
                 >
             </template>
         </div>
+
+        <h1 class="text-center pt-6">SITO PUBBLICO</h1>
 </template>
 
 <style>
