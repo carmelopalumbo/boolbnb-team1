@@ -43,7 +43,7 @@ class Property extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class)->withPivot('property_id', 'service_id');
     }
 
     public static function slugGenerator($string)
