@@ -10,9 +10,17 @@ use Inertia\Inertia;
 
 class GuestController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $properties = Property::all();
+        // dump($request);
+        if($request['search']){
+            $properties = Property::where('name', 'like', '%' . $request['search'] . '%' )->get();
+
+        }else{
+            $properties = Property::all();
+        }
+
+
 
         return Inertia::render('Guest/Home', [
             'canLogin' => Route::has('login'),
@@ -20,4 +28,5 @@ class GuestController extends Controller
             'properties'=> $properties,
         ]);
     }
+
 }

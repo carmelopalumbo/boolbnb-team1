@@ -1,4 +1,6 @@
 <script>
+
+
 export default {
     name: 'Home',
 
@@ -18,7 +20,9 @@ export default {
         search: function(value){
             // console.log(this.search);
             console.log(value);
+            this.$inertia.get('/', {search: value}, {preserveState: true})
         }
+
     },
 
     mounted(){
@@ -61,7 +65,14 @@ export default {
         <h1 class="text-center pt-6">SITO PUBBLICO</h1>
         <div class="flex justify-center">
             <input v-model.trim="search" type="text" placeholder="search" class="border-2 rounded">
+
+
         </div>
+
+        <p v-for="property in properties" :key="property.id">
+                {{ property.name }}
+        </p>
+
 
 </template>
 
