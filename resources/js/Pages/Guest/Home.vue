@@ -5,7 +5,13 @@ export default {
     props: {
         canLogin: Boolean,
         canRegister: Boolean,
+        properties: Object,
+    },
+
+    mounted(){
+        console.log(this.properties);
     }
+
 }
 </script>
 
@@ -37,7 +43,13 @@ export default {
             </template>
         </div>
 
+
+
         <h1 class="text-center pt-6">SITO PUBBLICO</h1>
+        <div class="flex justify-center">
+            <input type="text" placeholder="search" class="border-2 rounded">
+        </div>
+
 </template>
 
 <style>
