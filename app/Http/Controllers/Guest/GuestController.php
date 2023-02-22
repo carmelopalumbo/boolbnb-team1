@@ -27,14 +27,14 @@ class GuestController extends Controller
                     $q->where('rooms', '>=', $request);
                 })
                 ->when($request['filterServices'], function ($q, $request) {
-
-                    $q->whereHas('services', function ($temp) use ($request) {
-                        $temp->whereIn('service_id', $request);
-                    });
+                    foreach ($request as $item) {
+                        $q->whereHas('services', function ($temp) use ($item) {
+                            $temp->where('service_id', $item);
+                        });
+                    }
                 });
 
             $properties = $query->get();
-            //dd($properties[6]->services()->get()->toArray());
         } else {
             $properties = Property::all();
         }
