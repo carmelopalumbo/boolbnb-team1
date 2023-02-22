@@ -1,11 +1,34 @@
 <script>
+
+
 export default {
     name: 'Home',
+
+    data(){
+        return {
+            search:'',
+        }
+    },
 
     props: {
         canLogin: Boolean,
         canRegister: Boolean,
+        properties: Object,
+    },
+
+    watch: {
+        search: function(value){
+            // console.log(this.search);
+            console.log(value);
+            this.$inertia.get('/', {search: value}, {preserveState: true})
+        }
+
+    },
+
+    mounted(){
+        console.log(this.properties);
     }
+
 }
 </script>
 
@@ -37,7 +60,20 @@ export default {
             </template>
         </div>
 
+
+
         <h1 class="text-center pt-6">SITO PUBBLICO</h1>
+        <div class="flex justify-center">
+            <input v-model.trim="search" type="text" placeholder="search" class="border-2 rounded">
+
+
+        </div>
+
+        <p v-for="property in properties" :key="property.id">
+                {{ property.name }}
+        </p>
+
+
 </template>
 
 <style>
