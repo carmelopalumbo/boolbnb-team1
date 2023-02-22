@@ -78,6 +78,10 @@ export default {
             );
 
         },
+        showImage(event) {
+            const tagImage = document.getElementById('output-image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+    }
     },
 
     mounted() {
@@ -148,6 +152,7 @@ export default {
                         @input="
                             newProperty.cover_image = $event.target.files[0]
                         "
+                        @change="showImage"
                         class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="cover_image"
                         type="file"
@@ -158,6 +163,9 @@ export default {
                     >
                         {{ errors.cover_image }}
                     </p>
+                    <div class="my-3">
+                     <img width="150" id="output-image" alt="">
+                    </div>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -179,6 +187,7 @@ export default {
                     >
                         {{ errors.gallery }}
                     </p>
+
                 </div>
 
                 <div class="flex justify-between w-full">
