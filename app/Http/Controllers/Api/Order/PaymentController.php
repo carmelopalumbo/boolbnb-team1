@@ -7,21 +7,24 @@ use App\Models\Sponsor;
 use App\Rules\ValidSponsor;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
     public function generate(Request $request, Gateway $gateway){
 
-        $token = $gateway->clientToken()->generate(); //questo genera il primo token richiesto a BT Services
+        $clientToken = $gateway->clientToken()->generate([
+            "customerId" => Auth::user(),
+        ]); //questo genera il primo token richiesto a BT Services
         // dd($gateway->clientToken()->generate());
         $data = [
             'success' => true,
-            'token' => $token
+            'token' => $clientToken
         ];
-        return response()->json($data, 200);
+        return compact('clientToken');
     }
     public function makePayment(Request $request,  Gateway $gateway){
-
+        // dd($request);
         $sponsor = Sponsor::find($request->sponsor);
 
         $request->validate([
@@ -53,13 +56,13 @@ class PaymentController extends Controller
                     'duration'=>$sponsor->duration,
                 ]
             ];
-            return response()->json($data,200);
+            return compact('data');
         } else{
             $data = [
                 'success' => false,
                 'message'=>'Transazione fallita!'
             ];
-            return response()->json($data, 401);
+            return compact('data');
         }
         return 'Make Payment';
     }
