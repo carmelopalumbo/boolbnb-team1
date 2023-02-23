@@ -56,7 +56,10 @@ class GuestController extends Controller
             'services' => $services,
         ]);
     }
-}
 
-//find(118)->services()->get()
-//find(118)->services()->first();
+    public function show($id)
+    {
+        $property = Property::where('id', $id)->first();
+        return Inertia::render('Guest/PropertyDetail', compact('property'));
+    }
+}

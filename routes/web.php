@@ -21,7 +21,10 @@ use Inertia\Inertia;
 |
 */
 
+
 Route::get('/', [GuestController::class, 'index']);
+
+Route::get('/property/detail/{id}', [GuestController::class, 'show'])->name('propertydetail');
 
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
