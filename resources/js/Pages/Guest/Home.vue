@@ -15,6 +15,7 @@ export default {
             rooms: 0,
             latitude: 0,
             longitude: 0,
+            radius: 100,
             filterServices: [],
             listAddress: {},
             debounced : _.debounce(this.searchAddress, 500),
@@ -28,12 +29,12 @@ export default {
         services: Object,
     },
 
-    // watch: {
-    //     search: function (value) {
-
-    //         this.$inertia.get("/", { search: value }, { preserveState: true });
-    //     },
-    // },
+    watch: {
+         search: function (value) {
+            if(!this.search.length)
+            this.$inertia.get("/", { search: value }, { preserveState: true });
+        },
+     },
 
     methods: {
         submit() {
@@ -46,6 +47,7 @@ export default {
                     rooms: this.rooms,
                     lat: this.latitude,
                     lon: this.longitude,
+                    radius: this.radius,
                     filterServices: this.filterServices,
                 },
                 { preserveState: true }
@@ -125,7 +127,7 @@ export default {
                         placeholder="Cerca un indirizzo . . . "
                     />
                     <div v-if="listAddress.length" class="listAddress">
-                        <p v-for="item in listAddress" :key="item">
+                        <p class="p-3" v-for="item in listAddress" :key="item">
                             <ul>
                                 <li class="selectAddress cursor-pointer"
                                 @click="selectAddress(item)"
