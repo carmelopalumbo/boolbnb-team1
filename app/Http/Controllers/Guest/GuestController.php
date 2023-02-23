@@ -14,11 +14,11 @@ class GuestController extends Controller
     public function index(Request $request)
     {
         $services = Service::all();
-
+        //dd($request);
         $query = Property::query()->with('services');
         if ($request['search']) {
-            $query->when($request['search'], function ($q, $request) {
-                $q->where('address', 'like', '%' . $request . '%');
+            $query->when($request['lat'], function ($q, $request) {
+                $q->where('latitude', '=', $request);
             })
                 ->when($request['beds'], function ($q, $request) {
                     $q->where('beds', '>=', $request);

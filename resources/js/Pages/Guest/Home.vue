@@ -9,10 +9,15 @@ export default {
 
     data() {
         return {
+            apiUrl: "https://api.tomtom.com/search/2/",
             search: "",
             beds: 0,
             rooms: 0,
+            latitude: 0,
+            longitude: 0,
             filterServices: [],
+            listAddress: {},
+            debounced : _.debounce(this.searchAddress, 500),
         };
     },
 
@@ -23,13 +28,12 @@ export default {
         services: Object,
     },
 
-    watch: {
-        search: function (value) {
-            // console.log(this.search);
-            console.log(value);
-            this.$inertia.get("/", { search: value }, { preserveState: true });
-        },
-    },
+    // watch: {
+    //     search: function (value) {
+
+    //         this.$inertia.get("/", { search: value }, { preserveState: true });
+    //     },
+    // },
 
     methods: {
         submit() {
@@ -40,12 +44,39 @@ export default {
                     search: this.search,
                     beds: this.beds,
                     rooms: this.rooms,
+                    lat: this.latitude,
+                    lon: this.longitude,
                     filterServices: this.filterServices,
                 },
                 { preserveState: true }
             );
             this.beds = 0;
             this.rooms = 0;
+        },
+
+        selectAddress(selectedAddress){
+            this.listAddress = {};
+            this.listAddress = selectedAddress;
+            this.latitude =this.listAddress.position.lat;
+            this.longitude = this.listAddress.position.lon;
+            this.search = this.listAddress.address.freeformAddress;
+            this.submit();
+        },
+
+        searchAddress(){
+            if(this.search.length){
+                axios.get(
+                this.apiUrl+"geocode/"+encodeURIComponent(this.search)+".json", {
+                    params:{
+                        key:"ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
+                    }
+                }
+            )
+            .then((res)=>{
+                const results = res.data.results;
+                this.listAddress = results;
+            })
+            }
         },
     },
 
@@ -85,12 +116,25 @@ export default {
     <h1 class="text-center pt-6 uppercase">Sito pubblico</h1>
 
     <div class="flex justify-center">
-        <input
-            v-model.trim="search"
-            type="text"
-            placeholder="search"
-            class="border-2 rounded"
-        />
+        <div class="flex flex-col mb-4">
+                    <input
+                     @keyup="debounced"
+                        type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 w-56"
+                        v-model="search"
+                        placeholder="Cerca un indirizzo . . . "
+                    />
+                    <div v-if="listAddress.length" class="listAddress">
+                        <p v-for="item in listAddress" :key="item">
+                            <ul>
+                                <li class="selectAddress cursor-pointer"
+                                @click="selectAddress(item)"
+
+                                >{{item.address.freeformAddress}}</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
 
         <button
             id="dropdownMenuIconButton"
