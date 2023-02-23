@@ -30,10 +30,12 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::resource('properties', PropertyController::class);
-        Route::get('messages', [MessageController::class, 'index']);
         Route::get('sponsors', [SponsorController::class, 'index']);
         Route::get('stats', [StatController::class, 'index']);
+        Route::get('mymessages', [MessageController::class, 'index'])->name('mymessages');
     });
+
+Route::post('messages', [MessageController::class, 'store'])->name('messages');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
