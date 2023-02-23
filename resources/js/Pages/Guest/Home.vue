@@ -15,7 +15,7 @@ export default {
             rooms: 0,
             latitude: 0,
             longitude: 0,
-            radius: 100,
+            radius: 20,
             filterServices: [],
             listAddress: {},
             debounced : _.debounce(this.searchAddress, 500),
@@ -54,6 +54,8 @@ export default {
             );
             this.beds = 0;
             this.rooms = 0;
+            this.radius = 20;
+            this.filterServices = [];
         },
 
         selectAddress(selectedAddress){
@@ -223,6 +225,14 @@ export default {
                     </div>
                 </li>
             </ul>
+            <label for="radius" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Raggio</label>
+            <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white">
+                <option selected>Scegli un raggio</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+            </select>
         </div>
     </div>
 
