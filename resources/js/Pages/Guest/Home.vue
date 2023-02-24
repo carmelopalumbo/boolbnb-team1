@@ -140,7 +140,7 @@ export default {
             </div>
             <form action="">
                 <div
-                    class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4"
+                    class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
                     aria-labelledby="dropdownMenuIconButton"
                 >
                 <div class="w-1/2">
@@ -177,7 +177,7 @@ export default {
                 <li
                     v-for="service in services"
                     :key="service.id"
-                    class="w-full mb-2 place-self-center"
+                    class="w-full mb-2 px-2 place-self-center"
                 >
                     <div class="flex items-center">
                         <input
@@ -196,7 +196,7 @@ export default {
                 </li>
             </ul>
             <div class="mt-2">
-                <label for="radius" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Raggio</label>
+                <label for="radius" class="block my-2 text-sm font-medium text-gray-900 dark:text-white">Raggio</label>
                 <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white">
                     <option selected>Scegli un raggio</option>
                     <option value="5">5</option>
