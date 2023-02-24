@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('sponsors', [SponsorController::class, 'index']);
         Route::get('stats', [StatController::class, 'index']);
         Route::get('mymessages', [MessageController::class, 'index'])->name('mymessages');
+        Route::delete('mymessages/delete', [MessageController::class, 'delete'])->name('mymessages.delete');
     });
 
 Route::post('messages', [MessageController::class, 'store'])->name('messages');

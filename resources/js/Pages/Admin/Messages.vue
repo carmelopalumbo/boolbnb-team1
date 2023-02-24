@@ -6,6 +6,13 @@ export default {
     name: "Messages",
     layout: Layout,
     props: {properties: Object},
+
+    methods: {
+        deleteMessage(message) {
+            if (confirm("Confermi eliminazione?"))
+                this.$inertia.delete(route("mymessages.delete", message));
+        },
+    },
     mounted(){
         console.log(this.properties);
     }
@@ -32,10 +39,15 @@ export default {
                             class="flex space-x-6">
                                 <p>EMAIL: {{message.email}}</p>
                                 <p>MESSAGGIO: {{message.content}}</p>
+                                <button
+                                class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
+                                @click="deleteMessage(message)"
+                            >
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                             </div>
 
                         </div>
-
 
                     </div>
 
