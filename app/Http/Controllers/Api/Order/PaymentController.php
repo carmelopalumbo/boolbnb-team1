@@ -24,8 +24,8 @@ class PaymentController extends Controller
         return compact('clientToken');
     }
     public function makePayment(Request $request,  Gateway $gateway){
-        // dd($request);
         $sponsor = Sponsor::find($request->sponsor);
+        // dd($request);
 
         $request->validate([
             'token'=>'required',
@@ -56,7 +56,7 @@ class PaymentController extends Controller
                     'duration'=>$sponsor->duration,
                 ]
             ];
-            return compact('data');
+            return response()->json($data);
         } else{
             $data = [
                 'success' => false,

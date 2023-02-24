@@ -2,32 +2,29 @@
 import Layout from "./Layouts/Layout.vue";
 import { Link, router, useForm } from "@inertiajs/vue3";
 import axios from "axios";
+
+
 export default {
   name: "Sponsor",
   layout: Layout,
+  props:{
+    sponsors : Object
+  },
+  tokenApi: "",
 
-  token: "",
-  sponsor: "",
   data() {
-    return {};
+      return {
+        sponsBought: this.sponsors[1].id,
+
+    };
   },
   methods: {
-    async getPayment() {
-      const response = await axios
-        .post(
-          "http://127.0.0.1:8000/payment/make/payment"
-          //vediamo quello che torna nel res
-        )
-        .then((res) => {
-          console.log(res);
-        });
-    },
     async generateToken() {
       const response = await axios
         .get("http://127.0.0.1:8000/api/payment/generate")
         .then((res) => {
-          this.token = res.data.clientToken;
-          console.log(this.token);
+          this.tokenApi = res.data.clientToken;
+        //   console.log(this.token);
         });
     },
     getPayment() {
@@ -35,28 +32,29 @@ export default {
 
       braintree.dropin
         .create({
+
           // Step three: get client token from your server, such as via
           //    templates or async http request
-          authorization: this.token,
+          authorization: this.tokenApi,
           container: "#dropin-container",
+
         })
         .then((dropinInstance) => {
-          console.log("entrati in dropinstance");
+            console.log("entrati in dropinstance");
           form.addEventListener("submit", (event) => {
-            event.preventDefault();
-
+              event.preventDefault();
             console.log("cliccato dentro drop instance");
 
             dropinInstance
               .requestPaymentMethod()
               .then((payload) => {
-                console.log("DENTRO METODO PAYMENT");
-                console.log(payload);
-                // document.getElementById('nonce').value = payload.nonce;
+                  console.log("DENTRO METODO PAYMENT");
+
+                document.getElementById('nonce').value = payload.nonce;
                 form.submit();
               })
               .catch((error) => {
-                throw error;
+                console.log(error);;
               });
           });
           // Use `dropinInstance` here
@@ -65,10 +63,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },
-    submit() {
-      router.post("/api/payment/make/payment", useForm);
-      console.log("submitted");
     },
   },
   mounted() {
@@ -80,6 +74,8 @@ export default {
 <template>
   <Head title="BOOST"></Head>
   <div class="flex justify-center mx-auto">
+
+
     <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
         <h1 class="text-center font-bold text-2xl py-6 uppercase">
@@ -94,12 +90,24 @@ export default {
         </p>
       </div>
 
+      <div class="flex container">
+        <ul class="w-full justify-content-around">
+            <li>{{sponsBought}}</li>
+        </ul>
       <form
         id="payment-form"
         action="/api/payment/make/payment"
         method="post"
         @submit.prevent="submit"
       >
+
+    <label for="sponsor">mado prendilo</label>
+    <input type="text" name="sponsor" id="sponsor" :value="sponsBought">
+
+    <label for="token">Token</label>
+    <input type="text" name="token" id="token" value="fake-valid-nonce">
+
+
         <div id="dropin-wrapper">
           <div id="checkout-message"></div>
           <div id="dropin-container"></div>
@@ -107,14 +115,17 @@ export default {
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             id="submit-button"
-            @click="getPayment"
+            @click="getPayment()"
           >
             Submit payment
           </button>
 
-          <input type="hidden" id="nonce" name="payment_method_nonce" />
+          <input type="hidden" id="nonce" name="payment_method_nonce"  />
+
         </div>
       </form>
+      </div>
+
     </div>
   </div>
 </template>
