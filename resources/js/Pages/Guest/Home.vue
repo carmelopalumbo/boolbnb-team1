@@ -172,7 +172,7 @@ export default {
 
             <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
             <ul
-                class="lg:grid lg:grid-cols-6 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2"
+                class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase mx-1"
             >
                 <li
                     v-for="service in services"
@@ -195,19 +195,22 @@ export default {
                     </div>
                 </li>
             </ul>
-            <label for="radius" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Raggio</label>
-            <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white">
-                <option selected>Scegli un raggio</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="30">30</option>
-                <option value="40">40</option>
-            </select>
+            <div class="mt-2">
+                <label for="radius" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Raggio</label>
+                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white">
+                    <option selected>Scegli un raggio</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                </select>
+
+            </div>
             <button
                 @click.prevent="submit"
                 :disabled="!search.length"
                 type="button"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4"
+                class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
             >
                 Submit
             </button>
