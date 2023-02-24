@@ -28,7 +28,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::resource('properties', PropertyController::class);
         Route::get('messages', [MessageController::class, 'index']);
-        Route::get('sponsors', [SponsorController::class, 'index']);
+        Route::get('sponsors', [SponsorController::class, 'index'])->name('sponsors');
         Route::get('stats', [StatController::class, 'index']);
     });
 

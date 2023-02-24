@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Order;
 
 use App\Http\Controllers\Controller;
+use App\Models\Property;
 use App\Models\Sponsor;
 use App\Rules\ValidSponsor;
 use Braintree\Gateway;
@@ -24,8 +25,13 @@ class PaymentController extends Controller
         return compact('clientToken');
     }
     public function makePayment(Request $request,  Gateway $gateway){
-        $sponsor = Sponsor::find($request->sponsor);
         // dd($request);
+        $form_data = $request->all();
+        // dd($form_data);
+
+        $id = $form_data['property_id'];
+        $sponsor = Sponsor::find($request->sponsor);
+        $property =Property::find($id);
 
         $request->validate([
             'token'=>'required',

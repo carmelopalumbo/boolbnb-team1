@@ -8,6 +8,7 @@ export default {
   name: "Sponsor",
   layout: Layout,
   props:{
+    properties: Object,
     sponsors : Object
   },
   tokenApi: "",
@@ -24,7 +25,6 @@ export default {
         .get("http://127.0.0.1:8000/api/payment/generate")
         .then((res) => {
           this.tokenApi = res.data.clientToken;
-        //   console.log(this.token);
         });
     },
     getPayment() {
@@ -90,22 +90,21 @@ export default {
         </p>
       </div>
 
-      <div class="flex container">
-        <ul class="w-full justify-content-around">
-            <li>{{sponsBought}}</li>
-        </ul>
-      <form
+      <div class="flex container my-10" v-for="property in properties" :key="property.id">
+      <form class="flex space-x-5"
         id="payment-form"
         action="/api/payment/make/payment"
         method="post"
         @submit.prevent="submit"
       >
+        <label for="property_id"> {{property.name}} </label>
+        <input type="hidden" name="property_id" id="property_id" :value="property.id">
 
-    <label for="sponsor">mado prendilo</label>
-    <input type="text" name="sponsor" id="sponsor" :value="sponsBought">
+        <label for="sponsor">mado prendilo</label>
+        <input type="text" name="sponsor" id="sponsor" :value="sponsBought">
 
-    <label for="token">Token</label>
-    <input type="text" name="token" id="token" value="fake-valid-nonce">
+        <label for="token">Token</label>
+        <input type="hidden" name="token" id="token" value="fake-valid-nonce">
 
 
         <div id="dropin-wrapper">
@@ -115,7 +114,7 @@ export default {
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             id="submit-button"
-            @click="getPayment()"
+            @click="getPayment(property)"
           >
             Submit payment
           </button>
@@ -124,7 +123,7 @@ export default {
 
         </div>
       </form>
-      </div>
+    </div>
 
     </div>
   </div>
