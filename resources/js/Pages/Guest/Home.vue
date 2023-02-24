@@ -88,7 +88,7 @@ export default {
     },
 
     mounted() {
-        // console.log(this.properties);
+        console.log(this.properties);
         // console.log(this.services);
         initDropdowns();
     },

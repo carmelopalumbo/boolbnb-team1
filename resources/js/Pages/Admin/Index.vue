@@ -19,28 +19,31 @@ export default {
     },
 
     mounted() {
-        console.log(this.my_properties.data);
+        console.log(this.my_properties);
     },
 };
 </script>
 
 <template>
-
     <Head title="LE MIE PROPRIETÀ"></Head>
     <div class="flex justify-between container w-5/6 font-poppins py-6">
-        <div class="md:inline-block align-middle hidden ">
+        <div class="md:inline-block align-middle hidden">
             <div class="overflow-hidden">
                 <h1 class="text-center font-bold text-2xl italic ml-5">
-                    Ciao <span class="uppercase">{{ username }}</span>, benvenuto nella tua Dashboard di BoolBnB.
+                    Ciao <span class="uppercase">{{ username }}</span
+                    >, benvenuto nella tua Dashboard di BoolBnB.
                 </h1>
             </div>
         </div>
-        <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635] mx-4">
-            <span v-if="$page.props.flash.infoMessage" class="inline-block align-middle">{{$page.props.flash.infoMessage}}</span>
-            <span v-else
-                >Non hai notifiche</span
+        <div
+            class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635] mx-4"
+        >
+            <span
+                v-if="$page.props.flash.infoMessage"
+                class="inline-block align-middle"
+                >{{ $page.props.flash.infoMessage }}</span
             >
-
+            <span v-else>Non hai notifiche</span>
         </div>
     </div>
 
@@ -185,15 +188,20 @@ export default {
                 </tbody>
             </table>
         </div>
-        <div class="mt-8 flex justify-center text-[#4d1635] text-lg font-bold space-x-6">
-
+        <div
+            class="mt-8 flex justify-center text-[#4d1635] text-lg font-bold space-x-6"
+        >
             <Component
-            :is="link.url ? 'Link' : 'span'"
-            v-for="link in my_properties.links"
-            :key="link.id"
-            :href="link.url"
-            v-html="link.label"
-            :class= "{'text-gray-400' : !link.url, 'border border-1 rounded-xl px-3 border-[#4d1635]' : link.active}"
+                :is="link.url ? 'Link' : 'span'"
+                v-for="link in my_properties.links"
+                :key="link.id"
+                :href="link.url"
+                v-html="link.label"
+                :class="{
+                    'text-gray-400': !link.url,
+                    'border border-1 rounded-xl px-3 border-[#4d1635]':
+                        link.active,
+                }"
             >
             </Component>
         </div>
