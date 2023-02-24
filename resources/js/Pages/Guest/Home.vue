@@ -1,12 +1,15 @@
 <script>
 import { initDropdowns } from "flowbite";
 import PropertyCard from "../Partials/PropertyCard.vue";
+import Layout from "./Layouts/Layout.vue";
 
 
 export default {
     name: "Home",
 
     components: { PropertyCard },
+
+    layout: Layout,
 
     data() {
         return {
