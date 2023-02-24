@@ -206,7 +206,7 @@ export default {
 
     <div class="flex flex-wrap justify-center mt-8">
         <PropertyCard
-            v-for="property in properties"
+            v-for="property in properties.data"
             :key="property.id"
             :property="property"
         />

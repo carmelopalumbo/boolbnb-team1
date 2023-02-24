@@ -46,9 +46,9 @@ class GuestController extends Controller
                     }
                 });
 
-            $properties = $query->where('is_visible', true)->get();
+            $properties = $query->where('is_visible', true)->paginate(9);
         } else {
-            $properties = Property::where('is_sponsored', true)->get();
+            $properties = Property::where('is_sponsored', true)->paginate(9);
         }
 
         return Inertia::render('Guest/Home', [
