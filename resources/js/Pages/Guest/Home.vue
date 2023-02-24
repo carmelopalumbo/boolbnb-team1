@@ -96,34 +96,8 @@ export default {
 </script>
 
 <template>
-    <!-- <div v-if="canLogin" class="px-6 py-4 sm:block text-right">
-        <Link
-            v-if="$page.props.auth.user"
-            :href="route('properties.index')"
-            class="text-sm text-gray-700 dark:text-gray-500 underline uppercase"
-            >Il mio profilo</Link
-        >
-
-        <template v-else>
-            <Link
-                :href="route('login')"
-                class="text-sm text-gray-700 dark:text-gray-500 underline"
-                >Log in</Link
-            >
-
-            <Link
-                v-if="canRegister"
-                :href="route('register')"
-                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
-                >Register</Link
-            >
-        </template>
-    </div> -->
 
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
-
-
-    <h1 class="text-center pt-6 uppercase">Sito pubblico</h1>
 
     <div class="flex justify-center mt-6">
         <div class="flex flex-col mb-4">

@@ -1,7 +1,17 @@
 <script>
+import Header from "./Partials/Header.vue";
+import Footer from "./Partials/Footer.vue";
+
 export default {
     name: "PropertyDetail",
-    props: { property: Object },
+
+    components: { Header, Footer },
+
+    props: {
+        property: Object,
+        canLogin: Boolean,
+        canRegister: Boolean,
+     },
 
     data() {
         return {
@@ -28,13 +38,15 @@ export default {
 </script>
 
 <template>
-    <header class="flex justify-center header-top-fix mx-auto w-5/6 mt-4">
+    <!-- <header class="flex justify-center header-top-fix mx-auto w-5/6 mt-4">
         <img
             class="max-h-10 object-scale-down"
             src="../../../../public/Logo_V2.png"
             alt="Logo Boolbnb"
         />
-    </header>
+    </header> -->
+
+    <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
     <div class="ofc">
         <main class="container mx-auto w-5/6">
@@ -44,15 +56,12 @@ export default {
                         {{ property.name }}
                     </h1>
                     <p>
-                        Indirizzo:
                         {{ property.address }}
                     </p>
                 </div>
             </div>
 
             <div class="relative m-5">
-                <h2 class="text-center py-2">Immagine di copertina</h2>
-
                 <img
                     class="mx-auto mb-3"
                     width="300"
@@ -83,12 +92,12 @@ export default {
             </div> -->
 
             <div class="flex">
-                <div class="flex flex-col">
+                <div class="flex flex-col w-1/2">
                     <div class="m-5 w-2/3 p-3">
                         <h4>Misure: {{ property.size }}</h4>
-                        <p>Numero stanze: {{ property.rooms }}</p>
-                        <p>Numero letti : {{ property.beds }}</p>
-                        <p>Numero bagni: {{ property.bathrooms }}</p>
+                        <p>N° stanze: {{ property.rooms }}</p>
+                        <p>N° posti letti : {{ property.beds }}</p>
+                        <p>N° bagni: {{ property.bathrooms }}</p>
                         <p>Prezzo: {{ property.price }} €</p>
                     </div>
                     <div class="m-5 w-2/3 p-3">
@@ -106,7 +115,7 @@ export default {
                 </div>
 
                 <form
-                    class="border-[#4d1635] border-2 rounded-md w-2/3 m-5 p-3 rows-span-2"
+                    class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2"
                     v-if="!isSend"
                 >
                     <div class="mb-6">
@@ -119,7 +128,7 @@ export default {
                             v-model="message.email"
                             type="email"
                             id="email"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5"
                             placeholder="nome.cognome@esempio.com"
                             required
                         />
@@ -133,12 +142,12 @@ export default {
                         v-model="message.content"
                         id="message"
                         rows="7"
-                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635]"
                         placeholder="Scrivi qui il tuo messaggio"
                     ></textarea>
                     <button
                         @click.prevent="submit"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
                     >
                         Invia
                     </button>
