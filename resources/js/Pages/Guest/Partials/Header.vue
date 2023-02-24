@@ -16,11 +16,14 @@ export default {
         <nav class="px-2 sm:px-4 py-2.5 ">
             <div class="w-full flex">
                 <div class="flex justify-center mx-auto">
-                    <img
+                    <Link
+                        href="/">
+                        <img
                         class="max-h-20 object-scale-down"
                         src="../../../../../public/Logo_V2.png"
                         alt="Logo Boolbnb"
-                    />
+                        />
+                    </Link>
                 </div>
 
 

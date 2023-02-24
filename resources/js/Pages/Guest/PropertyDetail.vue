@@ -1,5 +1,6 @@
 <script>
 import Footer from "./Partials/Footer.vue";
+import { Link } from "@inertiajs/vue3";
 
 export default {
     name: "PropertyDetail",
@@ -38,11 +39,14 @@ export default {
     <section class="header-top-fix">
         <nav class="px-2 sm:px-4 py-4 ">
             <div class="mx-auto flex justify-center">
-                <img
+                <Link
+                    href="/">
+                    <img
                     class="max-h-20 object-scale-down"
                     src="../../../../public/Logo_V2.png"
                     alt="Logo Boolbnb"
-                />
+                    />
+                </Link>
             </div>
         </nav>
     </section>
