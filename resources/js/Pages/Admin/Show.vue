@@ -29,17 +29,17 @@ export default {
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div
-                    class="text-center w-2/4 mx-8 border-[#4d1635] border-2 rounded-md"
+                    class="text-center w-2/4 "
                 >
-                    <h1 class="text-2xl">{{ property.name }}</h1>
+                    <h1 class="text-2xl bold uppercase">{{ property.name }}</h1>
                     <p>Indirizzo: {{ property.address }}</p>
                 </div>
             </div>
 
-            <div class="relative border-[#4d1635] border-2 rounded-md m-5">
-                <h2 class="text-center py-2">Immagine di copertina</h2>
+            <div class="relative  rounded-md m-5">
+                <h2 class="text-center py-2">Immagine di copertina:</h2>
 
-                <img class="mx-auto mb-3" width="300" height="300" :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" >
+                <img class="mx-auto mb-3  object-scale-down" :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" >
             </div>
 
             <div v-if="media_property.image" class="relative border-[#4d1635] border-2 rounded-md m-5  ">
@@ -53,7 +53,8 @@ export default {
 
 
             <div class="flex">
-                <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
+                <div class=" m-5 w-2/3 p-3">
+                    <h2 class="uppercase text-[#4d1635] font-bold mb-3">Dettaglio appartamento:</h2>
                     <h4>Misure: {{ property.size }}</h4>
                     <p>Numero stanze: {{ property.rooms }}</p>
                     <p>Numero letti : {{ property.beds }}</p>
@@ -99,13 +100,13 @@ export default {
                 </div>
             </div>
 
-            <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3">
-                <h2 class="font-bold mb-3">Descrizione dell'appartamento:</h2>
+            <div class=" m-5 w-2/3 p-3">
+                <h2 class="uppercase text-[#4d1635] font-bold mb-3">Descrizione dell'appartamento:</h2>
                 <p>{{ property.description }}</p>
             </div>
 
-            <div class="border-[#4d1635] border-2 rounded-md m-5 w-2/3 p-3 ">
-                <h2 class="font-bold mb-3">Servizi dell'appartamento:</h2>
+            <div class=" m-5 w-2/3 p-3 ">
+                <h2 class="uppercase text-[#4d1635] font-bold mb-3">Servizi dell'appartamento:</h2>
                 <p v-for="service in services" :key="service.id" class="uppercase">
 
                     {{ service.name }}</p>
