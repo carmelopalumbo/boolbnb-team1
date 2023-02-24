@@ -14,15 +14,20 @@ export default {
 <template>
     <section class="header-top-fix">
         <nav class="px-2 sm:px-4 py-2.5 ">
-            <div class="container flex flex-wrap items-center mx-auto">
-                <img
-                    class="max-h-20 object-scale-down flex items-center"
-                    src="../../../../../public/Logo_V2.png"
-                    alt="Logo Boolbnb"
-                />
+            <div class="w-full flex justify-between">
+                <div class="flex">
+                    <Link
+                        href="/">
+                        <img
+                        class="max-h-20 object-scale-down"
+                        src="../../../../../public/Logo_V2.png"
+                        alt="Logo Boolbnb"
+                        />
+                    </Link>
+                </div>
 
 
-                <div v-if="canLogin" class="px-6 py-4 sm:block text-right flex justify-self-end">
+                <div v-if="canLogin" class="py-4 sm:block text-right flex">
                     <Link
                         v-if="$page.props.auth.user"
                         :href="route('properties.index')"

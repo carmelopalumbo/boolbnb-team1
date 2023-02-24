@@ -139,35 +139,34 @@ export default {
                         class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
                         aria-labelledby="dropdownMenuIconButton"
                     >
-                    <div class="w-1/2">
-                        <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
+                        <div class="w-1/2">
+                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
+                                <input
+                                    v-model="beds"
+                                    min="1"
+                                    type="number"
+                                    class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
+                                    placeholder="numero letti"
+                                />
+                        </div>
+
+                        <div class="w-1/2">
+                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° stanze</label>
+
                             <input
-                                v-model="beds"
+                                v-model="rooms"
                                 min="1"
                                 type="number"
                                 class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
-                                placeholder="numero letti"
+                                placeholder="numero stanze"
                             />
-                    </div>
-
-                    <div class="w-1/2">
-                        <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° stanze</label>
-
-                        <input
-                            v-model="rooms"
-                            min="1"
-                            type="number"
-                            class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
-                            placeholder="numero stanze"
-                        />
-                    </div>
-
+                        </div>
                     </div>
                 </form>
 
                 <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
                 <ul
-                    class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase mx-1"
+                    class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
                 >
                     <li
                         v-for="service in services"
