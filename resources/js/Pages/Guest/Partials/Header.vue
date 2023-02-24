@@ -13,16 +13,16 @@ export default {
 
 <template>
     <section class="header-top-fix">
-        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-            <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <nav class="px-2 sm:px-4 py-2.5 ">
+            <div class="container flex flex-wrap items-center mx-auto">
                 <img
-                    class="max-h-20 object-scale-down"
+                    class="max-h-20 object-scale-down flex items-center"
                     src="../../../../../public/Logo_V2.png"
                     alt="Logo Boolbnb"
                 />
 
 
-                <div v-if="canLogin" class="px-6 py-4 sm:block text-right">
+                <div v-if="canLogin" class="px-6 py-4 sm:block text-right flex justify-self-end">
                     <Link
                         v-if="$page.props.auth.user"
                         :href="route('properties.index')"
