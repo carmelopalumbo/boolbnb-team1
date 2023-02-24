@@ -63,7 +63,7 @@ export default {
 
             <div class="relative m-5">
                 <img
-                    class="mx-auto mb-3"
+                    class="mx-auto mb-3 rounded-md "
                     width="300"
                     height="300"
                     :src="
@@ -102,13 +102,13 @@ export default {
                     </div>
                     <div class="m-5 w-2/3 p-3">
                         <h2 class="font-bold mb-3">
-                            Descrizione dell'appartamento:
+                            Descrizione:
                         </h2>
                         <p>Qui ci va la description</p>
                     </div>
                     <div class="m-5 w-2/3 p-3">
                         <h2 class="font-bold mb-3">
-                            Servizi dell'appartamento:
+                            Servizi disponibili nell'appartamento:
                         </h2>
                         <p>qui vanno i servizi</p>
                     </div>
@@ -129,14 +129,14 @@ export default {
                             type="email"
                             id="email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5"
-                            placeholder="nome.cognome@esempio.com"
+                            placeholder="esempio@mail.com"
                             required
                         />
                     </div>
                     <label
                         for="message"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Scrivi il tuo messaggio</label
+                        >Messaggio</label
                     >
                     <textarea
                         v-model="message.content"
@@ -145,6 +145,7 @@ export default {
                         class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635]"
                         placeholder="Scrivi qui il tuo messaggio"
                     ></textarea>
+
                     <button
                         @click.prevent="submit"
                         class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
@@ -154,11 +155,13 @@ export default {
                 </form>
 
                 <div v-else>
-                    <h4>MESSAGGIO INVIATO BLA BLA BLA BLA</h4>
+                    <h4 class="uppercase">Messaggio inviato</h4>
                 </div>
             </div>
         </main>
     </div>
+
+    <Footer/>
 </template>
 
 <style>
