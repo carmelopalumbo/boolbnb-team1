@@ -24,10 +24,8 @@ class PaymentController extends Controller
         ];
         return compact('clientToken');
     }
-    public function makePayment(Request $request,  Gateway $gateway){
-        // dd($request);
+    public function makePayment(Request $request,  Gateway $gateway, Property $property){
         $form_data = $request->all();
-        // dd($form_data);
 
         $id = $form_data['property_id'];
         $sponsor = Sponsor::find($request->sponsor);
@@ -40,6 +38,7 @@ class PaymentController extends Controller
                 new ValidSponsor(),
             ],
         ]);
+        $property->is_sponsored = 1;
 
         //qui generiamo il pagamento
         $result = $gateway->transaction()->sale([
@@ -52,7 +51,10 @@ class PaymentController extends Controller
                 'submitForSettlement'=>true
             ]
         ]);
+
+
         if($result->success){
+            $property->update();
             $data = [
                 'success' => true,
                 'message'=>'Transazione eseguita con successo!',
@@ -71,5 +73,14 @@ class PaymentController extends Controller
             return compact('data');
         }
         return 'Make Payment';
+    }
+
+    public function update(Request $request, Property $property){
+        $form_data = $request->all();
+        $id = $form_data['property_id'];
+        $property =Property::find($id);
+        $property->is_sponsored = 1;
+        dd($property);
+        $property->update();
     }
 }
