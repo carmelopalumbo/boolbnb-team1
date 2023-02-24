@@ -23,7 +23,7 @@ class MessageController extends Controller
         return Inertia::render('Admin/Messages', compact('properties'));
     }
 
-    public function store(Request $request, Property $property)
+    public function store(Request $request)
     {
         sleep(1);
         //dd($request->all());
@@ -36,5 +36,15 @@ class MessageController extends Controller
         ]);
 
         return to_route('propertydetail', $message['property']['id']);
+    }
+
+    public function delete(Request $request)
+    {
+        $delete_data = $request->all();
+        $message = Message::where('id', $delete_data['id'])->first();
+
+        $message->delete();
+
+        return to_route('mymessages');
     }
 }
