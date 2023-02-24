@@ -1,16 +1,13 @@
 <script>
-import Header from "./Partials/Header.vue";
 import Footer from "./Partials/Footer.vue";
 
 export default {
     name: "PropertyDetail",
 
-    components: { Header, Footer },
+    components: { Footer },
 
     props: {
         property: Object,
-        canLogin: Boolean,
-        canRegister: Boolean,
      },
 
     data() {
@@ -38,24 +35,26 @@ export default {
 </script>
 
 <template>
-    <!-- <header class="flex justify-center header-top-fix mx-auto w-5/6 mt-4">
-        <img
-            class="max-h-10 object-scale-down"
-            src="../../../../public/Logo_V2.png"
-            alt="Logo Boolbnb"
-        />
-    </header> -->
+    <section class="header-top-fix">
+        <nav class="px-2 sm:px-4 py-4 ">
+            <div class="mx-auto flex justify-center">
+                <img
+                    class="max-h-20 object-scale-down"
+                    src="../../../../public/Logo_V2.png"
+                    alt="Logo Boolbnb"
+                />
+            </div>
+        </nav>
+    </section>
 
-    <Header :canLogin="canLogin" :canRegister="canRegister"/>
-
-    <div class="ofc">
+    <div class="ofc mt-20">
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div class="text-center w-2/4 mx-8">
-                    <h1 class="text-2xl">
+                    <h1 class="text-5xl text-[#4d1635]">
                         {{ property.name }}
                     </h1>
-                    <p>
+                    <p class="mt-2 text-xl">
                         {{ property.address }}
                     </p>
                 </div>
@@ -64,8 +63,8 @@ export default {
             <div class="relative m-5">
                 <img
                     class="mx-auto mb-3 rounded-md "
-                    width="300"
-                    height="300"
+                    width="600"
+                    height="600"
                     :src="
                         'http://[::1]:5173/storage/app/public/' +
                         property.cover_image
