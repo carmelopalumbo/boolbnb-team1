@@ -14,8 +14,8 @@ export default {
 <template>
     <section class="header-top-fix">
         <nav class="px-2 sm:px-4 py-2.5 ">
-            <div class="w-full flex">
-                <div class="flex justify-center mx-auto">
+            <div class="w-full flex justify-between">
+                <div class="flex">
                     <Link
                         href="/">
                         <img
@@ -27,7 +27,7 @@ export default {
                 </div>
 
 
-                <div v-if="canLogin" class="py-4 sm:block text-right flex justify-end">
+                <div v-if="canLogin" class="py-4 sm:block text-right flex">
                     <Link
                         v-if="$page.props.auth.user"
                         :href="route('properties.index')"
