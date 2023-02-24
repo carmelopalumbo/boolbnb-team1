@@ -9,11 +9,14 @@ import DropdownLink from "@/Components/DropdownLink.vue";
         <Navbar>
             <template #logo>
                 <!-- <NavbarLogo> -->
-                <img
+                <Link
+                href="/">
+                    <img
                     class="max-h-10 object-scale-down"
                     src="../../../../public/Logo_V2.png"
                     alt="Logo Boolbnb"
                 />
+                </Link>
                 <!-- </NavbarLogo> -->
             </template>
 
