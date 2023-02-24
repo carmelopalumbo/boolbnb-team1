@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][https://github.com/carmelopalumbo]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -117,16 +117,6 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 Project Link: [https://github.com/carmelopalumbo/boolbnb-team1](https://github.com/carmelopalumbo/boolbnb-team1)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
--   []()
--   []()
--   []()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
