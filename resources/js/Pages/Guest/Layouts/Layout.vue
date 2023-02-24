@@ -4,16 +4,14 @@ export default {
 
 };
 // import Nav from "@/Pages/Partials/Nav.vue";
-import Header from "../../Guest/Partials/Header.vue";
 import Footer from "../Partials/Footer.vue";
 </script>
 
 <template>
-    <Header />
-    <div class="ofc ">
+    <!-- <div class="ofc ">
     <slot  />
 
-    </div>
+    </div> -->
 
     <Footer/>
 </template>

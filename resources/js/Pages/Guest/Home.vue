@@ -2,12 +2,13 @@
 import { initDropdowns } from "flowbite";
 import PropertyCard from "../Partials/PropertyCard.vue";
 import Header from "./Partials/Header.vue";
+import Footer from "./Partials/Footer.vue";
 
 
 export default {
     name: "Home",
 
-    components: { PropertyCard, Header },
+    components: { PropertyCard, Header, Footer },
 
     data() {
         return {
@@ -236,6 +237,9 @@ export default {
             :property="property"
         />
     </div>
+
+    <Footer/>
 </template>
 
-<style></style>
+<style>
+</style>
