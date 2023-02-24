@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stat extends Model
 {
+    protected $fillable = ['ip_address', 'property_id'];
+
     use HasFactory;
 
-    public function property(){
+    public function property()
+    {
         return $this->belongsTo(Property::class);
     }
 }
