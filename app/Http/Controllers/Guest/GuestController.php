@@ -15,6 +15,7 @@ class GuestController extends Controller
 {
     public function index(Request $request)
     {
+        //dd($request->all());
         if (array_key_exists('radius', $request->all())) {
             $radius = $request['radius'];
         } else {
@@ -23,7 +24,7 @@ class GuestController extends Controller
 
         $services = Service::all();
         $query = Property::query()->with('services');
-        if ($request['search']) {
+        if (!empty($request['search'])) {
             $query->when($request->all(), function ($q, $request) use ($radius) {
                 $lat = $request['lat'];
                 $lon = $request['lon'];
@@ -47,7 +48,7 @@ class GuestController extends Controller
 
             $properties = $query->where('is_visible', true)->get();
         } else {
-            $properties = Property::where('is_visible', true)->get();
+            $properties = Property::where('is_sponsored', true)->get();
         }
 
         return Inertia::render('Guest/Home', [

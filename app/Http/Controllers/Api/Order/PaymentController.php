@@ -7,12 +7,14 @@ use App\Models\Property;
 use App\Models\Sponsor;
 use App\Rules\ValidSponsor;
 use Braintree\Gateway;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    public function generate(Request $request, Gateway $gateway){
+    public function generate(Request $request, Gateway $gateway)
+    {
 
         $clientToken = $gateway->clientToken()->generate([
             "customerId" => Auth::user(),
@@ -24,63 +26,49 @@ class PaymentController extends Controller
         ];
         return compact('clientToken');
     }
-    public function makePayment(Request $request,  Gateway $gateway, Property $property){
+    public function makePayment(Request $request,  Gateway $gateway, Property $property)
+    {
         $form_data = $request->all();
 
         $id = $form_data['property_id'];
         $sponsor = Sponsor::find($request->sponsor);
-        $property =Property::find($id);
+        $property = Property::find($id);
 
         $request->validate([
-            'token'=>'required',
-            'sponsor'=>[
+            'token' => 'required',
+            'sponsor' => [
                 'required',
                 new ValidSponsor(),
             ],
         ]);
-        $property->is_sponsored = 1;
 
         //qui generiamo il pagamento
         $result = $gateway->transaction()->sale([
-            'amount'=>$sponsor->price,
+            'amount' => $sponsor->price,
 
             //Genera il secondo token che inviera il frontend a questa chiamata per confermare la transazione
-            'paymentMethodNonce'=>$request->token,
+            'paymentMethodNonce' => $request->token,
 
-            'options'=>[
-                'submitForSettlement'=>true
+            'options' => [
+                'submitForSettlement' => true
             ]
         ]);
 
 
-        if($result->success){
-            $property->update();
-            $data = [
-                'success' => true,
-                'message'=>'Transazione eseguita con successo!',
-                'sponsorDetails'=>[
-                    'name'=>$sponsor->name,
-                    'price'=>$sponsor->price,
-                    'duration'=>$sponsor->duration,
-                ]
-            ];
-            return response()->json($data);
-        } else{
-            $data = [
-                'success' => false,
-                'message'=>'Transazione fallita!'
-            ];
-            return compact('data');
+        if ($result->success) {
+            $property->update([
+                'is_sponsored' => 1
+            ]);
+
+            $property->sponsors()->attach($sponsor->id, [
+                'start_date' => Carbon::now(),
+                'end_date' => Carbon::now()
+            ]);
+
+            return to_route('sponsors')->with('infoMessage', 'TRANSAZIONE ESEGUITA CON SUCCESSO!');
+        } else {
+            return to_route('sponsors')->with('infoMessage', 'TRANSAZIONE FALLITA, RIPROVA!');
         }
         return 'Make Payment';
-    }
-
-    public function update(Request $request, Property $property){
-        $form_data = $request->all();
-        $id = $form_data['property_id'];
-        $property =Property::find($id);
-        $property->is_sponsored = 1;
-        dd($property);
-        $property->update();
     }
 }
