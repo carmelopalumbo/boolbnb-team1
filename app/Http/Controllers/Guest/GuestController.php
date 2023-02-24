@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Stat;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Faker\Generator as Faker;
 
 class GuestController extends Controller
 {
@@ -57,9 +58,13 @@ class GuestController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($id, Faker $faker)
     {
         $property = Property::where('id', $id)->first();
+        Stat::create([
+            'ip_address' => $faker->ipv4(),
+            'property_id' => $property->id
+        ]);
         return Inertia::render('Guest/PropertyDetail', compact('property'));
     }
 }
