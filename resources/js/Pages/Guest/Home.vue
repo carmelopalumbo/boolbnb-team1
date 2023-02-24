@@ -2,6 +2,7 @@
 import { initDropdowns } from "flowbite";
 import PropertyCard from "../Partials/PropertyCard.vue";
 
+
 export default {
     name: "Home",
 
@@ -128,7 +129,7 @@ export default {
                 v-model="search"
                 placeholder="Cerca un indirizzo . . . "
             />
-            <div v-if="listAddress.length" class="listAddress">
+            <div v-if="listAddress.length && search.length" class="listAddress">
                 <p class="p-3" v-for="item in listAddress" :key="item">
                     <ul>
                         <li class="selectAddress cursor-pointer"
@@ -138,72 +139,79 @@ export default {
                     </ul>
                 </p>
             </div>
-            <form action="">
-                <div
-                    class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
-                    aria-labelledby="dropdownMenuIconButton"
-                >
-                <div class="w-1/2">
-                    <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <form action="">
+                    <div
+                        class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
+                        aria-labelledby="dropdownMenuIconButton"
+                    >
+                    <div class="w-1/2">
+                        <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
+                            <input
+                                v-model="beds"
+                                min="0"
+                                type="number"
+                                class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
+                                placeholder="numero letti"
+                            />
+
+                    </div>
+
+                    <div class="w-1/2">
+                        <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° stanze</label>
+
                         <input
-                            v-model="beds"
+                            v-model="rooms"
                             min="0"
                             type="number"
                             class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
-                            placeholder="numero letti"
+                            placeholder="numero stanze"
                         />
-
-                </div>
-
-                <div class="w-1/2">
-                    <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° bagni</label>
-
-                    <input
-                        v-model="rooms"
-                        min="0"
-                        type="number"
-                        class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
-                        placeholder="numero stanze"
-                    />
-                </div>
-
-                </div>
-            </form>
-
-            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
-            <ul
-                class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase mx-1"
-            >
-                <li
-                    v-for="service in services"
-                    :key="service.id"
-                    class="w-full mb-2 px-2 place-self-center"
-                >
-                    <div class="flex items-center">
-                        <input
-                            v-model="filterServices"
-                            :id="service.id"
-                            type="checkbox"
-                            :value="service.id"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
-                        />
-                        <label
-                            :for="service.id"
-                            class="ml-2 text-sm font-medium text-gray-900"
-                            >{{ service.name }}</label
-                        >
                     </div>
-                </li>
-            </ul>
-            <div class="mt-2">
-                <label for="radius" class="block my-2 text-sm font-medium text-gray-900 dark:text-white">Raggio</label>
-                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white">
-                    <option selected>Scegli un raggio</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                </select>
+
+                    </div>
+                </form>
+
+                <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
+                <ul
+                    class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase mx-1"
+                >
+                    <li
+                        v-for="service in services"
+                        :key="service.id"
+                        class="w-full mb-2 px-2 place-self-center"
+                    >
+                        <div class="flex items-center">
+                            <input
+                                v-model="filterServices"
+                                :id="service.id"
+                                type="checkbox"
+                                :value="service.id"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                            />
+                            <label
+                                :for="service.id"
+                                class="ml-2 text-sm font-medium text-gray-900"
+                                >{{ service.name }}</label
+                            >
+                        </div>
+                    </li>
+                </ul>
+                <div class="">
+                    <label for="radius" class="block my-2 text-sm font-medium text-gray-900">Raggio</label>
+                    <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option selected>Scegli un raggio</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                    </select>
+
+                </div>
 
             </div>
             <button
