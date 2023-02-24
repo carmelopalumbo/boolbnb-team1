@@ -61,7 +61,7 @@ class GuestController extends Controller
 
     public function show($id, Faker $faker)
     {
-        $property = Property::where('id', $id)->first();
+        $property = Property::where('id', $id)->with('services')->first();
         Stat::create([
             'ip_address' => $faker->ipv4(),
             'property_id' => $property->id

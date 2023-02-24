@@ -9,12 +9,12 @@ export default {
 
     props: {
         property: Object,
+        services: Object,
      },
 
     data() {
         return {
             message: {
-                object: "",
                 email: "",
                 content: "",
             },
@@ -107,13 +107,13 @@ export default {
                         <h2 class="font-bold mb-3">
                             Descrizione:
                         </h2>
-                        <p>Qui ci va la description</p>
+                        <p>{{ property.description }}</p>
                     </div>
                     <div class="m-5 w-2/3 p-3">
                         <h2 class="font-bold mb-3">
                             Servizi disponibili nell'appartamento:
                         </h2>
-                        <p>qui vanno i servizi</p>
+                        <p v-for="service in property.services" :key="service.id" class="uppercase">{{ service.name }}</p>
                     </div>
                 </div>
 
@@ -151,7 +151,8 @@ export default {
 
                     <button
                         @click.prevent="submit"
-                        class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                        :disabled="!message.content"
+                        class="text-white sm:w-auto px-5 py-2.5 mt-6 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
                     >
                         Invia
                     </button>

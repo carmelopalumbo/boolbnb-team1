@@ -211,6 +211,25 @@ export default {
         />
     </div>
 
+    <div
+    v-if="properties.links.length >= 3"
+    class="my-8 flex justify-center text-white text-lg font-bold space-x-6"
+        >
+            <Component
+                :is="link.url ? 'Link' : 'span'"
+                v-for="link in properties.links"
+                :key="link.id"
+                :href="link.url"
+                v-html="link.label"
+                :class="{
+                    'text-gray-400': !link.url,
+                    'border border-1 rounded-xl px-3 border-[#4d1635] bg-[#4d1635] ':
+                        link.active,
+                }"
+            >
+            </Component>
+        </div>
+
     <Footer/>
 </template>
 
