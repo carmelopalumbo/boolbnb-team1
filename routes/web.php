@@ -21,7 +21,10 @@ use Inertia\Inertia;
 |
 */
 
+
 Route::get('/', [GuestController::class, 'index']);
+
+Route::get('/property/detail/{id}', [GuestController::class, 'show'])->name('propertydetail');
 
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
@@ -30,7 +33,11 @@ Route::middleware(['auth', 'verified'])
         Route::get('messages', [MessageController::class, 'index']);
         Route::get('sponsors', [SponsorController::class, 'index'])->name('sponsors');
         Route::get('stats', [StatController::class, 'index']);
+        Route::get('mymessages', [MessageController::class, 'index'])->name('mymessages');
+        Route::delete('mymessages/delete', [MessageController::class, 'delete'])->name('mymessages.delete');
     });
+
+Route::post('messages', [MessageController::class, 'store'])->name('messages');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

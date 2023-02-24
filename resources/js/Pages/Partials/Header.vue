@@ -9,11 +9,14 @@ import DropdownLink from "@/Components/DropdownLink.vue";
         <Navbar>
             <template #logo>
                 <!-- <NavbarLogo> -->
-                <img
+                <Link
+                href="/">
+                    <img
                     class="max-h-10 object-scale-down"
                     src="../../../../public/Logo_V2.png"
                     alt="Logo Boolbnb"
                 />
+                </Link>
                 <!-- </NavbarLogo> -->
             </template>
 
@@ -34,7 +37,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                     </NavbarLink>
                     <NavbarLink className="text-sm text-center py-2"
                         ><Link
-                            href="/admin/messages"
+                            :href="route('mymessages')"
                             :class="{ active: $page.url === '/admin/messages' }"
                             class="align-middle transition delay-150 hover:text-[#4d1635]"
                             ><i class="fa-solid fa-message mr-1"></i

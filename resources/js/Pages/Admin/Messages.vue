@@ -5,6 +5,17 @@ import { Link } from "@inertiajs/vue3";
 export default {
     name: "Messages",
     layout: Layout,
+    props: {properties: Object},
+
+    methods: {
+        deleteMessage(message) {
+            if (confirm("Confermi eliminazione?"))
+                this.$inertia.delete(route("mymessages.delete", message));
+        },
+    },
+    mounted(){
+        console.log(this.properties);
+    }
 };
 </script>
 
@@ -13,9 +24,35 @@ export default {
     <div class="flex justify-center mx-auto">
         <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
-                <h1 class="text-center font-bold text-2xl py-6 uppercase">
-                    I miei messaggi
-                </h1>
+                <h3 class="text-center font-bold text-2xl py-6 uppercase">
+                    messaggi ricevuti
+                </h3>
+
+                <div>
+
+                    <div v-for="property in properties" :key="property.id">
+
+                        <div v-if="property.messages.length" class="my-10">
+                            <h5 v-if="property.messages.length">Messaggi ricevuti per {{property.name}}</h5>
+
+                            <div v-for="message in property.messages" :key="message.id"
+                            class="flex space-x-6">
+                                <p>EMAIL: {{message.email}}</p>
+                                <p>MESSAGGIO: {{message.content}}</p>
+                                <button
+                                class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg"
+                                @click="deleteMessage(message)"
+                            >
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
