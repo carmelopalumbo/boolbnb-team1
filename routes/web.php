@@ -30,7 +30,8 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::resource('properties', PropertyController::class);
-        Route::get('sponsors', [SponsorController::class, 'index']);
+        Route::get('messages', [MessageController::class, 'index']);
+        Route::get('sponsors', [SponsorController::class, 'index'])->name('sponsors');
         Route::get('stats', [StatController::class, 'index']);
         Route::get('mymessages', [MessageController::class, 'index'])->name('mymessages');
         Route::delete('mymessages/delete', [MessageController::class, 'delete'])->name('mymessages.delete');
