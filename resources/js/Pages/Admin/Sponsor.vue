@@ -17,8 +17,8 @@ export default {
   data() {
       return {
         sponsBought: 1,
-        sponsName: 'bronze'
-
+        sponsName: 'bronze',
+        showType: true
     };
   },
 
@@ -55,6 +55,7 @@ export default {
 
         })
         .then((dropinInstance) => {
+             this.showType = false;
             console.log("entrati in dropinstance");
           form.addEventListener("submit", (event) => {
               event.preventDefault();
@@ -97,7 +98,7 @@ export default {
         <h1 class="text-center font-bold text-2xl py-6 uppercase">
           BENVENUTO IN BOOST
         </h1>
-        <p>
+        <p class="w-1/2 text-center m-auto">
           In questa sezione hai la possibilitá di mettere in risalto la tua
           proprietá. Abbiamo messo a disposizione per te tre pacchetti.
           Acquistando uno di questi otterrai un badge e la tua proprietá sará in
@@ -106,45 +107,49 @@ export default {
         </p>
       </div>
 
-      <div class="flex container my-10 border border-2 p-5 rounded-lg" v-for="property in properties" :key="property.id">
-      <form class="flex space-x-5"
+      <div class="flex container my-20 border-2 p-10 rounded-lg" v-for="property in properties" :key="property.id">
+      <form class="flex justify-between w-full"
         id="payment-form"
         action="/api/payment/make/payment"
         method="post"
         @submit.prevent="submit"
       >
-        <label for="property_id"> {{property.name}} </label>
-        <input type="hidden" name="property_id" id="property_id" :value="property.id">
-        <button :id="'dropdownHoverButton-' + property.id" :data-dropdown-toggle="'dropdownHover-' + property.id" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">SCEGLI BOOST <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div :id="'dropdownHover-' + property.id" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-            <li v-for="sponsor in sponsors" :key="sponsor.id">
-                <p @click="sponsorsValue(sponsor.id, sponsor.name)" class="uppercase py-3 text-center cursor-pointer font-bold">{{sponsor.name}}</p>
-            </li>
-            </ul>
+        <span class="uppercase font-bold text-xl">{{property.name}}</span>
+
+        <div class="flex space-x-4">
+            <input type="hidden" name="property_id" id="property_id" :value="property.id">
+            <button v-if="showType" :id="'dropdownHoverButton-' + property.id" :data-dropdown-toggle="'dropdownHover-' + property.id" data-dropdown-trigger="hover" class="text-white bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">SCEGLI BOOST <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <!-- Dropdown menu -->
+            <div :id="'dropdownHover-' + property.id" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                <li class="hover:bg-gray-100" v-for="sponsor in sponsors" :key="sponsor.id">
+                    <p @click="sponsorsValue(sponsor.id, sponsor.name)" class="uppercase py-3 text-center cursor-pointer font-bold text-[#4d1635]">{{sponsor.name}}</p>
+                </li>
+                </ul>
+            </div>
+
+
+            <input type="hidden" name="sponsor" id="sponsor" :value="sponsBought">
+            <input type="hidden" name="token" id="token" value="fake-valid-nonce">
+            <div id="dropin-wrapper">
+            <div id="checkout-message"></div>
+            <div id="dropin-container"></div>
+
+            <button
+                class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase"
+                id="submit-button"
+                @click="getPayment(property)"
+            >
+                paga {{sponsName}}
+            </button>
+
+            <input type="hidden" id="nonce" name="payment_method_nonce"  />
+
+            </div>
         </div>
 
 
-        <input type="hidden" name="sponsor" id="sponsor" :value="sponsBought">
-        <input type="hidden" name="token" id="token" value="fake-valid-nonce">
 
-
-        <div id="dropin-wrapper">
-          <div id="checkout-message"></div>
-          <div id="dropin-container"></div>
-
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded uppercase"
-            id="submit-button"
-            @click="getPayment(property)"
-          >
-            paga {{sponsName}}
-          </button>
-
-          <input type="hidden" id="nonce" name="payment_method_nonce"  />
-
-        </div>
       </form>
     </div>
 
