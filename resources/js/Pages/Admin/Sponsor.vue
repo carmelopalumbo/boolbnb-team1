@@ -92,14 +92,26 @@ export default {
         <h1 class="text-center font-bold text-2xl py-6 uppercase">
           BENVENUTO IN BOOST
         </h1>
-        <p class="w-1/2 text-center m-auto">
+      </div>
+
+      <div class="flex justify-between container py-6">
+            <p class="w-1/2 text-center">
           In questa sezione hai la possibilitá di mettere in risalto la tua
           proprietá. Abbiamo messo a disposizione per te tre pacchetti.
           Acquistando uno di questi otterrai un badge e la tua proprietá sará in
           cima alle ricerche degli utenti! Scegli il pacchetto che preferisci e
           procedi con il pagamento.
         </p>
-      </div>
+        <button v-if="showType" id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-white bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">SCEGLI BOOST <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                <li class="hover:bg-gray-100" v-for="sponsor in sponsors" :key="sponsor.id">
+                    <p @click="sponsorsValue(sponsor.id, sponsor.name)" class="uppercase py-3 text-center cursor-pointer font-bold text-[#4d1635]">{{sponsor.name}}</p>
+                </li>
+                </ul>
+            </div>
+        </div>
 
       <div class="flex container my-20 border-2 p-10 rounded-lg" v-for="property in properties" :key="property.id">
       <form class="flex justify-between w-full"
@@ -112,16 +124,6 @@ export default {
 
         <div class="flex space-x-4">
             <input type="hidden" name="property_id" id="property_id" :value="property.id">
-            <button v-if="showType" :id="'dropdownHoverButton-' + property.id" :data-dropdown-toggle="'dropdownHover-' + property.id" data-dropdown-trigger="hover" class="text-white bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">SCEGLI BOOST <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-            <!-- Dropdown menu -->
-            <div :id="'dropdownHover-' + property.id" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                <li class="hover:bg-gray-100" v-for="sponsor in sponsors" :key="sponsor.id">
-                    <p @click="sponsorsValue(sponsor.id, sponsor.name)" class="uppercase py-3 text-center cursor-pointer font-bold text-[#4d1635]">{{sponsor.name}}</p>
-                </li>
-                </ul>
-            </div>
-
 
             <input type="hidden" name="sponsor" id="sponsor" :value="sponsBought">
             <input type="hidden" name="token" id="token" value="fake-valid-nonce">
