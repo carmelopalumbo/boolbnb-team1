@@ -18,15 +18,9 @@ export default {
       return {
         sponsBought: 1,
         sponsName: 'bronze',
-        showType: true
+        showType: true,
+        isLoading: false
     };
-  },
-
-  watch: {
-    sponsBought: function(){
-        console.log(this.sponsBought);
-        console.log(this.sponsName);
-    }
   },
 
   methods: {
@@ -42,8 +36,8 @@ export default {
           this.tokenApi = res.data.clientToken;
         });
     },
-    getPayment() {
-      const form = document.getElementById("payment-form");
+    getPayment(id) {
+      const form = document.getElementById('payment-form-' + id);
 
       braintree.dropin
         .create({
@@ -51,7 +45,7 @@ export default {
           // Step three: get client token from your server, such as via
           //    templates or async http request
           authorization: this.tokenApi,
-          container: "#dropin-container",
+          container: "#dropin-container-" + id,
 
         })
         .then((dropinInstance) => {
@@ -64,9 +58,9 @@ export default {
             dropinInstance
               .requestPaymentMethod()
               .then((payload) => {
-                  console.log("DENTRO METODO PAYMENT");
-
-                document.getElementById('nonce').value = payload.nonce;
+                console.log("DENTRO METODO PAYMENT");
+                this.isLoading = true;
+                document.getElementById('nonce-' + id).value = payload.nonce;
                 form.submit();
               })
               .catch((error) => {
@@ -109,7 +103,7 @@ export default {
 
       <div class="flex container my-20 border-2 p-10 rounded-lg" v-for="property in properties" :key="property.id">
       <form class="flex justify-between w-full"
-        id="payment-form"
+        :id="'payment-form-' + property.id"
         action="/api/payment/make/payment"
         method="post"
         @submit.prevent="submit"
@@ -131,19 +125,21 @@ export default {
 
             <input type="hidden" name="sponsor" id="sponsor" :value="sponsBought">
             <input type="hidden" name="token" id="token" value="fake-valid-nonce">
-            <div id="dropin-wrapper">
-            <div id="checkout-message"></div>
-            <div id="dropin-container"></div>
+
+            <div :id="'dropin-wrapper-' + property.id">
+            <div :id="'checkout-message-' + property.id"></div>
+            <div :id="'dropin-container-' + property.id"></div>
 
             <button
                 class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase"
-                id="submit-button"
-                @click="getPayment(property)"
+                :id="'submit-button-' + property.id"
+                :disabled="isLoading"
+                @click="getPayment(property.id)"
             >
                 paga {{sponsName}}
             </button>
 
-            <input type="hidden" id="nonce" name="payment_method_nonce"  />
+            <input type="hidden" :id="'nonce-' + property.id" name="payment_method_nonce"  />
 
             </div>
         </div>
