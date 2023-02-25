@@ -26,6 +26,10 @@ Route::get('/', [GuestController::class, 'index']);
 
 Route::get('/property/detail/{id}', [GuestController::class, 'show'])->name('propertydetail');
 
+Route::get('/about-us', function () {
+    return Inertia::render('Guest/About');
+})->name('about-us');
+
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
