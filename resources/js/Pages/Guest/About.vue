@@ -11,8 +11,23 @@ export default {
 
 <template>
     <Header />
-    <h1>ABOUT US</h1>
+        <main class="ofc">
+
+            <div class="container mx-auto w-5/6 rounded-md border-[#4d1635]">
+                <h1>ABOUT US</h1>
+            </div>
+
+        </main>
+
     <Footer />
 </template>
 
-<style></style>
+<style>
+
+.ofc{
+    height: calc(100vh - 195px);
+    overflow-y: scroll;
+    /* margin-bottom: 20px; */
+}
+
+</style>
