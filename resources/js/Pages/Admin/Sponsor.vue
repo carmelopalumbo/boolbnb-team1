@@ -1,6 +1,7 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
 import { Link, router, useForm } from "@inertiajs/vue3";
+import { initDropdowns } from 'flowbite'
 import axios from "axios";
 
 
@@ -15,11 +16,19 @@ export default {
 
   data() {
       return {
-        sponsBought: this.sponsors[1].id,
-
+        sponsBought: 1,
+        sponsName: 'bronze',
+        showType: true,
+        isLoading: false
     };
   },
+
   methods: {
+    sponsorsValue(id, name){
+        this.sponsBought = id;
+        this.sponsName = name;
+    },
+
     async generateToken() {
       const response = await axios
         .get("http://127.0.0.1:8000/api/payment/generate")
@@ -27,8 +36,8 @@ export default {
           this.tokenApi = res.data.clientToken;
         });
     },
-    getPayment() {
-      const form = document.getElementById("payment-form");
+    getPayment(id) {
+      const form = document.getElementById('payment-form-' + id);
 
       braintree.dropin
         .create({
@@ -36,10 +45,11 @@ export default {
           // Step three: get client token from your server, such as via
           //    templates or async http request
           authorization: this.tokenApi,
-          container: "#dropin-container",
+          container: "#dropin-container-" + id,
 
         })
         .then((dropinInstance) => {
+             this.showType = false;
             console.log("entrati in dropinstance");
           form.addEventListener("submit", (event) => {
               event.preventDefault();
@@ -48,9 +58,9 @@ export default {
             dropinInstance
               .requestPaymentMethod()
               .then((payload) => {
-                  console.log("DENTRO METODO PAYMENT");
-
-                document.getElementById('nonce').value = payload.nonce;
+                console.log("DENTRO METODO PAYMENT");
+                this.isLoading = true;
+                document.getElementById('nonce-' + id).value = payload.nonce;
                 form.submit();
               })
               .catch((error) => {
@@ -67,6 +77,7 @@ export default {
   },
   mounted() {
     this.generateToken();
+    initDropdowns();
   },
 };
 </script>
@@ -81,47 +92,62 @@ export default {
         <h1 class="text-center font-bold text-2xl py-6 uppercase">
           BENVENUTO IN BOOST
         </h1>
-        <p>
+      </div>
+
+      <div class="flex justify-between container py-6">
+            <p class="w-1/2 text-center">
           In questa sezione hai la possibilitá di mettere in risalto la tua
           proprietá. Abbiamo messo a disposizione per te tre pacchetti.
           Acquistando uno di questi otterrai un badge e la tua proprietá sará in
           cima alle ricerche degli utenti! Scegli il pacchetto che preferisci e
           procedi con il pagamento.
         </p>
-      </div>
+        <button v-if="showType" id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-white bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">SCEGLI BOOST <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                <li class="hover:bg-gray-100" v-for="sponsor in sponsors" :key="sponsor.id">
+                    <p @click="sponsorsValue(sponsor.id, sponsor.name)" class="uppercase py-3 text-center cursor-pointer font-bold text-[#4d1635]">{{sponsor.name}}</p>
+                </li>
+                </ul>
+            </div>
+        </div>
 
-      <div class="flex container my-10" v-for="property in properties" :key="property.id">
-      <form class="flex space-x-5"
-        id="payment-form"
+      <div class="flex container my-20 border-2 p-10 rounded-lg" v-for="property in properties" :key="property.id">
+      <form class="flex justify-between w-full"
+        :id="'payment-form-' + property.id"
         action="/api/payment/make/payment"
         method="post"
         @submit.prevent="submit"
       >
-        <label for="property_id"> {{property.name}} </label>
-        <input type="hidden" name="property_id" id="property_id" :value="property.id">
+        <span class="uppercase font-bold text-xl">{{property.name}}</span>
 
-        <label for="sponsor">mado prendilo</label>
-        <input type="text" name="sponsor" id="sponsor" :value="sponsBought">
+        <div class="flex space-x-4">
+            <input type="hidden" name="property_id" id="property_id" :value="property.id">
 
-        <label for="token">Token</label>
-        <input type="hidden" name="token" id="token" value="fake-valid-nonce">
+            <input type="hidden" name="sponsor" id="sponsor" :value="sponsBought">
+            <input type="hidden" name="token" id="token" value="fake-valid-nonce">
 
+            <div :id="'dropin-wrapper-' + property.id">
+            <div :id="'checkout-message-' + property.id"></div>
+            <div :id="'dropin-container-' + property.id"></div>
 
-        <div id="dropin-wrapper">
-          <div id="checkout-message"></div>
-          <div id="dropin-container"></div>
+            <button
+                class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase"
+                :id="'submit-button-' + property.id"
+                :disabled="isLoading"
+                @click="getPayment(property.id)"
+            >
+                paga {{sponsName}}
+            </button>
 
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            id="submit-button"
-            @click="getPayment(property)"
-          >
-            Submit payment
-          </button>
+            <input type="hidden" :id="'nonce-' + property.id" name="payment_method_nonce"  />
 
-          <input type="hidden" id="nonce" name="payment_method_nonce"  />
-
+            </div>
         </div>
+
+
+
       </form>
     </div>
 

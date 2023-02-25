@@ -15,7 +15,6 @@ class PaymentController extends Controller
 {
     public function generate(Request $request, Gateway $gateway)
     {
-
         $clientToken = $gateway->clientToken()->generate([
             "customerId" => Auth::user(),
         ]); //questo genera il primo token richiesto a BT Services
@@ -28,8 +27,9 @@ class PaymentController extends Controller
     }
     public function makePayment(Request $request,  Gateway $gateway, Property $property)
     {
-        $form_data = $request->all();
 
+        $form_data = $request->all();
+        //dd($form_data);
         $id = $form_data['property_id'];
         $sponsor = Sponsor::find($request->sponsor);
         $property = Property::find($id);
