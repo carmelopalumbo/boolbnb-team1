@@ -13,8 +13,23 @@ export default {
     <Header />
         <main class="ofc">
 
-            <div class="container mx-auto w-5/6 rounded-md border-[#4d1635]">
-                <h1>ABOUT US</h1>
+            <div class="mx-auto h-5/6 w-5/6 mt-3 flex justify-between ">
+                <div class="w-1/5 mx-2 rounded-md border-[#4d1635] border-2">
+
+                </div>
+                <div class="w-1/5 mx-2 rounded-md border-[#4d1635] border-2">
+                    <h1>ciao</h1>
+                </div>
+                <div class="w-1/5 mx-2 rounded-md border-[#4d1635] border-2">
+                    <h1>ciao</h1>
+                </div>
+                <div class="w-1/5 mx-2 rounded-md border-[#4d1635] border-2">
+                    <h1>ciao</h1>
+                </div>
+                <div class="w-1/5 mx-2 rounded-md border-[#4d1635] border-2">
+                    <h1>ciao</h1>
+                </div>
+
             </div>
 
         </main>
