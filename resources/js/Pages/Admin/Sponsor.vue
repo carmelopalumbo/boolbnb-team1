@@ -1,6 +1,7 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
 import { Link, router, useForm } from "@inertiajs/vue3";
+import { initDropdowns } from 'flowbite'
 import axios from "axios";
 
 
@@ -15,11 +16,25 @@ export default {
 
   data() {
       return {
-        sponsBought: this.sponsors[1].id,
+        sponsBought: 1,
+        sponsName: 'bronze'
 
     };
   },
+
+  watch: {
+    sponsBought: function(){
+        console.log(this.sponsBought);
+        console.log(this.sponsName);
+    }
+  },
+
   methods: {
+    sponsorsValue(id, name){
+        this.sponsBought = id;
+        this.sponsName = name;
+    },
+
     async generateToken() {
       const response = await axios
         .get("http://127.0.0.1:8000/api/payment/generate")
@@ -67,6 +82,7 @@ export default {
   },
   mounted() {
     this.generateToken();
+    initDropdowns();
   },
 };
 </script>
@@ -90,7 +106,7 @@ export default {
         </p>
       </div>
 
-      <div class="flex container my-10" v-for="property in properties" :key="property.id">
+      <div class="flex container my-10 border border-2 p-5 rounded-lg" v-for="property in properties" :key="property.id">
       <form class="flex space-x-5"
         id="payment-form"
         action="/api/payment/make/payment"
@@ -99,11 +115,18 @@ export default {
       >
         <label for="property_id"> {{property.name}} </label>
         <input type="hidden" name="property_id" id="property_id" :value="property.id">
+        <button :id="'dropdownHoverButton-' + property.id" :data-dropdown-toggle="'dropdownHover-' + property.id" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">SCEGLI BOOST <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <!-- Dropdown menu -->
+        <div :id="'dropdownHover-' + property.id" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+            <li v-for="sponsor in sponsors" :key="sponsor.id">
+                <p @click="sponsorsValue(sponsor.id, sponsor.name)" class="uppercase py-3 text-center cursor-pointer font-bold">{{sponsor.name}}</p>
+            </li>
+            </ul>
+        </div>
 
-        <label for="sponsor">mado prendilo</label>
-        <input type="text" name="sponsor" id="sponsor" :value="sponsBought">
 
-        <label for="token">Token</label>
+        <input type="hidden" name="sponsor" id="sponsor" :value="sponsBought">
         <input type="hidden" name="token" id="token" value="fake-valid-nonce">
 
 
@@ -112,11 +135,11 @@ export default {
           <div id="dropin-container"></div>
 
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded uppercase"
             id="submit-button"
             @click="getPayment(property)"
           >
-            Submit payment
+            paga {{sponsName}}
           </button>
 
           <input type="hidden" id="nonce" name="payment_method_nonce"  />
