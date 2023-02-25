@@ -86,7 +86,11 @@ export default {
 
             </div>
 
+            <div class="mx-auto  w-5/6 mt-7 rounded-md border-[#4d1635] border-2">
 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum itaque molestiae tempore beatae dolore! Ut excepturi rem autem, repellat consequuntur quia, illo at illum inventore architecto molestias! Totam doloremque architecto unde eveniet dolore incidunt explicabo hic libero, id quidem. Alias sequi odio quam similique fuga reprehenderit quibusdam debitis culpa vitae maxime fugit amet odit praesentium, accusamus enim officiis non aperiam rem at repellendus? Qui cum quod, ipsam incidunt at facilis, delectus nobis recusandae quis aspernatur dolorum fugit tempore iure maiores voluptatem repudiandae dolores totam saepe voluptatibus, voluptates earum molestias. Quisquam obcaecati quia quae tempora tempore atque minus asperiores veniam, architecto laboriosam aliquid laudantium aliquam voluptate facilis in optio eius eos rem? Esse eligendi animi officiis facere dolores suscipit. Praesentium distinctio consectetur itaque? Consequuntur laborum, a numquam vero delectus voluptatem soluta! Accusamus soluta exercitationem odio quidem perferendis recusandae perspiciatis itaque, nam quos facilis porro accusantium nemo modi excepturi quam molestiae quod sit deleniti at eaque! Eligendi enim, reiciendis dolor aperiam suscipit alias totam dolorum, cupiditate amet temporibus explicabo placeat voluptas vero eveniet hic, deserunt eum deleniti facilis ratione mollitia porro et. Quibusdam laboriosam provident perspiciatis perferendis numquam a! Sapiente, optio exercitationem nemo laudantium voluptatum fuga neque nostrum, nesciunt, eos fugiat veritatis.</p>
+
+            </div>
 
         </main>
 
