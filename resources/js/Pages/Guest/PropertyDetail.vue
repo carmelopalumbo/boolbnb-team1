@@ -1,6 +1,6 @@
 <script>
 import Footer from "./Partials/Footer.vue";
-import tt from "@tomtom-international/web-sdk-maps"
+import tt from "@tomtom-international/web-sdk-maps";
 
 export default {
     name: "PropertyDetail",
@@ -10,7 +10,7 @@ export default {
     props: {
         property: Object,
         services: Object,
-     },
+    },
 
     data() {
         return {
@@ -31,36 +31,37 @@ export default {
             });
             this.isSend = true;
         },
-        initMap(){
-
-            const center = new tt.LngLat(parseFloat(this.property.longitude), parseFloat(this.property.latitude));
+        initMap() {
+            const center = new tt.LngLat(
+                parseFloat(this.property.longitude),
+                parseFloat(this.property.latitude)
+            );
             const map = tt.map({
                 key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
-            container: "map",
-            center: center,
-            zoom: 18,
-      });
-      map.addControl(new tt.FullscreenControl());
-        map.addControl(new tt.NavigationControl());
-        }
+                container: "map",
+                center: center,
+                zoom: 18,
+            });
+            map.addControl(new tt.FullscreenControl());
+            map.addControl(new tt.NavigationControl());
+        },
     },
-    mounted(){
+    mounted() {
         this.initMap();
         console.log(this.property);
-    }
+    },
 };
 </script>
 
 <template>
     <section class="header-top-fix">
-        <nav class="px-2 sm:px-4 py-4 ">
+        <nav class="px-2 sm:px-4 py-4">
             <div class="mx-auto flex justify-center">
-                <Link
-                    href="/">
+                <Link href="/">
                     <img
-                    class="max-h-20 object-scale-down"
-                    src="../../../../public/Logo_V2.png"
-                    alt="Logo Boolbnb"
+                        class="max-h-20 object-scale-down"
+                        src="../../../../public/Logo_V2.png"
+                        alt="Logo Boolbnb"
                     />
                 </Link>
             </div>
@@ -82,7 +83,7 @@ export default {
 
             <div class="relative m-5">
                 <img
-                    class="mx-auto mb-3 rounded-md "
+                    class="mx-auto mb-3 rounded-md"
                     width="600"
                     height="600"
                     :src="
@@ -110,7 +111,7 @@ export default {
                 </div>
             </div> -->
 
-            <div class="flex justify-between flex-col md:flex-row ">
+            <div class="flex justify-between flex-col md:flex-row">
                 <div class="flex flex-col w-1/2 sm:mx-auto">
                     <div class="m-5 w-2/3 p-3">
                         <h4>Misure: {{ property.size }}</h4>
@@ -120,16 +121,20 @@ export default {
                         <p>Prezzo: {{ property.price }} €</p>
                     </div>
                     <div class="m-5 w-2/3 p-3">
-                        <h2 class="font-bold mb-3">
-                            Descrizione:
-                        </h2>
+                        <h2 class="font-bold mb-3">Descrizione:</h2>
                         <p>{{ property.description }}</p>
                     </div>
                     <div class="m-5 w-2/3 p-3">
                         <h2 class="font-bold mb-3">
                             Servizi disponibili nell'appartamento:
                         </h2>
-                        <p v-for="service in property.services" :key="service.id" class="uppercase">{{ service.name }}</p>
+                        <p
+                            v-for="service in property.services"
+                            :key="service.id"
+                            class="uppercase"
+                        >
+                            {{ service.name }}
+                        </p>
                     </div>
                 </div>
 
@@ -175,22 +180,26 @@ export default {
                 </form>
 
                 <div v-else class="flex">
-                    <h4 class="uppercase text-[#4d1635] self-center font-bold text-2xl text-center">Messaggio inviato <br> Il proprietario ti risponderà il prima possibile.</h4>
+                    <h4
+                        class="uppercase text-[#4d1635] self-center font-bold text-2xl text-center"
+                    >
+                        Messaggio inviato <br />
+                        Il proprietario ti risponderà il prima possibile.
+                    </h4>
                 </div>
             </div>
-    <div class="flex justify-center m-10 border-[#4d1635] border-2 p-6 rounded-xl">
-    <div id="map"></div>
-    </div>
+            <div
+                class="flex justify-center m-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
+            >
+                <div id="map"></div>
+            </div>
         </main>
     </div>
-    <Footer/>
-
-
-
+    <Footer />
 </template>
 
 <style>
-#map{
+#map {
     height: 800px;
     width: 100%;
 }
