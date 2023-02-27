@@ -1,6 +1,5 @@
 <script>
-import { initDropdowns } from "flowbite";
-import { initAccordions } from "flowbite";
+import { initModals } from 'flowbite'
 import PropertyCard from "../Partials/PropertyCard.vue";
 import Header from "./Partials/Header.vue";
 import Footer from "./Partials/Footer.vue";
@@ -9,7 +8,7 @@ import Footer from "./Partials/Footer.vue";
 export default {
     name: "Home",
 
-    components: { PropertyCard, Header, Footer, Accordion },
+    components: { PropertyCard, Header, Footer },
 
     data() {
         return {
@@ -91,8 +90,7 @@ export default {
     mounted() {
         console.log(this.properties);
         // console.log(this.services);
-        // initDropdowns();
-        initAccordions();
+        initModals();
     },
 };
 </script>
@@ -102,7 +100,7 @@ export default {
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
     <div class="flex justify-center mt-6">
-        <div class="flex flex-col mb-4">
+        <div class="flex flex-col mb-4 w-96">
             <input
                 @keyup="debounced"
                 type="text"
@@ -120,76 +118,99 @@ export default {
                     </ul>
                 </p>
             </div>
-            <div>
-                <label for="radius" class="block my-2 text-sm font-medium text-gray-900">Raggio di</label>
-                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="5">5km</option>
-                    <option value="10">10km</option>
-                    <option value="20" selected>20km</option>
-                    <option value="30">30km</option>
-                    <option value="40">40km</option>
-                </select>
-            </div>
 
-            <div class="block w-auto">
-                <form action="">
-                    <div
-                        class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
-                        aria-labelledby="dropdownMenuIconButton"
-                    >
-                        <div class="w-1/2">
-                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
-                                <input
-                                    v-model="beds"
-                                    min="1"
-                                    type="number"
-                                    class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
-                                    placeholder="numero letti"
-                                />
-                        </div>
 
-                        <div class="w-1/2">
-                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° stanze</label>
+            <!-- Modal toggle -->
+            <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 my-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            Ricerca avanzata
+            </button>
 
-                            <input
-                                v-model="rooms"
-                                min="1"
-                                type="number"
-                                class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
-                                placeholder="numero stanze"
-                            />
+            <!-- Main modal -->
+            <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+                <div class="relative w-4/5 h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow">
+                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="authentication-modal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <div class="px-6 py-6 lg:px-8">
+                            <div>
+                                <label for="radius" class="block my-2 text-sm font-medium text-gray-900">Raggio di</label>
+                                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option value="5">5km</option>
+                                    <option value="10">10km</option>
+                                    <option value="20" selected>20km</option>
+                                    <option value="30">30km</option>
+                                    <option value="40">40km</option>
+                                </select>
+                            </div>
+
+                            <div class="block w-auto">
+                                <form action="">
+                                    <div
+                                        class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
+                                        aria-labelledby="dropdownMenuIconButton"
+                                    >
+                                        <div class="w-1/2">
+                                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
+                                                <input
+                                                    v-model="beds"
+                                                    min="1"
+                                                    type="number"
+                                                    class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
+                                                    placeholder="numero letti"
+                                                />
+                                        </div>
+
+                                        <div class="w-1/2">
+                                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° stanze</label>
+
+                                            <input
+                                                v-model="rooms"
+                                                min="1"
+                                                type="number"
+                                                class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
+                                                placeholder="numero stanze"
+                                            />
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
+                                <ul
+                                    class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
+                                >
+                                    <li
+                                        v-for="service in services"
+                                        :key="service.id"
+                                        class="w-full mb-2 px-2 place-self-center"
+                                    >
+                                        <div class="flex items-center">
+                                            <input
+                                                v-model="filterServices"
+                                                :id="service.id"
+                                                type="checkbox"
+                                                :value="service.id"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                                            />
+                                            <label
+                                                :for="service.id"
+                                                class="ml-2 text-sm font-medium text-gray-900"
+                                                >{{ service.name }}</label
+                                            >
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
                         </div>
                     </div>
-                </form>
-
-                <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
-                <ul
-                    class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
-                >
-                    <li
-                        v-for="service in services"
-                        :key="service.id"
-                        class="w-full mb-2 px-2 place-self-center"
-                    >
-                        <div class="flex items-center">
-                            <input
-                                v-model="filterServices"
-                                :id="service.id"
-                                type="checkbox"
-                                :value="service.id"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
-                            />
-                            <label
-                                :for="service.id"
-                                class="ml-2 text-sm font-medium text-gray-900"
-                                >{{ service.name }}</label
-                            >
-                        </div>
-                    </li>
-                </ul>
-
-
+                </div>
             </div>
+
             <button
                 @click.prevent="submit"
                 :disabled="!search.length"
