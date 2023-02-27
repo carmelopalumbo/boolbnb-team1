@@ -12,19 +12,19 @@ export default {
 <template>
     <Header />
         <main class="ofc">
-            <div class="flex justify-center m-9 text-3xl uppercase">
-                <h1>Chi siamo</h1>
+            <div class="flex justify-center m-9 text-3xl uppercase hover:text-[#4d1635]">
+                <i class="fa-solid fa-people-group"></i><h1 class="px-4 font-bold">Chi siamo</h1><i class="fa-solid fa-people-group"></i>
             </div>
-            <div class="mx-auto space-x-6 h-5/6 w-5/6 mt-3 flex sd:flex-wrap justify-between ">
+            <div class="mx-auto space-x-6 h-5/6 w-5/6 mt-3 flex justify-between ">
 
-                <div class="w-1/5  hover:scale-105 hover:drop-shadow-xl transition duration-300 rounded-md border-[#4d1635] border-2">
+                <div class="w-1/5  hover:scale-105 hover:drop-shadow-xl transition duration-300 rounded-md border-[#4d1635] border-2 min-w-min">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
                         <img class="rounded-full " src="https://media.licdn.com/dms/image/D4D03AQHtoJEa__BfSA/profile-displayphoto-shrink_800_800/0/1675531887713?e=1683158400&v=beta&t=GozYAPM7HLLUg-BQWeiswYEQXDK8uxajGvirO83A2UU" alt="">
                     </div>
                     <div class="text-center text-xl ">
                         <p>Jessica Tartaglia</p>
                     </div>
-                    <div class="text-lg m-5 p-3">
+                    <div class="text-lg m-5 p-3 text-[#4d1635]">
                         <a target="_blank" href="https://www.linkedin.com/in/jessica-tartaglia-jt/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo</a>
                         <br>
                         <a target="_blank" href="https://github.com/FRJess"><i class="text-2xl fa-brands fa-github"></i> FRJess </a>
@@ -37,8 +37,8 @@ export default {
                     <div class="text-center text-xl ">
                         <p>Michele Zancolò</p>
                     </div>
-                    <div class="text-lg m-5 p-3">
-                        <a target="_blank" href="https://www.linkedin.com/in/michele-zancol%C3%B2/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo </a>
+                    <div class="text-lg m-5 p-3 text-[#4d1635]">
+                        <a class="pb-8" target="_blank" href="https://www.linkedin.com/in/michele-zancol%C3%B2/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo </a>
                         <br>
                         <a target="_blank" href="https://github.com/mikzanco"><i class="text-2xl fa-brands fa-github"></i> mikzanco </a>
                     </div>
@@ -50,7 +50,7 @@ export default {
                     <div class="text-center text-xl ">
                         <p>Carmelo Palumbo</p>
                     </div>
-                    <div class="text-lg m-5 p-3">
+                    <div class="text-lg m-5 p-3 text-[#4d1635]">
                         <a target="_blank" href="https://www.linkedin.com/in/carmelo-palumbo/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
                         <a target="_blank" href="https://github.com/carmelopalumbo"><i class="text-2xl fa-brands fa-github"></i> PALUC </a>
@@ -63,7 +63,7 @@ export default {
                     <div class="text-center text-xl">
                         <p>Eugenio Belardinelli</p>
                     </div>
-                    <div class="text-lg m-5 p-3">
+                    <div class="text-lg m-5 p-3 text-[#4d1635]">
                         <a target="_blank" href="https://www.linkedin.com/in/eugenio-belardinelli/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
                         <a target="_blank" href="https://github.com/Eugenio2104"><i class="text-2xl fa-brands fa-github"></i> Eugenio2104 </a>
@@ -76,7 +76,7 @@ export default {
                     <div class="text-center text-xl">
                         <p>Carmelo Miuccio</p>
                     </div>
-                    <div class="text-lg m-5 p-3">
+                    <div class="text-lg m-5 p-3 text-[#4d1635]">
                         <a target="_blank" href="https://www.linkedin.com/in/carmelo-miuccio-9662301b4/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
                         <a target="_blank" href="https://github.com/TheMrStraffy"><i class="text-2xl fa-brands fa-github"></i> TheMrStraffy </a>
