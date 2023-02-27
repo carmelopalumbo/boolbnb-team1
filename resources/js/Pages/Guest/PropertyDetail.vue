@@ -1,6 +1,6 @@
 <script>
 import Footer from "./Partials/Footer.vue";
-import { Link } from "@inertiajs/vue3";
+import tt from "@tomtom-international/web-sdk-maps"
 
 export default {
     name: "PropertyDetail",
@@ -31,7 +31,23 @@ export default {
             });
             this.isSend = true;
         },
+        initMap(){
+
+            const center = new tt.LngLat(parseFloat(this.property.longitude), parseFloat(this.property.latitude));
+            const map = tt.map({
+                key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
+            container: "map",
+            center: center,
+            zoom: 18,
+      });
+      map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        }
     },
+    mounted(){
+        this.initMap();
+        console.log(this.property);
+    }
 };
 </script>
 
@@ -163,12 +179,22 @@ export default {
                 </div>
             </div>
         </main>
-    </div>
+    <div class="flex justify-center m-10 border-[#4d1635] border-2 p-6 rounded-xl">
 
+    <div id="map" ></div>
+    </div>
+    </div>
     <Footer/>
+
+
+
 </template>
 
 <style>
+#map{
+    height: 500px;
+    width: 100%;
+}
 .header-top-fix {
     height: 90px;
 }

@@ -16,16 +16,29 @@
 
     <!-- Font Awesome -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.css'
-        integrity='sha512-+ouAqATs1y4kpPMCHfKHVJwf308zo+tC9dlEYK9rKe7kiP35NiP+Oi35rCFnc16zdvk9aBkDUtEO3tIPl0xN5w=='
-        crossorigin='anonymous' />
+    integrity='sha512-+ouAqATs1y4kpPMCHfKHVJwf308zo+tC9dlEYK9rKe7kiP35NiP+Oi35rCFnc16zdvk9aBkDUtEO3tIPl0xN5w=='
+    crossorigin='anonymous' />
+
+    <!-- TomTom -->
+
+    <link rel='stylesheet' type='text/css' href='node_modules\@tomtom-international\web-sdk-maps\dist\maps.css'/>
 
     <!-- Scripts -->
+
+    <!-- TomTom SDK -->
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
 
     <!-- includes the Braintree JS client SDK -->
     <script src="https://js.braintreegateway.com/web/dropin/1.34.0/js/dropin.min.js"></script>
 
     <!-- includes jQuery -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+
+
+    <!-- includes PolyFill -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
 
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue", 'resources/css/app.css'])
