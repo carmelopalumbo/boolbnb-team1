@@ -1,5 +1,5 @@
 <script>
-import { initModals } from 'flowbite',
+import { initModals } from 'flowbite';
 import PropertyCard from "../Partials/PropertyCard.vue";
 import Header from "./Partials/Header.vue";
 import Footer from "./Partials/Footer.vue";
