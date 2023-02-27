@@ -110,8 +110,8 @@ export default {
                 </div>
             </div> -->
 
-            <div class="flex">
-                <div class="flex flex-col w-1/2">
+            <div class="flex justify-between flex-col md:flex-row ">
+                <div class="flex flex-col w-1/2 sm:mx-auto">
                     <div class="m-5 w-2/3 p-3">
                         <h4>Misure: {{ property.size }}</h4>
                         <p>N° stanze: {{ property.rooms }}</p>
@@ -134,7 +134,7 @@ export default {
                 </div>
 
                 <form
-                    class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2"
+                    class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2 sm:mx-auto"
                     v-if="!isSend"
                 >
                     <div class="mb-6">
@@ -174,15 +174,14 @@ export default {
                     </button>
                 </form>
 
-                <div v-else>
-                    <h4 class="uppercase">Messaggio inviato</h4>
+                <div v-else class="flex">
+                    <h4 class="uppercase text-[#4d1635] self-center font-bold text-2xl text-center">Messaggio inviato <br> Il proprietario ti risponderà il prima possibile.</h4>
                 </div>
             </div>
-        </main>
     <div class="flex justify-center m-10 border-[#4d1635] border-2 p-6 rounded-xl">
-
-    <div id="map" ></div>
+    <div id="map"></div>
     </div>
+        </main>
     </div>
     <Footer/>
 
@@ -192,7 +191,7 @@ export default {
 
 <style>
 #map{
-    height: 500px;
+    height: 800px;
     width: 100%;
 }
 .header-top-fix {
