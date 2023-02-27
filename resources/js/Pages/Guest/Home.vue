@@ -64,7 +64,7 @@ export default {
         selectAddress(selectedAddress){
             this.listAddress = {};
             this.listAddress = selectedAddress;
-            this.latitude =this.listAddress.position.lat;
+            this.latitude = this.listAddress.position.lat;
             this.longitude = this.listAddress.position.lon;
             this.search = this.listAddress.address.freeformAddress;
             this.submit();
@@ -88,7 +88,7 @@ export default {
     },
 
     mounted() {
-        console.log(this.properties);
+        //console.log(this.properties);
         // console.log(this.services);
         initModals();
     },
@@ -223,20 +223,11 @@ export default {
                         </div>
                     </div>
                 </div>
-
-                <button
-                    @click.prevent="submit"
-                    :disabled="!search.length"
-                    type="button"
-                    class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
-                >
-                    Cerca
-                </button>
             </div>
         </div>
 
-        <div v-if="latitude && longitude">
-            <p class="flex flex-wrap justify-start m-10 w-1/2 p-2 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}}</p>
+        <div v-if="latitude && longitude && search.length">
+            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
         </div>
 
         <div v-else>
