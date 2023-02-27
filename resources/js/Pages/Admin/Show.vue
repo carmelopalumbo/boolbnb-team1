@@ -15,12 +15,14 @@ export default {
             if (confirm("Confermi eliminazione?"))
                 this.$inertia.delete(route("properties.destroy", property));
         },
+
     },
 
     mounted(){
         console.log(this.media_property);
     }
 };
+
 </script>
 
 <template>
@@ -115,6 +117,14 @@ export default {
 
         </main>
     </section>
+
+
+
+
+
 </template>
 
-<style></style>
+<style>
+
+
+</style>
