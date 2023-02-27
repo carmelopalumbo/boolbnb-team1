@@ -1,6 +1,6 @@
 <script>
 import Footer from "./Partials/Footer.vue";
-import { Link } from "@inertiajs/vue3";
+import tt from "@tomtom-international/web-sdk-maps"
 
 export default {
     name: "PropertyDetail",
@@ -31,7 +31,23 @@ export default {
             });
             this.isSend = true;
         },
+        initMap(){
+
+            const center = new tt.LngLat(parseFloat(this.property.longitude), parseFloat(this.property.latitude));
+            const map = tt.map({
+                key: "ryfFS68OaO3jRhbpAPo3U6smYXGydYjO",
+            container: "map",
+            center: center,
+            zoom: 18,
+      });
+      map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        }
     },
+    mounted(){
+        this.initMap();
+        console.log(this.property);
+    }
 };
 </script>
 
@@ -94,8 +110,8 @@ export default {
                 </div>
             </div> -->
 
-            <div class="flex">
-                <div class="flex flex-col w-1/2">
+            <div class="flex justify-between flex-col md:flex-row ">
+                <div class="flex flex-col w-1/2 sm:mx-auto">
                     <div class="m-5 w-2/3 p-3">
                         <h4>Misure: {{ property.size }}</h4>
                         <p>N° stanze: {{ property.rooms }}</p>
@@ -118,7 +134,7 @@ export default {
                 </div>
 
                 <form
-                    class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2"
+                    class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2 sm:mx-auto"
                     v-if="!isSend"
                 >
                     <div class="mb-6">
@@ -158,17 +174,26 @@ export default {
                     </button>
                 </form>
 
-                <div v-else>
-                    <h4 class="uppercase">Messaggio inviato</h4>
+                <div v-else class="flex">
+                    <h4 class="uppercase text-[#4d1635] self-center font-bold text-2xl text-center">Messaggio inviato <br> Il proprietario ti risponderà il prima possibile.</h4>
                 </div>
             </div>
+    <div class="flex justify-center m-10 border-[#4d1635] border-2 p-6 rounded-xl">
+    <div id="map"></div>
+    </div>
         </main>
     </div>
-
     <Footer/>
+
+
+
 </template>
 
 <style>
+#map{
+    height: 800px;
+    width: 100%;
+}
 .header-top-fix {
     height: 90px;
 }
