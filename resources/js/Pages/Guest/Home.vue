@@ -240,7 +240,11 @@ export default {
         </div>
 
         <div v-else>
-            <h2 class="flex flex-wrap justify-center my-10 p-2 text-[#4d1635] text-2xl font-bold rounded-lg">Appartamenti in evidenza</h2>
+            <h2 class="flex flex-wrap justify-center my-10 p-2 text-[#4d1635] text-4xl font-bold rounded-lg uppercase">
+                <i class="fa-solid fa-house mx-3"></i>
+                Appartamenti in evidenza
+                <i class="fa-solid fa-house mx-3"></i>
+                </h2>
 
         </div>
 
