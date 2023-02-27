@@ -87,15 +87,17 @@ export default {
   <div class="flex justify-center mx-auto">
 
 
-    <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
+    <div class="pt-6 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
-        <h1 class="text-center font-bold text-2xl py-6 uppercase">
-          BENVENUTO IN BOOST
-        </h1>
+        <h2 class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635]">
+            <i class="fa-solid fa-rocket"></i>
+          <span class="px-3">benvenuto in boost</span>
+          <i class="fa-solid fa-rocket"></i>
+        </h2>
       </div>
 
       <div class="flex justify-between container py-6">
-            <p class="w-1/2 text-center">
+            <p class="w-1/2">
           In questa sezione hai la possibilitá di mettere in risalto la tua
           proprietá. Abbiamo messo a disposizione per te tre pacchetti.
           Acquistando uno di questi otterrai un badge e la tua proprietá sará in
@@ -113,7 +115,7 @@ export default {
             </div>
         </div>
 
-      <div class="flex container my-20 border-2 p-10 rounded-lg" v-for="property in properties" :key="property.id">
+      <div class="flex container my-20 border-2 p-10 rounded-lg" v-for="property in properties.data" :key="property.id">
       <form class="flex justify-between w-full"
         :id="'payment-form-' + property.id"
         action="/api/payment/make/payment"
@@ -145,14 +147,29 @@ export default {
 
             </div>
         </div>
-
-
-
       </form>
     </div>
-
     </div>
   </div>
+
+
+    <div
+            class="flex justify-center pb-3 text-[#4d1635] text-lg font-bold space-x-6"
+        >
+            <Component
+                :is="link.url ? 'Link' : 'span'"
+                v-for="link in properties.links"
+                :key="link.id"
+                :href="link.url"
+                v-html="link.label"
+                :class="{
+                    'text-gray-400': !link.url,
+                    'border border-1 rounded-xl px-3 border-[#4d1635]':
+                        link.active,
+                }"
+            >
+            </Component>
+        </div>
 </template>
 
 <style>

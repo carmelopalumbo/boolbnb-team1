@@ -13,9 +13,9 @@ class SponsorController extends Controller
 {
     public function index()
     {
-        $properties = Property::where('user_id', Auth::id())->get();
+        $properties = Property::where('user_id', Auth::id())->paginate(4);
         $sponsors = Sponsor::all();
         sleep(1);
-        return Inertia::render('Admin/Sponsor', compact('sponsors','properties'));
+        return Inertia::render('Admin/Sponsor', compact('sponsors', 'properties'));
     }
 }

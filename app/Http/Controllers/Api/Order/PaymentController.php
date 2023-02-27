@@ -65,9 +65,9 @@ class PaymentController extends Controller
                 'end_date' => Carbon::now()
             ]);
 
-            return to_route('sponsors')->with('infoMessage', 'TRANSAZIONE ESEGUITA CON SUCCESSO!');
+            return to_route('properties.show', $property);
         } else {
-            return to_route('sponsors')->with('infoMessage', 'TRANSAZIONE FALLITA, RIPROVA!');
+            return to_route('sponsors');
         }
         return 'Make Payment';
     }
