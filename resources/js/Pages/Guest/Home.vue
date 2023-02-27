@@ -213,7 +213,7 @@ export default {
                         type="button"
                         class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
                     >
-                        Cerca
+                        Mostra risultati
                     </button>
                         </div>
                     </div>
