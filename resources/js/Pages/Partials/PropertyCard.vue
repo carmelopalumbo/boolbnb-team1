@@ -18,11 +18,13 @@ export default {
                 "
                 alt="Cover image"
             />
+            <span v-if="property.is_sponsored" class="bg-green-200 text-green-600 absolute bottom-4 right-3 text-sm font-bold mr-2 px-2.5 py-0.5 rounded-full uppercase">In evidenza</span>
 
 
             <div
                 class="p-5 group-hover:opacity-0 absolute description text-[#89275e] font-bold"
             >
+
                 <h5 class="mb-2 text-2xl tracking-tight">
                     {{ property.name }}
                 </h5>
