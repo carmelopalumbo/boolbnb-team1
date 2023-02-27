@@ -101,14 +101,23 @@ export default {
 
     <div class="flex justify-center mt-6">
         <div class="flex flex-col mb-4 w-96">
-            <input
-                @keyup="debounced"
-                type="text"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 w-full"
-                v-model="search"
-                placeholder="Cerca un indirizzo . . . "
-            />
-            <div v-if="listAddress.length && search.length" class="listAddress">
+            <div class="inline-flex">
+                <input
+                    @keyup="debounced"
+                    type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 w-full"
+                    v-model="search"
+                    placeholder="Cerca un indirizzo . . . "
+                />
+                <!-- Modal toggle -->
+                <button data-modal-target="filter-modal" data-modal-toggle="filter-modal"
+                @click.prevent="submit"
+                :disabled="!search.length"
+                class="text-white sm:w-auto px-5 py-2.5 ml-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75" type="button">
+                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
+                </button>
+            </div>
+            <div v-if="listAddress.length && search.length" class="listAddress flex flex-col ">
                 <p class="p-3" v-for="item in listAddress" :key="item">
                     <ul>
                         <li class="selectAddress cursor-pointer"
@@ -119,15 +128,9 @@ export default {
                 </p>
             </div>
 
-
-            <!-- Modal toggle -->
-            <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 my-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            Ricerca avanzata
-            </button>
-
             <!-- Main modal -->
-            <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                <div class="relative w-4/5 h-full">
+            <div id="filter-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+                <div class="relative w-4/5 h-2/3">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow">
                         <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="authentication-modal">
@@ -202,10 +205,16 @@ export default {
                                         </div>
                                     </li>
                                 </ul>
-
-
                             </div>
-
+                            <button
+                        @click.prevent="submit"
+                        :disabled="!search.length"
+                        data-modal-hide="filter-modal"
+                        type="button"
+                        class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                    >
+                        Cerca
+                    </button>
                         </div>
                     </div>
                 </div>
@@ -217,7 +226,7 @@ export default {
                 type="button"
                 class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
             >
-                Ricerca
+                Cerca
             </button>
         </div>
     </div>
