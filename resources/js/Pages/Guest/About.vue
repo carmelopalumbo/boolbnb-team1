@@ -19,65 +19,65 @@ export default {
 
                 <div class="w-1/5  hover:scale-105 hover:drop-shadow-xl transition duration-300 rounded-md border-[#4d1635] border-2">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
-                        <img class="rounded-full " src="https://cdn3.vectorstock.com/i/1000x1000/35/52/placeholder-rgb-color-icon-vector-32173552.jpg" alt="">
+                        <img class="rounded-full " src="https://media.licdn.com/dms/image/D4D03AQHtoJEa__BfSA/profile-displayphoto-shrink_800_800/0/1675531887713?e=1683158400&v=beta&t=GozYAPM7HLLUg-BQWeiswYEQXDK8uxajGvirO83A2UU" alt="">
                     </div>
                     <div class="text-center text-xl ">
                         <p>Jessica Tartaglia</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/jessica-tartaglia-jt/"><i class="text-2xl fa-brands fa-linkedin"></i> Lorem, ipsum  </a>
+                        <a href="https://www.linkedin.com/in/jessica-tartaglia-jt/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo</a>
                         <br>
                         <a href="https://github.com/FRJess"><i class="text-2xl fa-brands fa-github"></i> FRJess </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
-                        <img class="rounded-full " src="https://cdn3.vectorstock.com/i/1000x1000/35/52/placeholder-rgb-color-icon-vector-32173552.jpg" alt="">
+                        <img class="rounded-full " src="https://media.licdn.com/dms/image/D4D03AQFfbqU0LQuYnw/profile-displayphoto-shrink_800_800/0/1677487021905?e=1683158400&v=beta&t=1b3eq1j18F-d9u_a90Ny2GwVU-zkdg7MIdjcpBkBAP4" alt="">
                     </div>
                     <div class="text-center text-xl ">
                         <p>Michele Zancolò</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/michele-zancol%C3%B2/"><i class="text-2xl fa-brands fa-linkedin"></i> Lorem, ipsum  </a>
+                        <a href="https://www.linkedin.com/in/michele-zancol%C3%B2/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo </a>
                         <br>
                         <a href="https://github.com/mikzanco"><i class="text-2xl fa-brands fa-github"></i> mikzanco </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
-                        <img class="rounded-full" src="https://cdn3.vectorstock.com/i/1000x1000/35/52/placeholder-rgb-color-icon-vector-32173552.jpg" alt="">
+                        <img class="rounded-full" src="https://media.licdn.com/dms/image/D4E03AQG6Rd-HaTSySg/profile-displayphoto-shrink_800_800/0/1675518344230?e=1683158400&v=beta&t=cJDyPf7CT019VpgXbO2JmAJcKIq5WF66pPy-nJjtibs" alt="">
                     </div>
                     <div class="text-center text-xl ">
                         <p>Carmelo Palumbo</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/carmelo-palumbo/"><i class="text-2xl fa-brands fa-linkedin"></i> Lorem, ipsum  </a>
+                        <a href="https://www.linkedin.com/in/carmelo-palumbo/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
                         <a href="https://github.com/carmelopalumbo"><i class="text-2xl fa-brands fa-github"></i> PALUC </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
-                        <img class="rounded-full 5" src="https://cdn3.vectorstock.com/i/1000x1000/35/52/placeholder-rgb-color-icon-vector-32173552.jpg" alt="">
+                        <img class="rounded-full" src="https://media.licdn.com/dms/image/D4D03AQGGJmXBOgcVjQ/profile-displayphoto-shrink_800_800/0/1677249743869?e=1683158400&v=beta&t=eC_iyuzZ2dfQW_PWPm42Led0IsvlcySeBUk48yLeVIs" alt="">
                     </div>
                     <div class="text-center text-xl">
                         <p>Eugenio Belardinelli</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/eugenio-belardinelli/"><i class="text-2xl fa-brands fa-linkedin"></i> Lorem, ipsum  </a>
+                        <a href="https://www.linkedin.com/in/eugenio-belardinelli/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
                         <a href="https://github.com/Eugenio2104"><i class="text-2xl fa-brands fa-github"></i> Eugenio2104 </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
-                        <img class="rounded-full " src="https://cdn3.vectorstock.com/i/1000x1000/35/52/placeholder-rgb-color-icon-vector-32173552.jpg" alt="">
+                        <img class="rounded-full" src="https://media.licdn.com/dms/image/D4D35AQEI-e_bMCg2_w/profile-framedphoto-shrink_800_800/0/1677260771634?e=1678093200&v=beta&t=q0fwESga8nHd0Faj6u83iObIVKgb3plN8slaAOh-nRQ" alt="">
                     </div>
                     <div class="text-center text-xl">
                         <p>Carmelo Miuccio</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/carmelo-miuccio-9662301b4/"><i class="text-2xl fa-brands fa-linkedin"></i> Lorem, ipsum  </a>
+                        <a href="https://www.linkedin.com/in/carmelo-miuccio-9662301b4/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
                         <a href="https://github.com/TheMrStraffy"><i class="text-2xl fa-brands fa-github"></i> TheMrStraffy </a>
                     </div>
