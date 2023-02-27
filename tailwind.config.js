@@ -21,6 +21,9 @@ module.exports = {
         "./node_modules/flowbite/**/*.js"
         // "./node_modules/flowbite/**/*.js",
     ],
+    // safelist: [
+    //     ['animate-[fade-in_1s_ease-in-out]', 'animate-[fade-in-down_1s_ease-in-out]'],
+    //   ],
 
     theme: {
         // colors: {
@@ -41,7 +44,7 @@ module.exports = {
             // },
             borderRadius: {
             '4xl': '2rem',
-            }
+            },
         },
         container: {
             center: true,
