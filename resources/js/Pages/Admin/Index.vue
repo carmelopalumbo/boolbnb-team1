@@ -54,7 +54,7 @@ export default {
         >
             <Link
                 href="/admin/properties/create"
-                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150 ease-in-out duration-200"
+                class="hover:text-[#4d1635] text-lg font-bold uppercase text-green-700 ml-5 transition delay-150"
             >
                 <i class="fa-solid fa-plus mr-1"></i
                 ><span class="">Aggiungi la tua prima proprietà</span>

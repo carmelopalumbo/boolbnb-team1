@@ -1,5 +1,5 @@
 <script>
-import { initModals } from 'flowbite'
+import { initModals } from 'flowbite';
 import PropertyCard from "../Partials/PropertyCard.vue";
 import Header from "./Partials/Header.vue";
 import Footer from "./Partials/Footer.vue";
@@ -99,150 +99,154 @@ export default {
 
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
-    <div class="flex justify-center mt-6 position-absolute">
-        <div class="flex flex-col mb-4 w-96">
-            <div class="inline-flex">
-                <input
-                    @keyup="debounced"
-                    type="text"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 w-full"
-                    v-model="search"
-                    placeholder="Cerca un indirizzo . . . "
-                />
-                <!-- Modal toggle -->
-                <button data-modal-target="filter-modal" data-modal-toggle="filter-modal"
-                @click.prevent="submit"
-                :disabled="!search.length"
-                class="text-white sm:w-auto px-5 py-2.5 ml-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75" type="button">
-                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
-                </button>
-            </div>
-            <div v-if="listAddress.length && search.length" class="listAddress flex flex-col ">
-                <p class="p-3" v-for="item in listAddress" :key="item">
-                    <ul>
-                        <li class="selectAddress cursor-pointer"
-                        @click="selectAddress(item)"
+    <div class="h-full main">
+        <div class="flex justify-center mt-6">
+            <div class="flex flex-col mb-4 w-1/2">
+                <div class="inline-flex w-full">
+                    <div class="w-full">
+                        <input
+                            @keyup="debounced"
+                            type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 w-full"
+                            v-model="search"
+                            placeholder="Cerca un indirizzo . . . "
+                        />
+                        <div v-if="listAddress.length && search.length" class="listAddress flex flex-col position-absolute transition delay-150 duration-600 border rounded-lg pt-2 h-32 overflow-y-scroll">
+                            <p class="pl-2 py-2 border-b" v-for="item in listAddress" :key="item">
+                                <ul>
 
-                        >{{item.address.freeformAddress}}</li>
-                    </ul>
-                </p>
-            </div>
+                                    <li class="selectAddress cursor-pointer"
+                                    @click="selectAddress(item)"
+                                    ><i class="fa-solid fa-location-dot mr-2"></i>{{item.address.freeformAddress}}</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Modal toggle -->
+                    <button data-modal-target="filter-modal" data-modal-toggle="filter-modal"
+                    @click.prevent="submit"
+                    :disabled="!search.length"
+                    class="text-white sm:w-auto px-5 py-2.5 ml-4 h-10 bg-[#4d1635] text-sm text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75" type="button">
+                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
+                    </button>
+                </div>
 
-            <!-- Main modal -->
-            <div id="filter-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                <div class="relative w-4/5 h-2/3">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="filter-modal">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                        <div class="px-6 py-6 lg:px-8">
-                            <div>
-                                <label for="radius" class="block my-2 text-base text-[#4d1635] font-bold">Raggio di</label>
-                                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5">
-                                    <option value="5">5km</option>
-                                    <option value="10">10km</option>
-                                    <option value="20" selected>20km</option>
-                                    <option value="30">30km</option>
-                                    <option value="40">40km</option>
-                                </select>
-                            </div>
 
-                            <div class="block w-auto">
-                                <form action="">
-                                    <div
-                                        class="py-2 text-sm text-gray-700 flex justify-between gap-4 my-4"
-                                        aria-labelledby="dropdownMenuIconButton"
-                                    >
-                                        <div class="w-1/2">
-                                            <label for="services" class="block mb-2 text-base text-[#4d1635] font-bold">N° posti letti</label>
+                <!-- Main modal -->
+                <div id="filter-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full transition duration-400 ease-in-out" >
+                    <div class="relative w-4/5 h-2/3">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="filter-modal">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                            <div class="px-6 py-6 lg:px-8">
+                                <div>
+                                    <label for="radius" class="block my-2 text-base text-[#4d1635] font-bold">Raggio di</label>
+                                    <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5">
+                                        <option value="5">5km</option>
+                                        <option value="10">10km</option>
+                                        <option value="20" selected>20km</option>
+                                        <option value="30">30km</option>
+                                        <option value="40">40km</option>
+                                    </select>
+                                </div>
+
+                                <div class="block w-auto">
+                                    <form action="">
+                                        <div
+                                            class="py-2 text-sm text-gray-700 flex justify-between gap-4 my-4"
+                                            aria-labelledby="dropdownMenuIconButton"
+                                        >
+                                            <div class="w-1/2">
+                                                <label for="services" class="block mb-2 text-base text-[#4d1635] font-bold">N° posti letti</label>
+                                                    <input
+                                                        v-model="beds"
+                                                        min="1"
+                                                        type="number"
+                                                        class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
+                                                        placeholder="numero letti"
+                                                    />
+                                            </div>
+
+                                            <div class="w-1/2">
+                                                <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">N° stanze</label>
+
                                                 <input
-                                                    v-model="beds"
+                                                    v-model="rooms"
                                                     min="1"
                                                     type="number"
                                                     class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
-                                                    placeholder="numero letti"
+                                                    placeholder="numero stanze"
                                                 />
+                                            </div>
                                         </div>
+                                    </form>
 
-                                        <div class="w-1/2">
-                                            <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">N° stanze</label>
-
-                                            <input
-                                                v-model="rooms"
-                                                min="1"
-                                                type="number"
-                                                class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
-                                                placeholder="numero stanze"
-                                            />
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">Servizi richiesti</label>
-                                <ul
-                                    class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
-                                >
-                                    <li
-                                        v-for="service in services"
-                                        :key="service.id"
-                                        class="w-full mb-2 px-2 place-self-center"
+                                    <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">Servizi richiesti</label>
+                                    <ul
+                                        class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
                                     >
-                                        <div class="flex items-center">
-                                            <input
-                                                v-model="filterServices"
-                                                :id="service.id"
-                                                type="checkbox"
-                                                :value="service.id"
-                                                class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
-                                            />
-                                            <label
-                                                :for="service.id"
-                                                class="ml-2 text-sm font-medium text-gray-900"
-                                                >{{ service.name }}</label
-                                            >
-                                        </div>
-                                    </li>
-                                </ul>
+                                        <li
+                                            v-for="service in services"
+                                            :key="service.id"
+                                            class="w-full mb-2 px-2 place-self-center"
+                                        >
+                                            <div class="flex items-center">
+                                                <input
+                                                    v-model="filterServices"
+                                                    :id="service.id"
+                                                    type="checkbox"
+                                                    :value="service.id"
+                                                    class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
+                                                />
+                                                <label
+                                                    :for="service.id"
+                                                    class="ml-2 text-sm font-medium text-gray-900"
+                                                    >{{ service.name }}</label
+                                                >
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button
+                            @click.prevent="submit"
+                            :disabled="!search.length"
+                            data-modal-hide="filter-modal"
+                            type="button"
+                            class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                        >
+                            Mostra risultati
+                        </button>
                             </div>
-                            <button
-                        @click.prevent="submit"
-                        :disabled="!search.length"
-                        data-modal-hide="filter-modal"
-                        type="button"
-                        class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
-                    >
-                        Mostra risultati
-                    </button>
                         </div>
                     </div>
                 </div>
+
+                <button
+                    @click.prevent="submit"
+                    :disabled="!search.length"
+                    type="button"
+                    class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                >
+                    Cerca
+                </button>
             </div>
-
-            <button
-                @click.prevent="submit"
-                :disabled="!search.length"
-                type="button"
-                class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
-            >
-                Cerca
-            </button>
         </div>
-    </div>
 
-    <div class="flex flex-wrap justify-center mt-8 position-relative">
-        <PropertyCard
-            v-for="property in properties.data"
-            :key="property.id"
-            :property="property"
-        />
-    </div>
+        <div class="flex flex-wrap justify-center mt-8 position-relative z-40">
+            <PropertyCard
+                v-for="property in properties.data"
+                :key="property.id"
+                :property="property"
+            />
+        </div>
 
-    <div
-    v-if="properties.links.length > 3"
-    class="my-8 flex justify-center text-white text-lg font-bold space-x-6"
-        >
+        <div
+        v-if="properties.links.length > 3"
+        class="my-8 flex justify-center text-white text-lg font-bold space-x-6"
+            >
             <Component
                 :is="link.url ? 'Link' : 'span'"
                 v-for="link in properties.links"
@@ -258,8 +262,14 @@ export default {
             </Component>
         </div>
 
-    <Footer/>
+    </div>
+
+    <Footer class="fixed w-full bottom-0"/>
 </template>
 
 <style>
+.main{
+    height: calc(100vh - 195px);
+    overflow-y: scroll;
+}
 </style>
