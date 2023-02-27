@@ -25,9 +25,9 @@ export default {
                         <p>Jessica Tartaglia</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/jessica-tartaglia-jt/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo</a>
+                        <a target="_blank" href="https://www.linkedin.com/in/jessica-tartaglia-jt/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo</a>
                         <br>
-                        <a href="https://github.com/FRJess"><i class="text-2xl fa-brands fa-github"></i> FRJess </a>
+                        <a target="_blank" href="https://github.com/FRJess"><i class="text-2xl fa-brands fa-github"></i> FRJess </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
@@ -38,9 +38,9 @@ export default {
                         <p>Michele Zancolò</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/michele-zancol%C3%B2/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/michele-zancol%C3%B2/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo </a>
                         <br>
-                        <a href="https://github.com/mikzanco"><i class="text-2xl fa-brands fa-github"></i> mikzanco </a>
+                        <a target="_blank" href="https://github.com/mikzanco"><i class="text-2xl fa-brands fa-github"></i> mikzanco </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
@@ -51,9 +51,9 @@ export default {
                         <p>Carmelo Palumbo</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/carmelo-palumbo/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/carmelo-palumbo/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
-                        <a href="https://github.com/carmelopalumbo"><i class="text-2xl fa-brands fa-github"></i> PALUC </a>
+                        <a target="_blank" href="https://github.com/carmelopalumbo"><i class="text-2xl fa-brands fa-github"></i> PALUC </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
@@ -64,9 +64,9 @@ export default {
                         <p>Eugenio Belardinelli</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/eugenio-belardinelli/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/eugenio-belardinelli/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
-                        <a href="https://github.com/Eugenio2104"><i class="text-2xl fa-brands fa-github"></i> Eugenio2104 </a>
+                        <a target="_blank" href="https://github.com/Eugenio2104"><i class="text-2xl fa-brands fa-github"></i> Eugenio2104 </a>
                     </div>
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
@@ -77,9 +77,9 @@ export default {
                         <p>Carmelo Miuccio</p>
                     </div>
                     <div class="text-lg m-5 p-3">
-                        <a href="https://www.linkedin.com/in/carmelo-miuccio-9662301b4/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/carmelo-miuccio-9662301b4/"><i class="text-2xl fa-brands fa-linkedin"></i> Visita il profilo  </a>
                         <br>
-                        <a href="https://github.com/TheMrStraffy"><i class="text-2xl fa-brands fa-github"></i> TheMrStraffy </a>
+                        <a target="_blank" href="https://github.com/TheMrStraffy"><i class="text-2xl fa-brands fa-github"></i> TheMrStraffy </a>
                     </div>
 
                 </div>
