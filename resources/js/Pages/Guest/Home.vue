@@ -139,8 +139,8 @@ export default {
                         </button>
                         <div class="px-6 py-6 lg:px-8">
                             <div>
-                                <label for="radius" class="block my-2 text-sm font-medium text-gray-900">Raggio di</label>
-                                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <label for="radius" class="block my-2 text-base text-[#4d1635] font-bold">Raggio di</label>
+                                <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5">
                                     <option value="5">5km</option>
                                     <option value="10">10km</option>
                                     <option value="20" selected>20km</option>
@@ -152,35 +152,35 @@ export default {
                             <div class="block w-auto">
                                 <form action="">
                                     <div
-                                        class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
+                                        class="py-2 text-sm text-gray-700 flex justify-between gap-4 my-4"
                                         aria-labelledby="dropdownMenuIconButton"
                                     >
                                         <div class="w-1/2">
-                                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° posti letti</label>
+                                            <label for="services" class="block mb-2 text-base text-[#4d1635] font-bold">N° posti letti</label>
                                                 <input
                                                     v-model="beds"
                                                     min="1"
                                                     type="number"
-                                                    class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
+                                                    class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
                                                     placeholder="numero letti"
                                                 />
                                         </div>
 
                                         <div class="w-1/2">
-                                            <label for="services" class="block mb-2 text-sm font-medium text-gray-900">N° stanze</label>
+                                            <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">N° stanze</label>
 
                                             <input
                                                 v-model="rooms"
                                                 min="1"
                                                 type="number"
-                                                class="block px-4 py-2 hover:bg-gray-100 border border-gray-200 rounded-lg w-full"
+                                                class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
                                                 placeholder="numero stanze"
                                             />
                                         </div>
                                     </div>
                                 </form>
 
-                                <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi richiesti</label>
+                                <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">Servizi richiesti</label>
                                 <ul
                                     class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
                                 >
@@ -195,7 +195,7 @@ export default {
                                                 :id="service.id"
                                                 type="checkbox"
                                                 :value="service.id"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                                                class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
                                             />
                                             <label
                                                 :for="service.id"
