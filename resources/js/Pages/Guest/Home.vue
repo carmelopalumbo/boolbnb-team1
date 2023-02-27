@@ -99,7 +99,7 @@ export default {
 
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
-    <div class="flex justify-center mt-6">
+    <div class="flex justify-center mt-6 position-absolute">
         <div class="flex flex-col mb-4 w-96">
             <div class="inline-flex">
                 <input
@@ -231,7 +231,7 @@ export default {
         </div>
     </div>
 
-    <div class="flex flex-wrap justify-center mt-8">
+    <div class="flex flex-wrap justify-center mt-8 position-relative">
         <PropertyCard
             v-for="property in properties.data"
             :key="property.id"
