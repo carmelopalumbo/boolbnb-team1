@@ -94,8 +94,8 @@ export default {
     <Head title="INSERISCI NUOVA PROPRIETÀ"></Head>
     <div class="flex items-center w-full">
         <div class="pt-20 inline-block content-center w-full">
-            <h1 class="text-center font-bold text-2xl py-6 uppercase">
-                AGGIUNGI NUOVA PROPRIETA'
+            <h1 class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635]">
+                aggiungi nuova proprietà
             </h1>
 
             <form
@@ -192,7 +192,7 @@ export default {
                 <div class="flex flex-col mb-4 w-full">
                     <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi presenti</label>
                     <ul class="lg:grid lg:grid-cols-6 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2">
-                        <li v-for="service in services" :key="service.id" class="w-full mb-2 place-self-center">
+                        <li v-for="service in services" :key="service.id" class="w-full mb-2 place-self-center uppercase">
                             <div class="flex items-center">
                                 <input v-model="newProperty.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
                                 >
@@ -369,12 +369,13 @@ export default {
 
 <style scoped>
 .listAddress{
-        border: 1px solid black;
+        border: 1px solid lightgray;
     }
     .selectAddress{
         cursor: pointer;
+        padding: 8px;
     }
     .selectAddress:hover{
-        background-color: gray;
+        background-color: lightgray;
     }
 </style>
