@@ -12,7 +12,7 @@ export default {
 <template>
     <Header />
         <main class="ofc">
-            <div class="flex justify-center mt-5 text-3xl uppercase">
+            <div class="flex justify-center m-9 text-3xl uppercase">
                 <h1>Chi siamo</h1>
             </div>
             <div class="mx-auto space-x-6 h-5/6 w-5/6 mt-3 flex sd:flex-wrap justify-between ">
@@ -71,7 +71,7 @@ export default {
                 </div>
                 <div class="w-1/5  hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2">
                     <div class="rounded-full scale-75 border-[#4d1635] border-2 ">
-                        <img class="rounded-full" src="https://media.licdn.com/dms/image/D4D35AQEI-e_bMCg2_w/profile-framedphoto-shrink_800_800/0/1677260771634?e=1678093200&v=beta&t=q0fwESga8nHd0Faj6u83iObIVKgb3plN8slaAOh-nRQ" alt="">
+                        <img class="rounded-full" src="https://media.licdn.com/dms/image/D4D03AQF7pBADbgRbIQ/profile-displayphoto-shrink_800_800/0/1675442747948?e=1683158400&v=beta&t=4hGCoj-IgKCDhuxOyd1LeR020YNZLrAcqwb0P7sMBLs" alt="">
                     </div>
                     <div class="text-center text-xl">
                         <p>Carmelo Miuccio</p>
