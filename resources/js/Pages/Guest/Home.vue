@@ -1,5 +1,6 @@
 <script>
 import { initDropdowns } from "flowbite";
+import { initAccordions } from "flowbite";
 import PropertyCard from "../Partials/PropertyCard.vue";
 import Header from "./Partials/Header.vue";
 import Footer from "./Partials/Footer.vue";
@@ -8,7 +9,7 @@ import Footer from "./Partials/Footer.vue";
 export default {
     name: "Home",
 
-    components: { PropertyCard, Header, Footer },
+    components: { PropertyCard, Header, Footer, Accordion },
 
     data() {
         return {
@@ -90,7 +91,8 @@ export default {
     mounted() {
         console.log(this.properties);
         // console.log(this.services);
-        initDropdowns();
+        // initDropdowns();
+        initAccordions();
     },
 };
 </script>
@@ -121,19 +123,15 @@ export default {
             <div>
                 <label for="radius" class="block my-2 text-sm font-medium text-gray-900">Raggio di</label>
                 <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option selected>Scegli un raggio</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
+                    <option value="5">5km</option>
+                    <option value="10">10km</option>
+                    <option value="20" selected>20km</option>
+                    <option value="30">30km</option>
+                    <option value="40">40km</option>
                 </select>
             </div>
 
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <div class="block w-auto">
                 <form action="">
                     <div
                         class="py-2 text-sm text-gray-700 dark:text-gray-200 flex justify-between gap-4 my-4"
