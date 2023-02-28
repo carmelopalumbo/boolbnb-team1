@@ -19,7 +19,7 @@ export default {
             sponsName: "bronze",
             showType: true,
             isLoading: false,
-            tokenGenerated: false
+            tokenGenerated: false,
         };
     },
 
@@ -37,7 +37,6 @@ export default {
                     console.log(this.tokenApi);
                     this.tokenGenerated = true;
                 });
-
         },
         getPayment(id) {
             const form = document.getElementById("payment-form-" + id);
@@ -208,7 +207,10 @@ export default {
                             <button
                                 class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase"
                                 :id="'submit-button-' + property.id"
-                                :disabled="(isLoading || property.is_sponsored) && tokenGenerated"
+                                :disabled="
+                                    (isLoading || property.is_sponsored) &&
+                                    tokenGenerated
+                                "
                                 @click="getPayment(property.id)"
                             >
                                 paga {{ sponsName }}
@@ -227,6 +229,7 @@ export default {
     </div>
 
     <div
+        v-if="properties.links > 3"
         class="flex justify-center pb-3 text-[#4d1635] text-lg font-bold space-x-6"
     >
         <Component

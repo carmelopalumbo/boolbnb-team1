@@ -325,7 +325,7 @@ export default {
                     <div v-if="!listAddress.length" >
 
                     </div>
-                    <div v-if="listAddress.length" class="listAddress">
+                    <div v-if="listAddress.length && newProperty.address.length" class="listAddress">
 
                         <p v-for="item in listAddress" :key="item">
                             <ul>
