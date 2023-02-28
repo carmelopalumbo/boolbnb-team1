@@ -112,10 +112,10 @@ export default {
                     id="dropdownHoverButton"
                     data-dropdown-toggle="dropdownHover"
                     data-dropdown-trigger="hover"
-                    class="text-white bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                    class="text-white uppercase bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                     type="button"
                 >
-                    SCEGLI BOOST
+                    scegli boost
                     <svg
                         class="w-4 h-4 ml-2"
                         aria-hidden="true"

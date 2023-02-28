@@ -3,6 +3,7 @@ import Footer from "./Partials/Footer.vue";
 import ServiceIcons from "@/Components/ServiceIcons.vue";
 import tt from "@tomtom-international/web-sdk-maps";
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from "swiper";
+import { initCarousels } from "flowbite";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -11,11 +12,12 @@ import "swiper/css/autoplay";
 export default {
     name: "PropertyDetail",
 
-    components: { Footer, ServiceIcons },
+    components: { Footer, ServiceIcons, Carousel},
 
     props: {
         property: Object,
         services: Object,
+        media_property: Object,
     },
 
     data() {
@@ -54,27 +56,8 @@ export default {
     },
     mounted() {
         this.initMap();
-        console.log(this.property);
-        const mySwiper = new Swiper(".swiper", {
-            loop: true,
-            modules: [Navigation, Pagination, Scrollbar, Autoplay],
-
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-
-            scrollbar: {
-                el: ".swiper-scrollbar",
-            },
-            autoplay: {
-                el: ".swiper-autoplay",
-                delay: 4000,
-            },
-        });
+        console.log(this.media_property);
+        initCarousels();
     },
 };
 </script>
@@ -108,52 +91,39 @@ export default {
                 </div>
             </div>
 
-            <!-- <div class="relative m-5">
-        <img
-          class="mx-auto mb-3 rounded-md"
-          width="600"
-          height="600"
-          :src="'http://[::1]:5173/storage/app/public/' + property.cover_image"
-        />
-      </div> -->
-            <div class="carousel">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="../../../../public/Logo_V2.png" alt="" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../../../public/Logo_V2.png" alt="" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../../../public/Logo_V2.png" alt="" />
-                        </div>
+
+
+            <div id="default-carousel" class="relative my-8 carousel-inner" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-96 overflow-hidden rounded-lg">
+                    <!-- Cover image -->
+                    <div class="hidden duration-500 ease-in-out" data-carousel-item>
+                        <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                        <img :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <!-- Gallery -->
+                    <div
+                    v-for="image in media_property"
+                    :key="image.id" class="hidden duration-500 ease-in-out h-full" data-carousel-item>
+                        <img :src="'http://[::1]:5173/storage/app/public/' + image.file_name" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
 
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar"></div>
                 </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-[#4d1635]/50  group-focus:ring-4 group-focus:ring-[#4d1635] group-focus:outline-none focus:ring-[#4d1635] focus:border-[#4d1635]">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-focus:ring-4  group-hover:bg-[#4d1635]/50  group-focus:ring-[#4d1635] focus:ring-[#4d1635] focus:border-[#4d1635] group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
             </div>
-            <!-- <div class="relative m-5">
-                <h2 class="text-center py-2">Galleria</h2>
 
-                <div class="flex justify-center gap-x-4 flex-wrap">
-                    <img
-                        v-for="image in media_property"
-                        :key="image.id"
-                        class="mb-3"
-                        width="200"
-                        height="200"
-                        :src="
-                            'http://[::1]:5173/storage/app/public/' +
-                            image.file_name
-                        "
-                    />
-                </div>
-            </div> -->
             <div class="flex justify-between flex-col md:flex-row">
                 <div class="flex flex-col w-3/5 sm:mx-auto">
                     <div class="m-5 w-1/3 py-3">
@@ -186,6 +156,7 @@ export default {
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                             Servizi dell'appartamento:
                         </h2>
+                        <div v-if="!property.services.length">Nessun servizio</div>
                         <div
                             v-for="service in property.services"
                             :key="service.id"
@@ -256,7 +227,7 @@ export default {
     <Footer />
 </template>
 
-<style>
+<style lang="css" scoped>
 #map {
     height: 550px;
     width: 100%;
@@ -270,7 +241,11 @@ export default {
     margin-bottom: 20px;
 }
 
-.swiper {
+/* .carousel-inner{
+    height: 11200px;
+} */
+
+/* .swiper {
     width: 100%;
     height: 100%;
 }
@@ -281,5 +256,12 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 24px;
-}
+} */
+
+/* .galleryimage{
+    max-width:  600px;
+    max-height: 600px;
+    object-fit: cover;
+} */
+
 </style>
