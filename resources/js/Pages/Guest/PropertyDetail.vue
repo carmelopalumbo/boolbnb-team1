@@ -80,6 +80,7 @@ export default {
 </script>
 
 <template>
+    <Head :title="property.name" />
     <section class="header-top-fix">
         <nav class="px-2 sm:px-4 py-4">
             <div class="mx-auto flex justify-center">
@@ -159,7 +160,9 @@ export default {
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                             Dettagli appartamento:
                         </h2>
-                        <h4 class="flex justify-between py-1">{{ property.size }}㎡</h4>
+                        <h4 class="flex justify-between py-1">
+                            {{ property.size }}㎡
+                        </h4>
                         <h4 class="flex justify-between">
                             {{ property.rooms }} stanze
                         </h4>
@@ -169,7 +172,9 @@ export default {
                         <h4 class="flex justify-between py-1">
                             {{ property.bathrooms }} bagni
                         </h4>
-                        <h4 class="flex justify-between py-1">{{ property.price }}€</h4>
+                        <h4 class="flex justify-between py-1">
+                            {{ property.price }}€
+                        </h4>
                     </div>
                     <div class="m-5 w-4/5 py-3">
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
@@ -189,7 +194,6 @@ export default {
                             <ServiceIcons :services="service.name" />
                         </div>
                     </div>
-
                 </div>
 
                 <form
@@ -256,7 +260,6 @@ export default {
 #map {
     height: 550px;
     width: 100%;
-
 }
 .header-top-fix {
     height: 90px;

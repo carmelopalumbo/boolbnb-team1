@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <Head title="LE MIE PROPRIETÀ"></Head>
+    <Head title="DASHBOARD"></Head>
     <div class="flex justify-between container w-5/6 font-poppins py-6">
         <div class="md:inline-block align-middle hidden">
             <div class="overflow-hidden">
