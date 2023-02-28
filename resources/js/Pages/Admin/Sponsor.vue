@@ -19,6 +19,7 @@ export default {
             sponsName: "bronze",
             showType: true,
             isLoading: false,
+            tokenGenerated: false,
         };
     },
 
@@ -33,6 +34,8 @@ export default {
                 .get("http://127.0.0.1:8000/api/payment/generate")
                 .then((res) => {
                     this.tokenApi = res.data.clientToken;
+                    console.log(this.tokenApi);
+                    this.tokenGenerated = true;
                 });
         },
         getPayment(id) {
@@ -204,7 +207,10 @@ export default {
                             <button
                                 class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase"
                                 :id="'submit-button-' + property.id"
-                                :disabled="isLoading"
+                                :disabled="
+                                    (isLoading || property.is_sponsored) &&
+                                    tokenGenerated
+                                "
                                 @click="getPayment(property.id)"
                             >
                                 paga {{ sponsName }}
@@ -223,6 +229,7 @@ export default {
     </div>
 
     <div
+        v-if="properties.links > 3"
         class="flex justify-center pb-3 text-[#4d1635] text-lg font-bold space-x-6"
     >
         <Component

@@ -1,8 +1,8 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
 import { initDropdowns } from 'flowbite';
-
 import debounce from 'lodash/debounce';
+
 export default {
     name: "Edit",
     props: {
@@ -76,7 +76,6 @@ export default {
     },
 
     mounted() {
-        //console.log(this.propertyServices);
         initDropdowns();
     },
 };
@@ -105,6 +104,12 @@ export default {
                         required
                         v-model="propertyEdit.name"
                     />
+                     <p
+                        v-if="errors.name"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.name }}
+                    </p>
                 </div>
                 <div class="flex flex-col mb-4 md:w-full">
                     <label
@@ -120,6 +125,12 @@ export default {
                         required
                         v-model="propertyEdit.description"
                     />
+                     <p
+                        v-if="errors.description"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.description }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -137,6 +148,12 @@ export default {
                         id="cover_image"
                         type="file"
                     />
+                     <p
+                        v-if="errors.cover_image"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.cover_image }}
+                    </p>
                     <div class="my-3">
                          <img width="150" id="output-image" alt="">
                     </div>
@@ -156,10 +173,10 @@ export default {
                         multiple
                     />
                     <p
-                        v-if="errors.media"
+                        v-if="errors.editGallery"
                         class="text-xs italic text-red-600 py-1 pl-1"
                     >
-                        {{ errors.media }}
+                        {{ errors.editGallery }}
                     </p>
                 </div>
 
@@ -190,6 +207,12 @@ export default {
                         required
                         v-model="propertyEdit.beds"
                     />
+                     <p
+                        v-if="errors.beds"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.beds }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -205,6 +228,12 @@ export default {
                         class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.bathrooms"
                     />
+                     <p
+                        v-if="errors.bathrooms"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.bathrooms }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -221,6 +250,12 @@ export default {
                         required
                         v-model="propertyEdit.rooms"
                     />
+                     <p
+                        v-if="errors.rooms"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.rooms }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -236,6 +271,12 @@ export default {
                         class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.size"
                     />
+                     <p
+                        v-if="errors.size"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.size }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -252,6 +293,12 @@ export default {
                         required
                         v-model="propertyEdit.price"
                     />
+                     <p
+                        v-if="errors.price"
+                        class="text-xs italic text-red-600 py-1 pl-1"
+                    >
+                        {{ errors.price }}
+                    </p>
                 </div>
 
                 <div class="flex flex-col mb-4 md:w-full">
@@ -271,7 +318,7 @@ export default {
                     <div v-if="!listAddress.length" >
 
                     </div>
-                    <div v-if="listAddress.length" class="listAddress">
+                    <div v-if="listAddress.length && propertyEdit.address.length" class="listAddress">
 
                         <p v-for="item in listAddress" :key="item">
                             <ul>

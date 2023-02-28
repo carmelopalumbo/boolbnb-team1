@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <Head title="LE MIE PROPRIETÀ"></Head>
+    <Head title="DASHBOARD"></Head>
     <div class="flex justify-between container w-5/6 font-poppins py-6">
         <div class="md:inline-block align-middle hidden">
             <div class="overflow-hidden">
@@ -189,6 +189,7 @@ export default {
             </table>
         </div>
         <div
+            v-if="my_properties.links.length > 3"
             class="mt-8 flex justify-center text-[#4d1635] text-lg font-bold space-x-6"
         >
             <Component

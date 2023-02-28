@@ -96,7 +96,7 @@ export default {
 </script>
 
 <template>
-
+    <Head title="HOME"/>
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
     <div class="h-full main">
