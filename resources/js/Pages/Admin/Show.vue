@@ -48,7 +48,7 @@ export default {
 
             <div class="relative rounded-md m-5">
                 <img
-                    class="mx-auto mb-3 h-96 object-scale-down"
+                    class="mx-auto mb-3 h-96 object-scale-down rounded-md"
                     :src="
                         'http://[::1]:5173/storage/app/public/' +
                         property.cover_image

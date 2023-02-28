@@ -72,8 +72,8 @@ export default {
     <div class="ofc mt-20">
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
-                <div class="text-center w-2/4 mx-8">
-                    <h1 class="text-5xl text-[#4d1635]">
+                <div class="text-center w-full mx-8">
+                    <h1 class="text-4xl text-[#4d1635]">
                         {{ property.name }}
                     </h1>
                     <p class="mt-2 text-xl">
