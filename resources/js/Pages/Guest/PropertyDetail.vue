@@ -113,7 +113,7 @@ export default {
             </div> -->
 
             <div class="flex justify-between flex-col md:flex-row">
-                <div class="flex flex-col w-1/2 sm:mx-auto">
+                <div class="flex flex-col w-3/5 sm:mx-auto">
                     <div class="m-5 w-1/3 py-3">
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                             Dettagli appartamento:
@@ -130,7 +130,7 @@ export default {
                         </h4>
                         <h4 class="flex justify-between py-1">{{ property.price }}€</h4>
                     </div>
-                    <div class="m-5 w-2/3 py-3">
+                    <div class="m-5 w-4/5 py-3">
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                             Descrizione dell'appartamento:
                         </h2>
@@ -152,7 +152,7 @@ export default {
                 </div>
 
                 <form
-                    class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2 sm:mx-auto"
+                    class="border-[#4d1635] border-2 rounded-md w-2/5 m-5 p-3 rows-span-2 sm:mx-auto h-1/2"
                     v-if="!isSend"
                 >
                     <div class="mb-6">
