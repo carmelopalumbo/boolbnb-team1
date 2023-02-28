@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Charts\MonthlyMessages;
+use App\Charts\MonthlyVisits;
 use App\Http\Controllers\Controller;
 use App\Models\Media;
+use App\Models\Message;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Stat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -53,12 +57,10 @@ class PropertyController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
-                'size' => 'numeric|min:1|max:1000',
+                'size' => 'numeric|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'cover_image' => 'image',
-                'rooms' => 'numeric',
-                'beds' => 'numeric',
-                'bathrooms' => 'numeric',
+                'cover_image' => 'image|required',
+                'beds' => 'numeric|required',
                 'price' => 'numeric|required|min:1',
                 'address' => 'required'
             ],
@@ -67,12 +69,12 @@ class PropertyController extends Controller
                 'name.min' => 'Minimo :min caratteri.',
                 'name.max' => 'Titolo troppo lungo. Max :max caratteri.',
                 'size.numeric' => 'Valore non valido',
-                'size.min' => 'Minimo :min caratteri.',
                 'size.max' => 'Valore inserito troppo grande.',
                 'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
                 'cover_image.image' => 'File immagine non supportato.',
+                'cover_image.required' => 'Immagine di copertina obbligatoria.',
                 'rooms.numeric' => 'Valore non valido',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
@@ -129,14 +131,20 @@ class PropertyController extends Controller
      * @param  \App\Models\Property $property
      * @return \Illuminate\Http\Response
      */
-    public function show(Property $property)
+    public function show(Property $property, MonthlyVisits $chart_visit, MonthlyMessages $chart_message)
     {
         sleep(1);
+        $test = 'Ciao';
+
         if ($property->user_id <> Auth::id()) return abort(404);
         $services = $property->services()->get();
         $media_property = Media::where('property_id', $property->id)->get();
+
+        $chart_visit = $this->generateStatsVisit($property->id, $chart_visit);
+        $chart_message = $this->generateStatsMessages($property->id, $chart_message);
+        //dd($counts);
         // dd($media_property);
-        return Inertia::render('Admin/Show', compact('property', 'services', 'media_property'));
+        return Inertia::render('Admin/Show', compact('property', 'services', 'media_property', 'chart_visit', 'chart_message'));
     }
 
     /**
@@ -170,11 +178,10 @@ class PropertyController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
-                'size' => 'numeric|min:1|max:1000',
+                'size' => 'numeric|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'rooms' => 'numeric',
-                'beds' => 'numeric',
-                'bathrooms' => 'numeric',
+                'cover_image' => 'image|required',
+                'beds' => 'numeric|required',
                 'price' => 'numeric|required|min:1',
                 'address' => 'required'
             ],
@@ -183,11 +190,12 @@ class PropertyController extends Controller
                 'name.min' => 'Minimo :min caratteri.',
                 'name.max' => 'Titolo troppo lungo. Max :max caratteri.',
                 'size.numeric' => 'Valore non valido',
-                'size.min' => 'Minimo :min caratteri.',
                 'size.max' => 'Valore inserito troppo grande.',
                 'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
+                'cover_image.image' => 'File immagine non supportato.',
+                'cover_image.required' => 'Immagine di copertina obbligatoria.',
                 'rooms.numeric' => 'Valore non valido',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
@@ -261,5 +269,41 @@ class PropertyController extends Controller
         $property->delete();
 
         return to_route('properties.index')->with('infoMessage', "Proprietà #ID$old_id rimossa dal tuo account");;
+    }
+
+    public function generateStatsVisit($id, MonthlyVisits $chart_visit)
+    {
+        $timestamps = Stat::where('property_id', $id)->pluck('created_at')->toArray();
+        $counts = array();
+        for ($i = 1; $i <= 12; $i++) {
+            $counts[sprintf('%02d', $i)] = 0;
+        }
+        foreach ($timestamps as $timestamp) {
+            $month = date('m', strtotime($timestamp));
+            if (isset($counts[$month])) {
+                $counts[$month]++;
+            }
+        }
+        ksort($counts);
+
+        return $chart_visit->build($counts);
+    }
+
+    public function generateStatsMessages($id, MonthlyMessages $chart_message)
+    {
+        $timestamps = Message::where('property_id', $id)->pluck('created_at')->toArray();
+        $counts = array();
+        for ($i = 1; $i <= 12; $i++) {
+            $counts[sprintf('%02d', $i)] = 0;
+        }
+        foreach ($timestamps as $timestamp) {
+            $month = date('m', strtotime($timestamp));
+            if (isset($counts[$month])) {
+                $counts[$month]++;
+            }
+        }
+        ksort($counts);
+
+        return $chart_message->build($counts);
     }
 }

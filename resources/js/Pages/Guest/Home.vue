@@ -64,7 +64,7 @@ export default {
         selectAddress(selectedAddress){
             this.listAddress = {};
             this.listAddress = selectedAddress;
-            this.latitude =this.listAddress.position.lat;
+            this.latitude = this.listAddress.position.lat;
             this.longitude = this.listAddress.position.lon;
             this.search = this.listAddress.address.freeformAddress;
             this.submit();
@@ -88,7 +88,7 @@ export default {
     },
 
     mounted() {
-        console.log(this.properties);
+        //console.log(this.properties);
         // console.log(this.services);
         initModals();
     },
@@ -101,13 +101,13 @@ export default {
 
     <div class="h-full main">
         <div class="flex justify-center mt-6">
-            <div class="flex flex-col mb-4 w-1/2">
-                <div class="inline-flex w-full">
+            <div class="flex flex-col mb-4 w-4/5">
+                <div class="inline-flex align-middle w-full">
                     <div class="w-full">
                         <input
                             @keyup="debounced"
                             type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 w-full"
+                            class="bg-gray-50 py-6 border border-gray-300 text-gray-900 text-lg rounded-full block px-5 w-full focus:ring-[#4d1635] focus:border-[#4d1635]"
                             v-model="search"
                             placeholder="Cerca un indirizzo . . . "
                         />
@@ -126,8 +126,8 @@ export default {
                     <button data-modal-target="filter-modal" data-modal-toggle="filter-modal"
                     @click.prevent="submit"
                     :disabled="!search.length"
-                    class="text-white sm:w-auto px-5 py-2.5 ml-4 h-10 bg-[#4d1635] text-sm text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75" type="button">
-                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 14px; width: 14px; fill: currentcolor;"><path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
+                    class="text-white sm:w-auto px-5 py-4 ml-4 h-20 bg-[#4d1635] text-xl text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-full disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75" type="button">
+                    <i class="fa-solid fa-filter"></i>
                     </button>
                 </div>
 
@@ -223,16 +223,20 @@ export default {
                         </div>
                     </div>
                 </div>
-
-                <button
-                    @click.prevent="submit"
-                    :disabled="!search.length"
-                    type="button"
-                    class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
-                >
-                    Cerca
-                </button>
             </div>
+        </div>
+
+        <div v-if="latitude && longitude && search.length">
+            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
+        </div>
+
+        <div v-else>
+            <h2 class="flex flex-wrap justify-center my-10 p-2 text-[#4d1635] text-4xl font-bold rounded-lg uppercase">
+                <i class="fa-solid fa-house mx-3"></i>
+                Appartamenti in evidenza
+                <i class="fa-solid fa-house mx-3"></i>
+                </h2>
+
         </div>
 
         <div class="flex flex-wrap justify-center mt-8 position-relative z-40">

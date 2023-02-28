@@ -45,7 +45,7 @@ export default {
         >
             <span
                 class="text-sm text-gray-800 sm:text-center hidden md:inline-block"
-                >© 2023 BoolBnb. All Rights Reserved. |
+                >© 2023 BoolBnB Team1. All Rights Reserved. |
                 <span class="text-sm text-gray-800 sm:text-center"
                     >{{ dateTime.hours }}:{{ dateTime.minutes }}:{{
                         dateTime.seconds

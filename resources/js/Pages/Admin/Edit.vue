@@ -85,7 +85,7 @@ export default {
     <Head title="MODIFICA PROPRIETÀ"></Head>
     <div class="flex justify-center w-full">
         <div class="pt-20 inline-block content-center w-full">
-            <h1 class="text-center font-bold text-2xl py-6 uppercase">
+            <h1 class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635]">
                 Modifica la tua proprietà
             </h1>
 
@@ -170,7 +170,7 @@ export default {
                             <div class="flex items-center">
                                 <input v-model="propertyEdit.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
                                 >
-                                <label :for="service.name" class="ml-2 text-sm font-medium text-gray-900">{{service.name}}</label>
+                                <label :for="service.name" class="ml-2 text-sm font-medium text-gray-900 uppercase">{{service.name}}</label>
                             </div>
                         </li>
                     </ul>
@@ -303,4 +303,15 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style scoped>
+    .listAddress{
+        border: 1px solid lightgray;
+    }
+    .selectAddress{
+        cursor: pointer;
+        padding: 8px;
+    }
+    .selectAddress:hover{
+        background-color: lightgray;
+    }
+</style>
