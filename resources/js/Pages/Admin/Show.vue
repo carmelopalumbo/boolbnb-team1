@@ -82,7 +82,9 @@ export default {
                     <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                         Dettagli appartamento:
                     </h2>
-                    <h4 class="flex justify-between py-1">{{ property.size }}㎡</h4>
+                    <h4 class="flex justify-between py-1">
+                        {{ property.size }}㎡
+                    </h4>
                     <h4 class="flex justify-between">
                         {{ property.rooms }} stanze
                     </h4>
@@ -92,7 +94,9 @@ export default {
                     <h4 class="flex justify-between py-1">
                         {{ property.bathrooms }} bagni
                     </h4>
-                    <h4 class="flex justify-between py-1">{{ property.price }}€</h4>
+                    <h4 class="flex justify-between py-1">
+                        {{ property.price }}€
+                    </h4>
                 </div>
 
                 <div class="flex flex-col rounded-md m-5 w-1/3 py-3">
@@ -234,6 +238,7 @@ export default {
                         appartamento?<br />
                         Dai un'occhiata al nostro servizio
                         <Link
+                            data-modal-hide="defaultModal"
                             :href="route('sponsors')"
                             class="transition delay-150 text-[#4d1635] hover:text-[#89275e]"
                             ><i class="fa-solid fa-rocket"></i
