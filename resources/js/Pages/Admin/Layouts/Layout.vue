@@ -18,10 +18,10 @@ import Footer from "@/Pages/Partials/Footer.vue";
 
 <style>
 .header-top-fix {
-    height: 60px;
+    height: 40px;
 }
 .ofc {
-    height: calc(100vh - 145px);
+    height: calc(100vh - 105px);
     overflow-y: scroll;
     /* margin-bottom: 20px; */
 }

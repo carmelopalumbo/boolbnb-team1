@@ -79,8 +79,4 @@ import DropdownLink from "@/Components/DropdownLink.vue";
     border-radius: 0.5rem;
     border: 2px solid #4d1635;
 }
-
-section {
-    overflow: hidden;
-}
 </style>
