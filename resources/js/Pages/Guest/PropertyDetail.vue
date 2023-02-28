@@ -67,12 +67,12 @@ export default {
         prevEl: ".swiper-button-prev",
       },
 
-      // And if we need scrollbar
       scrollbar: {
         el: ".swiper-scrollbar",
       },
       autoplay: {
         el: ".swiper-autoplay",
+        delay: 4000,
       },
     });
   },
@@ -107,14 +107,14 @@ export default {
         </div>
       </div>
 
-      <div class="relative m-5">
+      <!-- <div class="relative m-5">
         <img
           class="mx-auto mb-3 rounded-md"
           width="600"
           height="600"
           :src="'http://[::1]:5173/storage/app/public/' + property.cover_image"
         />
-      </div>
+      </div> -->
       <div class="carousel">
         <div class="swiper">
           <div class="swiper-wrapper">
