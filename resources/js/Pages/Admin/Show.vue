@@ -1,5 +1,6 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
+import { initModals } from 'flowbite';
 
 export default {
     name: "Show",
@@ -21,6 +22,7 @@ export default {
 
     mounted() {
         console.log(this.media_property);
+        initModals();
     },
 };
 </script>
@@ -84,12 +86,10 @@ export default {
                         <div class="hidden lg:inline-block py-2.5">
                             Controlla le Statistiche
                         </div>
-                        <Link
-                            href="/admin/stats"
-                            class="text-white font-medium rounded-lg text-sm px-3 py-2.5 mb-2 w-10 h-10 transition delay-150 bg-green-400 hover:bg-green-200 hover:text-black"
-                        >
+                        <!-- Modal toggle -->
+                        <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="text-white font-medium rounded-lg text-sm px-3 py-2.5 mb-2 w-10 h-10 transition delay-150 bg-green-400 hover:bg-green-200 text-center" type="button">
                             <i class="fa-solid fa-ranking-star"></i>
-                        </Link>
+                        </button>
                     </div>
 
                     <div class="inline-flex justify-between align-middle mb-2">
@@ -141,36 +141,65 @@ export default {
         </main>
     </section>
 
-    <div class="flex">
-        <div class="w-1/2">
-            <apexchart
-                :width="chart_visit.width"
-                :height="chart_visit.height"
-                :type="chart_visit.type"
-                :options="chart_visit.options"
-                :series="chart_visit.series"
-            ></apexchart>
-        </div>
+    <!-- Main modal -->
+    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full px-0 py-20 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+        <div class="relative w-full max-w-4xl h-4/6">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 h-full overflow-y-auto">
+                <!-- Modal header -->
+                <div class="flex items-start justify-around p-4 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white ml-auto">
+                        Le statistiche di <span class="text-[#4d1635] font-bold">{{ property.name }}</span>
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-6">
+                    <div class="flex flex-col space-y-10">
+                        <div class="w-full h-1/2">
+                            <apexchart
+                                :width="chart_visit.width"
+                                :height="chart_visit.height"
+                                :type="chart_visit.type"
+                                :options="chart_visit.options"
+                                :series="chart_visit.series"
+                            ></apexchart>
+                        </div>
 
-        <div class="w-1/2">
-            <apexchart
-                :width="chart_message.width"
-                :height="chart_message.height"
-                :type="chart_message.type"
-                :options="chart_message.options"
-                :series="chart_message.series"
-            ></apexchart>
+                        <!-- <div v-if="!property.messages.length">No stats</div> -->
+
+                        <div class="w-full h-1/2">
+                            <apexchart
+                                :width="chart_message.width"
+                                :height="chart_message.height"
+                                :type="chart_message.type"
+                                :options="chart_message.options"
+                                :series="chart_message.series"
+                            ></apexchart>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <p class="text-center">
+                        Vuoi aumentare le visite e messaggi ricevuti per il tuo appartamento?<br>
+                        Dai un'occhiata al nostro servizio
+                        <Link :href="route('sponsors')" class="hover:text-[#4d1635]"
+                            ><i class="fa-solid fa-rocket"></i><span class="uppercase mx-1">boost</span><i
+                                class="fa-solid fa-rocket"
+                            ></i
+                        ></Link>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <p class="text-center">
-        Vuoi aumentare le visite e messaggi ricevuti per il tuo appartamento?
-        Dai un'occhiata al nostro servizio
-        <Link :href="route('sponsors')"
-            ><i class="fa-solid fa-rocket"></i>BOOST<i
-                class="fa-solid fa-rocket"
-            ></i
-        ></Link>
-    </p>
+
+
+
 </template>
 
 <style></style>
