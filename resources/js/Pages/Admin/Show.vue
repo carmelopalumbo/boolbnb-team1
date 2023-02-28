@@ -82,22 +82,17 @@ export default {
                     <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                         Dettagli appartamento:
                     </h2>
-                    <!-- <h4 class="flex justify-between">Dimensione: <span>{{ property.size }}㎡</span></h4>
-                    <h4 class="flex justify-between">N° stanze: <span>{{ property.rooms }} stanze</span></h4>
-                    <h4 class="flex justify-between">N° posti letto: <span>{{ property.beds }} posti letto</span></h4>
-                    <h4 class="flex justify-between">N° bagni: <span>{{ property.bathrooms }} bagni</span></h4>
-                    <h4 class="flex justify-between">Prezzo: <span>{{ property.price }}€</span></h4> -->
-                    <h4 class="flex justify-between">{{ property.size }}㎡</h4>
+                    <h4 class="flex justify-between py-1">{{ property.size }}㎡</h4>
                     <h4 class="flex justify-between">
                         {{ property.rooms }} stanze
                     </h4>
-                    <h4 class="flex justify-between">
+                    <h4 class="flex justify-between py-1">
                         {{ property.beds }} posti letto
                     </h4>
-                    <h4 class="flex justify-between">
+                    <h4 class="flex justify-between py-1">
                         {{ property.bathrooms }} bagni
                     </h4>
-                    <h4 class="flex justify-between">{{ property.price }}€</h4>
+                    <h4 class="flex justify-between py-1">{{ property.price }}€</h4>
                 </div>
 
                 <div class="flex flex-col rounded-md m-5 w-1/3 py-3">
@@ -143,18 +138,18 @@ export default {
                 </div>
             </div>
 
-            <div class="m-5 w-2/3 p-3">
+            <div class="m-5 w-2/3 py-3">
                 <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                     Descrizione dell'appartamento:
                 </h2>
-                <p>{{ property.description }}</p>
+                <p class="py-1">{{ property.description }}</p>
             </div>
 
             <div class="m-5 w-2/3 py-3">
                 <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                     Servizi dell'appartamento:
                 </h2>
-                <div v-for="service in services" :key="service.id" class="p-1">
+                <div v-for="service in services" :key="service.id" class="py-1">
                     <ServiceIcons :services="service.name" />
                 </div>
             </div>
