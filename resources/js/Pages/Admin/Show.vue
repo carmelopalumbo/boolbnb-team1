@@ -48,7 +48,7 @@ export default {
 
             <div class="relative rounded-md m-5">
                 <img
-                    class="mx-auto mb-3 h-96 object-scale-down"
+                    class="mx-auto mb-3 h-96 object-scale-down rounded-md"
                     :src="
                         'http://[::1]:5173/storage/app/public/' +
                         property.cover_image
@@ -138,7 +138,7 @@ export default {
                 </div>
             </div>
 
-            <div class="m-5 w-2/3 py-3">
+            <div class="m-5 w-4/5 py-3">
                 <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                     Descrizione dell'appartamento:
                 </h2>

@@ -89,9 +89,9 @@ export default {
 
                 <div class="mx-auto w-5/6 mt-7 rounded-md border-[#4d1635] border-2 my-4">
 
-                <p class="p-3">Siamo lieti di esprimere la nostra gratitudine nei confronti di Boolean Careers per l'opportunità che ci hanno offerto di partecipare al loro corso di sviluppo web. Grazie alla loro formazione, supporto e guida, siamo riusciti a realizzare il nostro progetto BoolBnB, una replica di AirBnb. <br> <br>
-                Il corso di sviluppo web che abbiamo frequentato con Boolean Careers è stato un'esperienza incredibile, sia per la qualità del programma di studio che per l'efficienza dei loro docenti e tutor. Siamo rimasti particolarmente colpiti dalla loro professionalità, competenza e disponibilità nell'aiutarci ad acquisire le competenze tecniche necessarie per costruire il nostro sito web. <br> <br>
-                Il nostro team desidera ringraziare tutti i docenti e i tutor che hanno lavorato con noi durante il corso di sviluppo web. Siamo grati per il loro impegno, pazienza e dedizione nell'aiutarci ad affrontare le difficoltà e superare gli ostacoli che abbiamo incontrato lungo il percorso. <br> <br>
+                <p class="p-3">Siamo lieti di esprimere la nostra gratitudine nei confronti di Boolean Careers per l'opportunità che ci hanno offerto di partecipare al loro corso di Full Stack Developer. Grazie alla loro formazione, supporto e guida, siamo riusciti a realizzare il nostro progetto BoolBnB, una replica di AirBnb. <br> <br>
+                Il corso di Web Developer che abbiamo frequentato con Boolean Careers è stato un'esperienza incredibile, sia per la qualità del programma di studio che per l'efficienza dei loro docenti e tutor. Siamo rimasti particolarmente colpiti dalla loro professionalità, competenza e disponibilità nell'aiutarci ad acquisire le competenze tecniche necessarie per costruire il nostro sito web. <br> <br>
+                Il nostro team desidera ringraziare tutti i docenti e i tutor che hanno lavorato con noi durante il corso. Siamo grati per il loro impegno, pazienza e dedizione nell'aiutarci ad affrontare le difficoltà e superare gli ostacoli che abbiamo incontrato lungo il percorso. <br> <br>
                 Ovunque arriveremo in futuro, non scorderemo mai da dove siamo partiti. <br> <br>
                 Il team BoolBnB &hearts; .
                 </p>
