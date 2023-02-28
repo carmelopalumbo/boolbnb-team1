@@ -33,17 +33,26 @@ export default {
     <Head :title="property.name"></Head>
     <section>
         <main class="container mx-auto w-5/6">
-            <div class="flex justify-center">
+            <div class="flex justify-center relative">
                 <div class="text-center w-2/4">
+                    <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg mx-4 md:absolute right-0">
+                        <button
+                            type="button"
+                            v-if="property.is_sponsored"
+                            class="bg-[#ebb733] text-[#89275e] text-sm font-bold px-2.5 py-0.5 rounded-full uppercase"
+                            >boost <i class="fa-solid fa-rocket"></i>
+                        </button>
+                    </div>
                     <h1
                         class="text-2xl font-bold uppercase text-[#4d1635] mb-4"
                     >
                         {{ property.name }}
                     </h1>
+
                     <p class="text-lg font-medium mb-4">
                         {{ property.address }}
                     </p>
-                    <div>appartamento boost to fix</div>
+
                 </div>
             </div>
 
