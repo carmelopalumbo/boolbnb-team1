@@ -40,7 +40,7 @@ export default {
 
             <div class="relative rounded-md m-5">
                 <img
-                    class="mx-auto mb-3 object-scale-down"
+                    class="mx-auto mb-3 h-96 object-scale-down"
                     :src="
                         'http://[::1]:5173/storage/app/public/' +
                         property.cover_image
@@ -48,7 +48,7 @@ export default {
                 />
             </div>
 
-            <div
+            <!-- <div
                 v-if="media_property.image"
                 class="relative border-[#4d1635] border-2 rounded-md m-5"
             >
@@ -67,7 +67,7 @@ export default {
                         "
                     />
                 </div>
-            </div>
+            </div> -->
 
             <div class="flex justify-between">
                 <div class="m-5 w-1/3 py-3">
