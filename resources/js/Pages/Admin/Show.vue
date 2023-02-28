@@ -69,19 +69,24 @@ export default {
                 </div>
             </div>
 
-            <div class="flex">
-                <div class="m-5 w-2/3 p-3">
+            <div class="flex justify-between">
+                <div class="m-5 w-1/3 py-3">
                     <h2 class="uppercase text-[#4d1635] font-bold mb-3">
-                        Dettaglio appartamento:
+                        Dettagli appartamento:
                     </h2>
-                    <h4>Misure: {{ property.size }}</h4>
-                    <p>Numero stanze: {{ property.rooms }}</p>
-                    <p>Numero letti : {{ property.beds }}</p>
-                    <p>Numero bagni: {{ property.bathrooms }}</p>
-                    <p>Prezzo: {{ property.price }} €</p>
+                    <!-- <h4 class="flex justify-between">Dimensione: <span>{{ property.size }}㎡</span></h4>
+                    <h4 class="flex justify-between">N° stanze: <span>{{ property.rooms }} stanze</span></h4>
+                    <h4 class="flex justify-between">N° posti letto: <span>{{ property.beds }} posti letto</span></h4>
+                    <h4 class="flex justify-between">N° bagni: <span>{{ property.bathrooms }} bagni</span></h4>
+                    <h4 class="flex justify-between">Prezzo: <span>{{ property.price }}€</span></h4> -->
+                    <h4 class="flex justify-between">{{ property.size }}㎡</h4>
+                    <h4 class="flex justify-between">{{ property.rooms }} stanze</h4>
+                    <h4 class="flex justify-between">{{ property.beds }} posti letto</h4>
+                    <h4 class="flex justify-between">{{ property.bathrooms }} bagni</h4>
+                    <h4 class="flex justify-between">{{ property.price }}€</h4>
                 </div>
 
-                <div class="flex flex-col rounded-md m-5 w-1/3 p-1">
+                <div class="flex flex-col rounded-md m-5 w-1/3 py-3">
                     <div class="inline-flex justify-between align-middle mb-2">
                         <div class="hidden lg:inline-block py-2.5">
                             Controlla le Statistiche
