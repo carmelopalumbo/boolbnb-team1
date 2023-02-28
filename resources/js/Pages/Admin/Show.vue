@@ -110,7 +110,7 @@ export default {
 
                 <div class="flex flex-col rounded-md m-5 w-1/3 py-3">
                     <div class="inline-flex justify-between align-middle mb-2">
-                        <div class="hidden lg:inline-block py-2.5">
+                        <div class="hidden lg:inline-block py-2.5 uppercase font-bold">
                             Controlla le Statistiche
                         </div>
                         <!-- Modal toggle -->
@@ -125,7 +125,7 @@ export default {
                     </div>
 
                     <div class="inline-flex justify-between align-middle mb-2">
-                        <div class="hidden lg:inline-block py-2.5">
+                        <div class="hidden lg:inline-block py-2.5 uppercase font-bold">
                             Modifica qui il tuo appartamento
                         </div>
                         <Link
@@ -137,7 +137,7 @@ export default {
                     </div>
 
                     <div class="inline-flex justify-between align-middle mb-2">
-                        <div class="hidden lg:inline-block py-2.5">
+                        <div class="hidden lg:inline-block py-2.5 uppercase font-bold">
                             Cancella il tuo appartamento
                         </div>
                         <button
