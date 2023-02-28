@@ -1,8 +1,11 @@
 <script>
 import Footer from "./Partials/Footer.vue";
 import tt from "@tomtom-international/web-sdk-maps";
-import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
+import Swiper, { Navigation, Pagination, Scrollbar } from "swiper";
+// import Swiper and modules styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default {
   name: "PropertyDetail",
@@ -51,10 +54,21 @@ export default {
   mounted() {
     this.initMap();
     console.log(this.property);
-    const mySwiper = new Swiper(".swiper-container", {
+    const mySwiper = new Swiper(".swiper", {
       loop: true,
+      modules: [Navigation, Pagination, Scrollbar],
+
       pagination: {
         el: ".swiper-pagination",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: ".swiper-scrollbar",
       },
     });
   },
@@ -98,7 +112,7 @@ export default {
         />
       </div>
       <div class="carousel">
-        <div class="swiper-container">
+        <div class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img src="../../../../public/Logo_V2.png" alt="" />
@@ -111,6 +125,11 @@ export default {
             </div>
           </div>
           <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
         </div>
       </div>
       <!-- <div class="relative m-5">
@@ -232,7 +251,7 @@ export default {
   margin-bottom: 20px;
 }
 
-.swiper-container {
+.swiper {
   width: 100%;
   height: 100%;
 }
