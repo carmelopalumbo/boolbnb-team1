@@ -1,7 +1,7 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
-import { initModals } from 'flowbite';
-
+import { initModals } from "flowbite";
+import ServiceIcons from "@/Components/ServiceIcons.vue";
 
 export default {
     name: "Show",
@@ -12,6 +12,7 @@ export default {
         chart_visit: Object,
         chart_message: Object,
     },
+    components: { ServiceIcons },
     layout: Layout,
 
     methods: {
@@ -34,8 +35,14 @@ export default {
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div class="text-center w-2/4">
-                    <h1 class="text-2xl font-bold uppercase text-[#4d1635] mb-4">{{ property.name }}</h1>
-                    <p class="text-lg font-medium mb-4">{{ property.address }}</p>
+                    <h1
+                        class="text-2xl font-bold uppercase text-[#4d1635] mb-4"
+                    >
+                        {{ property.name }}
+                    </h1>
+                    <p class="text-lg font-medium mb-4">
+                        {{ property.address }}
+                    </p>
                 </div>
             </div>
 
@@ -81,9 +88,15 @@ export default {
                     <h4 class="flex justify-between">N° bagni: <span>{{ property.bathrooms }} bagni</span></h4>
                     <h4 class="flex justify-between">Prezzo: <span>{{ property.price }}€</span></h4> -->
                     <h4 class="flex justify-between">{{ property.size }}㎡</h4>
-                    <h4 class="flex justify-between">{{ property.rooms }} stanze</h4>
-                    <h4 class="flex justify-between">{{ property.beds }} posti letto</h4>
-                    <h4 class="flex justify-between">{{ property.bathrooms }} bagni</h4>
+                    <h4 class="flex justify-between">
+                        {{ property.rooms }} stanze
+                    </h4>
+                    <h4 class="flex justify-between">
+                        {{ property.beds }} posti letto
+                    </h4>
+                    <h4 class="flex justify-between">
+                        {{ property.bathrooms }} bagni
+                    </h4>
                     <h4 class="flex justify-between">{{ property.price }}€</h4>
                 </div>
 
@@ -93,7 +106,12 @@ export default {
                             Controlla le Statistiche
                         </div>
                         <!-- Modal toggle -->
-                        <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="text-white font-medium rounded-lg text-sm px-3 py-2.5 mb-2 w-10 h-10 transition delay-150 bg-green-400 hover:bg-green-200 text-center" type="button">
+                        <button
+                            data-modal-target="defaultModal"
+                            data-modal-toggle="defaultModal"
+                            class="text-white font-medium rounded-lg text-sm px-3 py-2.5 mb-2 w-10 h-10 transition delay-150 bg-green-400 hover:bg-green-200 text-center"
+                            type="button"
+                        >
                             <i class="fa-solid fa-ranking-star"></i>
                         </button>
                     </div>
@@ -132,58 +150,59 @@ export default {
                 <p>{{ property.description }}</p>
             </div>
 
-            <div class="m-5 w-2/3 p-3">
+            <div class="m-5 w-2/3 py-3">
                 <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                     Servizi dell'appartamento:
                 </h2>
                 <div v-for="service in services" :key="service.id" class="p-1">
-                    <p v-if="service.name === 'cucina'">
-                        <i class="fas fa-utensils"></i> CUCINA
-                    </p>
-                    <p v-if="service.name === 'tv'">
-                        <i class="fas fa-tv"></i> TV
-                    </p>
-                    <p v-if="service.name === 'wifi'">
-                        <i class="fas fa-wifi"></i> WI-FI
-                    </p>
-                    <p v-if="service.name === 'posto auto'">
-                        <i class="fas fa-parking"></i> POSTO AUTO
-                    </p>
-                    <p v-if="service.name === 'piscina'">
-                        <i class="fas fa-swimming-pool"></i> PISCINA
-                    </p>
-                    <p v-if="service.name === 'aria condizionata'">
-                        <i class="fas fa-wind"></i> ARIA CONDIZIONATA
-                    </p>
-                    <p v-if="service.name === 'vista mare'">
-                        <i class="fas fa-water"></i> VISTA MARE
-                    </p>
-                    <p v-if="service.name === 'ascensore'">
-                        <i class="fas fa-elevator"></i> ASCENSORE
-                    </p>
-                    <p v-if="service.name === 'animali ammessi'">
-                        <i class="fas fa-paw"></i> ANIMALI AMMESSI
-                    </p>
-                    <p v-if="service.name === 'giardino'">
-                        <i class="fas fa-tree"></i> GIARDINO
-                    </p>
+                    <ServiceIcons :services="service.name" />
                 </div>
             </div>
         </main>
     </section>
 
     <!-- Main modal -->
-    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full px-0 py-20 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+    <div
+        id="defaultModal"
+        tabindex="-1"
+        aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full px-0 py-20 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+    >
         <div class="relative w-full max-w-4xl h-4/6">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 h-full overflow-y-auto">
+            <div
+                class="relative bg-white rounded-lg shadow dark:bg-gray-700 h-full overflow-y-auto"
+            >
                 <!-- Modal header -->
-                <div class="flex items-start justify-around p-4 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-white ml-auto">
-                        Le statistiche di <span class="text-[#4d1635] font-bold">{{ property.name }}</span>
+                <div
+                    class="flex items-start justify-around p-4 border-b rounded-t dark:border-gray-600"
+                >
+                    <h3
+                        class="text-xl font-medium text-gray-900 dark:text-white ml-auto"
+                    >
+                        Le statistiche di
+                        <span class="text-[#4d1635] font-bold">{{
+                            property.name
+                        }}</span>
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
-                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <button
+                        type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="defaultModal"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            class="w-3 h-3"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                            ></path>
+                        </svg>
                         <span class="sr-only">Close modal</span>
                     </button>
                 </div>
@@ -212,23 +231,25 @@ export default {
                     </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <div
+                    class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600"
+                >
                     <p class="text-center">
-                        Vuoi aumentare le visite e messaggi ricevuti per il tuo appartamento?<br>
+                        Vuoi aumentare le visite e messaggi ricevuti per il tuo
+                        appartamento?<br />
                         Dai un'occhiata al nostro servizio
-                        <Link :href="route('sponsors')" class="transition delay-150 text-[#4d1635] hover:text-[#89275e]"
-                            ><i class="fa-solid fa-rocket"></i><span class="uppercase mx-1 font-bold">boost</span><i
-                                class="fa-solid fa-rocket"
-                            ></i
+                        <Link
+                            :href="route('sponsors')"
+                            class="transition delay-150 text-[#4d1635] hover:text-[#89275e]"
+                            ><i class="fa-solid fa-rocket"></i
+                            ><span class="uppercase mx-1 font-bold">boost</span
+                            ><i class="fa-solid fa-rocket"></i
                         ></Link>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 </template>
 
 <style></style>

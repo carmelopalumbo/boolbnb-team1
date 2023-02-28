@@ -1,11 +1,12 @@
 <script>
 import Footer from "./Partials/Footer.vue";
 import tt from "@tomtom-international/web-sdk-maps";
+import ServiceIcons from "@/Components/ServiceIcons.vue";
 
 export default {
     name: "PropertyDetail",
 
-    components: { Footer },
+    components: { Footer, ServiceIcons },
 
     props: {
         property: Object,
@@ -128,40 +129,14 @@ export default {
                         <h2 class="font-bold mb-3">
                             Servizi disponibili nell'appartamento:
                         </h2>
-                        <div v-for="service in property.services" :key="service.id" class="p-1">
-                    <p v-if="service.name === 'cucina'">
-                        <i class="fas fa-utensils"></i> CUCINA
-                    </p>
-                    <p v-if="service.name === 'tv'">
-                        <i class="fas fa-tv"></i> TV
-                    </p>
-                    <p v-if="service.name === 'wifi'">
-                        <i class="fas fa-wifi"></i> WI-FI
-                    </p>
-                    <p v-if="service.name === 'posto auto'">
-                        <i class="fas fa-parking"></i> POSTO AUTO
-                    </p>
-                    <p v-if="service.name === 'piscina'">
-                        <i class="fas fa-swimming-pool"></i> PISCINA
-                    </p>
-                    <p v-if="service.name === 'aria condizionata'">
-                        <i class="fas fa-wind"></i> ARIA CONDIZIONATA
-                    </p>
-                    <p v-if="service.name === 'vista mare'">
-                        <i class="fas fa-water"></i> VISTA MARE
-                    </p>
-                    <p v-if="service.name === 'ascensore'">
-                        <i class="fas fa-elevator"></i> ASCENSORE
-                    </p>
-                    <p v-if="service.name === 'animali ammessi'">
-                        <i class="fas fa-paw"></i> ANIMALI AMMESSI
-                    </p>
-                    <p v-if="service.name === 'giardino'">
-                        <i class="fas fa-tree"></i> GIARDINO
-                    </p>
-                </div>
+                        <div
+                            v-for="service in property.services"
+                            :key="service.id"
+                            class="p-1"
+                        >
+                            <ServiceIcons :services="service.name" />
+                        </div>
                     </div>
-
                 </div>
 
                 <form
