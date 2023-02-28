@@ -107,7 +107,7 @@ export default {
                         <input
                             @keyup="debounced"
                             type="text"
-                            class="bg-gray-50 py-6 border border-gray-300 text-gray-900 text-lg rounded-full block px-5 w-full focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827]"
+                            class="bg-gray-50 py-6 border border-gray-300 text-gray-900 text-lg rounded-full block px-5 w-full focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827] dark:text-white"
                             v-model="search"
                             placeholder="Cerca un indirizzo . . . "
                         />
@@ -115,7 +115,7 @@ export default {
                             <p class="pl-2 py-2 border-b" v-for="item in listAddress" :key="item">
                                 <ul>
 
-                                    <li class="selectAddress cursor-pointer"
+                                    <li class="selectAddress cursor-pointer dark:text-white"
                                     @click="selectAddress(item)"
                                     ><i class="fa-solid fa-location-dot mr-2"></i>{{item.address.freeformAddress}}</li>
                                 </ul>
