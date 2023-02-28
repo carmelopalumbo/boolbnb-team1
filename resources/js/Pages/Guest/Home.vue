@@ -99,7 +99,7 @@ export default {
     <Head title="HOME"/>
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
-    <div class="h-full main dark:bg-[#111827]">
+    <div class="h-full main dark:bg-[#111827] pt-20">
         <div class="flex justify-center mt-6">
             <div class="flex flex-col mb-4 w-4/5">
                 <div class="inline-flex align-middle w-full">

@@ -9,7 +9,7 @@ import Footer from "@/Pages/Partials/Footer.vue";
 
 <template>
     <Header />
-    <div class="ofc dark:text-white dark:bg-[#111827]">
+    <div class="ofc dark:text-white dark:bg-[#111827] py-20">
         <slot />
     </div>
 
@@ -18,7 +18,7 @@ import Footer from "@/Pages/Partials/Footer.vue";
 
 <style>
 .header-top-fix {
-    height: 70px;
+    height: 60px;
 }
 .ofc {
     height: calc(100vh - 145px);
@@ -26,6 +26,6 @@ import Footer from "@/Pages/Partials/Footer.vue";
     /* margin-bottom: 20px; */
 }
 .footer-bottom-fix {
-    height: 75px;
+    height: 65px;
 }
 </style>

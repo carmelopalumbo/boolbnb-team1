@@ -78,7 +78,7 @@ export default {
         </nav>
     </section>
 
-    <div class="ofc mt-20 dark:bg-[#111827] dark:text-white">
+    <div class="ofc pt-20 dark:bg-[#111827] dark:text-white">
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div class="text-center w-full mx-8">
@@ -319,7 +319,7 @@ export default {
     height: 90px;
 }
 .ofc {
-    height: calc(100vh - 195px);
+    height: calc(100vh - 175px);
     overflow-y: scroll;
 }
 </style>

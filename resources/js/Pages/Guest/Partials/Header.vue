@@ -70,6 +70,11 @@ export default {
     border: 2px solid #4d1635;
 }
 
+section {
+    border-bottom: 1px solid white;
+    height: 95px;
+}
+
 .avatarhome {
     height: 70px;
     width: 70px;

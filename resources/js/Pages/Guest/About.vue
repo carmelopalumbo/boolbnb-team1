@@ -12,7 +12,7 @@ export default {
 <template>
     <Head title="CHI SIAMO" />
     <Header />
-    <main class="ofc">
+    <main class="ofc dark:bg-[#111827] dark:text-white py-8">
         <div class="flex justify-center m-9 text-3xl uppercase text-[#4d1635]">
             <i class="fa-solid fa-people-group"></i>
             <h1 class="px-4 font-bold">Chi siamo</h1>
@@ -220,7 +220,7 @@ export default {
 
 <style>
 .ofc {
-    height: calc(100vh - 195px);
+    height: calc(100vh - 175px);
     overflow-y: scroll;
     /* margin-bottom: 20px; */
 }

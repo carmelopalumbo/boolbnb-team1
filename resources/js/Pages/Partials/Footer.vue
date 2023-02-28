@@ -149,3 +149,10 @@ export default {
         </footer>
     </section>
 </template>
+
+<style scoped>
+section {
+    height: 85px;
+    overflow: hidden;
+}
+</style>
