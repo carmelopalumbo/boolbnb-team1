@@ -42,19 +42,13 @@ class Kernel extends ConsoleKernel
             ->get()
             ->groupBy('property_id')->values()->toArray();
             foreach ($results as $result) {
-                // dd($result[0]->end_date);
-                // dd(Carbon::parse($result[0]->end_date)->timestamp);
-                // dd(Carbon::now()->timestamp);
                 $property = Property::where('id', $result[0]->property_id)->first();
                 if($property->is_sponsored){
-                    dump('IO SONO QUI');
                     $date1 = strtotime(Carbon::now('+01:00')->toDateTimeString());
                     $date2 = strtotime($result[0]->end_date);
-                    dump($date1);
-                    dump($date2);
                     if($date1 > $date2){
-                        dump('IO SONO befuiafoaebeaiofbaeo');
                         $property->update(['is_sponsored' => 0]);
+                        $property->sponsors()->detach();
                     }
                 }
             }
