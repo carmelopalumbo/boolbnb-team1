@@ -90,9 +90,12 @@ export default {
                 </div>
             </div>
 
+            <div v-if="!media_property.length" class="relative m-5">
+                <img :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" class="mx-auto mb-3 rounded-md" width="600" height="600" alt="cover image">
+            </div>
 
 
-            <div id="default-carousel" class="relative my-8 carousel-inner" data-carousel="slide">
+            <div v-else id="default-carousel" class="relative my-8 carousel-inner" data-carousel="slide">
                 <!-- Carousel wrapper -->
                 <div class="relative h-96 overflow-hidden rounded-lg">
                     <!-- Cover image -->
