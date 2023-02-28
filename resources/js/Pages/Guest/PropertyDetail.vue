@@ -114,29 +114,41 @@ export default {
 
             <div class="flex justify-between flex-col md:flex-row">
                 <div class="flex flex-col w-1/2 sm:mx-auto">
-                    <div class="m-5 w-2/3 p-3">
-                        <h4>Misure: {{ property.size }}</h4>
-                        <p>N° stanze: {{ property.rooms }}</p>
-                        <p>N° posti letti : {{ property.beds }}</p>
-                        <p>N° bagni: {{ property.bathrooms }}</p>
-                        <p>Prezzo: {{ property.price }} €</p>
+                    <div class="m-5 w-1/3 py-3">
+                        <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                            Dettagli appartamento:
+                        </h2>
+                        <h4 class="flex justify-between py-1">{{ property.size }}㎡</h4>
+                        <h4 class="flex justify-between">
+                            {{ property.rooms }} stanze
+                        </h4>
+                        <h4 class="flex justify-between py-1">
+                            {{ property.beds }} posti letto
+                        </h4>
+                        <h4 class="flex justify-between py-1">
+                            {{ property.bathrooms }} bagni
+                        </h4>
+                        <h4 class="flex justify-between py-1">{{ property.price }}€</h4>
                     </div>
-                    <div class="m-5 w-2/3 p-3">
-                        <h2 class="font-bold mb-3">Descrizione:</h2>
-                        <p>{{ property.description }}</p>
+                    <div class="m-5 w-2/3 py-3">
+                        <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                            Descrizione dell'appartamento:
+                        </h2>
+                        <p class="py-1">{{ property.description }}</p>
                     </div>
-                    <div class="m-5 w-2/3 p-3">
-                        <h2 class="font-bold mb-3">
-                            Servizi disponibili nell'appartamento:
+                    <div class="m-5 w-2/3 py-3">
+                        <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                            Servizi dell'appartamento:
                         </h2>
                         <div
                             v-for="service in property.services"
                             :key="service.id"
-                            class="p-1"
+                            class="py-1"
                         >
                             <ServiceIcons :services="service.name" />
                         </div>
                     </div>
+
                 </div>
 
                 <form
@@ -190,9 +202,9 @@ export default {
                 </div>
             </div>
             <div
-                class="flex justify-center m-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
+                class="flex justify-center my-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
             >
-                <div id="map"></div>
+                <div class="mx-auto" id="map"></div>
             </div>
         </main>
     </div>
@@ -203,6 +215,7 @@ export default {
 #map {
     height: 800px;
     width: 100%;
+
 }
 .header-top-fix {
     height: 90px;
