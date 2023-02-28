@@ -159,7 +159,7 @@ export default {
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                             Servizi dell'appartamento:
                         </h2>
-                        <div v-if="!property.services.length">Nessun servizio</div>
+                        <div v-if="!property.services.length">Nessun servizio dichiarato</div>
                         <div
                             v-for="service in property.services"
                             :key="service.id"
@@ -205,7 +205,7 @@ export default {
                     <button
                         @click.prevent="submit"
                         :disabled="!message.content"
-                        class="text-white sm:w-auto px-5 py-2.5 mt-6 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                        class="text-white sm:w-auto flex px-5 py-2.5 mt-6 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
                     >
                         Invia
                     </button>
@@ -220,8 +220,9 @@ export default {
                     </h4>
                 </div>
             </div>
+            <h4 class="py-2 text-center text-[#4d1635] text-lg font-bold">Nelle vicinanze . . .</h4>
             <div
-                class="flex justify-center my-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
+                class="flex justify-center mb-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
             >
                 <div class="mx-auto" id="map"></div>
             </div>

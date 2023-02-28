@@ -59,11 +59,6 @@ export default {
 <style>
 .description {
     text-shadow: 1px 1px 4px white;
-    /* background-color: beige; */
-    /* background-color: rgba(0, 0, 0, .6); */
 }
 
-/* img {
-    filter: opacity(0.4);
-} */
 </style>
