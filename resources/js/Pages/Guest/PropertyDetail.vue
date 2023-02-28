@@ -1,11 +1,12 @@
 <script>
 import Footer from "./Partials/Footer.vue";
 import tt from "@tomtom-international/web-sdk-maps";
-import Swiper, { Navigation, Pagination, Scrollbar } from "swiper";
+import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from "swiper";
 // import Swiper and modules styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 export default {
   name: "PropertyDetail",
@@ -56,7 +57,7 @@ export default {
     console.log(this.property);
     const mySwiper = new Swiper(".swiper", {
       loop: true,
-      modules: [Navigation, Pagination, Scrollbar],
+      modules: [Navigation, Pagination, Scrollbar, Autoplay],
 
       pagination: {
         el: ".swiper-pagination",
@@ -69,6 +70,9 @@ export default {
       // And if we need scrollbar
       scrollbar: {
         el: ".swiper-scrollbar",
+      },
+      autoplay: {
+        el: ".swiper-autoplay",
       },
     });
   },
