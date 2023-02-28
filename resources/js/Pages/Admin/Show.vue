@@ -169,8 +169,6 @@ export default {
                             ></apexchart>
                         </div>
 
-                        <!-- <div v-if="!property.messages.length">No stats</div> -->
-
                         <div class="w-full h-1/2">
                             <apexchart
                                 :width="chart_message.width"
