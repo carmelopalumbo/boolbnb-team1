@@ -62,7 +62,7 @@ class PaymentController extends Controller
 
             $property->sponsors()->attach($sponsor->id, [
                 'start_date' => Carbon::now('+01:00'),
-                'end_date' => Carbon::now('+01:00')->addMinutes(3)
+                'end_date' => Carbon::now('+01:00')->addMinutes(2)
             ]);
 
             return to_route('properties.show', $property);
