@@ -144,7 +144,7 @@ export default {
                             propertyEdit.cover_image = $event.target.files[0]
                         "
                         @change="showImage"
-                        class="block text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] "
+                        class="block text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] input-file "
                         id="cover_image"
                         type="file"
                     />
@@ -167,7 +167,7 @@ export default {
                     >
                     <input
                         @input="propertyEdit.editGallery = $event.target.files"
-                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 rounded-lg cursor-pointer bg-gray-50 input-file"
                         id="gallery"
                         type="file"
                         multiple
@@ -197,7 +197,7 @@ export default {
                     <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Numero letti *</label
+                        >N° posti letto *</label
                     >
                     <input
                         type="number"
@@ -361,5 +361,10 @@ export default {
     }
     .selectAddress:hover{
         background-color: lightgray;
+    }
+
+    .input-file:focus{
+        outline: none !important;
+        border: 2px solid #4d1635 ;
     }
 </style>

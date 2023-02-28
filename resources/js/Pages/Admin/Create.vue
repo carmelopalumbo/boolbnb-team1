@@ -153,7 +153,7 @@ export default {
                             newProperty.cover_image = $event.target.files[0]
                         "
                         @change="showImage"
-                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 rounded-lg cursor-pointer bg-gray-50 input-file"
                         id="cover_image"
                         type="file"
                     />
@@ -176,7 +176,7 @@ export default {
                     >
                     <input
                         @input="newProperty.gallery = $event.target.files"
-                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 rounded-lg cursor-pointer bg-gray-50 input-file"
                         id="gallery"
                         type="file"
                         multiple
@@ -378,5 +378,10 @@ export default {
     }
     .selectAddress:hover{
         background-color: lightgray;
+    }
+
+    .input-file:focus{
+        outline: none !important;
+        border: 2px solid #4d1635 ;
     }
 </style>
