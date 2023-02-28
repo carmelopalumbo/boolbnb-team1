@@ -205,7 +205,7 @@ export default {
                             <div :id="'dropin-container-' + property.id"></div>
 
                             <button
-                                class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase"
+                                class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase disabled:opacity-75"
                                 :id="'submit-button-' + property.id"
                                 :disabled="
                                     (isLoading || property.is_sponsored) &&
