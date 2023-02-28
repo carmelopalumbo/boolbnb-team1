@@ -5,23 +5,22 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 </script>
 
 <template>
-    <section class="header-top-fix ">
-        <Navbar className="h-100 dark:bg-black">
+    <section class="header-top-fix">
+        <Navbar className="h-100 dark:bg-[#111827]">
             <template #logo>
                 <!-- <NavbarLogo> -->
-                <Link
-                href="/">
+                <Link href="/">
                     <img
-                    class="max-h-10 object-scale-down"
-                    src="../../../../public/Logo_V2.png"
-                    alt="Logo Boolbnb"
-                />
+                        class="max-h-10 object-scale-down"
+                        src="../../../../public/Logo_V2.png"
+                        alt="Logo Boolbnb"
+                    />
                 </Link>
                 <!-- </NavbarLogo> -->
             </template>
 
             <template #default="{ isShowMenu }">
-                <NavbarCollapse :isShowMenu="isShowMenu" class="z-10 navbar-personal dark-bnb:bg-black">
+                <NavbarCollapse :isShowMenu="isShowMenu" class="z-10">
                     <NavbarLink
                         className="text-sm text-center items-center py-2"
                     >
@@ -38,7 +37,9 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                     <NavbarLink className="text-sm text-center py-2"
                         ><Link
                             :href="route('mymessages')"
-                            :class="{ active: $page.url === '/admin/mymessages' }"
+                            :class="{
+                                active: $page.url === '/admin/mymessages',
+                            }"
                             class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white"
                             ><i class="fa-solid fa-message mr-1"></i
                             ><span class="">Messaggi</span></Link
@@ -77,9 +78,5 @@ import DropdownLink from "@/Components/DropdownLink.vue";
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     border: 2px solid #4d1635;
-}
-
-ul{
-    background-color: antiquewhite !important;
 }
 </style>

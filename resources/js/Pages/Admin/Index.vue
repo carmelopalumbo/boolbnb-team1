@@ -75,37 +75,43 @@ export default {
                 class="w-5/6 table-auto text-base mx-auto text-left text-gray-500 border"
             >
                 <thead
-                    class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center"
+                    class="border-b text-base text-gray-700 bg-gray-200 uppercase h-10 text-center dark:bg-[#111827]"
                 >
                     <tr>
-                        <th scope="col" class="font-bold text-gray-900 px-2">
+                        <th
+                            scope="col"
+                            class="font-bold text-gray-900 px-2 dark:text-white"
+                        >
                             nome
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 hidden md:table-cell px-2"
+                            class="font-bold text-gray-900 hidden md:table-cell px-2 dark:text-white"
                         >
                             indirizzo
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 hidden lg:table-cell px-2"
+                            class="font-bold text-gray-900 hidden lg:table-cell px-2 dark:text-white"
                         >
                             prezzo
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 hidden md:table-cell px-2"
+                            class="font-bold text-gray-900 hidden md:table-cell px-2 dark:text-white"
                         >
                             visibilità
                         </th>
                         <th
                             scope="col"
-                            class="font-bold text-gray-900 hidden md:table-cell px-2"
+                            class="font-bold text-gray-900 hidden md:table-cell px-2 dark:text-white"
                         >
                             boost
                         </th>
-                        <th scope="col" class="font-bold text-gray-900">
+                        <th
+                            scope="col"
+                            class="font-bold text-gray-900 dark:text-white"
+                        >
                             azioni
                         </th>
                     </tr>
@@ -114,24 +120,24 @@ export default {
                     <tr
                         v-for="property in my_properties.data"
                         :key="property.id"
-                        class="bg-white border-b hover:bg-gray-100 h-16 w-[50px]"
+                        class="bg-white border-b hover:bg-gray-100 h-16 w-[50px] dark:bg-[#111827]"
                     >
                         <td
-                            class="font-medium text-gray-900 break-words truncate px-2"
+                            class="font-medium text-gray-900 break-words truncate px-2 dark:text-white"
                         >
                             <div class="truncate w-60 lg:w-64">
                                 {{ property.name }}
                             </div>
                         </td>
                         <td
-                            class="font-normal text-gray-900 truncate hidden md:table-cell w-1/6 px-2"
+                            class="font-normal text-gray-900 truncate hidden md:table-cell w-1/6 px-2 dark:text-white"
                         >
                             <div class="truncate w-40 lg:w-80">
                                 {{ property.address }}
                             </div>
                         </td>
                         <td
-                            class="font-normal text-gray-900 whitespace-nowrap hidden lg:table-cell text-center px-2"
+                            class="font-normal text-gray-900 whitespace-nowrap hidden lg:table-cell text-center px-2 dark:text-white"
                         >
                             {{ property.price }} €
                         </td>

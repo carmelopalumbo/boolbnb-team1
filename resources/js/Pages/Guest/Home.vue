@@ -99,7 +99,7 @@ export default {
     <Head title="HOME"/>
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
-    <div class="h-full main">
+    <div class="h-full main dark:bg-[#111827]">
         <div class="flex justify-center mt-6">
             <div class="flex flex-col mb-4 w-4/5">
                 <div class="inline-flex align-middle w-full">
@@ -107,7 +107,7 @@ export default {
                         <input
                             @keyup="debounced"
                             type="text"
-                            class="bg-gray-50 py-6 border border-gray-300 text-gray-900 text-lg rounded-full block px-5 w-full focus:ring-[#4d1635] focus:border-[#4d1635]"
+                            class="bg-gray-50 py-6 border border-gray-300 text-gray-900 text-lg rounded-full block px-5 w-full focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827]"
                             v-model="search"
                             placeholder="Cerca un indirizzo . . . "
                         />
@@ -273,7 +273,7 @@ export default {
 
 <style>
 .main{
-    height: calc(100vh - 195px);
+    height: calc(100vh - 145px);
     overflow-y: scroll;
 }
 </style>

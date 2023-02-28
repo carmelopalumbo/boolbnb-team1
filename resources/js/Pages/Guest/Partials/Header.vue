@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-    <section class="header-top-fix">
+    <section class="header-top-fix dark:bg-[#111827]">
         <nav class="px-2 sm:px-4 py-2.5">
             <div class="w-full flex justify-between">
                 <div class="flex">
