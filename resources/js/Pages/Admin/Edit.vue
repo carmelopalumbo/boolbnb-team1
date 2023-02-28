@@ -101,7 +101,7 @@ export default {
                     <input
                         type="text"
                         id="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="propertyEdit.name"
                     />
@@ -116,7 +116,7 @@ export default {
                         type="text"
                         id="description"
                         rows="5"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 resize-none "
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 resize-none "
                         required
                         v-model="propertyEdit.description"
                     />
@@ -133,7 +133,7 @@ export default {
                             propertyEdit.cover_image = $event.target.files[0]
                         "
                         @change="showImage"
-                        class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] "
                         id="cover_image"
                         type="file"
                     />
@@ -150,7 +150,7 @@ export default {
                     >
                     <input
                         @input="propertyEdit.editGallery = $event.target.files"
-                        class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="gallery"
                         type="file"
                         multiple
@@ -186,7 +186,7 @@ export default {
                         type="number"
                         min="0"
                         id="beds"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="propertyEdit.beds"
                     />
@@ -196,13 +196,13 @@ export default {
                     <label
                         for="bathrooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Numero bagni</label
+                        >N° bagni</label
                     >
                     <input
                         type="number"
                         min="0"
                         id="bathrooms"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.bathrooms"
                     />
                 </div>
@@ -211,13 +211,14 @@ export default {
                     <label
                         for="rooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Numero Stanze da Letto</label
+                        >N° stanze*</label
                     >
                     <input
                         type="number"
                         min="0"
                         id="rooms"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        required
                         v-model="propertyEdit.rooms"
                     />
                 </div>
@@ -232,7 +233,7 @@ export default {
                         type="number"
                         min="0"
                         id="size"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="propertyEdit.size"
                     />
                 </div>
@@ -241,13 +242,13 @@ export default {
                     <label
                         for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Prezzo /per notte *</label
+                        >Prezzo/notte *</label
                     >
                     <input
                         type="number"
                         min="1"
                         id="price"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="propertyEdit.price"
                     />
@@ -263,7 +264,7 @@ export default {
                     @keyup="debounced"
                         type="text"
                         id="address"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="propertyEdit.address"
                     />

@@ -160,7 +160,7 @@ export default {
                                             aria-labelledby="dropdownMenuIconButton"
                                         >
                                             <div class="w-1/2">
-                                                <label for="services" class="block mb-2 text-base text-[#4d1635] font-bold">N° posti letti</label>
+                                                <label for="services" class="block mb-2 text-base text-[#4d1635] font-bold">N° posti letto</label>
                                                     <input
                                                         v-model="beds"
                                                         min="1"

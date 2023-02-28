@@ -110,7 +110,7 @@ export default {
                     <input
                         type="text"
                         id="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="newProperty.name"
                     />
@@ -130,7 +130,7 @@ export default {
                     <textarea
                         id="description"
                         rows="5"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 resize-none "
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 resize-none "
                         required
                         v-model="newProperty.description"
                     />
@@ -153,7 +153,7 @@ export default {
                             newProperty.cover_image = $event.target.files[0]
                         "
                         @change="showImage"
-                        class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="cover_image"
                         type="file"
                     />
@@ -176,7 +176,7 @@ export default {
                     >
                     <input
                         @input="newProperty.gallery = $event.target.files"
-                        class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                         id="gallery"
                         type="file"
                         multiple
@@ -191,7 +191,7 @@ export default {
                 </div>
                 <div class="flex flex-col mb-4 w-full">
                     <label for="services" class="block mb-2 text-sm font-medium text-gray-900">Servizi presenti</label>
-                    <ul class="lg:grid lg:grid-cols-6 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2">
+                    <ul class="lg:grid lg:grid-cols-6 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg flex flex-wrap p-2">
                         <li v-for="service in services" :key="service.id" class="w-full mb-2 place-self-center uppercase">
                             <div class="flex items-center">
                                 <input v-model="newProperty.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
@@ -206,13 +206,13 @@ export default {
                     <label
                         for="beds"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Numero Letti *</label
+                        >N° Letti *</label
                     >
                     <input
                         type="number"
                         min="0"
                         id="beds"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="newProperty.beds"
                     />
@@ -228,13 +228,13 @@ export default {
                     <label
                         for="bathrooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Numero Bagni</label
+                        >N° Bagni</label
                     >
                     <input
                         type="number"
                         min="0"
                         id="bathrooms"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="newProperty.bathrooms"
                     />
                     <p
@@ -249,13 +249,14 @@ export default {
                     <label
                         for="rooms"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Numero Stanze da Letto</label
+                        >N° stanze*</label
                     >
                     <input
                         type="number"
                         min="0"
                         id="rooms"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        required
                         v-model="newProperty.rooms"
                     />
                     <p
@@ -276,7 +277,7 @@ export default {
                         type="number"
                         min="0"
                         id="size"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         v-model="newProperty.size"
                     />
                     <p
@@ -291,13 +292,13 @@ export default {
                     <label
                         for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Prezzo /per notte *</label
+                        >Prezzo/notte *</label
                     >
                     <input
                         type="number"
                         min="1"
                         id="price"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="newProperty.price"
                     />
@@ -318,7 +319,7 @@ export default {
                     <input
                      @keyup="debounced"
                         type="text"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5"
                         required
                         v-model="newProperty.address"
                     />
