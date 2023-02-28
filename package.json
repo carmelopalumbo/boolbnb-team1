@@ -20,10 +20,12 @@
     "dependencies": {
         "@tomtom-international/web-sdk-maps": "^6.23.0",
         "@vueuse/core": "^9.12.0",
+        "apexcharts": "^3.37.1",
         "bootstrap": "^5.2.3",
         "flowbite": "^1.6.3",
         "flowbite-vue": "^0.0.10",
         "vue-moment": "^4.1.0",
-        "vue-plugin-load-script": "^2.1.1"
+        "vue-plugin-load-script": "^2.1.1",
+        "vue3-apexcharts": "^1.4.1"
     }
 }
