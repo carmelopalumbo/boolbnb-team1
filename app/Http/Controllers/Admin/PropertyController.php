@@ -61,6 +61,7 @@ class PropertyController extends Controller
                 'description' => 'required|min:10|max:1000',
                 'cover_image' => 'image|required',
                 'beds' => 'numeric|required',
+                'rooms' => 'numeric|required',
                 'price' => 'numeric|required|min:1',
                 'address' => 'required'
             ],
@@ -75,7 +76,8 @@ class PropertyController extends Controller
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
                 'cover_image.image' => 'File immagine non supportato.',
                 'cover_image.required' => 'Immagine di copertina obbligatoria.',
-                'rooms.numeric' => 'Valore non valido',
+                'rooms.numeric' => 'Valore non valido.',
+                'rooms.required' => 'Valore obbligatorio.',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
                 'price.numeric' => 'Valore non valido',
@@ -175,13 +177,14 @@ class PropertyController extends Controller
     public function update(Request $request, Property $property)
     {
         //dd($request->all());
+
         $request->validate(
             [
                 'name' => 'required|min:10|max:100',
                 'size' => 'numeric|max:1000',
                 'description' => 'required|min:10|max:1000',
-                'cover_image' => 'image|required',
                 'beds' => 'numeric|required',
+                'rooms' => 'numeric|required',
                 'price' => 'numeric|required|min:1',
                 'address' => 'required'
             ],
@@ -194,9 +197,8 @@ class PropertyController extends Controller
                 'description.required' => 'La descrizione dell\'annuncio é obbligatoria.',
                 'description.min' => 'Minimo :min caratteri.',
                 'description.max' => 'Testo troppo lungo. Max :max caratteri.',
-                'cover_image.image' => 'File immagine non supportato.',
-                'cover_image.required' => 'Immagine di copertina obbligatoria.',
-                'rooms.numeric' => 'Valore non valido',
+                'rooms.numeric' => 'Valore non valido.',
+                'rooms.required' => 'Valore obbligatorio.',
                 'beds.numeric' => 'Valore non valido',
                 'bathrooms.numeric' => 'Valore non valido',
                 'price.numeric' => 'Valore non valido',

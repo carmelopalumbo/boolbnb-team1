@@ -189,6 +189,7 @@ export default {
             </table>
         </div>
         <div
+            v-if="my_properties.links.length > 3"
             class="mt-8 flex justify-center text-[#4d1635] text-lg font-bold space-x-6"
         >
             <Component
