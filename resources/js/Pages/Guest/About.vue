@@ -20,10 +20,10 @@ export default {
         </div>
         <div class="flex flex-col">
             <div
-                class="mx-auto space-x-6 h-5/6 w-5/6 mt-3 flex md:flex-row flex-col columns-3 justify-between"
+                class="mt-3 flex lg:flex-row flex-col columns-3 justify-between flex-wrap w-full lg:space-x-4 space-y-10 lg:space-y-0 px-10"
             >
                 <div
-                    class="w-1/2 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
                         class="rounded-full scale-75 border-[#4d1635] border-2"
@@ -38,7 +38,7 @@ export default {
                         <p>Jessica Tartaglia</p>
                     </div>
                     <div
-                        class="text-lg m-5 p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -53,7 +53,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-1/2 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
                         class="rounded-full scale-75 border-[#4d1635] border-2"
@@ -68,7 +68,7 @@ export default {
                         <p>Michele Zancolò</p>
                     </div>
                     <div
-                        class="text-lg m-5 p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -84,7 +84,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-1/2 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
                         class="rounded-full scale-75 border-[#4d1635] border-2"
@@ -99,7 +99,7 @@ export default {
                         <p>Carmelo Palumbo</p>
                     </div>
                     <div
-                        class="text-lg m-5 p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -116,7 +116,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-1/2 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
                         class="rounded-full scale-75 border-[#4d1635] border-2"
@@ -131,7 +131,7 @@ export default {
                         <p>Eugenio Belardinelli</p>
                     </div>
                     <div
-                        class="text-lg m-5 p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -147,7 +147,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-1/2 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
                         class="rounded-full scale-75 border-[#4d1635] border-2"
@@ -162,7 +162,7 @@ export default {
                         <p>Carmelo Miuccio</p>
                     </div>
                     <div
-                        class="text-lg m-5 p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
                     >
                         <a
                             target="_blank"
