@@ -97,8 +97,8 @@ export default {
                 </h2>
             </div>
 
-            <div class="flex justify-between container py-6">
-                <p class="w-1/2">
+            <div class="flex flex-col items-center md:justify-between md:flex-row container py-6">
+                <p class="w-1/2 mb-6">
                     In questa sezione hai la possibilitá di mettere in risalto
                     la tua proprietá. Abbiamo messo a disposizione per te tre
                     pacchetti. Acquistando uno di questi otterrai un badge e la
@@ -111,7 +111,7 @@ export default {
                     id="dropdownHoverButton"
                     data-dropdown-toggle="dropdownHover"
                     data-dropdown-trigger="hover"
-                    class="text-white uppercase bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                    class="text-white uppercase bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-1/4 md:w-1/6"
                     type="button"
                 >
                     scegli boost
@@ -157,24 +157,24 @@ export default {
             </div>
 
             <div
-                class="flex container my-20 border-2 p-10 rounded-lg"
+                class="flex container my-20 border-2 p-10 rounded-lg w-2/3 md:w-full"
                 v-for="property in properties.data"
                 :key="property.id"
             >
                 <form
-                    class="flex justify-between w-full"
+                    class="flex justify-between flex-col md:flex-row w-full mx-auto"
                     :id="'payment-form-' + property.id"
                     action="/api/payment/make/payment"
                     method="post"
                     @submit.prevent="submit"
                 >
-                    <div class="space-x-4">
-                        <span class="uppercase font-bold text-xl">{{
+                    <div class="space-x-4 flex flex-col md:flex-row ">
+                        <span class="uppercase font-bold text-xl text-center md:text-left">{{
                             property.name
                         }}</span>
                         <span
                             v-if="property.is_sponsored"
-                            class="bg-[#ebb733] text-[#89275e] text-sm font-bold mr-2 px-2.5 py-0.5 rounded-full uppercase"
+                            class="bg-[#ebb733] text-[#89275e] text-sm font-bold mr-2 px-2.5 py-0.5 h-6 rounded-full uppercase text-center my-4 md:my-0"
                             >boost <i class="fa-solid fa-rocket"></i>
                         </span>
                     </div>
