@@ -1,6 +1,6 @@
 <script>
 import Layout from "./Layouts/Layout.vue";
-import { initDropdowns } from 'flowbite'
+import { initDropdowns } from 'flowbite';
 import debounce from 'lodash/debounce';
 
 export default {
