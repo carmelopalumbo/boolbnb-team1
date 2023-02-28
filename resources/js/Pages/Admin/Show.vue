@@ -47,6 +47,7 @@ export default {
             </div>
 
             <div class="relative rounded-md m-5">
+                <h2 class="text-center py-2">Immagine di copertina</h2>
                 <img
                     class="mx-auto mb-3 h-96 object-scale-down rounded-md"
                     :src="
@@ -56,9 +57,9 @@ export default {
                 />
             </div>
 
-            <!-- <div
-                v-if="media_property.image"
-                class="relative border-[#4d1635] border-2 rounded-md m-5"
+            <div
+                v-if="media_property.length"
+                class="relative rounded-md m-5"
             >
                 <h2 class="text-center py-2">Galleria</h2>
 
@@ -66,16 +67,14 @@ export default {
                     <img
                         v-for="image in media_property"
                         :key="image.id"
-                        class="mb-3"
-                        width="200"
-                        height="200"
+                        class="galleryimage mb-3 rounded-md"
                         :src="
                             'http://[::1]:5173/storage/app/public/' +
                             image.file_name
                         "
                     />
                 </div>
-            </div> -->
+            </div>
 
             <div class="flex justify-between">
                 <div class="m-5 w-1/3 py-3">
@@ -247,4 +246,13 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style lang="css" scoped>
+
+.galleryimage{
+    width:  150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+</style>>
+

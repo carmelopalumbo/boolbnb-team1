@@ -136,23 +136,6 @@ export default {
                     <div class="swiper-scrollbar"></div>
                 </div>
             </div>
-            <!-- <div class="relative m-5">
-                <h2 class="text-center py-2">Galleria</h2>
-
-                <div class="flex justify-center gap-x-4 flex-wrap">
-                    <img
-                        v-for="image in media_property"
-                        :key="image.id"
-                        class="mb-3"
-                        width="200"
-                        height="200"
-                        :src="
-                            'http://[::1]:5173/storage/app/public/' +
-                            image.file_name
-                        "
-                    />
-                </div>
-            </div> -->
             <div class="flex justify-between flex-col md:flex-row">
                 <div class="flex flex-col w-3/5 sm:mx-auto">
                     <div class="m-5 w-1/3 py-3">

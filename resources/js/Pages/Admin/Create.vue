@@ -194,7 +194,7 @@ export default {
                     <ul class="lg:grid lg:grid-cols-6 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2">
                         <li v-for="service in services" :key="service.id" class="w-full mb-2 place-self-center uppercase">
                             <div class="flex items-center">
-                                <input v-model="newProperty.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                                <input v-model="newProperty.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
                                 >
                                 <label :for="service.name" class="ml-2 text-sm font-medium text-gray-900">{{service.name}}</label>
                             </div>
