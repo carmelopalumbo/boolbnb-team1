@@ -43,6 +43,7 @@ export default {
                     <p class="text-lg font-medium mb-4">
                         {{ property.address }}
                     </p>
+                    <div>appartamento boost to fix</div>
                 </div>
             </div>
 
@@ -254,5 +255,5 @@ export default {
     object-fit: cover;
 }
 
-</style>>
+</style>
 

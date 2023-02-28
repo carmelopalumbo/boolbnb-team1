@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Stat;
@@ -62,10 +63,11 @@ class GuestController extends Controller
     public function show($id, Faker $faker)
     {
         $property = Property::where('id', $id)->with('services')->first();
+        $media_property = Media::where('property_id', $property->id)->get();
         Stat::create([
             'ip_address' => $faker->ipv4(),
             'property_id' => $property->id
         ]);
-        return Inertia::render('Guest/PropertyDetail', compact('property'));
+        return Inertia::render('Guest/PropertyDetail', compact('property', 'media_property'));
     }
 }
