@@ -31,14 +31,12 @@ export default {
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div class="text-center w-2/4">
-                    <h1 class="text-2xl bold uppercase">{{ property.name }}</h1>
-                    <p>Indirizzo: {{ property.address }}</p>
+                    <h1 class="text-2xl font-bold uppercase text-[#4d1635] mb-4">{{ property.name }}</h1>
+                    <p class="text-lg font-medium mb-4">{{ property.address }}</p>
                 </div>
             </div>
 
             <div class="relative rounded-md m-5">
-                <h2 class="text-center py-2">Immagine di copertina:</h2>
-
                 <img
                     class="mx-auto mb-3 object-scale-down"
                     :src="
@@ -82,37 +80,37 @@ export default {
                 </div>
 
                 <div class="flex flex-col rounded-md m-5 w-1/3 p-1">
-                    <div class="grid grid-flow-col auto-cols-auto mb-1">
-                        <div class="hidden lg:inline-block place-self-start">
+                    <div class="inline-flex justify-between align-middle mb-2">
+                        <div class="hidden lg:inline-block py-2.5">
                             Controlla le Statistiche
                         </div>
                         <Link
                             href="/admin/stats"
-                            class="text-white hover:text-black transition delay-150 bg-green-400 hover:bg-yellow-200 rounded-lg px-3 py-2 mx-2 w-10 h-12 place-self-end"
+                            class="text-white font-medium rounded-lg text-sm px-3 py-2.5 mb-2 w-10 h-10 transition delay-150 bg-green-400 hover:bg-green-200 hover:text-black"
                         >
                             <i class="fa-solid fa-ranking-star"></i>
                         </Link>
                     </div>
 
-                    <div class="grid grid-flow-col auto-cols-auto mb-1">
-                        <div class="hidden lg:inline-block place-self-start">
+                    <div class="inline-flex justify-between align-middle mb-2">
+                        <div class="hidden lg:inline-block py-2.5">
                             Modifica qui il tuo appartamento
                         </div>
                         <Link
                             :href="route('properties.edit', property)"
-                            class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 px-3 py-2 rounded-lg mx-2 w-10 h-12 place-self-end"
+                            class="text-white hover:text-black transition delay-150 bg-yellow-400 hover:bg-yellow-200 font-medium rounded-lg text-sm w-10 h-10 px-3 py-2.5 mb-2"
                         >
                             <i class="fa-solid fa-pen-to-square"></i>
                         </Link>
                     </div>
 
-                    <div class="grid grid-flow-col auto-cols-auto mb-1">
-                        <div class="hidden lg:inline-block place-self-start">
+                    <div class="inline-flex justify-between align-middle mb-2">
+                        <div class="hidden lg:inline-block py-2.5">
                             Cancella il tuo appartamento
                         </div>
                         <button
                             href="http://127.0.0.1:8000/admin/properties"
-                            class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 px-3 py-2 rounded-lg w-10 h-12 mx-2 place-self-end"
+                            class="text-white hover:text-black transition delay-150 bg-red-600 hover:bg-red-400 text-sm w-10 h-10 px-3 py-2.5 mb-2 rounded-lg"
                             @click="deleteItem(property)"
                         >
                             <i class="fa-solid fa-trash"></i>
