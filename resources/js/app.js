@@ -7,6 +7,8 @@ import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import axios from 'axios';
+import VueCharts from 'vue3-apexcharts';
+import VueApexCharts from 'vue3-apexcharts';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -17,6 +19,7 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+            .use(VueApexCharts)
             .component('Link', Link)
             .component('axios', axios)
             .component('Head', Head)

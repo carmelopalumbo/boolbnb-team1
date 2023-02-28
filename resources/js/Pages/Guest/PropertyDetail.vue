@@ -1,8 +1,8 @@
 <script>
 import Footer from "./Partials/Footer.vue";
+import ServiceIcons from "@/Components/ServiceIcons.vue";
 import tt from "@tomtom-international/web-sdk-maps";
 import Swiper, { Navigation, Pagination, Scrollbar, Autoplay } from "swiper";
-// import Swiper and modules styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
 export default {
   name: "PropertyDetail",
 
-  components: { Footer },
+components: { Footer, ServiceIcons },
 
   props: {
     property: Object,
@@ -153,33 +153,32 @@ export default {
                     />
                 </div>
             </div> -->
-
-      <div class="flex justify-between flex-col md:flex-row">
-        <div class="flex flex-col w-1/2 sm:mx-auto">
-          <div class="m-5 w-2/3 p-3">
-            <h4>Misure: {{ property.size }}</h4>
-            <p>N° stanze: {{ property.rooms }}</p>
-            <p>N° posti letti : {{ property.beds }}</p>
-            <p>N° bagni: {{ property.bathrooms }}</p>
-            <p>Prezzo: {{ property.price }} €</p>
-          </div>
-          <div class="m-5 w-2/3 p-3">
-            <h2 class="font-bold mb-3">Descrizione:</h2>
-            <p>{{ property.description }}</p>
-          </div>
-          <div class="m-5 w-2/3 p-3">
-            <h2 class="font-bold mb-3">
-              Servizi disponibili nell'appartamento:
-            </h2>
-            <p
-              v-for="service in property.services"
-              :key="service.id"
-              class="uppercase"
-            >
-              {{ service.name }}
-            </p>
-          </div>
-        </div>
+            <div class="flex justify-between flex-col md:flex-row">
+                <div class="flex flex-col w-1/2 sm:mx-auto">
+                    <div class="m-5 w-2/3 p-3">
+                        <h4>Misure: {{ property.size }}</h4>
+                        <p>N° stanze: {{ property.rooms }}</p>
+                        <p>N° posti letti : {{ property.beds }}</p>
+                        <p>N° bagni: {{ property.bathrooms }}</p>
+                        <p>Prezzo: {{ property.price }} €</p>
+                    </div>
+                    <div class="m-5 w-2/3 p-3">
+                        <h2 class="font-bold mb-3">Descrizione:</h2>
+                        <p>{{ property.description }}</p>
+                    </div>
+                    <div class="m-5 w-2/3 p-3">
+                        <h2 class="font-bold mb-3">
+                            Servizi disponibili nell'appartamento:
+                        </h2>
+                        <div
+                            v-for="service in property.services"
+                            :key="service.id"
+                            class="p-1"
+                        >
+                            <ServiceIcons :services="service.name" />
+                        </div>
+                    </div>
+                </div>
 
         <form
           class="border-[#4d1635] border-2 rounded-md w-1/2 m-5 p-3 rows-span-2 sm:mx-auto"
