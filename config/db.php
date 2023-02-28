@@ -341,17 +341,17 @@ return [
         [
             'name' => 'bronze',
             'price' => 2.99,
-            'duration' => 86400
+            'duration' => 2
         ],
         [
             'name' => 'silver',
             'price' => 5.99,
-            'duration' => 259200
+            'duration' => 5
         ],
         [
             'name' => 'gold',
             'price' => 9.99,
-            'duration' => 518400
+            'duration' => 10
         ],
     ]
 
