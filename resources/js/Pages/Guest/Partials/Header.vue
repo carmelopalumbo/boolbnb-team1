@@ -40,14 +40,14 @@ export default {
                     <div v-else class="pt-4">
                         <Link
                             :href="route('login')"
-                            class="text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
+                            class="text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635] dark:text-white dark:hover:text-[#89275e]"
                             >Log in</Link
                         >
 
                         <Link
                             v-if="canRegister"
                             :href="route('register')"
-                            class="ml-6 text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
+                            class="ml-6 text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635] dark:text-white dark:hover:text-[#89275e]"
                             >Registrati</Link
                         >
                     </div>
