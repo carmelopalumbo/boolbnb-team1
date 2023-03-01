@@ -130,7 +130,7 @@ export default {
                     <button data-modal-target="filter-modal" data-modal-toggle="filter-modal"
                     @click.prevent="submit"
                     :disabled="!search.length"
-                    class="text-white sm:w-auto px-5 py-4 ml-4 h-20 bg-[#4d1635] text-xl text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-full disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75" type="button">
+                    class="text-white sm:w-auto px-5 py-4 ml-4 h-20 bg-[#4d1635] text-xl text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-full disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75 dark:bg-[#89275e] dark:hover:bg-[#4d1635] " type="button">
                     <i class="fa-solid fa-filter"></i>
                     </button>
                 </div>
@@ -147,8 +147,8 @@ export default {
                             </button>
                             <div class="px-6 py-6 lg:px-8">
                                 <div>
-                                    <label for="radius" class="block my-2 text-base text-[#4d1635] font-bold">Raggio di</label>
-                                    <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827] dark:text-white">
+                                    <label for="radius" class="block my-2 text-base text-[#4d1635] dark:text-[#89275e] font-bold">Raggio di</label>
+                                    <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg dark:focus:border-[#89275e] focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827] dark:text-white">
                                         <option value="5">5km</option>
                                         <option value="10">10km</option>
                                         <option value="20" selected>20km</option>
@@ -164,31 +164,31 @@ export default {
                                             aria-labelledby="dropdownMenuIconButton"
                                         >
                                             <div class="w-1/2">
-                                                <label for="services" class="block mb-2 text-base text-[#4d1635] font-bold">N° posti letto</label>
+                                                <label for="services" class="block mb-2 text-base text-[#4d1635] dark:text-[#89275e] font-bold">N° posti letto</label>
                                                     <input
                                                         v-model="beds"
                                                         min="1"
                                                         type="number"
-                                                        class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full dark:bg-[#111827] dark:text-white"
+                                                        class="block px-4 py-2 hover:bg-gray-100 border dark:focus:border-[#89275e] focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full dark:bg-[#111827] dark:text-white"
                                                         placeholder="numero letti"
                                                     />
                                             </div>
 
                                             <div class="w-1/2">
-                                                <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">N° stanze</label>
+                                                <label for="services" class="block mb-2 font-bold text-base dark:text-[#89275e] text-[#4d1635]">N° stanze</label>
 
                                                 <input
                                                     v-model="rooms"
                                                     min="1"
                                                     type="number"
-                                                    class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full dark:bg-[#111827] dark:text-white"
+                                                    class="block px-4 py-2 hover:bg-gray-100 border dark:focus:border-[#89275e] focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full dark:bg-[#111827] dark:text-white"
                                                     placeholder="numero stanze"
                                                 />
                                             </div>
                                         </div>
                                     </form>
 
-                                    <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">Servizi richiesti</label>
+                                    <label for="services" class="block mb-2 font-bold text-base dark:text-[#89275e]  text-[#4d1635]">Servizi richiesti</label>
                                     <ul
                                         class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase dark:bg-[#111827]"
                                     >
@@ -203,7 +203,7 @@ export default {
                                                     :id="service.id"
                                                     type="checkbox"
                                                     :value="service.id"
-                                                    class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
+                                                    class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded dark:focus:border-[#89275e] focus:ring-[#4d1635] focus:border-[#4d1635]"
                                                 />
                                                 <label
                                                     :for="service.id"
@@ -219,7 +219,7 @@ export default {
                             :disabled="!search.length"
                             data-modal-hide="filter-modal"
                             type="button"
-                            class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                            class="text-white sm:w-auto px-5 py-2.5 mt-4 bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75 dark:bg-[#89275e] dark:hover:bg-[#4d1635] "
                         >
                             Mostra risultati
                         </button>
@@ -231,7 +231,7 @@ export default {
         </div>
 
          <div v-if="!showResults">
-            <h2 class="flex flex-wrap justify-center my-10 p-2 text-[#4d1635] text-4xl font-bold rounded-lg uppercase">
+            <h2 class="flex flex-wrap justify-center my-10 p-2 text-[#4d1635] dark:text-[#89275e] text-4xl font-bold rounded-lg uppercase">
                 <i class="fa-solid fa-house mx-3"></i>
                 Appartamenti in evidenza
                 <i class="fa-solid fa-house mx-3"></i>
@@ -239,7 +239,7 @@ export default {
         </div>
 
         <div v-else>
-            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
+            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] dark:text-[#89275e] text-base font-bold rounded-lg border-2 border-[#4d1635] dark:border-[#89275e]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
         </div>
 
 

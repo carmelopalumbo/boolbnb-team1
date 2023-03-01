@@ -2,6 +2,8 @@
 import { Navbar, NavbarLogo, NavbarCollapse, NavbarLink } from "flowbite-vue";
 import { Link } from "@inertiajs/vue3";
 import DropdownLink from "@/Components/DropdownLink.vue";
+import { Dropdown } from "flowbite";
+
 </script>
 
 <template>
@@ -21,7 +23,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 
             <template #default="{ isShowMenu }">
                 <NavbarCollapse
-                 :isShowMenu="isShowMenu" class="z-10 absolute mt-8 md:mt-0 top-0 right-0">
+                 :isShowMenu="isShowMenu" class="z-10 absolute mt-12 mx-4 md:mt-0 top-0 right-0">
                     <NavbarLink
                         className="text-sm text-center items-center py-2"
                     >
@@ -30,7 +32,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             :class="{
                                 active: $page.url === '/admin/properties',
                             }"
-                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white"
+                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
                             ><i class="fa-solid fa-house mr-1"></i
                             ><span>Proprietà</span></Link
                         >
@@ -41,7 +43,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             :class="{
                                 active: $page.url === '/admin/mymessages',
                             }"
-                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white"
+                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
                             ><i class="fa-solid fa-message mr-1"></i
                             ><span class="">Messaggi</span></Link
                         ></NavbarLink
@@ -50,7 +52,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                         ><Link
                             href="/admin/sponsors"
                             :class="{ active: $page.url === '/admin/sponsors' }"
-                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white"
+                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
                             ><i class="fa-solid fa-credit-card mr-1"></i
                             ><span class="">Boost</span></Link
                         ></NavbarLink
@@ -60,7 +62,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                             :href="route('logout')"
                             method="post"
                             as="button"
-                            class="text-white bg-[#4d1635] text-sm px-4 py-2 text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg w-25 mx-auto"
+                            class="text-white bg-[#4d1635] dark:bg-[#89275e] dark:hover:bg-[#4d1635] text-sm px-4 py-2 text-center md:mr-0 transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg w-25 mx-auto"
                         >
                             Log Out
                         </Link>

@@ -82,7 +82,7 @@ export default {
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div class="text-center w-full mx-8">
-                    <h1 class="text-4xl text-[#4d1635]">
+                    <h1 class="text-4xl text-[#4d1635] dark:text-[#89275e]">
                         {{ property.name }}
                     </h1>
                     <p class="mt-2 text-xl">
@@ -205,7 +205,7 @@ export default {
             <div class="flex justify-between flex-col md:flex-row">
                 <div class="flex flex-col w-3/5 sm:mx-auto">
                     <div class="m-5 w-1/3 py-3">
-                        <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                        <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
                             Dettagli appartamento:
                         </h2>
                         <h4 class="flex justify-between py-1">
@@ -225,13 +225,13 @@ export default {
                         </h4>
                     </div>
                     <div class="m-5 w-4/5 py-3">
-                        <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                        <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
                             Descrizione dell'appartamento:
                         </h2>
                         <p class="py-1">{{ property.description }}</p>
                     </div>
                     <div class="m-5 w-2/3 py-3">
-                        <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                        <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
                             Servizi dell'appartamento:
                         </h2>
                         <div v-if="!property.services.length">
@@ -248,7 +248,7 @@ export default {
                 </div>
 
                 <form
-                    class="border-[#4d1635] border-2 rounded-md w-2/5 m-5 p-3 rows-span-2 sm:mx-auto h-1/2"
+                    class="border-[#4d1635] dark:border-[#89275e] border-2 rounded-md w-2/5 m-5 p-3 rows-span-2 sm:mx-auto h-1/2"
                     v-if="!isSend"
                 >
                     <div class="mb-6">
@@ -261,7 +261,7 @@ export default {
                             v-model="message.email"
                             type="email"
                             id="email"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827] dark:text-white"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] dark:focus:border-[#89275e] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827] dark:text-white"
                             placeholder="esempio@mail.com"
                             required
                         />
@@ -275,7 +275,7 @@ export default {
                         v-model="message.content"
                         id="message"
                         rows="7"
-                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827] dark:text-white"
+                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] dark:bg-[#111827] dark:text-white"
                         placeholder="Scrivi qui il tuo messaggio"
                     ></textarea>
 
@@ -297,11 +297,11 @@ export default {
                     </h4>
                 </div>
             </div>
-            <h4 class="py-2 text-center text-[#4d1635] text-lg font-bold">
+            <h4 class="py-2 text-center text-[#4d1635] dark:text-[#89275e] text-lg font-bold">
                 Nelle vicinanze . . .
             </h4>
             <div
-                class="flex justify-center mb-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
+                class="flex justify-center mb-10 border-[#4d1635] dark:border-[#89275e] border-2 p-6 rounded-xl cursor-grabbing"
             >
                 <div class="mx-auto" id="map"></div>
             </div>
