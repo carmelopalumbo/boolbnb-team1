@@ -60,9 +60,10 @@ class GuestController extends Controller
         ]);
     }
 
-    public function show($id, Faker $faker)
+    public function show($slug, Faker $faker)
     {
-        $property = Property::where('id', $id)->with('services')->first();
+        $property = Property::where('slug', $slug)->with('services')->first();
+        if (is_null($property)) return abort(404);
         $media_property = Media::where('property_id', $property->id)->get();
         Stat::create([
             'ip_address' => $faker->ipv4(),

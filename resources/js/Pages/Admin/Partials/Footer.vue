@@ -91,7 +91,7 @@ export default {
 <template>
     <section class="footer-bottom-fix">
         <footer
-            class="w-full bg-white dark:text-white dark:bg-[#111827] border-t shadow flex md:items-center justify-between flex-row h-full px-8"
+            class="w-full bg-white dark:text-white dark:bg-[#111827] border-t shadow flex md:items-center justify-between flex-row md:p-6"
         >
             <span
                 class="text-sm text-gray-800 dark:text-white sm:text-center hidden md:inline-block"
@@ -108,7 +108,7 @@ export default {
                 <button
                     id="theme-toggle"
                     type="button"
-                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mt-3 md:mt-0"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
                 >
                     <svg
                         id="theme-toggle-dark-icon"

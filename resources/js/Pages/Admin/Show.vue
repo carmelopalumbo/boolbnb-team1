@@ -35,12 +35,15 @@ export default {
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center relative">
                 <div class="text-center w-2/4">
-                    <div class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg mx-4 md:absolute right-0">
+                    <div
+                        class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg mx-4 md:absolute right-0"
+                    >
                         <button
                             type="button"
                             v-if="property.is_sponsored"
                             class="bg-[#ebb733] text-[#89275e] text-sm font-bold px-2.5 py-0.5 rounded-full uppercase"
-                            >boost <i class="fa-solid fa-rocket"></i>
+                        >
+                            boost <i class="fa-solid fa-rocket"></i>
                         </button>
                     </div>
                     <h1
@@ -52,7 +55,6 @@ export default {
                     <p class="text-lg font-medium mb-4">
                         {{ property.address }}
                     </p>
-
                 </div>
             </div>
 
@@ -67,10 +69,7 @@ export default {
                 />
             </div>
 
-            <div
-                v-if="media_property.length"
-                class="relative rounded-md m-5"
-            >
+            <div v-if="media_property.length" class="relative rounded-md m-5">
                 <h2 class="text-center py-2">Galleria</h2>
 
                 <div class="flex justify-center gap-x-4 flex-wrap">
@@ -110,7 +109,9 @@ export default {
 
                 <div class="flex flex-col rounded-md m-5 w-1/3 py-3">
                     <div class="inline-flex justify-between align-middle mb-2">
-                        <div class="hidden lg:inline-block py-2.5 uppercase font-bold">
+                        <div
+                            class="hidden lg:inline-block py-2.5 uppercase font-bold"
+                        >
                             Controlla le Statistiche
                         </div>
                         <!-- Modal toggle -->
@@ -125,7 +126,9 @@ export default {
                     </div>
 
                     <div class="inline-flex justify-between align-middle mb-2">
-                        <div class="hidden lg:inline-block py-2.5 uppercase font-bold">
+                        <div
+                            class="hidden lg:inline-block py-2.5 uppercase font-bold"
+                        >
                             Modifica qui il tuo appartamento
                         </div>
                         <Link
@@ -137,7 +140,9 @@ export default {
                     </div>
 
                     <div class="inline-flex justify-between align-middle mb-2">
-                        <div class="hidden lg:inline-block py-2.5 uppercase font-bold">
+                        <div
+                            class="hidden lg:inline-block py-2.5 uppercase font-bold"
+                        >
                             Cancella il tuo appartamento
                         </div>
                         <button
@@ -179,7 +184,7 @@ export default {
         <div class="relative w-full max-w-4xl h-4/6">
             <!-- Modal content -->
             <div
-                class="relative bg-white rounded-lg shadow dark:bg-gray-700 h-full overflow-y-auto"
+                class="relative bg-white rounded-lg shadow h-full overflow-y-auto dark:bg-[#111827]"
             >
                 <!-- Modal header -->
                 <div
@@ -216,7 +221,7 @@ export default {
                 </div>
                 <!-- Modal body -->
                 <div class="p-6">
-                    <div class="flex flex-col space-y-10">
+                    <div class="flex flex-col space-y-10 dark:text-white">
                         <div class="w-full h-1/2">
                             <apexchart
                                 :width="chart_visit.width"
@@ -262,12 +267,9 @@ export default {
 </template>
 
 <style lang="css" scoped>
-
-.galleryimage{
-    width:  150px;
+.galleryimage {
+    width: 150px;
     height: 150px;
     object-fit: cover;
 }
-
 </style>
-

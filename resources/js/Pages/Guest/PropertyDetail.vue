@@ -12,7 +12,7 @@ import "swiper/css/autoplay";
 export default {
     name: "PropertyDetail",
 
-    components: { Footer, ServiceIcons, Carousel},
+    components: { Footer, ServiceIcons, Carousel },
 
     props: {
         property: Object,
@@ -64,7 +64,7 @@ export default {
 
 <template>
     <Head :title="property.name" />
-    <section class="header-top-fix">
+    <section class="header-top-fix dark:bg-[#111827]">
         <nav class="px-2 sm:px-4 py-4">
             <div class="mx-auto flex justify-center">
                 <Link href="/">
@@ -78,7 +78,7 @@ export default {
         </nav>
     </section>
 
-    <div class="ofc mt-20">
+    <div class="ofc pt-20 dark:bg-[#111827] dark:text-white">
         <main class="container mx-auto w-5/6">
             <div class="flex justify-center">
                 <div class="text-center w-full mx-8">
@@ -92,36 +92,111 @@ export default {
             </div>
 
             <div v-if="!media_property.length" class="relative m-5">
-                <img :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" class="mx-auto mb-3 rounded-md" width="600" height="600" alt="cover image">
+                <img
+                    :src="
+                        'http://[::1]:5173/storage/app/public/' +
+                        property.cover_image
+                    "
+                    class="mx-auto mb-3 rounded-md"
+                    width="600"
+                    height="600"
+                    alt="cover image"
+                />
             </div>
 
-
-            <div v-else id="default-carousel" class="relative my-8 carousel-inner" data-carousel="slide">
+            <div
+                v-else
+                id="default-carousel"
+                class="relative my-8 carousel-inner"
+                data-carousel="slide"
+            >
                 <!-- Carousel wrapper -->
                 <div class="relative h-96 overflow-hidden rounded-lg">
                     <!-- Cover image -->
-                    <div class="hidden duration-500 ease-in-out" data-carousel-item>
-                        <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                        <img :src="'http://[::1]:5173/storage/app/public/' + property.cover_image" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <div
+                        class="hidden duration-500 ease-in-out"
+                        data-carousel-item
+                    >
+                        <span
+                            class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800"
+                            >First Slide</span
+                        >
+                        <img
+                            :src="
+                                'http://[::1]:5173/storage/app/public/' +
+                                property.cover_image
+                            "
+                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="..."
+                        />
                     </div>
                     <!-- Gallery -->
                     <div
-                    v-for="image in media_property"
-                    :key="image.id" class="hidden duration-500 ease-in-out h-full" data-carousel-item>
-                        <img :src="'http://[::1]:5173/storage/app/public/' + image.file_name" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        v-for="image in media_property"
+                        :key="image.id"
+                        class="hidden duration-500 ease-in-out h-full"
+                        data-carousel-item
+                    >
+                        <img
+                            :src="
+                                'http://[::1]:5173/storage/app/public/' +
+                                image.file_name
+                            "
+                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="..."
+                        />
                     </div>
-
                 </div>
                 <!-- Slider controls -->
-                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-[#4d1635]/50  group-focus:ring-4 group-focus:ring-[#4d1635] group-focus:outline-none focus:ring-[#4d1635] focus:border-[#4d1635]">
-                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <button
+                    type="button"
+                    class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-prev
+                >
+                    <span
+                        class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-[#4d1635]/50 group-focus:ring-4 group-focus:ring-[#4d1635] group-focus:outline-none focus:ring-[#4d1635] focus:border-[#4d1635]"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-white sm:w-6 sm:h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            ></path>
+                        </svg>
                         <span class="sr-only">Previous</span>
                     </span>
                 </button>
-                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-focus:ring-4  group-hover:bg-[#4d1635]/50  group-focus:ring-[#4d1635] focus:ring-[#4d1635] focus:border-[#4d1635] group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <button
+                    type="button"
+                    class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-next
+                >
+                    <span
+                        class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-focus:ring-4 group-hover:bg-[#4d1635]/50 group-focus:ring-[#4d1635] focus:ring-[#4d1635] focus:border-[#4d1635] group-focus:outline-none"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-white sm:w-6 sm:h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            ></path>
+                        </svg>
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
@@ -159,7 +234,9 @@ export default {
                         <h2 class="uppercase text-[#4d1635] font-bold mb-3">
                             Servizi dell'appartamento:
                         </h2>
-                        <div v-if="!property.services.length">Nessun servizio dichiarato</div>
+                        <div v-if="!property.services.length">
+                            Nessun servizio dichiarato
+                        </div>
                         <div
                             v-for="service in property.services"
                             :key="service.id"
@@ -184,7 +261,7 @@ export default {
                             v-model="message.email"
                             type="email"
                             id="email"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827]"
                             placeholder="esempio@mail.com"
                             required
                         />
@@ -198,7 +275,7 @@ export default {
                         v-model="message.content"
                         id="message"
                         rows="7"
-                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635]"
+                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827]"
                         placeholder="Scrivi qui il tuo messaggio"
                     ></textarea>
 
@@ -220,7 +297,9 @@ export default {
                     </h4>
                 </div>
             </div>
-            <h4 class="py-2 text-center text-[#4d1635] text-lg font-bold">Nelle vicinanze . . .</h4>
+            <h4 class="py-2 text-center text-[#4d1635] text-lg font-bold">
+                Nelle vicinanze . . .
+            </h4>
             <div
                 class="flex justify-center mb-10 border-[#4d1635] border-2 p-6 rounded-xl cursor-grabbing"
             >
@@ -236,36 +315,8 @@ export default {
     height: 550px;
     width: 100%;
 }
-.header-top-fix {
-    height: 90px;
-}
 .ofc {
-    height: calc(100vh - 195px);
+    height: calc(100vh - 175px);
     overflow-y: scroll;
-    margin-bottom: 20px;
 }
-
-/* .carousel-inner{
-    height: 11200px;
-} */
-
-/* .swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    background-color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-} */
-
-/* .galleryimage{
-    max-width:  600px;
-    max-height: 600px;
-    object-fit: cover;
-} */
-
 </style>

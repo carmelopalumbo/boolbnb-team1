@@ -97,7 +97,9 @@ export default {
                 </h2>
             </div>
 
-            <div class="flex flex-col items-center md:justify-between md:flex-row container py-6">
+            <div
+                class="flex flex-col items-center md:justify-between md:flex-row container py-6"
+            >
                 <p class="w-1/2 mb-6">
                     In questa sezione hai la possibilitá di mettere in risalto
                     la tua proprietá. Abbiamo messo a disposizione per te tre
@@ -168,10 +170,11 @@ export default {
                     method="post"
                     @submit.prevent="submit"
                 >
-                    <div class="space-x-4 flex flex-col md:flex-row ">
-                        <span class="uppercase font-bold text-xl text-center md:text-left">{{
-                            property.name
-                        }}</span>
+                    <div class="space-x-4 flex flex-col md:flex-row">
+                        <span
+                            class="uppercase font-bold text-xl text-center md:text-left"
+                            >{{ property.name }}</span
+                        >
                         <span
                             v-if="property.is_sponsored"
                             class="bg-[#ebb733] text-[#89275e] text-sm font-bold mr-2 px-2.5 py-0.5 h-6 rounded-full uppercase text-center my-4 md:my-0"
@@ -205,7 +208,7 @@ export default {
                             <div :id="'dropin-container-' + property.id"></div>
 
                             <button
-                                class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase disabled:opacity-75"
+                                class="bg-[#ebb733] hover:bg-[#ebb733b7] text-[#4d1635] font-bold py-2 px-4 rounded uppercase disabled:opacity-80 disabled:hover:bg-[#ebb733]"
                                 :id="'submit-button-' + property.id"
                                 :disabled="
                                     (isLoading || property.is_sponsored) &&

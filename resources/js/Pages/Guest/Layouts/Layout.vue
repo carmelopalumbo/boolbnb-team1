@@ -1,7 +1,6 @@
 <script>
 export default {
     components: { Header, Footer },
-
 };
 // import Nav from "@/Pages/Partials/Nav.vue";
 import Footer from "../Partials/Footer.vue";
@@ -13,19 +12,18 @@ import Footer from "../Partials/Footer.vue";
 
     </div> -->
 
-    <Footer/>
+    <Footer />
 </template>
 
 <style>
-.header-top-fix{
+.header-top-fix {
     height: 120px;
 }
-.ofc{
+.ofc {
     height: calc(100vh - 195px);
     overflow-y: scroll;
-    margin-bottom: 20px;
 }
-.footer-bottom-fix{
- height: 75px;
+.footer-bottom-fix {
+    height: 75px;
 }
 </style>

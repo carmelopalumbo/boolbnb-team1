@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-    <section class="header-top-fix">
+    <section class="header-top-fix dark:bg-[#111827]">
         <nav class="px-2 sm:px-4 py-2.5">
             <div class="w-full flex justify-between">
                 <div class="flex">
@@ -25,10 +25,7 @@ export default {
                     </Link>
                 </div>
 
-                <div
-                    v-if="canLogin"
-                    class="py-4 sm:block text-right flex mx-10"
-                >
+                <div v-if="canLogin" class="sm:block text-right flex mx-10">
                     <Link
                         v-if="$page.props.auth.user"
                         :href="route('properties.index')"
@@ -40,7 +37,7 @@ export default {
                         />
                     </Link>
 
-                    <template v-else>
+                    <div v-else class="pt-4">
                         <Link
                             :href="route('login')"
                             class="text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635]"
@@ -53,7 +50,7 @@ export default {
                             class="ml-6 text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635]"
                             >Registrati</Link
                         >
-                    </template>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -68,6 +65,11 @@ export default {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     border: 2px solid #4d1635;
+}
+
+section {
+    border-bottom: 1px solid white;
+    height: 95px;
 }
 
 .avatarhome {

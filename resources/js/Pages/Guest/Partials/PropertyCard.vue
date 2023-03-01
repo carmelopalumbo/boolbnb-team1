@@ -45,7 +45,7 @@ export default {
                 <div class="text-center">
                     <Link
                         class="text-center text-white rounded-lg p-4 font-bold text-lg bg-[#89275e]"
-                        :href="route('propertydetail', property.id)"
+                        :href="route('propertydetail', property.slug)"
                     >
                         SCOPRI DI PIÙ
                         <i class="ml-2 fa-solid fa-arrow-right"></i>
@@ -60,5 +60,4 @@ export default {
 .description {
     text-shadow: 1px 1px 4px white;
 }
-
 </style>
