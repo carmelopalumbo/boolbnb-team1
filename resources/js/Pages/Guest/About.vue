@@ -13,7 +13,7 @@ export default {
     <Head title="CHI SIAMO" />
     <Header />
     <main class="ofc dark:bg-[#111827] dark:text-white py-8">
-        <div class="flex justify-center m-9 text-3xl uppercase text-[#4d1635]">
+        <div class="flex justify-center m-9 text-3xl uppercase text-[#4d1635] dark:text-[#89275e]">
             <i class="fa-solid fa-people-group"></i>
             <h1 class="px-4 font-bold">Chi siamo</h1>
             <i class="fa-solid fa-people-group"></i>
@@ -23,7 +23,7 @@ export default {
                 class="mt-3 flex lg:flex-row flex-col columns-3 justify-between flex-wrap w-full lg:space-x-4 space-y-10 lg:space-y-0 px-10"
             >
                 <div
-                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-1/2 lg:w-1/6 justify-self-center mx-auto lg:mx-0 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] dark:border-[#89275e]  border-2"
                 >
                     <div
                         class="rounded-full scale-75 "
@@ -38,7 +38,7 @@ export default {
                         <p>Jessica Tartaglia</p>
                     </div>
                     <div
-                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] dark:text-[#89275e] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -53,7 +53,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-1/2 lg:w-1/6 justify-self-center mx-auto lg:mx-0 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] dark:border-[#89275e]  border-2"
                 >
                     <div
                         class="rounded-full scale-75 "
@@ -68,7 +68,7 @@ export default {
                         <p>Michele Zancolò</p>
                     </div>
                     <div
-                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] dark:text-[#89275e] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -84,7 +84,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-1/2 lg:w-1/6 justify-self-center mx-auto lg:mx-0 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] dark:border-[#89275e]  border-2"
                 >
                     <div
                         class="rounded-full scale-75 "
@@ -99,7 +99,7 @@ export default {
                         <p>Carmelo Palumbo</p>
                     </div>
                     <div
-                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] dark:text-[#89275e] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -116,7 +116,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-1/2 lg:w-1/6 justify-self-center mx-auto lg:mx-0 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] dark:border-[#89275e]  border-2"
                 >
                     <div
                         class="rounded-full scale-75 "
@@ -131,7 +131,7 @@ export default {
                         <p>Eugenio Belardinelli</p>
                     </div>
                     <div
-                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] dark:text-[#89275e] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -147,7 +147,7 @@ export default {
                     </div>
                 </div>
                 <div
-                    class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
+                    class="w-1/2 lg:w-1/6 justify-self-center mx-auto lg:mx-0 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] dark:border-[#89275e]  border-2"
                 >
                     <div
                         class="rounded-full scale-75 "
@@ -162,7 +162,7 @@ export default {
                         <p>Carmelo Miuccio</p>
                     </div>
                     <div
-                        class="text-lg p-3 text-[#4d1635] text-center font-bold"
+                        class="text-lg p-3 text-[#4d1635] dark:text-[#89275e] text-center font-bold"
                     >
                         <a
                             target="_blank"
@@ -182,7 +182,7 @@ export default {
             </div>
 
             <div
-                class="mx-auto w-5/6 mt-7 rounded-md border-[#4d1635] border-2 my-4"
+                class="mx-auto w-5/6 mt-7 rounded-md border-[#4d1635] dark:border-[#89275e]  border-2 my-4"
             >
                 <p class="p-3">
                     Siamo lieti di esprimere la nostra gratitudine nei confronti
