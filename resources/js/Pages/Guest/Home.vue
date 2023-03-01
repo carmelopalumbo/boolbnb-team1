@@ -130,7 +130,7 @@ export default {
                     <button data-modal-target="filter-modal" data-modal-toggle="filter-modal"
                     @click.prevent="submit"
                     :disabled="!search.length"
-                    class="text-white sm:w-auto px-5 py-4 ml-4 h-20 bg-[#4d1635] text-xl text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-full disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75 dark:bg-[#89275e] dark:hover:bg-[#4d1635] " type="button">
+                    class="text-white sm:w-auto px-5 py-4 ml-4 h-20 bg-[#4d1635] text-xl text-center transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-full disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75 dark:bg-[#89275e] dark:hover:bg-[#4d1635] dark:disabled:bg-[#89275e] " type="button">
                     <i class="fa-solid fa-filter"></i>
                     </button>
                 </div>

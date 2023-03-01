@@ -32,7 +32,7 @@ import { Dropdown } from "flowbite";
                             :class="{
                                 active: $page.url === '/admin/properties',
                             }"
-                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
+                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-[#89275e]"
                             ><i class="fa-solid fa-house mr-1"></i
                             ><span>Proprietà</span></Link
                         >
@@ -43,7 +43,7 @@ import { Dropdown } from "flowbite";
                             :class="{
                                 active: $page.url === '/admin/mymessages',
                             }"
-                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
+                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-[#89275e]"
                             ><i class="fa-solid fa-message mr-1"></i
                             ><span class="">Messaggi</span></Link
                         ></NavbarLink
@@ -52,7 +52,7 @@ import { Dropdown } from "flowbite";
                         ><Link
                             href="/admin/sponsors"
                             :class="{ active: $page.url === '/admin/sponsors' }"
-                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
+                            class="align-middle transition delay-150 hover:text-[#4d1635] dark:text-white dark:hover:text-[#89275e]"
                             ><i class="fa-solid fa-credit-card mr-1"></i
                             ><span class="">Boost</span></Link
                         ></NavbarLink
