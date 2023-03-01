@@ -243,7 +243,7 @@ export default {
     </div>
 
     <div
-        v-if="properties.links > 3"
+        v-if="properties.links.length > 3"
         class="flex justify-center pb-3 text-[#4d1635] text-lg font-bold space-x-6"
     >
         <Component
