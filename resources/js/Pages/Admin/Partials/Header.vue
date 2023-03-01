@@ -20,7 +20,8 @@ import DropdownLink from "@/Components/DropdownLink.vue";
             </template>
 
             <template #default="{ isShowMenu }">
-                <NavbarCollapse :isShowMenu="isShowMenu" class="z-10 absolute mt-8 md:mt-0 top-0 right-0">
+                <NavbarCollapse
+                 :isShowMenu="isShowMenu" class="z-10 absolute mt-8 md:mt-0 top-0 right-0">
                     <NavbarLink
                         className="text-sm text-center items-center py-2"
                     >
