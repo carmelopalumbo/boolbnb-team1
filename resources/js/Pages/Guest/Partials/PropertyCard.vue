@@ -13,7 +13,7 @@ export default {
             class="max-w-md border-2 rounded-xl border-[#4d1635] dark:border-[#89275e] m-5 relative flex align-items-center justify-content-center"
         >
             <img
-                class="rounded-xl bg-cover bg-center bg-no-repeat h-64 w-full group-hover:opacity-25 dark:opacity-50 opacity-30"
+                class="rounded-xl bg-cover bg-center bg-no-repeat h-64 w-full group-hover:opacity-25 dark:opacity-60 opacity-50"
                 :src="
                     'http://[::1]:5173/storage/app/public/' +
                     property.cover_image
