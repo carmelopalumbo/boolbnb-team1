@@ -1,6 +1,6 @@
 <script>
 import { initModals } from 'flowbite';
-import PropertyCard from "../Partials/PropertyCard.vue";
+import PropertyCard from "./Partials/PropertyCard.vue";
 import Header from "./Partials/Header.vue";
 import Footer from "./Partials/Footer.vue";
 
@@ -21,6 +21,7 @@ export default {
             radius: 20,
             filterServices: [],
             listAddress: {},
+            showResults: false,
             debounced : _.debounce(this.searchAddress, 500),
         };
     },
@@ -34,8 +35,10 @@ export default {
 
     watch: {
          search: function (value) {
-            if(!this.search.length)
-            this.$inertia.get("/", { search: value }, { preserveState: true });
+            if(!this.search.length){
+                this.$inertia.get("/", { search: value }, { preserveState: true });
+                this.showResults = false;
+            }
         },
      },
 
@@ -55,6 +58,7 @@ export default {
                 },
                 { preserveState: true }
             );
+            this.showResults = true;
             this.beds = 1;
             this.rooms = 1;
             this.radius = 20;
@@ -99,7 +103,7 @@ export default {
     <Head title="HOME"/>
     <Header :canLogin="canLogin" :canRegister="canRegister"/>
 
-    <div class="h-full main dark:bg-[#111827] pt-20">
+    <div class="h-full main dark:bg-[#111827]">
         <div class="flex justify-center mt-6">
             <div class="flex flex-col mb-4 w-4/5">
                 <div class="inline-flex align-middle w-full">
@@ -136,7 +140,7 @@ export default {
                 <div id="filter-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full transition duration-400 ease-in-out" >
                     <div class="relative w-4/5 h-2/3">
                         <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
+                        <div class="relative bg-white rounded-lg shadow dark:bg-[#111827] dark:text-white">
                             <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="filter-modal">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 <span class="sr-only">Close modal</span>
@@ -144,7 +148,7 @@ export default {
                             <div class="px-6 py-6 lg:px-8">
                                 <div>
                                     <label for="radius" class="block my-2 text-base text-[#4d1635] font-bold">Raggio di</label>
-                                    <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5">
+                                    <select v-model="radius" id="radius" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827] dark:text-white">
                                         <option value="5">5km</option>
                                         <option value="10">10km</option>
                                         <option value="20" selected>20km</option>
@@ -165,7 +169,7 @@ export default {
                                                         v-model="beds"
                                                         min="1"
                                                         type="number"
-                                                        class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
+                                                        class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full dark:bg-[#111827] dark:text-white"
                                                         placeholder="numero letti"
                                                     />
                                             </div>
@@ -177,7 +181,7 @@ export default {
                                                     v-model="rooms"
                                                     min="1"
                                                     type="number"
-                                                    class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full"
+                                                    class="block px-4 py-2 hover:bg-gray-100 border focus:ring-[#4d1635] focus:border-[#4d1635] border-gray-200 rounded-lg w-full dark:bg-[#111827] dark:text-white"
                                                     placeholder="numero stanze"
                                                 />
                                             </div>
@@ -186,7 +190,7 @@ export default {
 
                                     <label for="services" class="block mb-2 font-bold text-base text-[#4d1635]">Servizi richiesti</label>
                                     <ul
-                                        class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase"
+                                        class="lg:grid lg:grid-cols-5 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 uppercase dark:bg-[#111827]"
                                     >
                                         <li
                                             v-for="service in services"
@@ -203,7 +207,7 @@ export default {
                                                 />
                                                 <label
                                                     :for="service.id"
-                                                    class="ml-2 text-sm font-medium text-gray-900"
+                                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-white"
                                                     >{{ service.name }}</label
                                                 >
                                             </div>
@@ -226,18 +230,18 @@ export default {
             </div>
         </div>
 
-        <div v-if="latitude && longitude && search.length">
-            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
-        </div>
-
-        <div v-else>
+         <div v-if="!showResults">
             <h2 class="flex flex-wrap justify-center my-10 p-2 text-[#4d1635] text-4xl font-bold rounded-lg uppercase">
                 <i class="fa-solid fa-house mx-3"></i>
                 Appartamenti in evidenza
                 <i class="fa-solid fa-house mx-3"></i>
                 </h2>
-
         </div>
+
+        <div v-else>
+            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] text-base font-bold rounded-lg border-2 border-[#4d1635]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
+        </div>
+
 
         <div class="flex flex-wrap justify-center mt-8 position-relative z-40">
             <PropertyCard
@@ -273,7 +277,7 @@ export default {
 
 <style>
 .main{
-    height: calc(100vh - 145px);
+    height: calc(100vh - 160px);
     overflow-y: scroll;
 }
 </style>

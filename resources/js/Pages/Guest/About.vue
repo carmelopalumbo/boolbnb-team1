@@ -220,7 +220,7 @@ export default {
 
 <style>
 .ofc {
-    height: calc(100vh - 175px);
+    height: calc(100vh - 160px);
     overflow-y: scroll;
     /* margin-bottom: 20px; */
 }

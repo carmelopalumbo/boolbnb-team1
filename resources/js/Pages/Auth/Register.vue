@@ -25,12 +25,12 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <GuestLayout class="dark:bg-[#111827]">
         <Head title="Register" />
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Nome" />
+                <InputLabel for="name" value="Nome" class="dark:text-white" />
 
                 <TextInput
                     id="name"
@@ -46,7 +46,11 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="lastname" value="Cognome" />
+                <InputLabel
+                    for="lastname"
+                    value="Cognome"
+                    class="dark:text-white"
+                />
 
                 <TextInput
                     id="lastname"
@@ -61,7 +65,11 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="username" value="UserName" />
+                <InputLabel
+                    for="username"
+                    value="UserName"
+                    class="dark:text-white"
+                />
 
                 <TextInput
                     id="username"
@@ -76,7 +84,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="Email" class="dark:text-white" />
 
                 <TextInput
                     id="email"
@@ -91,7 +99,11 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="date_of_birth" value="Data di Nascita" />
+                <InputLabel
+                    for="date_of_birth"
+                    value="Data di Nascita"
+                    class="dark:text-white"
+                />
 
                 <TextInput
                     id="date_of_birth"
@@ -106,7 +118,11 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel
+                    for="password"
+                    value="Password"
+                    class="dark:text-white"
+                />
 
                 <TextInput
                     id="password"
@@ -124,6 +140,7 @@ const submit = () => {
                 <InputLabel
                     for="password_confirmation"
                     value="Conferma Password"
+                    class="dark:text-white"
                 />
 
                 <TextInput
@@ -144,7 +161,7 @@ const submit = () => {
             <div class="flex items-center justify-end mt-4">
                 <Link
                     :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 dark:text-white"
                 >
                     Già registrato?
                 </Link>

@@ -91,7 +91,7 @@ export default {
 <template>
     <section class="footer-bottom-fix">
         <footer
-            class="w-full p-4 bg-white dark:text-white dark:bg-[#111827] border-t shadow flex md:items-center justify-between flex-row md:p-6"
+            class="w-full bg-white dark:text-white dark:bg-[#111827] border-t shadow flex md:items-center justify-between flex-row md:p-6"
         >
             <span
                 class="text-sm text-gray-800 dark:text-white sm:text-center hidden md:inline-block"
@@ -152,7 +152,7 @@ export default {
 
 <style scoped>
 section {
-    height: 85px;
+    height: 65px;
     overflow: hidden;
 }
 </style>

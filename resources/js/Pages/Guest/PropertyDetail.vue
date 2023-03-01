@@ -315,9 +315,6 @@ export default {
     height: 550px;
     width: 100%;
 }
-.header-top-fix {
-    height: 90px;
-}
 .ofc {
     height: calc(100vh - 175px);
     overflow-y: scroll;

@@ -25,10 +25,7 @@ export default {
                     </Link>
                 </div>
 
-                <div
-                    v-if="canLogin"
-                    class="py-4 sm:block text-right flex mx-10"
-                >
+                <div v-if="canLogin" class="sm:block text-right flex mx-10">
                     <Link
                         v-if="$page.props.auth.user"
                         :href="route('properties.index')"
@@ -40,7 +37,7 @@ export default {
                         />
                     </Link>
 
-                    <template v-else>
+                    <div v-else class="pt-4">
                         <Link
                             :href="route('login')"
                             class="text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635]"
@@ -53,7 +50,7 @@ export default {
                             class="ml-6 text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635]"
                             >Registrati</Link
                         >
-                    </template>
+                    </div>
                 </div>
             </div>
         </nav>
