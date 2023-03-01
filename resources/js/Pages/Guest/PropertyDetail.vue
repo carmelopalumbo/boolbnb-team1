@@ -69,7 +69,7 @@ export default {
             <div class="mx-auto flex justify-center">
                 <Link href="/">
                     <img
-                        class="max-h-20 object-scale-down"
+                        class="max-h-20 object-scale-down dark:invert"
                         src="../../../../public/Logo_V2.png"
                         alt="Logo Boolbnb"
                     />
