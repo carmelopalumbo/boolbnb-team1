@@ -31,3 +31,6 @@ createInertiaApp({
         showSpinner: true
     },
 });
+
+
+// Grazie Classe#75, 31/08/2022 - 02/03/2023. Questo é solo l'inizio per tutti noi, AUGURI!

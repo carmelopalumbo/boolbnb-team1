@@ -26,7 +26,7 @@ class PropertiesTableSeeder extends Seeder
             $new_property->slug = Property::slugGenerator($new_property->name);
             $new_property->size = $property['size'];
             $new_property->description = $property['description'];
-            $new_property->cover_image = 'TEST';
+            $new_property->cover_image = 'uploads/propertyplaceholder.jpg';
             $new_property->rooms = $property['bedrooms'];
             $new_property->bathrooms = $property['bathrooms'];
             $new_property->beds = $property['beds'];
@@ -37,13 +37,6 @@ class PropertiesTableSeeder extends Seeder
             $new_property->is_visible = true;
             $new_property->is_sponsored = false;
             $new_property->save();
-
-            // $sponsor = new Sponsor();
-            // $sponsor->name = 'bronze';
-            // $sponsor->price = 1;
-            // $sponsor->duration = 2;
-            // $sponsor->save();
-            // $new_property->sponsors()->attach($sponsor->id, ['start_date' => '2023-04-02 15:20:20', 'end_date' => '2023-04-02 15:20:50']);
         }
     }
 }
