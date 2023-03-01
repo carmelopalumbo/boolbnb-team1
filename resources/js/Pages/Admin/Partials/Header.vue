@@ -23,7 +23,7 @@ import { Dropdown } from "flowbite";
 
             <template #default="{ isShowMenu }">
                 <NavbarCollapse
-                 :isShowMenu="isShowMenu" class="z-10 absolute mt-12 mx-4 md:mt-0 top-0 right-0">
+                 :isShowMenu="isShowMenu" class="z-10 absolute mt-12 mx-4 md:mt-0 top-0 right-0 px-4">
                     <NavbarLink
                         className="text-sm text-center items-center py-2"
                     >
