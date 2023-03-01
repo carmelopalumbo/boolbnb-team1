@@ -213,7 +213,7 @@ class PropertyController extends Controller
             $property_edit['cover_image'] = $property->cover_image;
         }
 
-        if (array_key_exists('editGallery', $property_edit)) {
+        if (count($property_edit['editGallery'])) {
             foreach ($media_property as $media) {
                 Storage::disk('public')->delete($media->file_name);
                 $media->delete();
