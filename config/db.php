@@ -290,49 +290,6 @@ return [
             'description' => 'Deliziosa casetta situata a pochi passi dal mare, ideale per una coppia in cerca di relax e tranquillità. Arredata con gusto e dotata di tutti i comfort.',
             'price' => 95.00,
         ],
-    ],
-
-    'users' => [
-        [
-            'name' => 'Carmelo',
-            'lastname' => 'Palumbo',
-            'username' => 'paluc',
-            'email' => 'carmelopalumbo@boolbnb.com',
-            'password' => '12345678',
-            'date_of_birth' => '1997-04-26'
-        ],
-        [
-            'name' => 'Carmelo',
-            'lastname' => 'Miuccio',
-            'username' => 'themrstraffy',
-            'email' => 'carmelomiuccio@boolbnb.com',
-            'password' => '12345678',
-            'date_of_birth' => '1994-05-27'
-        ],
-        [
-            'name' => 'Eugenio',
-            'lastname' => 'Belardinelli',
-            'username' => 'eugenio21',
-            'email' => 'eugeniobelardinelli@boolbnb.com',
-            'password' => '12345678',
-            'date_of_birth' => '1992-04-21'
-        ],
-        [
-            'name' => 'Michele',
-            'lastname' => 'Zancolò',
-            'username' => 'zanco',
-            'email' => 'michelezancolo@boolbnb.com',
-            'password' => '12345678',
-            'date_of_birth' => '1997-05-19'
-        ],
-        [
-            'name' => 'Jessica',
-            'lastname' => 'Tartaglia',
-            'username' => 'fr_jess',
-            'email' => 'jessicatartaglia@boolbnb.com',
-            'password' => '12345678',
-            'date_of_birth' => '1985-05-26'
-        ],
         [
             'name' => 'Appartamento Milano',
             'address' => 'P.za del Duomo, 20122 Milano MI',
@@ -982,6 +939,8 @@ return [
             'price' => 500.00,
         ],
     ],
+
+
 
     'services' => ['cucina', 'wi-fi', 'posto auto', 'tv', 'piscina', 'aria condizionata', 'vista mare', 'ascensore', 'animali ammessi', 'giardino'],
 

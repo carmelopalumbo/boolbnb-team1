@@ -18,7 +18,6 @@ class PropertiesTableSeeder extends Seeder
     public function run()
     {
         $properties = config('db.properties');
-
         foreach ($properties as $property) {
             $new_property = new Property();
             $new_property->user_id = rand(1, 5);
