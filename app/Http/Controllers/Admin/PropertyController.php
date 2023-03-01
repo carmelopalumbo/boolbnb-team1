@@ -86,12 +86,8 @@ class PropertyController extends Controller
             ]
         );
 
-        //dd($request->all());
-        //dd($validate);
-
         $form_data = $request->all();
 
-        // dd($form_data['image']);
         $property = Property::create([
             'name' => $form_data['name'],
             'slug' => Property::slugGenerator($form_data['name']),
@@ -212,13 +208,10 @@ class PropertyController extends Controller
 
         if (!is_null($property_edit['cover_image'])) {
             Storage::disk('public')->delete($property->cover_image);
-            $property->cover_image = Storage::put('uploads', $property_edit['cover_image']);
+            $property_edit['cover_image'] = Storage::put('uploads', $property_edit['cover_image']);
+        } else {
+            $property_edit['cover_image'] = $property->cover_image;
         }
-
-        $property_edit['cover_image'] = $property->cover_image;
-
-
-        //dd($property_edit['editGallery']);
 
         if (array_key_exists('editGallery', $property_edit)) {
             foreach ($media_property as $media) {
@@ -234,7 +227,7 @@ class PropertyController extends Controller
                 ]);
             }
         }
-        //dd(($property_edit['services']));
+
         if (array_key_exists('services', $property_edit)) {
             $property->services()->sync($property_edit['services']);
         } else {
