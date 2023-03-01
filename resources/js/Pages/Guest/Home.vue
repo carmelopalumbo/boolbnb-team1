@@ -235,7 +235,7 @@ export default {
                 <i class="fa-solid fa-house mx-3"></i>
                 Appartamenti in evidenza
                 <i class="fa-solid fa-house mx-3"></i>
-                </h2>
+            </h2>
         </div>
 
         <div v-else>
@@ -253,7 +253,7 @@ export default {
 
         <div
         v-if="properties.links.length > 3"
-        class="my-8 flex justify-center text-white text-lg font-bold space-x-6"
+        class="my-8 flex justify-center text-[#4d1635] dark:text-[#89275e] text-lg font-bold space-x-6"
             >
             <Component
                 :is="link.url ? 'Link' : 'span'"
@@ -263,7 +263,7 @@ export default {
                 v-html="link.label"
                 :class="{
                     'text-gray-400': !link.url,
-                    'border border-1 rounded-xl px-3 border-[#4d1635] bg-[#4d1635] ':
+                    'border border-1 rounded-xl px-3 border-[#4d1635] bg-[#4d1635] text-white':
                         link.active,
                 }"
             >
