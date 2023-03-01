@@ -8,18 +8,12 @@ export default {
         username: String,
         links: Array,
     },
-
     layout: Layout,
-
     methods: {
         deleteItem(property) {
             if (confirm("Confermi eliminazione?"))
                 this.$inertia.delete(route("properties.destroy", property));
         },
-    },
-
-    mounted() {
-        console.log(this.my_properties);
     },
 };
 </script>
@@ -215,4 +209,3 @@ export default {
     </div>
 </template>
 
-<style></style>

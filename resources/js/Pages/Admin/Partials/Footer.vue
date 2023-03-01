@@ -150,5 +150,7 @@ export default {
 </template>
 
 <style scoped>
-
+footer{
+    height: 65px;
+}
 </style>
