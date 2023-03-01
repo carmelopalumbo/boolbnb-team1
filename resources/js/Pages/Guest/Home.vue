@@ -239,37 +239,17 @@ export default {
         </div>
 
         <div v-else>
-            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] dark:text-[#89275e] text-base font-bold rounded-lg border-2 border-[#4d1635] dark:border-[#89275e]">Ho trovato {{properties.data.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
+            <p class="flex flex-wrap justify-start m-10 w-1/2 p-3 text-[#4d1635] dark:text-[#89275e] text-base font-bold rounded-lg border-2 border-[#4d1635] dark:border-[#89275e]">Ho trovato {{properties.length}} risultati vicino a {{ listAddress.address.freeformAddress}} con i parametri richiesti.</p>
         </div>
 
 
         <div class="flex flex-wrap justify-center mt-8 position-relative z-40">
             <PropertyCard
-                v-for="property in properties.data"
+                v-for="property in properties"
                 :key="property.id"
                 :property="property"
             />
         </div>
-
-        <div
-        v-if="properties.links.length > 3"
-        class="my-8 flex justify-center text-white text-lg font-bold space-x-6"
-            >
-            <Component
-                :is="link.url ? 'Link' : 'span'"
-                v-for="link in properties.links"
-                :key="link.id"
-                :href="link.url"
-                v-html="link.label"
-                :class="{
-                    'text-gray-400': !link.url,
-                    'border border-1 rounded-xl px-3 border-[#4d1635] bg-[#4d1635] ':
-                        link.active,
-                }"
-            >
-            </Component>
-        </div>
-
     </div>
 
     <Footer class="fixed w-full bottom-0"/>
