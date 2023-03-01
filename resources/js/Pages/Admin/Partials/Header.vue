@@ -5,8 +5,8 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 </script>
 
 <template>
-    <section class="header-top-fix">
-        <Navbar className="h-100 dark:bg-[#111827]">
+    <header>
+        <Navbar className="h-full py-3 dark:bg-[#111827] relative">
             <template #logo>
                 <!-- <NavbarLogo> -->
                 <Link href="/">
@@ -20,7 +20,8 @@ import DropdownLink from "@/Components/DropdownLink.vue";
             </template>
 
             <template #default="{ isShowMenu }">
-                <NavbarCollapse :isShowMenu="isShowMenu" class="z-10">
+                <NavbarCollapse
+                 :isShowMenu="isShowMenu" class="z-10 absolute mt-8 md:mt-0 top-0 right-0">
                     <NavbarLink
                         className="text-sm text-center items-center py-2"
                     >
@@ -67,10 +68,13 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                 </NavbarCollapse>
             </template>
         </Navbar>
-    </section>
+    </header>
 </template>
 
 <style lang="css" scoped>
+header{
+    height: 65px;
+}
 .active {
     /* color: white; */
     color: #4d1635;

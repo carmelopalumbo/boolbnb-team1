@@ -35,7 +35,7 @@ class MessageController extends Controller
             'property_id' => $message['property']['id']
         ]);
 
-        return to_route('propertydetail', $message['property']['id']);
+        return to_route('propertydetail', $message['property']['slug']);
     }
 
     public function delete(Request $request)

@@ -261,7 +261,7 @@ export default {
                             v-model="message.email"
                             type="email"
                             id="email"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827]"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4d1635] focus:border-[#4d1635] block w-full p-2.5 dark:bg-[#111827] dark:text-white"
                             placeholder="esempio@mail.com"
                             required
                         />
@@ -275,7 +275,7 @@ export default {
                         v-model="message.content"
                         id="message"
                         rows="7"
-                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827]"
+                        class="block resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#4d1635] focus:border-[#4d1635] dark:bg-[#111827] dark:text-white"
                         placeholder="Scrivi qui il tuo messaggio"
                     ></textarea>
 

@@ -9,7 +9,7 @@ import Footer from "@/Pages/Admin/Partials/Footer.vue";
 
 <template>
     <Header />
-    <div class="ofc dark:text-white dark:bg-[#111827] py-20">
+    <div class="ofc dark:text-white dark:bg-[#111827]">
         <slot />
     </div>
 
@@ -19,6 +19,8 @@ import Footer from "@/Pages/Admin/Partials/Footer.vue";
 <style>
 .ofc {
     height: calc(100vh - 130px);
+    padding: 25px 0;
+    border-top: 1px solid white;
     overflow-y: scroll;
     /* margin-bottom: 20px; */
 }
