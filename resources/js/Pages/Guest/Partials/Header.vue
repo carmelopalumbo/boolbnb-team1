@@ -18,7 +18,7 @@ export default {
                 <div class="flex">
                     <Link href="/">
                         <img
-                            class="max-h-20 object-scale-down"
+                            class="max-h-20 object-scale-down dark:invert"
                             src="../../../../../public/Logo_V2.png"
                             alt="Logo Boolbnb"
                         />
@@ -31,7 +31,7 @@ export default {
                         :href="route('properties.index')"
                     >
                         <img
-                            class="avatarhome hover:scale-110 transition delay-150"
+                            class="avatarhome hover:scale-110 transition delay-150 dark:invert"
                             src="../../../../../public/avatarplaceholder.png"
                             alt="avatarplaceholder"
                         />
@@ -40,14 +40,14 @@ export default {
                     <div v-else class="pt-4">
                         <Link
                             :href="route('login')"
-                            class="text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635]"
+                            class="text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
                             >Log in</Link
                         >
 
                         <Link
                             v-if="canRegister"
                             :href="route('register')"
-                            class="ml-6 text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635]"
+                            class="ml-6 text-gray-500 uppercase font-bold transition delay-150 text-lg hover:text-[#4d1635] dark:text-white dark:hover:text-gray-300"
                             >Registrati</Link
                         >
                     </div>

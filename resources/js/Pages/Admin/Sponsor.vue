@@ -89,7 +89,7 @@ export default {
         <div class="pt-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h2
-                    class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635]"
+                    class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635] dark:text-[#89275e]"
                 >
                     <i class="fa-solid fa-rocket"></i>
                     <span class="px-3">benvenuto in boost</span>
@@ -106,14 +106,25 @@ export default {
                     pacchetti. Acquistando uno di questi otterrai un badge e la
                     tua proprietá sará in cima alle ricerche degli utenti!
                     Scegli il pacchetto che preferisci e procedi con il
-                    pagamento.
+                    pagamento. <br><br> I boost disponibili sono:
+                    <ul class="py-1">
+                        <li>
+                            2,99 € per 24 ore di sponsorizzazione
+                        </li>
+                        <li>
+                            5.99 € per 72 ore di sponsorizzazione
+                        </li>
+                        <li>
+                            9.99 € per 144 ore di sponsorizzazione
+                        </li>
+                    </ul>
                 </p>
                 <button
                     v-if="showType"
                     id="dropdownHoverButton"
                     data-dropdown-toggle="dropdownHover"
                     data-dropdown-trigger="hover"
-                    class="text-white uppercase bg-[#4d1635] hover:bg-[#89275e] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-1/4 md:w-1/6"
+                    class="text-white uppercase bg-[#4d1635] hover:bg-[#89275e] dark:bg-[#89275e] dark:hover:bg-[#4d1635] focus:ring-4 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-1/4 md:w-1/6"
                     type="button"
                 >
                     scegli boost
@@ -136,7 +147,7 @@ export default {
                 <!-- Dropdown menu -->
                 <div
                     id="dropdownHover"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-400"
                 >
                     <ul
                         class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -151,7 +162,7 @@ export default {
                                 @click="sponsorsValue(sponsor.id, sponsor.name)"
                                 class="uppercase py-3 text-center cursor-pointer font-bold text-[#4d1635]"
                             >
-                                {{ sponsor.name }}
+                                {{ sponsor.name }} | {{ sponsor.price }} €
                             </p>
                         </li>
                     </ul>
@@ -232,7 +243,7 @@ export default {
     </div>
 
     <div
-        v-if="properties.links > 3"
+        v-if="properties.links.length > 3"
         class="flex justify-center pb-3 text-[#4d1635] text-lg font-bold space-x-6"
     >
         <Component

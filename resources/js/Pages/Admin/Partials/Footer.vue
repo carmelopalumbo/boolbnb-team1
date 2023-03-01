@@ -140,7 +140,7 @@ export default {
         >
             <Link
                 :href="route('about-us')"
-                class="mr-4 text-base font-bold hover:text-[#4d1635] md:mr-6"
+                class="mr-4 text-base font-bold hover:text-[#4d1635] dark:hover:text-[#89275e] md:mr-6"
                 >Chi siamo</Link
             >
         </div>

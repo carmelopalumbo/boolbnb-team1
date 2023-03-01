@@ -84,7 +84,7 @@ export default {
     <Head title="MODIFICA PROPRIETÀ"></Head>
     <div class="flex justify-center w-full">
         <div class="pt-20 inline-block content-center w-full">
-            <h1 class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635]">
+            <h1 class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635] dark:text-[#89275e]">
                 Modifica la tua proprietà
             </h1>
 
@@ -100,7 +100,7 @@ export default {
                     <input
                         type="text"
                         id="name"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white placeholder:text-grey placeholder:italic"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white placeholder:text-grey placeholder:italic"
                         required
                         v-model="propertyEdit.name"
                         placeholder="Es: Trilocale in zona turistica"
@@ -122,7 +122,7 @@ export default {
                         type="text"
                         id="description"
                         rows="5"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 resize-none dark:bg-[#111827] dark:text-white placeholder:text-grey placeholder:italic"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 resize-none dark:bg-[#111827] dark:text-white placeholder:text-grey placeholder:italic"
                         required
                         v-model="propertyEdit.description"
                         placeholder="Es: Bellissimo appartamento in zona turistica rinnovato recentemente . . . "
@@ -146,7 +146,7 @@ export default {
                             propertyEdit.cover_image = $event.target.files[0]
                         "
                         @change="showImage"
-                        class="block text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] input-file dark:bg-[#111827] dark:text-white placeholder:text-grey placeholder:italic"
+                        class="block text-sm text-gray-900 border-gray-300 rounded-lg cursor-pointer bg-gray-50 border focus:ring-[#4d1635] dark:focus:border-[#89275e] focus:border-[#4d1635] input-file dark:bg-[#111827] dark:text-white placeholder:text-grey placeholder:italic"
                         id="cover_image"
                         type="file"
                     />
@@ -169,7 +169,7 @@ export default {
                     >
                     <input
                         @input="propertyEdit.editGallery = $event.target.files"
-                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 rounded-lg cursor-pointer bg-gray-50 input-file dark:bg-[#111827] dark:text-white"
+                        class="block text-sm text-gray-900 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 rounded-lg cursor-pointer bg-gray-50 input-file dark:bg-[#111827] dark:text-white"
                         id="gallery"
                         type="file"
                         multiple
@@ -187,7 +187,7 @@ export default {
                     <ul class="lg:grid lg:grid-cols-6 place-items-center auto-cols-max align-middle w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex flex-wrap p-2 dark:bg-[#111827]">
                         <li v-for="service in services" :key="service.id" class="w-full mb-2 place-self-center">
                             <div class="flex items-center">
-                                <input v-model="propertyEdit.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635]"
+                                <input v-model="propertyEdit.services" :id="service.name" type="checkbox" :value="service.id" class="w-4 h-4 text-[#4d1635] bg-gray-100 border-gray-300 rounded focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e]"
                                 >
                                 <label :for="service.name" class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-white">{{service.name}}</label>
                             </div>
@@ -205,7 +205,7 @@ export default {
                         type="number"
                         min="0"
                         id="beds"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
                         required
                         v-model="propertyEdit.beds"
                         placeholder="Es: 2"
@@ -228,7 +228,7 @@ export default {
                         type="number"
                         min="0"
                         id="bathrooms"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
                         v-model="propertyEdit.bathrooms"
                         placeholder="Es: 3"
                     />
@@ -250,7 +250,7 @@ export default {
                         type="number"
                         min="0"
                         id="rooms"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
                         required
                         v-model="propertyEdit.rooms"
                         placeholder="Es: 5"
@@ -273,7 +273,7 @@ export default {
                         type="number"
                         min="0"
                         id="size"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
                         v-model="propertyEdit.size"
                         placeholder="Es: 70"
                     />
@@ -295,7 +295,7 @@ export default {
                         type="number"
                         min="1"
                         id="price"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
                         required
                         v-model="propertyEdit.price"
                         placeholder="Es: 90"
@@ -318,7 +318,7 @@ export default {
                     @keyup="debounced"
                         type="text"
                         id="address"
-                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635]  border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
+                        class="bg-gray-50 border focus:ring-[#4d1635] focus:border-[#4d1635] dark:focus:border-[#89275e] border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-[#111827] dark:text-white"
                         required
                         v-model="propertyEdit.address"
                         placeholder="Es: Via Garibaldi Milano"
@@ -346,7 +346,7 @@ export default {
 
                 <button
                     type="submit"
-                    class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75"
+                    class="my-3 px-5 py-2.5 uppercase text-white bg-[#4d1635] text-sm text-center mx-auto transition delay-150 ease-in-out hover:scale-110 hover:bg-[#89275e] duration-200 font-bold rounded-lg disabled:hover:scale-100 disabled:hover:bg-[#4d1635] disabled:opacity-75 dark:bg-[#89275e] dark:hover:bg-[#4d1635]"
                     :disabled="propertyEdit.editGallery.length > 5"
                 >
                     Modifica

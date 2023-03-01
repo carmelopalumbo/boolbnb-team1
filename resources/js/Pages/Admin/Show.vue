@@ -36,18 +36,18 @@ export default {
             <div class="flex justify-center relative">
                 <div class="text-center w-2/4">
                     <div
-                        class="py-2 px-4 text-[#4d1635] text-base font-bold rounded-lg mx-4 md:absolute right-0"
+                        class="py-2 px-4 text-[#4d1635] dark:text-[#89275e] text-base font-bold rounded-lg mx-4 md:absolute right-0"
                     >
                         <button
                             type="button"
                             v-if="property.is_sponsored"
-                            class="bg-[#ebb733] text-[#89275e] text-sm font-bold px-2.5 py-0.5 rounded-full uppercase"
+                            class="bg-[#ebb733] text-[#89275e]  text-sm font-bold px-2.5 py-0.5 rounded-full uppercase"
                         >
                             boost <i class="fa-solid fa-rocket"></i>
                         </button>
                     </div>
                     <h1
-                        class="text-2xl font-bold uppercase text-[#4d1635] mb-4"
+                        class="text-2xl font-bold uppercase text-[#4d1635] dark:text-[#89275e] mb-4"
                     >
                         {{ property.name }}
                     </h1>
@@ -87,7 +87,7 @@ export default {
 
             <div class="flex justify-between">
                 <div class="m-5 w-1/3 py-3">
-                    <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                    <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
                         Dettagli appartamento:
                     </h2>
                     <h4 class="flex justify-between py-1">
@@ -157,14 +157,14 @@ export default {
             </div>
 
             <div class="m-5 w-4/5 py-3">
-                <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
                     Descrizione dell'appartamento:
                 </h2>
                 <p class="py-1">{{ property.description }}</p>
             </div>
 
             <div class="m-5 w-2/3 py-3">
-                <h2 class="uppercase text-[#4d1635] font-bold mb-3">
+                <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
                     Servizi dell'appartamento:
                 </h2>
                 <div v-for="service in services" :key="service.id" class="py-1">
@@ -184,7 +184,7 @@ export default {
         <div class="relative w-full max-w-4xl h-4/6">
             <!-- Modal content -->
             <div
-                class="relative bg-white rounded-lg shadow h-full overflow-y-auto dark:bg-[#111827]"
+                class="relative bg-white rounded-lg shadow h-full overflow-y-auto dark:bg-[#111827] dark:text-white"
             >
                 <!-- Modal header -->
                 <div
@@ -194,13 +194,13 @@ export default {
                         class="text-xl font-medium text-gray-900 dark:text-white ml-auto"
                     >
                         Le statistiche di
-                        <span class="text-[#4d1635] font-bold">{{
+                        <span class="text-[#4d1635] dark:text-[#89275e] font-bold">{{
                             property.name
                         }}</span>
                     </h3>
                     <button
                         type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        class="text-gray-400 dark:text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                         data-modal-hide="defaultModal"
                     >
                         <svg
@@ -232,7 +232,7 @@ export default {
                             ></apexchart>
                         </div>
 
-                        <div class="w-full h-1/2">
+                        <div class="w-full h-1/2 dark:text-white">
                             <apexchart
                                 :width="chart_message.width"
                                 :height="chart_message.height"
@@ -254,7 +254,7 @@ export default {
                         <Link
                             data-modal-hide="defaultModal"
                             :href="route('sponsors')"
-                            class="transition delay-150 text-[#4d1635] hover:text-[#89275e]"
+                            class="transition delay-150 text-[#4d1635] hover:text-[#89275e] dark:text-[#89275e] dark:hover:text[#4d1635]"
                             ><i class="fa-solid fa-rocket"></i
                             ><span class="uppercase mx-1 font-bold">boost</span
                             ><i class="fa-solid fa-rocket"></i

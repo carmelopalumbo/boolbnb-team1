@@ -29,7 +29,7 @@ export default {
         <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <h2
-                    class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635]"
+                    class="text-center font-black text-4xl pb-8 uppercase text-[#4d1635] dark:text-[#89275e]"
                 >
                     <i class="fa-solid fa-message"></i>
                     <span class="px-3">i miei messaggi </span>
