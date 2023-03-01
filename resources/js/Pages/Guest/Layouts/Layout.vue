@@ -12,11 +12,11 @@ import Footer from "../Partials/Footer.vue";
 
     </div> -->
 
-    <Footer />
+    <!-- <Footer /> -->
 </template>
 
 <style>
-.header-top-fix {
+/* .header-top-fix {
     height: 120px;
 }
 .ofc {
@@ -25,5 +25,5 @@ import Footer from "../Partials/Footer.vue";
 }
 .footer-bottom-fix {
     height: 75px;
-}
+} */
 </style>

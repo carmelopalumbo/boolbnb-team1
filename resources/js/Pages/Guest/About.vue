@@ -26,10 +26,10 @@ export default {
                     class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
-                        class="rounded-full scale-75 border-[#4d1635] border-2"
+                        class="rounded-full scale-75 "
                     >
                         <img
-                            class="rounded-full"
+                            class="rounded-full mx-auto"
                             src="https://media.licdn.com/dms/image/D4D03AQHtoJEa__BfSA/profile-displayphoto-shrink_800_800/0/1675531887713?e=1683158400&v=beta&t=GozYAPM7HLLUg-BQWeiswYEQXDK8uxajGvirO83A2UU"
                             alt=""
                         />
@@ -56,10 +56,10 @@ export default {
                     class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
-                        class="rounded-full scale-75 border-[#4d1635] border-2"
+                        class="rounded-full scale-75 "
                     >
                         <img
-                            class="rounded-full"
+                            class="rounded-full mx-auto"
                             src="https://media.licdn.com/dms/image/D4D03AQFfbqU0LQuYnw/profile-displayphoto-shrink_800_800/0/1677487021905?e=1683158400&v=beta&t=1b3eq1j18F-d9u_a90Ny2GwVU-zkdg7MIdjcpBkBAP4"
                             alt=""
                         />
@@ -87,10 +87,10 @@ export default {
                     class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
-                        class="rounded-full scale-75 border-[#4d1635] border-2"
+                        class="rounded-full scale-75 "
                     >
                         <img
-                            class="rounded-full"
+                            class="rounded-full mx-auto"
                             src="https://media.licdn.com/dms/image/D4E03AQG6Rd-HaTSySg/profile-displayphoto-shrink_800_800/0/1675518344230?e=1683158400&v=beta&t=cJDyPf7CT019VpgXbO2JmAJcKIq5WF66pPy-nJjtibs"
                             alt=""
                         />
@@ -119,10 +119,10 @@ export default {
                     class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
-                        class="rounded-full scale-75 border-[#4d1635] border-2"
+                        class="rounded-full scale-75 "
                     >
                         <img
-                            class="rounded-full"
+                            class="rounded-full mx-auto"
                             src="https://media.licdn.com/dms/image/D4D03AQGGJmXBOgcVjQ/profile-displayphoto-shrink_800_800/0/1677249743869?e=1683158400&v=beta&t=eC_iyuzZ2dfQW_PWPm42Led0IsvlcySeBUk48yLeVIs"
                             alt=""
                         />
@@ -150,10 +150,10 @@ export default {
                     class="w-full lg:w-1/6 hover:scale-105 transition duration-300 rounded-md border-[#4d1635] border-2"
                 >
                     <div
-                        class="rounded-full scale-75 border-[#4d1635] border-2"
+                        class="rounded-full scale-75 "
                     >
                         <img
-                            class="rounded-full"
+                            class="rounded-full mx-auto"
                             src="https://media.licdn.com/dms/image/D4D03AQF7pBADbgRbIQ/profile-displayphoto-shrink_800_800/0/1675442747948?e=1683158400&v=beta&t=4hGCoj-IgKCDhuxOyd1LeR020YNZLrAcqwb0P7sMBLs"
                             alt=""
                         />

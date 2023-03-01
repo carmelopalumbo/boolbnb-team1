@@ -9,7 +9,7 @@ import Footer from "@/Pages/Admin/Partials/Footer.vue";
 
 <template>
     <Header />
-    <div class="ofc dark:text-white dark:bg-[#111827] py-20">
+    <div class="ofc dark:text-white dark:bg-[#111827]">
         <slot />
     </div>
 

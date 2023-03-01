@@ -89,7 +89,7 @@ export default {
 </script>
 
 <template>
-    <section class="footer-bottom-fix">
+
         <footer
             class="w-full bg-white dark:text-white dark:bg-[#111827] border-t shadow flex md:items-center justify-between flex-row md:p-6"
         >
@@ -147,12 +147,8 @@ export default {
                 >
             </div>
         </footer>
-    </section>
 </template>
 
 <style scoped>
-section {
-    height: 65px;
-    overflow: hidden;
-}
+
 </style>

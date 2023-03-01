@@ -5,7 +5,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 </script>
 
 <template>
-    <section class="header-top-fix">
+    <header>
         <Navbar className="h-100 dark:bg-[#111827]">
             <template #logo>
                 <!-- <NavbarLogo> -->
@@ -67,7 +67,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                 </NavbarCollapse>
             </template>
         </Navbar>
-    </section>
+    </header>
 </template>
 
 <style lang="css" scoped>
