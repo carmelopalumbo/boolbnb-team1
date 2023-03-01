@@ -254,7 +254,7 @@ export default {
             v-html="link.label"
             :class="{
                 'text-gray-400': !link.url,
-                'border border-1 rounded-xl px-3 border-[#4d1635]': link.active,
+                'border border-1 rounded-xl px-3 border-[#4d1635] bg-[#4d1635] text-white': link.active,
             }"
         >
         </Component>

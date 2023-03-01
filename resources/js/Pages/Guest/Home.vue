@@ -235,7 +235,7 @@ export default {
                 <i class="fa-solid fa-house mx-3"></i>
                 Appartamenti in evidenza
                 <i class="fa-solid fa-house mx-3"></i>
-                </h2>
+            </h2>
         </div>
 
         <div v-else>
