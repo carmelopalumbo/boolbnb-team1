@@ -10,6 +10,7 @@ use App\Models\Message;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Stat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -140,8 +141,7 @@ class PropertyController extends Controller
 
         $chart_visit = $this->generateStatsVisit($property->id, $chart_visit);
         $chart_message = $this->generateStatsMessages($property->id, $chart_message);
-        //dd($counts);
-        // dd($media_property);
+
         return Inertia::render('Admin/Show', compact('property', 'services', 'media_property', 'chart_visit', 'chart_message'));
     }
 

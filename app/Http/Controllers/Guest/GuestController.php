@@ -7,10 +7,12 @@ use App\Models\Media;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Stat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
@@ -69,6 +71,12 @@ class GuestController extends Controller
             'ip_address' => $faker->ipv4(),
             'property_id' => $property->id
         ]);
-        return Inertia::render('Guest/PropertyDetail', compact('property', 'media_property'));
+        if (!is_null(Auth::id())) {
+            $email_user = User::where('id', Auth::id())->first();
+            $email_user = $email_user->email;
+        } else {
+            $email_user = '';
+        }
+        return Inertia::render('Guest/PropertyDetail', compact('property', 'media_property', 'email_user'));
     }
 }

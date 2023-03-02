@@ -18,12 +18,13 @@ export default {
         property: Object,
         services: Object,
         media_property: Object,
+        email_user: String,
     },
 
     data() {
         return {
             message: {
-                email: "",
+                email: this.email_user,
                 content: "",
             },
 
@@ -56,7 +57,6 @@ export default {
     },
     mounted() {
         this.initMap();
-        console.log(this.media_property);
         initCarousels();
     },
 };
@@ -205,7 +205,9 @@ export default {
             <div class="flex justify-between flex-col md:flex-row">
                 <div class="flex flex-col w-3/5 sm:mx-auto">
                     <div class="m-5 w-1/3 py-3">
-                        <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
+                        <h2
+                            class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3"
+                        >
                             Dettagli appartamento:
                         </h2>
                         <h4 class="flex justify-between py-1">
@@ -225,13 +227,17 @@ export default {
                         </h4>
                     </div>
                     <div class="m-5 w-4/5 py-3">
-                        <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
+                        <h2
+                            class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3"
+                        >
                             Descrizione dell'appartamento:
                         </h2>
                         <p class="py-1">{{ property.description }}</p>
                     </div>
                     <div class="m-5 w-2/3 py-3">
-                        <h2 class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3">
+                        <h2
+                            class="uppercase text-[#4d1635] dark:text-[#89275e] font-bold mb-3"
+                        >
                             Servizi dell'appartamento:
                         </h2>
                         <div v-if="!property.services.length">
@@ -297,7 +303,9 @@ export default {
                     </h4>
                 </div>
             </div>
-            <h4 class="py-2 text-center text-[#4d1635] dark:text-[#89275e] text-lg font-bold">
+            <h4
+                class="py-2 text-center text-[#4d1635] dark:text-[#89275e] text-lg font-bold"
+            >
                 Nelle vicinanze . . .
             </h4>
             <div
