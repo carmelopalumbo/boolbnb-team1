@@ -60,22 +60,20 @@ class PaymentController extends Controller
                 'is_sponsored' => 1
             ]);
 
-            if($sponsor->id === 1){
+            if ($sponsor->id === 1) {
                 $property->sponsors()->attach($sponsor->id, [
                     'start_date' => Carbon::now('+01:00'),
                     'end_date' => Carbon::now('+01:00')->addMinute($sponsor->duration)
                 ]);
-            }
-            elseif($sponsor->id === 2){
+            } elseif ($sponsor->id === 2) {
                 $property->sponsors()->attach($sponsor->id, [
                     'start_date' => Carbon::now('+01:00'),
                     'end_date' => Carbon::now('+01:00')->addMinute($sponsor->duration)
                 ]);
-            }
-            elseif($sponsor->id === 3){
+            } elseif ($sponsor->id === 3) {
                 $property->sponsors()->attach($sponsor->id, [
                     'start_date' => Carbon::now('+01:00'),
-                    'end_date' => Carbon::now('+01:00')->addMinute($sponsor->duration)
+                    'end_date' => Carbon::now('+01:00')->addMinute(300)
                 ]);
             }
 
